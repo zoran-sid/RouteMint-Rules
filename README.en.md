@@ -61,7 +61,11 @@ as `.mrs`, `.yaml` and `.list`.
 - **Lean output**: `.mrs` binary rule sets, suffix compaction (a `.cn` suffix removes
   thousands of entries), IP collapsing, per-category budgets, and a 30% drop guard.
 - **`cn-mainland-lite`** skips categories whose policy equals FINAL, plus `proxy` and
-  `cn-ip6`: roughly 60% of the standard preset, ~12k rules with `ads-off`.
+  `cn-ip6`: roughly 65% of the standard preset, ~12k rules with `ads-off`.
+- **Ad sources are MIT / Unlicense / CC0 only** (ShadowWhisperer, v2fly `@ads`,
+  AdGuard cname-trackers, urlhaus). Mainstream rule repos redistribute EasyList / AdGuard
+  derivatives under an MIT/GPL label; this repository does not. See the Chinese README for
+  the comparison table and the trade-off.
 
 ## Develop
 
