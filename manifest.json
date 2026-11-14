@@ -1,0 +1,1935 @@
+{
+  "schema": 1,
+  "generated_at": "2026-11-14T06:18:24+00:00",
+  "categories": {
+    "ai": {
+      "domain": 225,
+      "ip": 0,
+      "keyword": 0,
+      "total": 225,
+      "degraded": false
+    },
+    "ai-anthropic": {
+      "domain": 19,
+      "ip": 0,
+      "keyword": 0,
+      "total": 19,
+      "degraded": false
+    },
+    "ai-copilot": {
+      "domain": 9,
+      "ip": 0,
+      "keyword": 0,
+      "total": 9,
+      "degraded": false
+    },
+    "ai-gemini": {
+      "domain": 7,
+      "ip": 0,
+      "keyword": 0,
+      "total": 7,
+      "degraded": false
+    },
+    "ai-openai": {
+      "domain": 20,
+      "ip": 0,
+      "keyword": 0,
+      "total": 20,
+      "degraded": false
+    },
+    "ai-others": {
+      "domain": 165,
+      "ip": 0,
+      "keyword": 0,
+      "total": 165,
+      "degraded": false
+    },
+    "ai-perplexity": {
+      "domain": 5,
+      "ip": 0,
+      "keyword": 0,
+      "total": 5,
+      "degraded": false
+    },
+    "apple": {
+      "domain": 1583,
+      "ip": 0,
+      "keyword": 0,
+      "total": 1583,
+      "degraded": false
+    },
+    "cn": {
+      "domain": 6203,
+      "ip": 0,
+      "keyword": 0,
+      "total": 6203,
+      "degraded": false
+    },
+    "cn-ip": {
+      "domain": 0,
+      "ip": 6211,
+      "keyword": 0,
+      "total": 6211,
+      "degraded": false
+    },
+    "cn-ip6": {
+      "domain": 0,
+      "ip": 3428,
+      "keyword": 0,
+      "total": 3428,
+      "degraded": false
+    },
+    "cn-region-locked": {
+      "domain": 24,
+      "ip": 0,
+      "keyword": 0,
+      "total": 24,
+      "degraded": false
+    },
+    "dev": {
+      "domain": 87,
+      "ip": 0,
+      "keyword": 0,
+      "total": 87,
+      "degraded": false
+    },
+    "disney": {
+      "domain": 218,
+      "ip": 0,
+      "keyword": 0,
+      "total": 218,
+      "degraded": false
+    },
+    "game-download": {
+      "domain": 15,
+      "ip": 0,
+      "keyword": 0,
+      "total": 15,
+      "degraded": false
+    },
+    "game-platform": {
+      "domain": 258,
+      "ip": 0,
+      "keyword": 0,
+      "total": 258,
+      "degraded": false
+    },
+    "google": {
+      "domain": 619,
+      "ip": 0,
+      "keyword": 0,
+      "total": 619,
+      "degraded": false
+    },
+    "max": {
+      "domain": 64,
+      "ip": 0,
+      "keyword": 0,
+      "total": 64,
+      "degraded": false
+    },
+    "microsoft": {
+      "domain": 554,
+      "ip": 0,
+      "keyword": 0,
+      "total": 554,
+      "degraded": false
+    },
+    "netflix": {
+      "domain": 24,
+      "ip": 0,
+      "keyword": 0,
+      "total": 24,
+      "degraded": false
+    },
+    "primevideo": {
+      "domain": 25,
+      "ip": 0,
+      "keyword": 0,
+      "total": 25,
+      "degraded": false
+    },
+    "private": {
+      "domain": 5,
+      "ip": 18,
+      "keyword": 0,
+      "total": 23,
+      "degraded": false
+    },
+    "proxy": {
+      "domain": 18563,
+      "ip": 0,
+      "keyword": 0,
+      "total": 18563,
+      "degraded": false
+    },
+    "reject-ads": {
+      "domain": 37113,
+      "ip": 0,
+      "keyword": 0,
+      "total": 37113,
+      "degraded": false
+    },
+    "reject-malware": {
+      "domain": 18377,
+      "ip": 0,
+      "keyword": 0,
+      "total": 18377,
+      "degraded": false
+    },
+    "reject-tracker": {
+      "domain": 668,
+      "ip": 0,
+      "keyword": 0,
+      "total": 668,
+      "degraded": false
+    },
+    "spotify": {
+      "domain": 23,
+      "ip": 0,
+      "keyword": 0,
+      "total": 23,
+      "degraded": false
+    },
+    "streaming-others": {
+      "domain": 1587,
+      "ip": 0,
+      "keyword": 0,
+      "total": 1587,
+      "degraded": false
+    },
+    "telegram": {
+      "domain": 21,
+      "ip": 10,
+      "keyword": 0,
+      "total": 31,
+      "degraded": false
+    },
+    "tiktok": {
+      "domain": 36,
+      "ip": 0,
+      "keyword": 0,
+      "total": 36,
+      "degraded": false
+    },
+    "youtube": {
+      "domain": 177,
+      "ip": 0,
+      "keyword": 0,
+      "total": 177,
+      "degraded": false
+    }
+  },
+  "presets": {
+    "cn-mainland": {
+      "tier": "ads-light",
+      "rules": {
+        "ads-off": 39954,
+        "ads-light": 77735,
+        "ads-strict": 96112
+      },
+      "configs": {
+        "mihomo.conf": "configs/cn-mainland/ads-light/mihomo.conf",
+        "shadowrocket.conf": "configs/cn-mainland/ads-light/shadowrocket.conf"
+      }
+    },
+    "overseas": {
+      "tier": "ads-light",
+      "rules": {
+        "ads-off": 615,
+        "ads-light": 38396,
+        "ads-strict": 56773
+      },
+      "configs": {
+        "mihomo.conf": "configs/overseas/ads-light/mihomo.conf",
+        "shadowrocket.conf": "configs/overseas/ads-light/shadowrocket.conf"
+      }
+    },
+    "overseas-return": {
+      "tier": "ads-light",
+      "rules": {
+        "ads-off": 16114,
+        "ads-light": 53895,
+        "ads-strict": 72272
+      },
+      "configs": {
+        "mihomo.conf": "configs/overseas-return/ads-light/mihomo.conf",
+        "shadowrocket.conf": "configs/overseas-return/ads-light/shadowrocket.conf"
+      }
+    },
+    "cn-mainland-lite": {
+      "tier": "ads-light",
+      "rules": {
+        "ads-off": 12662,
+        "ads-light": 50443,
+        "ads-strict": 68820
+      },
+      "configs": {
+        "mihomo.conf": "configs/cn-mainland-lite/ads-light/mihomo.conf",
+        "shadowrocket.conf": "configs/cn-mainland-lite/ads-light/shadowrocket.conf"
+      }
+    }
+  },
+  "artifacts": {
+    "ai": {
+      "files": {
+        "surge": "rules/ai/ai.list",
+        "quantumultx": "rules/ai/ai-qx.list",
+        "mihomo_domain": "rules/ai/ai.yaml",
+        "mihomo_domain_mrs": "rules/ai/ai.mrs",
+        "singbox_source": "rules/ai/ai.json",
+        "singbox": "rules/ai/ai.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai/ai.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai/ai-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai/ai.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai/ai.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai/ai.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai/ai.srs"
+      }
+    },
+    "ai-anthropic": {
+      "files": {
+        "surge": "rules/ai-anthropic/ai-anthropic.list",
+        "quantumultx": "rules/ai-anthropic/ai-anthropic-qx.list",
+        "mihomo_domain": "rules/ai-anthropic/ai-anthropic.yaml",
+        "mihomo_domain_mrs": "rules/ai-anthropic/ai-anthropic.mrs",
+        "singbox_source": "rules/ai-anthropic/ai-anthropic.json",
+        "singbox": "rules/ai-anthropic/ai-anthropic.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-anthropic/ai-anthropic.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-anthropic/ai-anthropic-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-anthropic/ai-anthropic.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-anthropic/ai-anthropic.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-anthropic/ai-anthropic.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-anthropic/ai-anthropic.srs"
+      }
+    },
+    "ai-copilot": {
+      "files": {
+        "surge": "rules/ai-copilot/ai-copilot.list",
+        "quantumultx": "rules/ai-copilot/ai-copilot-qx.list",
+        "mihomo_domain": "rules/ai-copilot/ai-copilot.yaml",
+        "mihomo_domain_mrs": "rules/ai-copilot/ai-copilot.mrs",
+        "singbox_source": "rules/ai-copilot/ai-copilot.json",
+        "singbox": "rules/ai-copilot/ai-copilot.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-copilot/ai-copilot.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-copilot/ai-copilot-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-copilot/ai-copilot.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-copilot/ai-copilot.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-copilot/ai-copilot.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-copilot/ai-copilot.srs"
+      }
+    },
+    "ai-gemini": {
+      "files": {
+        "surge": "rules/ai-gemini/ai-gemini.list",
+        "quantumultx": "rules/ai-gemini/ai-gemini-qx.list",
+        "mihomo_domain": "rules/ai-gemini/ai-gemini.yaml",
+        "mihomo_domain_mrs": "rules/ai-gemini/ai-gemini.mrs",
+        "singbox_source": "rules/ai-gemini/ai-gemini.json",
+        "singbox": "rules/ai-gemini/ai-gemini.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-gemini/ai-gemini.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-gemini/ai-gemini-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-gemini/ai-gemini.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-gemini/ai-gemini.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-gemini/ai-gemini.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-gemini/ai-gemini.srs"
+      }
+    },
+    "ai-openai": {
+      "files": {
+        "surge": "rules/ai-openai/ai-openai.list",
+        "quantumultx": "rules/ai-openai/ai-openai-qx.list",
+        "mihomo_domain": "rules/ai-openai/ai-openai.yaml",
+        "mihomo_domain_mrs": "rules/ai-openai/ai-openai.mrs",
+        "singbox_source": "rules/ai-openai/ai-openai.json",
+        "singbox": "rules/ai-openai/ai-openai.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-openai/ai-openai.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-openai/ai-openai-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-openai/ai-openai.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-openai/ai-openai.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-openai/ai-openai.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-openai/ai-openai.srs"
+      }
+    },
+    "ai-others": {
+      "files": {
+        "surge": "rules/ai-others/ai-others.list",
+        "quantumultx": "rules/ai-others/ai-others-qx.list",
+        "mihomo_domain": "rules/ai-others/ai-others.yaml",
+        "mihomo_domain_mrs": "rules/ai-others/ai-others.mrs",
+        "singbox_source": "rules/ai-others/ai-others.json",
+        "singbox": "rules/ai-others/ai-others.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-others/ai-others.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-others/ai-others-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-others/ai-others.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-others/ai-others.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-others/ai-others.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-others/ai-others.srs"
+      }
+    },
+    "ai-perplexity": {
+      "files": {
+        "surge": "rules/ai-perplexity/ai-perplexity.list",
+        "quantumultx": "rules/ai-perplexity/ai-perplexity-qx.list",
+        "mihomo_domain": "rules/ai-perplexity/ai-perplexity.yaml",
+        "mihomo_domain_mrs": "rules/ai-perplexity/ai-perplexity.mrs",
+        "singbox_source": "rules/ai-perplexity/ai-perplexity.json",
+        "singbox": "rules/ai-perplexity/ai-perplexity.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-perplexity/ai-perplexity.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-perplexity/ai-perplexity-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-perplexity/ai-perplexity.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-perplexity/ai-perplexity.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-perplexity/ai-perplexity.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-perplexity/ai-perplexity.srs"
+      }
+    },
+    "apple": {
+      "files": {
+        "surge": "rules/apple/apple.list",
+        "quantumultx": "rules/apple/apple-qx.list",
+        "mihomo_domain": "rules/apple/apple.yaml",
+        "mihomo_domain_mrs": "rules/apple/apple.mrs",
+        "singbox_source": "rules/apple/apple.json",
+        "singbox": "rules/apple/apple.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/apple/apple.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/apple/apple-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/apple/apple.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/apple/apple.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/apple/apple.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/apple/apple.srs"
+      }
+    },
+    "cn": {
+      "files": {
+        "surge": "rules/cn/cn.list",
+        "quantumultx": "rules/cn/cn-qx.list",
+        "mihomo_domain": "rules/cn/cn.yaml",
+        "mihomo_domain_mrs": "rules/cn/cn.mrs",
+        "singbox_source": "rules/cn/cn.json",
+        "singbox": "rules/cn/cn.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn/cn.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn/cn-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn/cn.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn/cn.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn/cn.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn/cn.srs"
+      }
+    },
+    "cn-ip": {
+      "files": {
+        "surge": "rules/cn-ip/cn-ip.list",
+        "quantumultx": "rules/cn-ip/cn-ip-qx.list",
+        "mihomo_ip": "rules/cn-ip/cn-ip.yaml",
+        "mihomo_ip_mrs": "rules/cn-ip/cn-ip.mrs",
+        "singbox_source": "rules/cn-ip/cn-ip.json",
+        "singbox": "rules/cn-ip/cn-ip.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-ip/cn-ip.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-ip/cn-ip-qx.list",
+        "mihomo_ip": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-ip/cn-ip.yaml",
+        "mihomo_ip_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-ip/cn-ip.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-ip/cn-ip.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-ip/cn-ip.srs"
+      }
+    },
+    "cn-ip6": {
+      "files": {
+        "surge": "rules/cn-ip6/cn-ip6.list",
+        "quantumultx": "rules/cn-ip6/cn-ip6-qx.list",
+        "mihomo_ip": "rules/cn-ip6/cn-ip6.yaml",
+        "mihomo_ip_mrs": "rules/cn-ip6/cn-ip6.mrs",
+        "singbox_source": "rules/cn-ip6/cn-ip6.json",
+        "singbox": "rules/cn-ip6/cn-ip6.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-ip6/cn-ip6.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-ip6/cn-ip6-qx.list",
+        "mihomo_ip": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-ip6/cn-ip6.yaml",
+        "mihomo_ip_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-ip6/cn-ip6.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-ip6/cn-ip6.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-ip6/cn-ip6.srs"
+      }
+    },
+    "cn-region-locked": {
+      "files": {
+        "surge": "rules/cn-region-locked/cn-region-locked.list",
+        "quantumultx": "rules/cn-region-locked/cn-region-locked-qx.list",
+        "mihomo_domain": "rules/cn-region-locked/cn-region-locked.yaml",
+        "mihomo_domain_mrs": "rules/cn-region-locked/cn-region-locked.mrs",
+        "singbox_source": "rules/cn-region-locked/cn-region-locked.json",
+        "singbox": "rules/cn-region-locked/cn-region-locked.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-region-locked/cn-region-locked.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-region-locked/cn-region-locked-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-region-locked/cn-region-locked.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-region-locked/cn-region-locked.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-region-locked/cn-region-locked.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-region-locked/cn-region-locked.srs"
+      }
+    },
+    "dev": {
+      "files": {
+        "surge": "rules/dev/dev.list",
+        "quantumultx": "rules/dev/dev-qx.list",
+        "mihomo_domain": "rules/dev/dev.yaml",
+        "mihomo_domain_mrs": "rules/dev/dev.mrs",
+        "singbox_source": "rules/dev/dev.json",
+        "singbox": "rules/dev/dev.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/dev/dev.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/dev/dev-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/dev/dev.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/dev/dev.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/dev/dev.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/dev/dev.srs"
+      }
+    },
+    "disney": {
+      "files": {
+        "surge": "rules/disney/disney.list",
+        "quantumultx": "rules/disney/disney-qx.list",
+        "mihomo_domain": "rules/disney/disney.yaml",
+        "mihomo_domain_mrs": "rules/disney/disney.mrs",
+        "singbox_source": "rules/disney/disney.json",
+        "singbox": "rules/disney/disney.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/disney/disney.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/disney/disney-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/disney/disney.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/disney/disney.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/disney/disney.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/disney/disney.srs"
+      }
+    },
+    "game-download": {
+      "files": {
+        "surge": "rules/game-download/game-download.list",
+        "quantumultx": "rules/game-download/game-download-qx.list",
+        "mihomo_domain": "rules/game-download/game-download.yaml",
+        "mihomo_domain_mrs": "rules/game-download/game-download.mrs",
+        "singbox_source": "rules/game-download/game-download.json",
+        "singbox": "rules/game-download/game-download.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/game-download/game-download.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/game-download/game-download-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/game-download/game-download.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/game-download/game-download.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/game-download/game-download.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/game-download/game-download.srs"
+      }
+    },
+    "game-platform": {
+      "files": {
+        "surge": "rules/game-platform/game-platform.list",
+        "quantumultx": "rules/game-platform/game-platform-qx.list",
+        "mihomo_domain": "rules/game-platform/game-platform.yaml",
+        "mihomo_domain_mrs": "rules/game-platform/game-platform.mrs",
+        "singbox_source": "rules/game-platform/game-platform.json",
+        "singbox": "rules/game-platform/game-platform.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/game-platform/game-platform.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/game-platform/game-platform-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/game-platform/game-platform.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/game-platform/game-platform.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/game-platform/game-platform.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/game-platform/game-platform.srs"
+      }
+    },
+    "google": {
+      "files": {
+        "surge": "rules/google/google.list",
+        "quantumultx": "rules/google/google-qx.list",
+        "mihomo_domain": "rules/google/google.yaml",
+        "mihomo_domain_mrs": "rules/google/google.mrs",
+        "singbox_source": "rules/google/google.json",
+        "singbox": "rules/google/google.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/google/google.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/google/google-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/google/google.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/google/google.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/google/google.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/google/google.srs"
+      }
+    },
+    "max": {
+      "files": {
+        "surge": "rules/max/max.list",
+        "quantumultx": "rules/max/max-qx.list",
+        "mihomo_domain": "rules/max/max.yaml",
+        "mihomo_domain_mrs": "rules/max/max.mrs",
+        "singbox_source": "rules/max/max.json",
+        "singbox": "rules/max/max.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/max/max.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/max/max-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/max/max.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/max/max.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/max/max.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/max/max.srs"
+      }
+    },
+    "microsoft": {
+      "files": {
+        "surge": "rules/microsoft/microsoft.list",
+        "quantumultx": "rules/microsoft/microsoft-qx.list",
+        "mihomo_domain": "rules/microsoft/microsoft.yaml",
+        "mihomo_domain_mrs": "rules/microsoft/microsoft.mrs",
+        "singbox_source": "rules/microsoft/microsoft.json",
+        "singbox": "rules/microsoft/microsoft.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/microsoft/microsoft.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/microsoft/microsoft-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/microsoft/microsoft.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/microsoft/microsoft.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/microsoft/microsoft.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/microsoft/microsoft.srs"
+      }
+    },
+    "netflix": {
+      "files": {
+        "surge": "rules/netflix/netflix.list",
+        "quantumultx": "rules/netflix/netflix-qx.list",
+        "mihomo_domain": "rules/netflix/netflix.yaml",
+        "mihomo_domain_mrs": "rules/netflix/netflix.mrs",
+        "singbox_source": "rules/netflix/netflix.json",
+        "singbox": "rules/netflix/netflix.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/netflix/netflix.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/netflix/netflix-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/netflix/netflix.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/netflix/netflix.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/netflix/netflix.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/netflix/netflix.srs"
+      }
+    },
+    "primevideo": {
+      "files": {
+        "surge": "rules/primevideo/primevideo.list",
+        "quantumultx": "rules/primevideo/primevideo-qx.list",
+        "mihomo_domain": "rules/primevideo/primevideo.yaml",
+        "mihomo_domain_mrs": "rules/primevideo/primevideo.mrs",
+        "singbox_source": "rules/primevideo/primevideo.json",
+        "singbox": "rules/primevideo/primevideo.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/primevideo/primevideo.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/primevideo/primevideo-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/primevideo/primevideo.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/primevideo/primevideo.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/primevideo/primevideo.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/primevideo/primevideo.srs"
+      }
+    },
+    "private": {
+      "files": {
+        "surge": "rules/private/private.list",
+        "quantumultx": "rules/private/private-qx.list",
+        "mihomo_domain": "rules/private/private.yaml",
+        "mihomo_domain_mrs": "rules/private/private.mrs",
+        "mihomo_ip": "rules/private/private-ip.yaml",
+        "mihomo_ip_mrs": "rules/private/private-ip.mrs",
+        "singbox_source": "rules/private/private.json",
+        "singbox": "rules/private/private.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/private/private.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/private/private-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/private/private.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/private/private.mrs",
+        "mihomo_ip": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/private/private-ip.yaml",
+        "mihomo_ip_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/private/private-ip.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/private/private.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/private/private.srs"
+      }
+    },
+    "proxy": {
+      "files": {
+        "surge": "rules/proxy/proxy.list",
+        "quantumultx": "rules/proxy/proxy-qx.list",
+        "mihomo_domain": "rules/proxy/proxy.yaml",
+        "mihomo_domain_mrs": "rules/proxy/proxy.mrs",
+        "singbox_source": "rules/proxy/proxy.json",
+        "singbox": "rules/proxy/proxy.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/proxy/proxy.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/proxy/proxy-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/proxy/proxy.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/proxy/proxy.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/proxy/proxy.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/proxy/proxy.srs"
+      }
+    },
+    "reject-ads": {
+      "files": {
+        "surge": "rules/reject-ads/reject-ads.list",
+        "quantumultx": "rules/reject-ads/reject-ads-qx.list",
+        "mihomo_domain": "rules/reject-ads/reject-ads.yaml",
+        "mihomo_domain_mrs": "rules/reject-ads/reject-ads.mrs",
+        "singbox_source": "rules/reject-ads/reject-ads.json",
+        "singbox": "rules/reject-ads/reject-ads.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-ads/reject-ads.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-ads/reject-ads-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-ads/reject-ads.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-ads/reject-ads.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-ads/reject-ads.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-ads/reject-ads.srs"
+      }
+    },
+    "reject-malware": {
+      "files": {
+        "surge": "rules/reject-malware/reject-malware.list",
+        "quantumultx": "rules/reject-malware/reject-malware-qx.list",
+        "mihomo_domain": "rules/reject-malware/reject-malware.yaml",
+        "mihomo_domain_mrs": "rules/reject-malware/reject-malware.mrs",
+        "singbox_source": "rules/reject-malware/reject-malware.json",
+        "singbox": "rules/reject-malware/reject-malware.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-malware/reject-malware.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-malware/reject-malware-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-malware/reject-malware.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-malware/reject-malware.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-malware/reject-malware.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-malware/reject-malware.srs"
+      }
+    },
+    "reject-tracker": {
+      "files": {
+        "surge": "rules/reject-tracker/reject-tracker.list",
+        "quantumultx": "rules/reject-tracker/reject-tracker-qx.list",
+        "mihomo_domain": "rules/reject-tracker/reject-tracker.yaml",
+        "mihomo_domain_mrs": "rules/reject-tracker/reject-tracker.mrs",
+        "singbox_source": "rules/reject-tracker/reject-tracker.json",
+        "singbox": "rules/reject-tracker/reject-tracker.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-tracker/reject-tracker.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-tracker/reject-tracker-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-tracker/reject-tracker.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-tracker/reject-tracker.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-tracker/reject-tracker.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-tracker/reject-tracker.srs"
+      }
+    },
+    "spotify": {
+      "files": {
+        "surge": "rules/spotify/spotify.list",
+        "quantumultx": "rules/spotify/spotify-qx.list",
+        "mihomo_domain": "rules/spotify/spotify.yaml",
+        "mihomo_domain_mrs": "rules/spotify/spotify.mrs",
+        "singbox_source": "rules/spotify/spotify.json",
+        "singbox": "rules/spotify/spotify.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/spotify/spotify.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/spotify/spotify-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/spotify/spotify.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/spotify/spotify.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/spotify/spotify.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/spotify/spotify.srs"
+      }
+    },
+    "streaming-others": {
+      "files": {
+        "surge": "rules/streaming-others/streaming-others.list",
+        "quantumultx": "rules/streaming-others/streaming-others-qx.list",
+        "mihomo_domain": "rules/streaming-others/streaming-others.yaml",
+        "mihomo_domain_mrs": "rules/streaming-others/streaming-others.mrs",
+        "singbox_source": "rules/streaming-others/streaming-others.json",
+        "singbox": "rules/streaming-others/streaming-others.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/streaming-others/streaming-others.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/streaming-others/streaming-others-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/streaming-others/streaming-others.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/streaming-others/streaming-others.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/streaming-others/streaming-others.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/streaming-others/streaming-others.srs"
+      }
+    },
+    "telegram": {
+      "files": {
+        "surge": "rules/telegram/telegram.list",
+        "quantumultx": "rules/telegram/telegram-qx.list",
+        "mihomo_domain": "rules/telegram/telegram.yaml",
+        "mihomo_domain_mrs": "rules/telegram/telegram.mrs",
+        "mihomo_ip": "rules/telegram/telegram-ip.yaml",
+        "mihomo_ip_mrs": "rules/telegram/telegram-ip.mrs",
+        "singbox_source": "rules/telegram/telegram.json",
+        "singbox": "rules/telegram/telegram.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/telegram/telegram.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/telegram/telegram-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/telegram/telegram.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/telegram/telegram.mrs",
+        "mihomo_ip": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/telegram/telegram-ip.yaml",
+        "mihomo_ip_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/telegram/telegram-ip.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/telegram/telegram.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/telegram/telegram.srs"
+      }
+    },
+    "tiktok": {
+      "files": {
+        "surge": "rules/tiktok/tiktok.list",
+        "quantumultx": "rules/tiktok/tiktok-qx.list",
+        "mihomo_domain": "rules/tiktok/tiktok.yaml",
+        "mihomo_domain_mrs": "rules/tiktok/tiktok.mrs",
+        "singbox_source": "rules/tiktok/tiktok.json",
+        "singbox": "rules/tiktok/tiktok.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/tiktok/tiktok.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/tiktok/tiktok-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/tiktok/tiktok.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/tiktok/tiktok.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/tiktok/tiktok.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/tiktok/tiktok.srs"
+      }
+    },
+    "youtube": {
+      "files": {
+        "surge": "rules/youtube/youtube.list",
+        "quantumultx": "rules/youtube/youtube-qx.list",
+        "mihomo_domain": "rules/youtube/youtube.yaml",
+        "mihomo_domain_mrs": "rules/youtube/youtube.mrs",
+        "singbox_source": "rules/youtube/youtube.json",
+        "singbox": "rules/youtube/youtube.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/youtube/youtube.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/youtube/youtube-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/youtube/youtube.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/youtube/youtube.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/youtube/youtube.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/youtube/youtube.srs"
+      }
+    }
+  },
+  "liveness": {
+    "checked": 0,
+    "dead": []
+  },
+  "upstreams": [
+    {
+      "id": "v2fly-dlc",
+      "title": "v2fly domain-list-community",
+      "license": "MIT",
+      "url": "https://github.com/v2fly/domain-list-community/releases/latest/download/dlc.dat"
+    },
+    {
+      "id": "china-operator-ip",
+      "title": "gaoyifan/china-operator-ip",
+      "license": "MIT",
+      "url": "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/{ref}/{category}"
+    },
+    {
+      "id": "shadowwhisperer",
+      "title": "ShadowWhisperer/BlockLists",
+      "license": "Unlicense",
+      "url": "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/{ref}/Lists/{category}"
+    },
+    {
+      "id": "cname-trackers",
+      "title": "AdGuard CNAME disguised ads list",
+      "license": "MIT",
+      "url": "https://raw.githubusercontent.com/AdguardTeam/cname-trackers/master/data/combined_disguised_ads_justdomains.txt"
+    },
+    {
+      "id": "urlhaus",
+      "title": "malware-filter/urlhaus-filter（GitLab）",
+      "license": "MIT / CC0-1.0",
+      "url": "https://malware-filter.gitlab.io/malware-filter/urlhaus-filter-domains.txt"
+    }
+  ],
+  "files": {
+    "build-report.md": {
+      "sha256": "76b8e809eaaddd9cf6058edfa93ae70d37ef770697b8bce6ff241c4fcb8f7495",
+      "bytes": 14987
+    },
+    "configs/cn-mainland/ads-light/loon.conf": {
+      "sha256": "52d7d1316d3e154434331ae84aeb20e0a2a0a93797efc8af21d612eb236a65a6",
+      "bytes": 5392
+    },
+    "configs/cn-mainland/ads-light/mihomo.conf": {
+      "sha256": "8e1d51c05324b4fc77ef83eb8e8ae4fbde2c8465941b5f1e73acb6667fe9f9dd",
+      "bytes": 16446
+    },
+    "configs/cn-mainland/ads-light/quantumultx.conf": {
+      "sha256": "d2f0f192e58658f9b5b6e13e050d427f730048f0289b73a2cc5833c8e103e85f",
+      "bytes": 5937
+    },
+    "configs/cn-mainland/ads-light/shadowrocket.conf": {
+      "sha256": "a2221b423f5d04896e332b894eb233cd20d52664f6bade04a07b99f06a4fdc29",
+      "bytes": 5574
+    },
+    "configs/cn-mainland/ads-light/singbox.conf": {
+      "sha256": "71950cf4aacfc2debc959bca34845a79b2e59f13486cd0412665e6f2e311dea8",
+      "bytes": 13788
+    },
+    "configs/cn-mainland/ads-light/surge.conf": {
+      "sha256": "84a6e6c00c70db58d51df25a5cf21a8db65d9a59ef6d7e8986aac105940df81c",
+      "bytes": 5759
+    },
+    "configs/cn-mainland/ads-off/loon.conf": {
+      "sha256": "4b865ede15d5e320fb95780556875548e51412ff7ab596b8f00436fbcbc0bde8",
+      "bytes": 5116
+    },
+    "configs/cn-mainland/ads-off/mihomo.conf": {
+      "sha256": "b818fdc468487b702098e4069f045a01caaa3ce4c41500323157d1c04d0a5c89",
+      "bytes": 15888
+    },
+    "configs/cn-mainland/ads-off/quantumultx.conf": {
+      "sha256": "ab0a98fbd0188c3d17da92bdce7223f79b0a68fc4692cf853df9ec96e0c4f586",
+      "bytes": 5631
+    },
+    "configs/cn-mainland/ads-off/shadowrocket.conf": {
+      "sha256": "4d6d79f8868a0777fc9b780a40662d2240e6b4ad736e416f63b44703bea0a6ec",
+      "bytes": 5318
+    },
+    "configs/cn-mainland/ads-off/singbox.conf": {
+      "sha256": "9a6061c0f32fc4db66a65c70e14c8c09565537731ab2c8710896e09ccc75deb3",
+      "bytes": 13048
+    },
+    "configs/cn-mainland/ads-off/surge.conf": {
+      "sha256": "0a319396096fd024cc9ffc0a061136fa90622cf3c09f83600326737b0bbb9f7e",
+      "bytes": 5503
+    },
+    "configs/cn-mainland/ads-strict/loon.conf": {
+      "sha256": "94e93ffe115c7abd686a1dfd2e4939435f696ef4b4532e009f2bafb10efef914",
+      "bytes": 5534
+    },
+    "configs/cn-mainland/ads-strict/mihomo.conf": {
+      "sha256": "0cdbeca0bf1e75c15e1410757882b715014ed3cd6e09292438701095326d3be2",
+      "bytes": 16735
+    },
+    "configs/cn-mainland/ads-strict/quantumultx.conf": {
+      "sha256": "85a5d7825d53ca25ea6b0285183e13f0545486a0d3566dc23c678221d125fdd8",
+      "bytes": 6096
+    },
+    "configs/cn-mainland/ads-strict/shadowrocket.conf": {
+      "sha256": "443c6c89c854fa0159c6cbd84b8e33baf35f2943a37c4e21f113110e64e4953e",
+      "bytes": 5706
+    },
+    "configs/cn-mainland/ads-strict/singbox.conf": {
+      "sha256": "9e390b87c7a4897665ed32c707599ea5032e000e22183912e95a258e410d961b",
+      "bytes": 14168
+    },
+    "configs/cn-mainland/ads-strict/surge.conf": {
+      "sha256": "e7bfc6bd6ae76a15a887b9b00167e3af644cac3db8c4cbb556fec491c0b0be3f",
+      "bytes": 5891
+    },
+    "configs/cn-mainland-lite/ads-light/loon.conf": {
+      "sha256": "ad7dbb9d0648682cbafba86c4f11f0000e039d6312a5eacca6ec7cbe3475d331",
+      "bytes": 1902
+    },
+    "configs/cn-mainland-lite/ads-light/mihomo.conf": {
+      "sha256": "b16f2c9f2b43b38ee27a73819668fc58f482d63aac0ef40ab678640d6ed53fe6",
+      "bytes": 6284
+    },
+    "configs/cn-mainland-lite/ads-light/quantumultx.conf": {
+      "sha256": "603ae3279c8dea3f2f86ec1373bfc1042808345ae5360dcb566280626bc6b5b6",
+      "bytes": 2183
+    },
+    "configs/cn-mainland-lite/ads-light/shadowrocket.conf": {
+      "sha256": "f7070cdfa2989c297339531d43efba03a09c301bd5423c82c489eea2cfaec105",
+      "bytes": 2412
+    },
+    "configs/cn-mainland-lite/ads-light/singbox.conf": {
+      "sha256": "7ed5962466bd51ebb76b807fd3c74a242c94e9a61f4c28fe9aace7a42b68ef61",
+      "bytes": 4491
+    },
+    "configs/cn-mainland-lite/ads-light/surge.conf": {
+      "sha256": "319c5ff0d12c3802774389926b620f5cacc57b860db0644c02552906fe17f9ce",
+      "bytes": 2336
+    },
+    "configs/cn-mainland-lite/ads-off/loon.conf": {
+      "sha256": "d1fe2747385cdb8f1644b4eb2f852cae12f195fa9117633eb31627f7ce018182",
+      "bytes": 1626
+    },
+    "configs/cn-mainland-lite/ads-off/mihomo.conf": {
+      "sha256": "a87c60e523670a5b4f7ffc994d3044b8f05374bfe356ade6c663e8f640268c95",
+      "bytes": 5726
+    },
+    "configs/cn-mainland-lite/ads-off/quantumultx.conf": {
+      "sha256": "559b272275fe483689fdf50bdaf84cf333d09dafeaaaa15f566aeecdd7c32ac1",
+      "bytes": 1877
+    },
+    "configs/cn-mainland-lite/ads-off/shadowrocket.conf": {
+      "sha256": "e7aa7cf39390f6182ea793c272b283d80e43d1efa70845141017597021a7728a",
+      "bytes": 2156
+    },
+    "configs/cn-mainland-lite/ads-off/singbox.conf": {
+      "sha256": "6a27973040213e9e507f09dcb4ae787302ab402db95f51aa164bdbc218128099",
+      "bytes": 3751
+    },
+    "configs/cn-mainland-lite/ads-off/surge.conf": {
+      "sha256": "4ee773b14e56062b1050ff6d082ca68c23632c54800a31c9109db136a16c3bff",
+      "bytes": 2080
+    },
+    "configs/cn-mainland-lite/ads-strict/loon.conf": {
+      "sha256": "6cf134e672b7d2c249b3f6f09ef5a0388bb1f2237e1be0b6c11e3097d3941d68",
+      "bytes": 2044
+    },
+    "configs/cn-mainland-lite/ads-strict/mihomo.conf": {
+      "sha256": "3f60ba16e684db4b4492aaf4e6397915d0d65c187fb1d3616379d1c31a88a5ab",
+      "bytes": 6573
+    },
+    "configs/cn-mainland-lite/ads-strict/quantumultx.conf": {
+      "sha256": "78e24d7c92dcd21002b11e4679b605e5aef9ef26b8bef45134f6a0e51a4dc7b9",
+      "bytes": 2342
+    },
+    "configs/cn-mainland-lite/ads-strict/shadowrocket.conf": {
+      "sha256": "061c9e4a62008c84ee6d801993c6373f5be031b23a0354b0d4b92e079a8b471a",
+      "bytes": 2544
+    },
+    "configs/cn-mainland-lite/ads-strict/singbox.conf": {
+      "sha256": "93e7e8b78bea19c50fa52938394a5a24fd82747dfa82d621cfb6cebc3869c642",
+      "bytes": 4871
+    },
+    "configs/cn-mainland-lite/ads-strict/surge.conf": {
+      "sha256": "d8a5061538daf9b7f547b8f52c9de4deaeadefedd3613c0b4efd9aec7bdc3fc8",
+      "bytes": 2468
+    },
+    "configs/overseas/ads-light/loon.conf": {
+      "sha256": "93f6b2df5d8c7094c3bd2c76652b2c89a09b7b220ee254042a5a79453b184fe8",
+      "bytes": 3082
+    },
+    "configs/overseas/ads-light/mihomo.conf": {
+      "sha256": "e07dd0fa254bb3769e9084c7944835eba66016ced2b08b56f7f827233b22e677",
+      "bytes": 9762
+    },
+    "configs/overseas/ads-light/quantumultx.conf": {
+      "sha256": "d4de7e4dda55732fc086c91574048bcdfb59edba3db06950f2e277caeace61a7",
+      "bytes": 3533
+    },
+    "configs/overseas/ads-light/shadowrocket.conf": {
+      "sha256": "d14052c9a35e202783fa76b97708473f15047d5ae8c3f66fdb1ff23793b5647f",
+      "bytes": 3478
+    },
+    "configs/overseas/ads-light/singbox.conf": {
+      "sha256": "786b9d95290e69e12414c831790d764b49fbaa04b7feedff0789fc5488fa7e95",
+      "bytes": 7752
+    },
+    "configs/overseas/ads-light/surge.conf": {
+      "sha256": "2c59e0bde9aa046515a2bb5dd521727304133494f1bfa7560f1a6984a3de76e6",
+      "bytes": 3460
+    },
+    "configs/overseas/ads-off/loon.conf": {
+      "sha256": "3817aa4afcbf30ffc2dd62a9cc990cec1654da06f87bd6c98eb56d22fd231d75",
+      "bytes": 2806
+    },
+    "configs/overseas/ads-off/mihomo.conf": {
+      "sha256": "866d7e0730009fd83e9d27f282c0967fefc3c8873ce726e4f86adf0f3c5987e7",
+      "bytes": 9204
+    },
+    "configs/overseas/ads-off/quantumultx.conf": {
+      "sha256": "f1c7d14033e81afbb700473bfc27718667a1290e06e04663a6837bd6c94b2135",
+      "bytes": 3227
+    },
+    "configs/overseas/ads-off/shadowrocket.conf": {
+      "sha256": "9e44e722a3651145a561786dca35c62d6f715a1c79c3967b2d464ce3bafa1631",
+      "bytes": 3222
+    },
+    "configs/overseas/ads-off/singbox.conf": {
+      "sha256": "3fa700eee48c3de17d91d91cc4bf1e70b95838bfaa96356bee97bf0fd9590440",
+      "bytes": 7012
+    },
+    "configs/overseas/ads-off/surge.conf": {
+      "sha256": "9a41de4cf7651b17ae58f6e459a17c65630b52ddb43e32ea45d6f975dd39fb07",
+      "bytes": 3204
+    },
+    "configs/overseas/ads-strict/loon.conf": {
+      "sha256": "aae2e7a2d893cb514673dd0ed1afb8d02a7f2c29871f8a9c3091e2bc3130b00c",
+      "bytes": 3224
+    },
+    "configs/overseas/ads-strict/mihomo.conf": {
+      "sha256": "3efe155909a1b800e56a8edac1234a1cd58b2415b831fb03278d411839d16189",
+      "bytes": 10051
+    },
+    "configs/overseas/ads-strict/quantumultx.conf": {
+      "sha256": "9e228e8138915b72022bef8a330adb9f4c44e0b0d3229e2124809dfee5b15d99",
+      "bytes": 3692
+    },
+    "configs/overseas/ads-strict/shadowrocket.conf": {
+      "sha256": "4d47843771334592800d9321dff1b032eff65503fbeacef1eefeca2c465b9a5d",
+      "bytes": 3610
+    },
+    "configs/overseas/ads-strict/singbox.conf": {
+      "sha256": "56c44fe636213ef66a24db12b9ec3747c2ec46b6ec93fea397864afae0521819",
+      "bytes": 8132
+    },
+    "configs/overseas/ads-strict/surge.conf": {
+      "sha256": "d002c2a4d9835e655ab5610a2f5be1dad2cd918e82ca6917f4145e13f785f305",
+      "bytes": 3592
+    },
+    "configs/overseas-return/ads-light/loon.conf": {
+      "sha256": "597f6855a8c49055456529270af9475fc8c2717a52d9cb60ca8814afc0c4116f",
+      "bytes": 3066
+    },
+    "configs/overseas-return/ads-light/mihomo.conf": {
+      "sha256": "53aca67c861caa48c3132a6fe89fa0ce269c001fdc92d7fd3d139f892f8f2a35",
+      "bytes": 8814
+    },
+    "configs/overseas-return/ads-light/quantumultx.conf": {
+      "sha256": "b07861ebcc9dca46a868d200a02074138e592f8894d401a36f979280c5155fc3",
+      "bytes": 3328
+    },
+    "configs/overseas-return/ads-light/shadowrocket.conf": {
+      "sha256": "e900f8cfb1ff8a0e6b89708c0a1061952ea3bdf38a9509594a431d6eed4eba16",
+      "bytes": 3310
+    },
+    "configs/overseas-return/ads-light/singbox.conf": {
+      "sha256": "078a8b08556ec5405469e4e543b73d5a7b8ddebade737a6b802b96394d395c19",
+      "bytes": 7192
+    },
+    "configs/overseas-return/ads-light/surge.conf": {
+      "sha256": "8a0fd8228154940e94e841e7edf6e1930927c494feb3bb2724693274780078bd",
+      "bytes": 3417
+    },
+    "configs/overseas-return/ads-off/loon.conf": {
+      "sha256": "86892e9235971e8d0c69e9ab8566193124e4a66017b9592ca8414a3a3b21e8af",
+      "bytes": 2790
+    },
+    "configs/overseas-return/ads-off/mihomo.conf": {
+      "sha256": "9bb715990a1eafc77c6c247d943ec845381611892fcacd59c524a69952c0abfb",
+      "bytes": 8256
+    },
+    "configs/overseas-return/ads-off/quantumultx.conf": {
+      "sha256": "c3e43cf510d3fbc2ddc4b835201853c4077e87e816d4bbc2a3e72e5580b5c241",
+      "bytes": 3022
+    },
+    "configs/overseas-return/ads-off/shadowrocket.conf": {
+      "sha256": "c59bed0f75b8af92497acd6388e61dd4c9ece9d208781b97db445e90a5a208dd",
+      "bytes": 3054
+    },
+    "configs/overseas-return/ads-off/singbox.conf": {
+      "sha256": "e3e0465d97fdef5fdccfa21effe8ac0dfd90e1e8e78ca754456bab79804d666c",
+      "bytes": 6452
+    },
+    "configs/overseas-return/ads-off/surge.conf": {
+      "sha256": "8c80c4780c83ef81f43fb02261b71e6a320185364e675d18881bbb253b6f0c87",
+      "bytes": 3161
+    },
+    "configs/overseas-return/ads-strict/loon.conf": {
+      "sha256": "c3ab22f0fb711e4a4ecde1ffd454611582da6a27fff4283ef994c8bc61c12ded",
+      "bytes": 3208
+    },
+    "configs/overseas-return/ads-strict/mihomo.conf": {
+      "sha256": "d2d31b094e588793a02d13761546cf137ad7b8f42d2cabac47a907f82ff2cdfe",
+      "bytes": 9103
+    },
+    "configs/overseas-return/ads-strict/quantumultx.conf": {
+      "sha256": "72180d75505d7e1441550f0a8054ab18b3fd15a1bf49f8cffda5e9ceefb5eead",
+      "bytes": 3487
+    },
+    "configs/overseas-return/ads-strict/shadowrocket.conf": {
+      "sha256": "a749ce88463fd795db2b175e75d36dd4ffb1f452066ca54f428473684ead54f7",
+      "bytes": 3442
+    },
+    "configs/overseas-return/ads-strict/singbox.conf": {
+      "sha256": "93ad015f2df2a4476743c47b88a2a6790fff9e2d28e7b663f63bf59f4336cb95",
+      "bytes": 7572
+    },
+    "configs/overseas-return/ads-strict/surge.conf": {
+      "sha256": "25332ab114c1141520333cd401d0dfa812dc99d8d06587bbc22d1fab42f54ac3",
+      "bytes": 3549
+    },
+    "manifest.json": {
+      "sha256": "82a1e20617d97451c9538e8aec85c1a811b311bdc3ece2b85773c2d1f3733eca",
+      "bytes": 83947
+    },
+    "rules/ai/ai-qx.list": {
+      "sha256": "25e39201bc69d1c21a1ef95ccfcc3c3bdf5accb801c11e7cffa3933f9ad60b12",
+      "bytes": 6713
+    },
+    "rules/ai/ai.json": {
+      "sha256": "8e3c2fbc03b583f7a548b84442a1acc8ca34393b4640547015015892ad5b097e",
+      "bytes": 4620
+    },
+    "rules/ai/ai.list": {
+      "sha256": "040c53881d5680c408c99969e887db62c8b9774b57fbd936280208c844855b73",
+      "bytes": 6938
+    },
+    "rules/ai/ai.mrs": {
+      "sha256": "efcb35806e0cf8e727196d9988dffdcefb091752662a2b2d3d5bdf0ded5fee05",
+      "bytes": 2328
+    },
+    "rules/ai/ai.srs": {
+      "sha256": "cea88db22b90935692020772a5dc46043f17fe6bdd2f9a939c55a88cd1afaaa7",
+      "bytes": 2090
+    },
+    "rules/ai/ai.yaml": {
+      "sha256": "28ca5901a1803f16caa4ff229c02a072fd480eca3c5578ba37aad51b062f1004",
+      "bytes": 5692
+    },
+    "rules/ai-anthropic/ai-anthropic-qx.list": {
+      "sha256": "332d456330474a8772ee68df25013c046809e64cc8a1cac4b37fc376bb933120",
+      "bytes": 628
+    },
+    "rules/ai-anthropic/ai-anthropic.json": {
+      "sha256": "f26068892d0062496e18b419b7d2183d5a626f73aad47b003191d4a6991bf9d1",
+      "bytes": 406
+    },
+    "rules/ai-anthropic/ai-anthropic.list": {
+      "sha256": "a436991c051db9af8e89c02b213b991c4a5cac8936eca11ea5fbcddc4c9fe858",
+      "bytes": 647
+    },
+    "rules/ai-anthropic/ai-anthropic.mrs": {
+      "sha256": "e9ae426a74d8b4c4389b9570475412448810bb79fa6e81c65122c0d06f85a6ad",
+      "bytes": 300
+    },
+    "rules/ai-anthropic/ai-anthropic.srs": {
+      "sha256": "38c418a09ab9e17187a9e71a9e0fc6af060131ee5704d7d05ccd8426cc78ab09",
+      "bytes": 272
+    },
+    "rules/ai-anthropic/ai-anthropic.yaml": {
+      "sha256": "70653daf300cb5bcc28cde1a729a052989cda0666c9e5aef67570bd4e18f0560",
+      "bytes": 482
+    },
+    "rules/ai-copilot/ai-copilot-qx.list": {
+      "sha256": "de2ab2611e3111d2552d962d74b1eb8e6236af07601c2af608afc39248c0e355",
+      "bytes": 517
+    },
+    "rules/ai-copilot/ai-copilot.json": {
+      "sha256": "04b5c02160172d605f2782f5701eebb5bce56905abd5d9e0f7bc499099630fb3",
+      "bytes": 415
+    },
+    "rules/ai-copilot/ai-copilot.list": {
+      "sha256": "d1c298d8924f820c7c0086bfe060c666337faf04d940960bd157c09587c6e5d5",
+      "bytes": 526
+    },
+    "rules/ai-copilot/ai-copilot.mrs": {
+      "sha256": "b49106505d49a2fbbaa80e8e7c4a5e20c634b968bbdbd7dfd914f470e9593f73",
+      "bytes": 259
+    },
+    "rules/ai-copilot/ai-copilot.srs": {
+      "sha256": "e4df08c8c256be98b7c9c3db1156d397f1a028887045c813d736283c4be5c5b4",
+      "bytes": 246
+    },
+    "rules/ai-copilot/ai-copilot.yaml": {
+      "sha256": "57967ae7e299ca9fd350231e27a225afff6ff5e32ce16901d9deb0fda60dddb4",
+      "bytes": 446
+    },
+    "rules/ai-gemini/ai-gemini-qx.list": {
+      "sha256": "1fcd0998b499d15e99e9c0bf6b825cbd421151f9ddd13173a27fe745cdb432d0",
+      "bytes": 330
+    },
+    "rules/ai-gemini/ai-gemini.json": {
+      "sha256": "56569ac5bf928b35a8b109371c724e5d594a7291ff78458d668a4e77cf1a10b9",
+      "bytes": 211
+    },
+    "rules/ai-gemini/ai-gemini.list": {
+      "sha256": "72dc226328a1eae321db13f02c3e843283ee9a4501d9b06f261f4ee6b0eb517c",
+      "bytes": 337
+    },
+    "rules/ai-gemini/ai-gemini.mrs": {
+      "sha256": "fdbc62a981a4c1841d8d9208f6748ea8b58bed0fb4b4a83259e4e63f394a0564",
+      "bytes": 159
+    },
+    "rules/ai-gemini/ai-gemini.srs": {
+      "sha256": "f9ac3f504b8306ba6ffd8409dddc1f16adc71342c0966382586f20c947383360",
+      "bytes": 138
+    },
+    "rules/ai-gemini/ai-gemini.yaml": {
+      "sha256": "64732fc7fb7940630e525ccd577056ec0dc2b6afa565f3d6b8836bd007fb7647",
+      "bytes": 244
+    },
+    "rules/ai-openai/ai-openai-qx.list": {
+      "sha256": "2adc553d9d5f5b710184b7e97fa68c395d35c845a68acf00d736ecfae1751a79",
+      "bytes": 755
+    },
+    "rules/ai-openai/ai-openai.json": {
+      "sha256": "4c35aa3960c4cc97092f56482b73aee82bd975ebb878a1ee0a4ff9781e56d2dd",
+      "bytes": 553
+    },
+    "rules/ai-openai/ai-openai.list": {
+      "sha256": "626a5d44d8f39afa432f6f42a43ad7db0f511df33a6d59fedbd14bcd724160ec",
+      "bytes": 775
+    },
+    "rules/ai-openai/ai-openai.mrs": {
+      "sha256": "a20a5d7f246891ae95ecdfca5ca1616584aadaa75481290d86b46d50428905be",
+      "bytes": 371
+    },
+    "rules/ai-openai/ai-openai.srs": {
+      "sha256": "5b94bee353483912a6737aeb9d82e39a2fddbf3fe9f78f4ede43ba9fb02bdaf9",
+      "bytes": 343
+    },
+    "rules/ai-openai/ai-openai.yaml": {
+      "sha256": "65ab94dc22e1d5ec472b9656a5a7b910027f6002854ec8a368d6b4bc730d4ba8",
+      "bytes": 629
+    },
+    "rules/ai-others/ai-others-qx.list": {
+      "sha256": "6ff6d26de9530fc049efa5c258918c6979e248881d9774216d31dbb2dd39abee",
+      "bytes": 4780
+    },
+    "rules/ai-others/ai-others.json": {
+      "sha256": "dad535065f9a2e09844b0bbda5a5aeb6a980917d2097063270746202427b512d",
+      "bytes": 3159
+    },
+    "rules/ai-others/ai-others.list": {
+      "sha256": "ee2409207bab122421d9fb23f4af0513c2c30644b335ad311eb63b058a406526",
+      "bytes": 4945
+    },
+    "rules/ai-others/ai-others.mrs": {
+      "sha256": "7f510dc659b2d455da5c3b5cfcefd2fccff26615a31bc724f6e9f28b5b76c067",
+      "bytes": 1634
+    },
+    "rules/ai-others/ai-others.srs": {
+      "sha256": "4f5b8cc2ac514da8cecf2bae1e00e1c55dabc6b5513eb8ba3940d32d5d09f7cb",
+      "bytes": 1462
+    },
+    "rules/ai-others/ai-others.yaml": {
+      "sha256": "ecde68d024cdefbfed1d760bb04ca11a82d331220c007f7163afed5d7ce80d1b",
+      "bytes": 3979
+    },
+    "rules/ai-perplexity/ai-perplexity-qx.list": {
+      "sha256": "11cdc2789bbf92a488380cc039024c9ef9e7bfc15df75fecbf2882511ced5bb6",
+      "bytes": 237
+    },
+    "rules/ai-perplexity/ai-perplexity.json": {
+      "sha256": "a7c5caf305a4c3569b6ad49db2acb05c12409f875021640bdaaa2001fab3b571",
+      "bytes": 171
+    },
+    "rules/ai-perplexity/ai-perplexity.list": {
+      "sha256": "b0e7b811590cdea5e80a3c3764090997b759add8cfbb23939650f7b4082bc207",
+      "bytes": 242
+    },
+    "rules/ai-perplexity/ai-perplexity.mrs": {
+      "sha256": "812443e110ab90e6d4432ce1099c54ddaa943a4501c75fc6cfb38152d67fd77f",
+      "bytes": 159
+    },
+    "rules/ai-perplexity/ai-perplexity.srs": {
+      "sha256": "b39dc6166314f3789723c8c6cb234f2939c6e82fb3328af41fc9b2aa42eb09cb",
+      "bytes": 136
+    },
+    "rules/ai-perplexity/ai-perplexity.yaml": {
+      "sha256": "1359d390801a72c86608a2ed8bf11f684d0fb37bc3413d06d6bcd69d7e675c73",
+      "bytes": 166
+    },
+    "rules/apple/apple-qx.list": {
+      "sha256": "f78a8e85d6802bedc969f24915992a185bbe0111954ede460682273f9098456e",
+      "bytes": 49322
+    },
+    "rules/apple/apple.json": {
+      "sha256": "5490ad665760ec290798395f21e5e4c84b5a8827f0dcc2d5267065b9b66295e1",
+      "bytes": 33800
+    },
+    "rules/apple/apple.list": {
+      "sha256": "fc486af5a57c5bd6df55917483d7282afb4b5a638a9ba52c81ad44f13ebee1e0",
+      "bytes": 50905
+    },
+    "rules/apple/apple.mrs": {
+      "sha256": "686bc6ca5b83e68ccdccc1230cba6bb6dffd40907e549ed9318257fc7d761a55",
+      "bytes": 16498
+    },
+    "rules/apple/apple.srs": {
+      "sha256": "6f16defe9f99ff282cb9132bb1e94c3e249e8928fc4feb0087b0efcce7924cbf",
+      "bytes": 14420
+    },
+    "rules/apple/apple.yaml": {
+      "sha256": "1feb6169cb77e4b7a07682029b16d51f78a1306243986cf805521f3d6e1568da",
+      "bytes": 41596
+    },
+    "rules/cn/cn-qx.list": {
+      "sha256": "1dc544b1cc73bfef65f8e8313d3adbb3a97f838a901943bc39bdf8cf5beaa1b4",
+      "bytes": 160401
+    },
+    "rules/cn/cn.json": {
+      "sha256": "fd94fc91e1a2f518887ae8d3de520a477cda71a3361d9e1b6c06fc84eeadb39a",
+      "bytes": 98414
+    },
+    "rules/cn/cn.list": {
+      "sha256": "7893f5a5d411881afb6fb992e6b8b6edc69d7300d5fc04d7e2be72c0312b2852",
+      "bytes": 166604
+    },
+    "rules/cn/cn.mrs": {
+      "sha256": "e88648fb3d58791eda2963a9e0b3f86a2088e97e628d27d9ac8889e703c09ecc",
+      "bytes": 40558
+    },
+    "rules/cn/cn.srs": {
+      "sha256": "6baeae0639bdb194148a61a158322a7a396b04bb0c9e36d23e0103bcfd59f3dc",
+      "bytes": 32344
+    },
+    "rules/cn/cn.yaml": {
+      "sha256": "0ceab68d4a9dad542b72dcaf2db6958ec01b166fe895207d8f371fb0f650e51e",
+      "bytes": 129390
+    },
+    "rules/cn-ip/cn-ip-qx.list": {
+      "sha256": "afd88443562bbb1455e7fb7b4bd65ea775b9c3e691b15add9f2fc98b3ba9237d",
+      "bytes": 152604
+    },
+    "rules/cn-ip/cn-ip.json": {
+      "sha256": "b6537ac36896474f05aec88d7fc262ae90e2cbb1523d95933f4562417d7b9751",
+      "bytes": 115278
+    },
+    "rules/cn-ip/cn-ip.list": {
+      "sha256": "1b3f6880bcccca90636afa3977d254bb5f1787a8918b8023bb0590c6fba0ac0a",
+      "bytes": 214714
+    },
+    "rules/cn-ip/cn-ip.mrs": {
+      "sha256": "453a35b696f339094641f92a282213694d416a6229e267b1969a1971b1750430",
+      "bytes": 25631
+    },
+    "rules/cn-ip/cn-ip.srs": {
+      "sha256": "174d8f09f920c0229b57e98d0b65adbba4c7aec275d76dd16ae457f993e4a7f2",
+      "bytes": 22691
+    },
+    "rules/cn-ip/cn-ip.yaml": {
+      "sha256": "5102e720880f858614d6768596faf441895eb6eaeb7ca9ee1203b69619f971f1",
+      "bytes": 133915
+    },
+    "rules/cn-ip6/cn-ip6-qx.list": {
+      "sha256": "0a4ee0582ea041bffc972233aa180771be1f087f4b03fc15b8a9e10fe7f962ac",
+      "bytes": 91413
+    },
+    "rules/cn-ip6/cn-ip6.json": {
+      "sha256": "7fac646e1fd2eac44177e62347ecde6571e43b6116974d5dd5935ac1a769e8ba",
+      "bytes": 67355
+    },
+    "rules/cn-ip6/cn-ip6.list": {
+      "sha256": "0e1f3987cf7167e069be8543417b837b60b479f6a85c3956128fe67b7000a1c9",
+      "bytes": 125693
+    },
+    "rules/cn-ip6/cn-ip6.mrs": {
+      "sha256": "33469094dccb09517caacc23afab7d81b4db562c9485718f385a6ce487e55ffb",
+      "bytes": 11070
+    },
+    "rules/cn-ip6/cn-ip6.srs": {
+      "sha256": "90ffbd62efb41884af07a08488b648cd8c9045f0c842bb8f678df9c37e97056f",
+      "bytes": 12580
+    },
+    "rules/cn-ip6/cn-ip6.yaml": {
+      "sha256": "30fc935895fc71899ccbd2f4bf1147e29d8edd213fa05e5a1fb4d9edb2bfba7a",
+      "bytes": 77645
+    },
+    "rules/cn-region-locked/cn-region-locked-qx.list": {
+      "sha256": "9d7b251eacbe56640dd3a54d188867b1da551c6af10556a9886ff0ca58fbbb5d",
+      "bytes": 715
+    },
+    "rules/cn-region-locked/cn-region-locked.json": {
+      "sha256": "a70d81866bf6f1c6bcd86f1ff568fba494590c4e97bb06b31cf937d880e62eff",
+      "bytes": 391
+    },
+    "rules/cn-region-locked/cn-region-locked.list": {
+      "sha256": "1d76ca904ffce9ceff340fa9543a553d8e56f8573a00e84cdb2efcd80b2ac9cd",
+      "bytes": 739
+    },
+    "rules/cn-region-locked/cn-region-locked.mrs": {
+      "sha256": "4993a156787c86fa5201cb072760e0e63455ca9e050fce71b4e2b231265f1179",
+      "bytes": 273
+    },
+    "rules/cn-region-locked/cn-region-locked.srs": {
+      "sha256": "90413f2006b78a4bcdfd9c4199aa3e2c5f5c203c54cb7ab162fff152d9c3550d",
+      "bytes": 235
+    },
+    "rules/cn-region-locked/cn-region-locked.yaml": {
+      "sha256": "68f60f241f7d6dd87b424744d2082ed460675e69c03026087fae8eb63ec6127a",
+      "bytes": 539
+    },
+    "rules/dev/dev-qx.list": {
+      "sha256": "5c918e63f4c2247885265e60e5621bcbc837ea2773b46257196c07afaeb8f2da",
+      "bytes": 3152
+    },
+    "rules/dev/dev.json": {
+      "sha256": "74f85a1e2fde92414bcdb2450741c4fb7d9e22296f18510fb3604586d2c3b199",
+      "bytes": 2411
+    },
+    "rules/dev/dev.list": {
+      "sha256": "c8e7c58f1a0b801f15286c639c678b984e4a722856937b618819a8e6653829f2",
+      "bytes": 3239
+    },
+    "rules/dev/dev.mrs": {
+      "sha256": "4f8ea6e1d673d52619c801718ce5f6664072f0b39b096cfd2ae12f8bb8b62f95",
+      "bytes": 1060
+    },
+    "rules/dev/dev.srs": {
+      "sha256": "6281895307418ca56c1dd1bbd1fe8d94c2715a42cf6b3bfb8eccc430825669b4",
+      "bytes": 952
+    },
+    "rules/dev/dev.yaml": {
+      "sha256": "a2de6ff37622da581aa62fb4da09842eafa8692c28d976ce521b1a1592e12f1f",
+      "bytes": 2811
+    },
+    "rules/disney/disney-qx.list": {
+      "sha256": "0030343cd5f4536dd05b92191d0b56d2a1c0e97b7097ef387fa15e9b6e2545e5",
+      "bytes": 6485
+    },
+    "rules/disney/disney.json": {
+      "sha256": "74d76e7fb1941b098973c933cbaf9fb615888928d1c31e4f811dbec2dcda5d35",
+      "bytes": 4264
+    },
+    "rules/disney/disney.list": {
+      "sha256": "4ee4da4441736a21be59954c3174f0ac5708be9db219351748e717e078d2166a",
+      "bytes": 6703
+    },
+    "rules/disney/disney.mrs": {
+      "sha256": "4a2e7738d825192c822ed0c7ec50116f56a693ffd1b7662dcb2f7c77dcd1a4b0",
+      "bytes": 2457
+    },
+    "rules/disney/disney.srs": {
+      "sha256": "d7d6d98596485469ec6d6e4dee4d1bd36adbacf9e93c897f9a8052ab571cb964",
+      "bytes": 2163
+    },
+    "rules/disney/disney.yaml": {
+      "sha256": "23357292ae0fdd41856eb95f569b17df90b6493d92bbbc087311dab256a47c0a",
+      "bytes": 5354
+    },
+    "rules/game-download/game-download-qx.list": {
+      "sha256": "43bf2336925193922ed98a1d8828c13c905b963c7f1b1bddf016f4e3e12eefda",
+      "bytes": 640
+    },
+    "rules/game-download/game-download.json": {
+      "sha256": "c05de644d0f38853463e686fd6283294e43a4042dbcf04bb07a6c99d2f9889d1",
+      "bytes": 414
+    },
+    "rules/game-download/game-download.list": {
+      "sha256": "21dc61c573e7d4e63a41115c54be65285e6b9a08453fc68ab073627a26caa6ad",
+      "bytes": 655
+    },
+    "rules/game-download/game-download.mrs": {
+      "sha256": "8df7357bd5849d76263a3afac17dfec672ca3852a5a02840c53670079f19b5dd",
+      "bytes": 277
+    },
+    "rules/game-download/game-download.srs": {
+      "sha256": "a7e0a1e5e0151b203ef3acd451767f2c69cbeef712c7716364548b8ede341d8c",
+      "bytes": 251
+    },
+    "rules/game-download/game-download.yaml": {
+      "sha256": "6d6ab99c332e0e0b96c9e6a80a301c6c4ad104aa43aaae574115e7d6188cc00d",
+      "bytes": 509
+    },
+    "rules/game-platform/game-platform-qx.list": {
+      "sha256": "25a7886dd953bbd73a8c2e5d9219e68ae4c55054f1f0da496133775082f0cb6a",
+      "bytes": 7887
+    },
+    "rules/game-platform/game-platform.json": {
+      "sha256": "1f6b0286ae8cb7d35207cc206ef8a019e48c0367a1e7c4ec7f435470926c82d8",
+      "bytes": 5375
+    },
+    "rules/game-platform/game-platform.list": {
+      "sha256": "763f04da8ed574c44c959e506d46d82a1c463cd94dbfc1889e321fc98c2c575a",
+      "bytes": 8145
+    },
+    "rules/game-platform/game-platform.mrs": {
+      "sha256": "38072b474eee209d081e2524889245ec531d6d43567fc747c5ea66fb52ea1459",
+      "bytes": 3008
+    },
+    "rules/game-platform/game-platform.srs": {
+      "sha256": "75da2396bee3be5e016ee7a089ad180e3b836d349af024772cdb57abd6c0b4a4",
+      "bytes": 2706
+    },
+    "rules/game-platform/game-platform.yaml": {
+      "sha256": "5ba5513f83c2717abc27d2ce5dbcd4589db8de88f8fc01adc924aef9227060af",
+      "bytes": 6631
+    },
+    "rules/google/google-qx.list": {
+      "sha256": "4bb1c3c5afb7a6c2a59274d2640eeff20b0809e9b356791f3e9d506ac4a9d60c",
+      "bytes": 16233
+    },
+    "rules/google/google.json": {
+      "sha256": "9295b7e4512b76143b9160412cbed9865cbf589abdcb5fbf8c6c9e2ef508cea6",
+      "bytes": 10108
+    },
+    "rules/google/google.list": {
+      "sha256": "54545a07dc5f164e93b9328faa683645e558214fe05e994743e7f775d5680c2b",
+      "bytes": 16852
+    },
+    "rules/google/google.mrs": {
+      "sha256": "6a9d59ca2f9be34f0ba1138d97ca627d6467e87b4669924d273c555e79953f15",
+      "bytes": 5366
+    },
+    "rules/google/google.srs": {
+      "sha256": "2c83ed074324643c0cb1b93f72d8ca5d36cb3690c2851c0622225843292cf393",
+      "bytes": 4653
+    },
+    "rules/google/google.yaml": {
+      "sha256": "4a22b23d775287a7d363617043ddf705251fe3b75ae84544144adae5ba2fb01c",
+      "bytes": 13177
+    },
+    "rules/max/max-qx.list": {
+      "sha256": "78825a308cc22153fbedcc78c3d2cc3de87bd33429cfdc7137ca1a6817e3ea2c",
+      "bytes": 1739
+    },
+    "rules/max/max.json": {
+      "sha256": "18f2d2e74b12e00aa3fe81ea6cdeb942230980778010ce2dd110ac5c33af2730",
+      "bytes": 1053
+    },
+    "rules/max/max.list": {
+      "sha256": "f8f4c6e103519919e8f72d9aef2fc65391b80741104446eec706ccd719b2f32e",
+      "bytes": 1803
+    },
+    "rules/max/max.mrs": {
+      "sha256": "30a176bd53a6ed29f7f59b518429239673d9a1d473121235f4e8253b47e041b2",
+      "bytes": 680
+    },
+    "rules/max/max.srs": {
+      "sha256": "22e99fb45e76571d30ebff6b730eabb7e0adb92d1494bbae975eb478030a6b65",
+      "bytes": 602
+    },
+    "rules/max/max.yaml": {
+      "sha256": "0c19fedb27b791f2239cc559c181b43109bc25178131806670ea1ec9b6978ca7",
+      "bytes": 1363
+    },
+    "rules/microsoft/microsoft-qx.list": {
+      "sha256": "df8ca371e3bf3e6a2ac863f4a1b331ba0ed31f848c314b5b0daffc5474dc3e8c",
+      "bytes": 16372
+    },
+    "rules/microsoft/microsoft.json": {
+      "sha256": "fa08f0525833aba17707aed8ccfbd07809c62743dbd8da215c6afe22052cfc3d",
+      "bytes": 10857
+    },
+    "rules/microsoft/microsoft.list": {
+      "sha256": "3180f12bf5a5e7a4891fc6d062b05a064159499155c910cf084275f58229a669",
+      "bytes": 16926
+    },
+    "rules/microsoft/microsoft.mrs": {
+      "sha256": "d836f83de082a829fc2de79361005c4ea86f4f6ee1ad3ef7789923e395f98755",
+      "bytes": 5921
+    },
+    "rules/microsoft/microsoft.srs": {
+      "sha256": "5883eba9c23a422f409b2a570b634fc785247fc525ffe00a461c206e64581438",
+      "bytes": 5195
+    },
+    "rules/microsoft/microsoft.yaml": {
+      "sha256": "fd109679e58e85e53155b5e7db94e7f8f0a9aec82424c377028e066b6100b831",
+      "bytes": 13591
+    },
+    "rules/netflix/netflix-qx.list": {
+      "sha256": "908dd1bf7c1ceb056671aeb8593d9c52e5b245358da3050663eea0c08d55460d",
+      "bytes": 806
+    },
+    "rules/netflix/netflix.json": {
+      "sha256": "f438fc6341c7cbcfb3dd98b93345c7ed2b25e659810e2315ce27c4c717125de9",
+      "bytes": 526
+    },
+    "rules/netflix/netflix.list": {
+      "sha256": "7953c6cfaece1a3c80443cd027220ee488ab780e1aee10c10e7c2388e5f4389d",
+      "bytes": 830
+    },
+    "rules/netflix/netflix.mrs": {
+      "sha256": "daecea060b67af1c82fe9624e7a164f59d16be6ee4d61257526e0be0e9a5b57c",
+      "bytes": 295
+    },
+    "rules/netflix/netflix.srs": {
+      "sha256": "19bf009229f44f9e178d2b22a2583cfea7dfddabc97d6ad174eb11826b9eb339",
+      "bytes": 249
+    },
+    "rules/netflix/netflix.yaml": {
+      "sha256": "5666ceda5183d67ed7d7ca531a2c290cc834a48b27a9b9f985bc9b52c3933901",
+      "bytes": 630
+    },
+    "rules/primevideo/primevideo-qx.list": {
+      "sha256": "8959ea19073ee14944d59718d51bbf0f478dd7bde2690b068c466980c1b642c0",
+      "bytes": 896
+    },
+    "rules/primevideo/primevideo.json": {
+      "sha256": "e92ee93d098a7db5cd6eef92f558de29c11caeaa89f8655442d1567251dcf1ed",
+      "bytes": 684
+    },
+    "rules/primevideo/primevideo.list": {
+      "sha256": "0901e7e981e133d261c804003aefd39ccda0fa57c5902b8231e8db12b19963fc",
+      "bytes": 921
+    },
+    "rules/primevideo/primevideo.mrs": {
+      "sha256": "44e89259f3572eb49e64b3412df88c20240cb5b9588a719e489bf79b328087a3",
+      "bytes": 426
+    },
+    "rules/primevideo/primevideo.srs": {
+      "sha256": "9eea32c659d8484de84965816d61bfec1784933e9471e64638385def4cd9ad19",
+      "bytes": 391
+    },
+    "rules/primevideo/primevideo.yaml": {
+      "sha256": "845235de063b05b0a84563c0717ddade9bba8fadcf0add02c6d4433f6d7580dd",
+      "bytes": 765
+    },
+    "rules/private/private-ip.mrs": {
+      "sha256": "bd8462b592c7baf05357a4d0a53f0e77649105d60b178a78139826cff3988815",
+      "bytes": 160
+    },
+    "rules/private/private-ip.yaml": {
+      "sha256": "fa9c57121af68c340192761d15b9864adf34f9c230d8fc02f7228cf683bc6978",
+      "bytes": 397
+    },
+    "rules/private/private-qx.list": {
+      "sha256": "84251543f025db61538e68e606cdc494f7a2e850e09c03b41c29780e4f9023d7",
+      "bytes": 610
+    },
+    "rules/private/private.json": {
+      "sha256": "892ea895fd9d9c285a865d4733aca7cdcc69f8d2096a7a3ad279f9631063abd7",
+      "bytes": 406
+    },
+    "rules/private/private.list": {
+      "sha256": "b41d25bc26b5dc3b110b9f0590a2cb4039a7fa360ca2d2a3d6ce528664338d29",
+      "bytes": 795
+    },
+    "rules/private/private.mrs": {
+      "sha256": "71447333c05601169faba96c87fe93269f7aaedb06709268ae39941bd70ea134",
+      "bytes": 93
+    },
+    "rules/private/private.srs": {
+      "sha256": "cd5e66c2378481e2fcdde6087a2c2988fc6faecd077f7405a3a5a8c8afc28749",
+      "bytes": 203
+    },
+    "rules/private/private.yaml": {
+      "sha256": "755b38785175c42a2e233d614d0562828e97731fb3880c6dd10a2a35d5c97e44",
+      "bytes": 143
+    },
+    "rules/proxy/proxy-qx.list": {
+      "sha256": "218ce89b3e06da134a76882c079e922500b4f8a11fbaa1e546d12fd7fde165e9",
+      "bytes": 507341
+    },
+    "rules/proxy/proxy.json": {
+      "sha256": "2e1e337bee43dcca8e43717eb214fa5ffb5afe12734ce24c3b22879b7ceff8ef",
+      "bytes": 322188
+    },
+    "rules/proxy/proxy.list": {
+      "sha256": "4771bf357e95732bff2e98159e6653c813ea6059d18ceb518bf8c6fd48eb4d17",
+      "bytes": 525904
+    },
+    "rules/proxy/proxy.mrs": {
+      "sha256": "8fd5e90c2ce12cf7b734717ff68464f2d70ef4b96bec250c26a79248cec2c658",
+      "bytes": 139372
+    },
+    "rules/proxy/proxy.srs": {
+      "sha256": "4c5d79a59a4d81e856d925853bae2769736f1382fbb876eb31e7603af6a04f86",
+      "bytes": 112096
+    },
+    "rules/proxy/proxy.yaml": {
+      "sha256": "82fbcde49974acbdd6ad172fab17b27fb616678f3fe0340d7f6c6bf4b84eafb8",
+      "bytes": 414845
+    },
+    "rules/reject-ads/reject-ads-qx.list": {
+      "sha256": "5fbceb25cc25c4b31cdd513a0545bc51b4002be419931cbb572c3747814da72b",
+      "bytes": 1153213
+    },
+    "rules/reject-ads/reject-ads.json": {
+      "sha256": "ce09e513156917453bc7cf70e54e05824693c1cdab6851c46475e289793260e7",
+      "bytes": 783079
+    },
+    "rules/reject-ads/reject-ads.list": {
+      "sha256": "518d311c3c611739469687712218474dd0210dbe65726d48e44095c43eb42530",
+      "bytes": 1190326
+    },
+    "rules/reject-ads/reject-ads.mrs": {
+      "sha256": "cee3cd4b8e4cefaeb29956bc528c2bf5865d5e0ceb82f13cee830cbf0de4ce16",
+      "bytes": 335847
+    },
+    "rules/reject-ads/reject-ads.srs": {
+      "sha256": "b8b40a5092a8a4975c1060ddfbf78910c59b1138af3c0ce7bb86aea7e9465605",
+      "bytes": 296612
+    },
+    "rules/reject-ads/reject-ads.yaml": {
+      "sha256": "ba2c2ce41366339e9f3a5421ce19267c7139875034f6bd31eff4cd744f39228b",
+      "bytes": 968357
+    },
+    "rules/reject-malware/reject-malware-qx.list": {
+      "sha256": "edc0a654f1a9f80bb4c809231e2559926c2f87e5989448ad4d64f21cd88147b6",
+      "bytes": 516427
+    },
+    "rules/reject-malware/reject-malware.json": {
+      "sha256": "29475d2fc225fda4472f6a017978e6dfe6bce6bd70919b47fd23213ce7b5a65f",
+      "bytes": 332588
+    },
+    "rules/reject-malware/reject-malware.list": {
+      "sha256": "49adba7fd480b120b30eeb0e55d38898a9db85f5e307977e9e9f538844d45030",
+      "bytes": 534804
+    },
+    "rules/reject-malware/reject-malware.mrs": {
+      "sha256": "226a8545cb6f5f97feb957f1c81dd8275cefdc9aecb55e43efe37f693742f72b",
+      "bytes": 125332
+    },
+    "rules/reject-malware/reject-malware.srs": {
+      "sha256": "c1e7b55e8efea773d67b69c72c6803aebf3605a36437eceed41d9a99ec0ef149",
+      "bytes": 106708
+    },
+    "rules/reject-malware/reject-malware.yaml": {
+      "sha256": "23ff76897bfd8061e9778dd886c91d633ecf51a5f14f5609a42b3928fb0a03b5",
+      "bytes": 424486
+    },
+    "rules/reject-tracker/reject-tracker-qx.list": {
+      "sha256": "5a0b249de737f8c2320eb430f99a646e4dc5a1c0e6379d0de5923a516eb9e4a9",
+      "bytes": 19033
+    },
+    "rules/reject-tracker/reject-tracker.json": {
+      "sha256": "93dfa96958722bf33f40ebb2e022426c400725580c1dfa4578075a6115faafa9",
+      "bytes": 12267
+    },
+    "rules/reject-tracker/reject-tracker.list": {
+      "sha256": "257d5a190ed17e4c42938a7ea0d5df01cce21faf8681dc8fd033939446e08a23",
+      "bytes": 19701
+    },
+    "rules/reject-tracker/reject-tracker.mrs": {
+      "sha256": "ec9f7118a7d8aefc13bfd9eb253e02a98c5986ab85e7c3684399a479edd14a06",
+      "bytes": 5733
+    },
+    "rules/reject-tracker/reject-tracker.srs": {
+      "sha256": "92ebeec515940e08a3b8ee9e069760fb3fd4a619fc46a14b177f326dc3e7c8b3",
+      "bytes": 4930
+    },
+    "rules/reject-tracker/reject-tracker.yaml": {
+      "sha256": "4876391a520f07663b30bd4370a033feefcad28711899525f1845b6447ce6e43",
+      "bytes": 15637
+    },
+    "rules/spotify/spotify-qx.list": {
+      "sha256": "ea178f6f9b2e50a1ad56e14deb04af4e6fccaaeee2e867fa62f7e406bcae1dac",
+      "bytes": 803
+    },
+    "rules/spotify/spotify.json": {
+      "sha256": "ab3c9c3acc08ea57b502f157fbd8af65a9f9a2933be7047c9014fc99e56f5eeb",
+      "bytes": 587
+    },
+    "rules/spotify/spotify.list": {
+      "sha256": "304b3a7e3cfbd14ad4940d306288cd04259573ae198c2c49e4fce6d5afe7f0b1",
+      "bytes": 826
+    },
+    "rules/spotify/spotify.mrs": {
+      "sha256": "599e95ac28105515a0994231ff0b036d046e8a2623b4ee4f92a50b2da06c2f37",
+      "bytes": 378
+    },
+    "rules/spotify/spotify.srs": {
+      "sha256": "6f7749e4d9c1548a8fa745e25377123131c0b4c19dff098b9a0f02a9e5f11c14",
+      "bytes": 339
+    },
+    "rules/spotify/spotify.yaml": {
+      "sha256": "62a0190d80a5f605bb6f053700d41be5a11cb9483ff8ea4e25fb9971b8d91ad7",
+      "bytes": 662
+    },
+    "rules/streaming-others/streaming-others-qx.list": {
+      "sha256": "43880f4319282b468440d2a4158d34d5a975b4ca6a999df6956de86e4b7d3c8f",
+      "bytes": 44780
+    },
+    "rules/streaming-others/streaming-others.json": {
+      "sha256": "a3c6797222f689bda67e4c32bd56dd274269993d6ce571533172e04a2b0b7df3",
+      "bytes": 29022
+    },
+    "rules/streaming-others/streaming-others.list": {
+      "sha256": "d29ac66d985dcc18f154c970e322a01b5d7da9a00fd00d9d00ef4f572439a09e",
+      "bytes": 46367
+    },
+    "rules/streaming-others/streaming-others.mrs": {
+      "sha256": "8e268602a659ee4913d7cd73ec5f7c6d6aa1cd010d4e73b1c00215b96edd9ffa",
+      "bytes": 14434
+    },
+    "rules/streaming-others/streaming-others.srs": {
+      "sha256": "29630183ec01ed6e7bb2c9216d601a3256f563befcdf8afbcac1b5d64803c7dc",
+      "bytes": 12559
+    },
+    "rules/streaming-others/streaming-others.yaml": {
+      "sha256": "04ae5e46aff0bcfd6732da7719dcd393bf22b990a095cf2eee54b58db422d7e0",
+      "bytes": 36909
+    },
+    "rules/telegram/telegram-ip.mrs": {
+      "sha256": "4fa03207305db53df766395755026a7a19d2cdca6012818c41f21aba992c03dd",
+      "bytes": 132
+    },
+    "rules/telegram/telegram-ip.yaml": {
+      "sha256": "0c125fab1d5dc60d43dae930bafae902d88dd2139717111c2b8a2d97286e9a83",
+      "bytes": 282
+    },
+    "rules/telegram/telegram-qx.list": {
+      "sha256": "4f300dd0bf966d7cedcaff5dfe61bf308f7807cab13f91d6c54aeb580107e404",
+      "bytes": 897
+    },
+    "rules/telegram/telegram.json": {
+      "sha256": "ab35766eac3d3c53d52671e52ebc448a36871196a9aa5861216e40b4befd0578",
+      "bytes": 569
+    },
+    "rules/telegram/telegram.list": {
+      "sha256": "4ca2cbcdd8f9e374ca5af7b644e8d77e851c187e068b64abc073c941a6cb8880",
+      "bytes": 1018
+    },
+    "rules/telegram/telegram.mrs": {
+      "sha256": "ffa4d1d3e8649965e529c1c570d8add75a0d6f70aa8503ece8add841ce48c0e7",
+      "bytes": 274
+    },
+    "rules/telegram/telegram.srs": {
+      "sha256": "05125d700ff66c33ba986255f97b208ee622f9fd13269b92f1c5a6ee8453569d",
+      "bytes": 350
+    },
+    "rules/telegram/telegram.yaml": {
+      "sha256": "8a65032465077b528fa316983a143cb9a81578295946ba9a5659487a46bfbede",
+      "bytes": 480
+    },
+    "rules/tiktok/tiktok-qx.list": {
+      "sha256": "d4677548b536ce66d0410e3ca72c17cd4593a9ad7086731e4bbe7b2a03e9830c",
+      "bytes": 1182
+    },
+    "rules/tiktok/tiktok.json": {
+      "sha256": "1466d54fd41d57b066f1da30b4067894b14dbb982266e0bd34396bae95061262",
+      "bytes": 791
+    },
+    "rules/tiktok/tiktok.list": {
+      "sha256": "154743ef9fea38cf162e170815a8f24c7a6b7f3f05eb2b8ed137ea12b04935df",
+      "bytes": 1218
+    },
+    "rules/tiktok/tiktok.mrs": {
+      "sha256": "d90b1207a9ee32433bdea58f271a562cccfb09a4fb9f810be664e3e239da62ce",
+      "bytes": 489
+    },
+    "rules/tiktok/tiktok.srs": {
+      "sha256": "0f35a58a98e5db85cb0c73cb66a33d10d3af2b0e7ade9084ec22ed381f407b10",
+      "bytes": 443
+    },
+    "rules/tiktok/tiktok.yaml": {
+      "sha256": "596d52319d05170648b23477457989f3128ba1a4b36c6f0457e49b5d4519584c",
+      "bytes": 956
+    },
+    "rules/youtube/youtube-qx.list": {
+      "sha256": "de0df541d2493fe29919c7b7638e837edf0ed802168f7f3d77734f4629896ae0",
+      "bytes": 4770
+    },
+    "rules/youtube/youtube.json": {
+      "sha256": "997e27d7c25693087b18f7a46887ea88f696400f3cf438fa06723d493f5d1399",
+      "bytes": 2964
+    },
+    "rules/youtube/youtube.list": {
+      "sha256": "8b019875c48d48372f01a15ca03abbfc88dbf38acc3e3fbdc895da724b1379a4",
+      "bytes": 4947
+    },
+    "rules/youtube/youtube.mrs": {
+      "sha256": "79d34c6ab101c55439ae4a45a36cd5de8b95e3f4b79d7faa57c038300d94954b",
+      "bytes": 1352
+    },
+    "rules/youtube/youtube.srs": {
+      "sha256": "c0536fe1195a661bce0c603686291e36b5465d0f8b046ee562180beeb2eaa20b",
+      "bytes": 1147
+    },
+    "rules/youtube/youtube.yaml": {
+      "sha256": "706c88e14633ee9cdf53d5ce636d151e506dbe05cfa7d86168a8caeb7ab5be00",
+      "bytes": 3834
+    }
+  }
+}
