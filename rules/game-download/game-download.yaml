@@ -1,0 +1,17 @@
+# 游戏下载 CDN（体积大、可直连） · 15 rules
+payload:
+  - "+.assets1.xboxlive.com"
+  - "+.assets2.xboxlive.com"
+  - "+.cdn.nintendo.net"
+  - "+.cdn.playstation.net"
+  - "+.cdn1.epicgames.com"
+  - "+.cdn2.epicgames.com"
+  - "+.cdn3.epicgames.com"
+  - "+.download.epicgames.com"
+  - "+.epicgames-download1.akamaized.net"
+  - "+.gs2.ww.prod.dl.playstation.net"
+  - "+.origin-a.akamaihd.net"
+  - "+.steamcdn-a.akamaihd.net"
+  - "+.steamcontent.co.uk"
+  - "+.steamcontent.com"
+  - "+.steamstatic.com"
