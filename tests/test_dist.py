@@ -12,12 +12,12 @@ from builder.spec import ADS_TIERS
 ROOT = Path(__file__).resolve().parents[1]
 
 CONFIGS = {
-    "mihomo.yaml",
+    "mihomo.conf",
     "shadowrocket.conf",
     "surge.conf",
     "loon.conf",
     "quantumultx.conf",
-    "singbox.json",
+    "singbox.conf",
 }
 
 ALLOWED_URL_PREFIXES = (
@@ -102,7 +102,7 @@ def test_keyword_rules_are_documented(built):
 
 # -- per-client structural checks -------------------------------------------
 def test_mihomo_yaml_is_wellformed(built):
-    for path in _configs(built, "mihomo.yaml"):
+    for path in _configs(built, "mihomo.conf"):
         data = yaml.safe_load(path.read_text(encoding="utf-8"))
         assert data["mode"] == "rule"
         assert data["dns"]["enhanced-mode"] == "fake-ip"
@@ -112,7 +112,7 @@ def test_mihomo_yaml_is_wellformed(built):
 
 def test_mihomo_provider_urls_resolve_to_files(built):
     prefix = "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/"
-    for path in _configs(built, "mihomo.yaml"):
+    for path in _configs(built, "mihomo.conf"):
         for line in path.read_text(encoding="utf-8").splitlines():
             line = line.strip()
             if not line.startswith("url:") or prefix not in line:
@@ -122,7 +122,7 @@ def test_mihomo_provider_urls_resolve_to_files(built):
 
 
 def test_mihomo_providers_match_rules(built):
-    for path in _configs(built, "mihomo.yaml"):
+    for path in _configs(built, "mihomo.conf"):
         data = yaml.safe_load(path.read_text(encoding="utf-8"))
         declared = set(data.get("rule-providers") or {})
         used = {r.split(",")[1] for r in data["rules"] if r.startswith("RULE-SET,")}
@@ -180,7 +180,7 @@ def test_qx_rule_files_use_qx_grammar(built):
 
 
 def test_singbox_config_structure(built):
-    for path in _configs(built, "singbox.json"):
+    for path in _configs(built, "singbox.conf"):
         data = json.loads(path.read_text(encoding="utf-8"))
         tags = [outbound["tag"] for outbound in data["outbounds"]]
         assert len(tags) == len(set(tags)), f"{path.name}: duplicate outbound tag"
@@ -215,3 +215,15 @@ def test_rule_dirs_contain_only_expected_files(built):
         if not path.is_file():
             continue
         assert any(path.name.endswith(suffix) for suffix in ALLOWED_RULE_SUFFIXES), path
+
+
+def test_every_config_ends_with_conf(built):
+    for path in (built.dist / "configs").rglob("*"):
+        if path.is_file():
+            assert path.name.endswith(".conf"), path.name
+
+
+def test_readme_has_no_stale_config_extensions():
+    text = (Path(__file__).resolve().parents[1] / "README.md").read_text(encoding="utf-8")
+    assert "/mihomo.yaml" not in text
+    assert "/singbox.json" not in text

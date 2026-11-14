@@ -17,25 +17,25 @@
 
 <table>
 <tr>
-<td align="center"><img src="docs/qr/cn-mainland-mihomo.png?v=2" width="150" alt="Clash 扫码导入"><br>Clash / mihomo</td>
-<td align="center"><img src="docs/qr/cn-mainland-shadowrocket.png?v=2" width="150" alt="Shadowrocket 扫码导入"><br>Shadowrocket</td>
+<td align="center"><img src="docs/qr/cn-mainland-mihomo.png?v=3" width="150" alt="Clash 扫码导入"><br>Clash / mihomo</td>
+<td align="center"><img src="docs/qr/cn-mainland-shadowrocket.png?v=3" width="150" alt="Shadowrocket 扫码导入"><br>Shadowrocket</td>
 </tr>
 </table>
 
-<https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland/ads-light/mihomo.yaml>
+<https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland/ads-light/mihomo.conf>
 
 ### 🌍 身在海外 · `overseas`
 
-默认全部直连，只有 AI 与 Netflix / Disney+ / Max / Prime Video 走代理。
+默认全部直连，只有 AI、TikTok 与 Netflix / Disney+ / Max / Prime Video 走代理。
 
 <table>
 <tr>
-<td align="center"><img src="docs/qr/overseas-mihomo.png?v=2" width="150" alt="Clash 扫码导入"><br>Clash / mihomo</td>
-<td align="center"><img src="docs/qr/overseas-shadowrocket.png?v=2" width="150" alt="Shadowrocket 扫码导入"><br>Shadowrocket</td>
+<td align="center"><img src="docs/qr/overseas-mihomo.png?v=3" width="150" alt="Clash 扫码导入"><br>Clash / mihomo</td>
+<td align="center"><img src="docs/qr/overseas-shadowrocket.png?v=3" width="150" alt="Shadowrocket 扫码导入"><br>Shadowrocket</td>
 </tr>
 </table>
 
-<https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/overseas/ads-light/mihomo.yaml>
+<https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/overseas/ads-light/mihomo.conf>
 
 ### 🏠 海外华人回国 · `overseas-return`
 
@@ -43,12 +43,12 @@
 
 <table>
 <tr>
-<td align="center"><img src="docs/qr/overseas-return-mihomo.png?v=2" width="150" alt="Clash 扫码导入"><br>Clash / mihomo</td>
-<td align="center"><img src="docs/qr/overseas-return-shadowrocket.png?v=2" width="150" alt="Shadowrocket 扫码导入"><br>Shadowrocket</td>
+<td align="center"><img src="docs/qr/overseas-return-mihomo.png?v=3" width="150" alt="Clash 扫码导入"><br>Clash / mihomo</td>
+<td align="center"><img src="docs/qr/overseas-return-shadowrocket.png?v=3" width="150" alt="Shadowrocket 扫码导入"><br>Shadowrocket</td>
 </tr>
 </table>
 
-<https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/overseas-return/ads-light/mihomo.yaml>
+<https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/overseas-return/ads-light/mihomo.conf>
 
 ### 🪶 大陆极简 · `cn-mainland-lite`
 
@@ -56,12 +56,12 @@
 
 <table>
 <tr>
-<td align="center"><img src="docs/qr/cn-mainland-lite-mihomo.png?v=2" width="150" alt="Clash 扫码导入"><br>Clash / mihomo</td>
-<td align="center"><img src="docs/qr/cn-mainland-lite-shadowrocket.png?v=2" width="150" alt="Shadowrocket 扫码导入"><br>Shadowrocket</td>
+<td align="center"><img src="docs/qr/cn-mainland-lite-mihomo.png?v=3" width="150" alt="Clash 扫码导入"><br>Clash / mihomo</td>
+<td align="center"><img src="docs/qr/cn-mainland-lite-shadowrocket.png?v=3" width="150" alt="Shadowrocket 扫码导入"><br>Shadowrocket</td>
 </tr>
 </table>
 
-<https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland-lite/ads-light/mihomo.yaml>
+<https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland-lite/ads-light/mihomo.conf>
 
 ## 其他客户端
 
@@ -69,10 +69,10 @@
 
 | 客户端 | 扫码 | 地址 |
 |---|---|---|
-| Surge | <img src="docs/qr/cn-mainland-surge.png?v=2" width="120"> | `.../cn-mainland/ads-light/surge.conf` |
-| Loon | <img src="docs/qr/cn-mainland-loon.png?v=2" width="120"> | `.../cn-mainland/ads-light/loon.conf` |
+| Surge | <img src="docs/qr/cn-mainland-surge.png?v=3" width="120"> | `.../cn-mainland/ads-light/surge.conf` |
+| Loon | <img src="docs/qr/cn-mainland-loon.png?v=3" width="120"> | `.../cn-mainland/ads-light/loon.conf` |
 | Quantumult X | 手动导入 | `.../cn-mainland/ads-light/quantumultx.conf`（QX 不支持用 URL 导入整份配置，下载后在 App 里导入） |
-| sing-box | <img src="docs/qr/cn-mainland-singbox.png?v=2" width="120"> | `.../cn-mainland/ads-light/singbox.json` |
+| sing-box | <img src="docs/qr/cn-mainland-singbox.png?v=3" width="120"> | `.../cn-mainland/ads-light/singbox.conf` |
 
 地址前缀统一是 `https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/`。
 
@@ -95,9 +95,9 @@
 
 | 档位 | 内容 | 链接（以 cn-mainland 为例） |
 |---|---|---|
-| `ads-off` | 不拦广告 | `.../configs/cn-mainland/ads-off/mihomo.yaml` |
-| `ads-light` | 广告 + 常见追踪器（默认） | `.../configs/cn-mainland/ads-light/mihomo.yaml` |
-| `ads-strict` | 再加恶意域名 | `.../configs/cn-mainland/ads-strict/mihomo.yaml` |
+| `ads-off` | 不拦广告 | `.../configs/cn-mainland/ads-off/mihomo.conf` |
+| `ads-light` | 广告 + 常见追踪器（默认） | `.../configs/cn-mainland/ads-light/mihomo.conf` |
+| `ads-strict` | 再加恶意域名 | `.../configs/cn-mainland/ads-strict/mihomo.conf` |
 
 ## 常见问题
 
@@ -107,6 +107,11 @@ Shadowrocket 需要 `shadowrocket://config/add/...` 这种协议才会按配置�
 
 **扫码后没有节点？**
 本仓库只发规则，不提供节点。请在客户端里添加你自己的机场订阅，配置里只有一处占位符要改。
+
+**AI 还是直连？**
+先确认 `proxy-providers.airport.url` 已经换成你的订阅。再看节点名：如果节点全是香港/澳门/大陆，
+AI 组会被排除到空，mihomo 遇到空组会静默回落直连。这种情况下给机场提个工单，或手动在
+「🤖 AI 服务」里选一个美国/日本节点。
 
 **AI 为什么要单独一组？**
 OpenAI / Anthropic / Gemini 按出口 IP 判断地区，香港、澳门、大陆节点会被拒绝，所以 AI 组会

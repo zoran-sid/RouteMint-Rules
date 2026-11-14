@@ -18,6 +18,8 @@ dist/                   # 构建产物（CI 发布到 release 分支，不入 ma
 
 `sources/` 用 YAML 而不是纯文本，是为了让「为什么加/删这条」「适用于哪些地区」跟规则放在一起；
 `dist/` 与源码分离，`main` 只放源码，产物以单次提交推到 `release` 分支。
+所有对外配置统一用 `.conf` 后缀（mihomo 是 YAML 内容、sing-box 是 JSON 内容），
+避免不同客户端对扩展名的识别差异。
 
 ## 本地构建
 

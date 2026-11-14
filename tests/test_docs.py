@@ -29,7 +29,7 @@ def test_qr_codes_are_current(tmp_path: Path):
 
 
 def test_qr_payload_uses_client_scheme():
-    url = "https://cdn.jsdelivr.net/gh/o/r@release/configs/cn-mainland/ads-light/mihomo.yaml"
+    url = "https://cdn.jsdelivr.net/gh/o/r@release/configs/cn-mainland/ads-light/mihomo.conf"
     assert qr_payload("mihomo", url).startswith("clash://install-config?url=https%3A%2F%2F")
     assert qr_payload("loon", url).startswith("loon://import?sub=")
     assert qr_payload("surge", url).startswith("surge:///install-config?url=")
@@ -40,7 +40,7 @@ def test_qr_payload_uses_client_scheme():
 def test_config_url_points_at_release_branch():
     urls = {"jsdelivr": "https://cdn.jsdelivr.net/gh/o/r", "branch": "release"}
     assert config_url(urls, "overseas", "ads-light", "mihomo").endswith(
-        "/configs/overseas/ads-light/mihomo.yaml"
+        "/configs/overseas/ads-light/mihomo.conf"
     )
     assert "@release" in config_url(urls, "overseas", "ads-light", "mihomo")
 

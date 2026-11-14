@@ -15,9 +15,9 @@ def manifest(files: dict[str, str]) -> dict:
 
 
 def test_diff_detects_added_changed_and_removed():
-    current = manifest({"rules/a/a.list": "1", "configs/x/mihomo.yaml": "2"})
+    current = manifest({"rules/a/a.list": "1", "configs/x/mihomo.conf": "2"})
     previous = manifest({"rules/a/a.list": "1", "rules/b/b.list": "3"})
-    assert diff_files(current, previous) == ["configs/x/mihomo.yaml", "rules/b/b.list"]
+    assert diff_files(current, previous) == ["configs/x/mihomo.conf", "rules/b/b.list"]
 
 
 def test_content_change_only_counts_rules_and_configs():

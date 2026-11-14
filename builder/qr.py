@@ -16,12 +16,12 @@ from .build import load_distribution
 from .config import Paths
 
 CLIENT_FILES = {
-    "mihomo": "mihomo.yaml",
+    "mihomo": "mihomo.conf",
     "shadowrocket": "shadowrocket.conf",
     "surge": "surge.conf",
     "loon": "loon.conf",
     "quantumultx": "quantumultx.conf",
-    "singbox": "singbox.json",
+    "singbox": "singbox.conf",
 }
 
 

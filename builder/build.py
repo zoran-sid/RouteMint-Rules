@@ -338,7 +338,7 @@ def build(
                 "rules": {tier: preset_total(builds, preset, tier) for tier in ADS_TIERS},
                 "configs": {
                     client: f"configs/{preset.id}/{preset.ads}/{client}"
-                    for client in ("mihomo.yaml", "shadowrocket.conf")
+                    for client in ("mihomo.conf", "shadowrocket.conf")
                 },
             }
             for preset in presets

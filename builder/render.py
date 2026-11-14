@@ -29,13 +29,16 @@ SUB_PLACEHOLDERS = {
 # becoming a policy group on clients where that is allowed (QX).
 BUILTIN_POLICY = {"DIRECT": "direct", "REJECT": "reject"}
 
+# Every published config uses a .conf suffix so the subscription URL looks the
+# same regardless of the client; the content format is unchanged (mihomo = YAML,
+# sing-box = JSON).
 CLIENTS = {
-    "mihomo": "mihomo.yaml",
+    "mihomo": "mihomo.conf",
     "shadowrocket": "shadowrocket.conf",
     "surge": "surge.conf",
     "loon": "loon.conf",
     "quantumultx": "quantumultx.conf",
-    "singbox": "singbox.json",
+    "singbox": "singbox.conf",
 }
 
 # Client-specific file extensions; sing-box gets JSON, everyone else a conf/yaml.

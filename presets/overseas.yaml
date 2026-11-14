@@ -23,7 +23,7 @@ groups:
     tag: auto
     type: url-test
     use_providers: true
-    exclude_filter: "(?i)(中国|大陆|\\bcn\\b|china)"
+    exclude_filter: "(?i)(?:^|[^a-z])(?:中国|大陆|cn|china|上海|北京|广州|深圳|杭州|成都|南京|武汉|回国|🇨🇳)(?:[^a-z]|$)"
     interval: 300
 
   - name: "🤖 AI 服务"
@@ -32,15 +32,15 @@ groups:
     use_providers: true
     members:
       - "♻️ AI 自动选择"
+      - "🚀 节点选择"
       - "🎯 全球直连"
-    exclude_filter: "(?i)(香港|港|\\bhk\\b|hong ?kong|澳门|\\bmo\\b|macau|中国|大陆|\\bcn\\b|china|伊朗|\\bir\\b|朝鲜|\\bkp\\b|叙利亚|\\bsy\\b|古巴|\\bcu\\b|俄罗斯|\\bru\\b)"
+    exclude_filter: "(?i)(?:^|[^a-z])(?:香港|港|hong ?kong|hk|澳门|macau|macao|mo|中国|大陆|cn|china|伊朗|iran|ir|朝鲜|kp|叙利亚|sy|古巴|cu|俄罗斯|russia|moscow|ru|上海|北京|广州|深圳|杭州|成都|南京|武汉|回国|🇭🇰|🇲🇴|🇨🇳|🇮🇷|🇰🇵|🇸🇾|🇨🇺|🇷🇺)(?:[^a-z]|$)"
 
   - name: "♻️ AI 自动选择"
     tag: ai-auto
     type: url-test
     use_providers: true
-    filter: "(?i)(美国|\\bus\\b|united states|日本|\\bjp\\b|japan|新加坡|\\bsg\\b|singapore|台湾|\\btw\\b|taiwan|韩国|\\bkr\\b|korea|英国|\\buk\\b|united kingdom|德国|\\bde\\b|germany|荷兰|\\bnl\\b|netherlands|加拿大|\\bca\\b|canada|澳大利亚|\\bau\\b|australia|法国|\\bfr\\b|france)"
-    exclude_filter: "(?i)(香港|港|\\bhk\\b|hong ?kong|澳门|\\bmo\\b|macau|中国|大陆|\\bcn\\b|china|俄罗斯|\\bru\\b)"
+    exclude_filter: "(?i)(?:^|[^a-z])(?:香港|港|hong ?kong|hk|澳门|macau|macao|mo|中国|大陆|cn|china|伊朗|iran|ir|朝鲜|kp|叙利亚|sy|古巴|cu|俄罗斯|russia|moscow|ru|上海|北京|广州|深圳|杭州|成都|南京|武汉|回国|🇭🇰|🇲🇴|🇨🇳|🇮🇷|🇰🇵|🇸🇾|🇨🇺|🇷🇺)(?:[^a-z]|$)"
     interval: 300
 
   # 片源库按 IP 地区划分：想换区时在这里选对应地区节点。
@@ -51,6 +51,17 @@ groups:
     members:
       - "♻️ 自动选择"
       - "🎯 全球直连"
+    exclude_filter: "(?i)(?:^|[^a-z])(?:中国|大陆|cn|china|上海|北京|广州|深圳|杭州|成都|南京|武汉|回国|🇨🇳)(?:[^a-z]|$)"
+
+  # TikTok 按 IP 地区限定，香港/大陆/澳门节点会直接不可用。
+  - name: "🎬 TikTok"
+    tag: tiktok
+    type: select
+    use_providers: true
+    members:
+      - "♻️ 自动选择"
+      - "🎯 全球直连"
+    exclude_filter: "(?i)(?:^|[^a-z])(?:香港|港|hong ?kong|hk|澳门|macau|macao|mo|中国|大陆|cn|china|俄罗斯|russia|ru|上海|北京|广州|深圳|杭州|成都|南京|武汉|回国|🇭🇰|🇲🇴|🇨🇳|🇷🇺)(?:[^a-z]|$)"
 
   - name: "🎯 全球直连"
     tag: direct
@@ -84,6 +95,7 @@ rules:
   - {category: ai-others, policy: "🤖 AI 服务"}
   - {category: netflix, policy: "🌍 流媒体"}
   - {category: disney, policy: "🌍 流媒体"}
+  - {category: tiktok, policy: "🎬 TikTok"}
   - {category: max, policy: "🌍 流媒体"}
   - {category: primevideo, policy: "🌍 流媒体"}
   - {final: "🐟 漏网之鱼"}
