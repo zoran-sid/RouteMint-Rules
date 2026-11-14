@@ -1,0 +1,66 @@
+"""Generate the import QR codes used by the README.
+
+One image per preset x client, committed under ``docs/qr/`` so GitHub can render
+them without a third-party service.  CI regenerates them and fails if the
+committed files are stale.
+"""
+
+from __future__ import annotations
+
+import urllib.parse
+from pathlib import Path
+
+import segno
+
+from .build import load_distribution
+from .config import Paths
+
+CLIENT_FILES = {
+    "mihomo": "mihomo.yaml",
+    "shadowrocket": "shadowrocket.conf",
+    "surge": "surge.conf",
+    "loon": "loon.conf",
+    "quantumultx": "quantumultx.conf",
+    "singbox": "singbox.json",
+}
+
+
+def config_url(urls: dict, preset: str, tier: str, client: str) -> str:
+    return (
+        f"{urls['jsdelivr']}@{urls['branch']}/configs/{preset}/{tier}/{CLIENT_FILES[client]}"
+    )
+
+
+def qr_payload(client: str, url: str) -> str:
+    """Encode the client's own import scheme where one is documented.
+
+    Scanning with the client's built-in scanner always works with the plain
+    URL; the scheme variant additionally lets the system camera open the app.
+    """
+    encoded = urllib.parse.quote(url, safe="")
+    if client == "mihomo":
+        return f"clash://install-config?url={encoded}"
+    if client == "surge":
+        return f"surge:///install-config?url={encoded}"
+    if client == "loon":
+        return f"loon://import?sub={encoded}"
+    if client == "singbox":
+        return f"sing-box://import-remote-profile?url={encoded}"
+    return url
+
+
+def generate(paths: Paths, out: Path, presets: list[str] | None = None) -> list[Path]:
+    urls = load_distribution(paths)
+    preset_ids = presets or ["cn-mainland", "cn-mainland-lite", "overseas", "overseas-return"]
+    out.mkdir(parents=True, exist_ok=True)
+    written: list[Path] = []
+    for preset in preset_ids:
+        tier = "ads-light"
+        for client in CLIENT_FILES:
+            path = out / f"{preset}-{client}.png"
+            payload = qr_payload(client, config_url(urls, preset, tier, client))
+            segno.make(payload, error="m").save(
+                path, scale=5, border=2, dark="#111111", light="#ffffff"
+            )
+            written.append(path)
+    return written

@@ -49,6 +49,9 @@ def _parser() -> argparse.ArgumentParser:
     publish_cmd.add_argument("--changed-out", required=True)
     publish_cmd.add_argument("--changelog", default="CHANGELOG.md")
 
+    qr_cmd = sub.add_parser("qr", help="regenerate docs/qr/*.png import codes")
+    qr_cmd.add_argument("--out", default="docs/qr")
+
     purge_cmd = sub.add_parser("purge", help="purge changed files from the jsDelivr cache")
     purge_cmd.add_argument("--changed", required=True)
     purge_cmd.add_argument("--root", default=".")
@@ -71,6 +74,12 @@ def main(argv: list[str] | None = None) -> int:
                 Path(args.changed_out),
                 Path(args.changelog) if args.changelog else None,
             )
+        if args.command == "qr":
+            from .qr import generate
+
+            written = generate(paths, Path(args.out))
+            print(f"wrote {len(written)} QR codes to {args.out}")
+            return 0
         if args.command == "purge":
             from .publish import purge_from_changed
 

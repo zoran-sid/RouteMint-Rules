@@ -1,93 +1,41 @@
 # RouteMint-Rules
 
-Scene-based routing rules for mihomo / Clash, Shadowrocket, Sing-box, Surge, Loon and
-Quantumult X. One rule source, four ready-to-use presets: pick one, paste your airport
-subscription, done.
+Scene-based routing rules for mihomo / Clash, Shadowrocket, Surge, Loon, Quantumult X and
+sing-box. Pick a preset, scan the code, paste your own airport subscription.
 
-## Which preset?
+[![build](https://github.com/zoran-sid/RouteMint-Rules/actions/workflows/build.yml/badge.svg)](https://github.com/zoran-sid/RouteMint-Rules/actions/workflows/build.yml)
 
-| Where you are | What you need | Preset |
+> Rebuilt daily · every mihomo and sing-box config is load-tested · no nodes, no keys
+
+## Pick a preset
+
+| Preset | Who it is for | Import |
 |---|---|---|
-| Mainland China | CN sites direct; foreign services, AI and streaming proxied | `cn-mainland` |
-| Mainland China | same logic, minimal rule count for old devices | `cn-mainland-lite` |
-| Overseas | direct by default; only AI and some streaming proxied | `overseas` |
-| Overseas | access CN-only content (Bilibili region lock, NetEase Music, ...) | `overseas-return` |
+| `cn-mainland` | mainland China: CN direct, foreign proxied, AI on its own group | <img src="docs/qr/cn-mainland-mihomo.png" width="120"> |
+| `overseas` | abroad: direct by default, only AI and some streaming proxied | <img src="docs/qr/overseas-mihomo.png" width="120"> |
+| `overseas-return` | abroad, needs CN region-locked content via a return node | <img src="docs/qr/overseas-return-mihomo.png" width="120"> |
+| `cn-mainland-lite` | mainland China, minimal rule count for old devices | <img src="docs/qr/cn-mainland-lite-mihomo.png" width="120"> |
 
-Presets share the same categories; they differ only in policy groups, rule order and the
-FINAL fallback:
+Config URL prefix: `https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/`
+(`<preset>/<ads-off|ads-light|ads-strict>/<client>`).
 
-| Preset | FINAL order | Meaning |
+## Clients
+
+| Client | File | Node setup |
 |---|---|---|
-| `cn-mainland`, `cn-mainland-lite` | proxy → direct | unknown domains go through the proxy |
-| `overseas`, `overseas-return` | direct → proxy | unknown domains stay direct |
+| Clash / mihomo | `mihomo.yaml` | edit `proxy-providers.airport.url` |
+| Shadowrocket | `shadowrocket.conf` | add your subscription in the app |
+| Surge | `surge.conf` | edit the `policy-path=` URL |
+| Loon | `loon.conf` | edit `[Remote Proxy] Airport` |
+| Quantumult X | `quantumultx.conf` | edit `[server_remote] Airport` |
+| sing-box | `singbox.json` | merge `route` / `dns` / `rule_set` into your own outbounds |
 
-## Quick start
+Only mihomo can filter nodes by name (the AI group excludes HK / MO / CN nodes); see
+[docs/architecture.md](docs/architecture.md) for the per-client capability table.
 
-mihomo (Clash Verge Rev, Mihomo Party, ...):
+## Docs
 
-```text
-https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland/ads-light/mihomo.yaml
-```
-
-One-click:
-
-```text
-clash://install-config?url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fzoran-sid%2FRouteMint-Rules%40release%2Fconfigs%2Fcn-mainland%2Fads-light%2Fmihomo.yaml
-```
-
-Then replace `proxy-providers.airport.url` with your own subscription. The repository
-contains no node addresses, subscriptions or secrets — only placeholders.
-
-Shadowrocket — add this URL as a configuration:
-
-```text
-https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland/ads-light/shadowrocket.conf
-```
-
-Swap `cn-mainland` for any preset and `ads-light` for `ads-off` / `ads-strict` to pick
-another combination. The same path with `surge.conf`, `loon.conf`, `quantumultx.conf` or
-`singbox.json` serves the other clients; each file only contains a placeholder for your
-subscription.
-
-Per-client node filtering:
-
-| Client | Filter by node name | Note |
-|---|---|---|
-| mihomo | yes (`filter` + `exclude-filter`) | the only client with both allow- and deny-lists |
-| Surge | partial (`policy-regex-filter`) | allow-list only |
-| Loon | partial (`[Remote Filter]` NameRegex) | allow-list only |
-| Shadowrocket / Quantumult X / sing-box | no | pick nodes manually |
-
-Rule sets are published individually under `rules/<category>/` as `.mrs`, `.yaml`,
-`.list` (Surge family), `-qx.list` (Quantumult X), `.srs` / `.json` (sing-box).
-
-## Design notes
-
-- **Rule order is the routing contract**: private → reject → ai → streaming →
-  cn-region-locked → dev → game → telegram → apple/microsoft/google → proxy → cn →
-  cn-ip → FINAL.
-- **AI group excludes HK / MO / CN nodes** by regex, because OpenAI, Anthropic and Gemini
-  reject those exit IPs. Two filters (`filter` + `exclude-filter`) so a node name cannot
-  slip through both.
-- **DNS leak protection**: fake-ip mode, `nameserver-policy` with `rule-set:` keys, and
-  foreign DoH forced through the proxy group. Only `cn` / `private` resolve domestically.
-- **Lean output**: `.mrs` binary rule sets, suffix compaction (a `.cn` suffix removes
-  thousands of entries), IP collapsing, per-category budgets, and a 30% drop guard.
-- **`cn-mainland-lite`** skips categories whose policy equals FINAL, plus `proxy` and
-  `cn-ip6`: roughly 65% of the standard preset, ~12k rules with `ads-off`.
-- **Ad sources are MIT / Unlicense / CC0 only** (ShadowWhisperer, v2fly `@ads`,
-  AdGuard cname-trackers, urlhaus). Mainstream rule repos redistribute EasyList / AdGuard
-  derivatives under an MIT/GPL label; this repository does not. See the Chinese README for
-  the comparison table and the trade-off.
-
-## Develop
-
-```bash
-uv sync --frozen
-uv run python -m builder check
-uv run python -m builder build --mihomo-bin /path/to/mihomo \
-  --singbox-bin /path/to/sing-box --validate
-uv run pytest
-```
-
-Licensing of upstream data: see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+- [Rule order, categories, DNS](docs/architecture.md)
+- [Quality gates and publishing](docs/quality.md)
+- [Development, data sources, limitations](docs/development.md)
+- [Third-party licences](THIRD_PARTY_NOTICES.md)

@@ -114,8 +114,11 @@ def main(
 ) -> int:
     manifest = json.loads((dist / "manifest.json").read_text(encoding="utf-8"))
     prev = None
-    if previous and previous.is_file():
-        prev = json.loads(previous.read_text(encoding="utf-8"))
+    if previous and previous.is_file() and previous.stat().st_size:
+        try:
+            prev = json.loads(previous.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            prev = None
     info = changed_paths(manifest, prev)
     notes_out.write_text(release_notes(manifest, changelog, tag, info["changed"]), encoding="utf-8")
     changed_out.write_text(json.dumps(info, ensure_ascii=False, indent=2), encoding="utf-8")

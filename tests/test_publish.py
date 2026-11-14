@@ -48,3 +48,18 @@ def test_release_notes_include_preset_table_and_changelog(tmp_path: Path):
     assert "**cn**：10 → 12" in notes
     assert "2026-11-13" not in notes
     assert "rules/a/a.list" in notes
+
+
+def test_empty_previous_manifest_is_treated_as_first_run(tmp_path: Path):
+    from builder import publish
+
+    dist = tmp_path / "dist"
+    dist.mkdir()
+    manifest = {"generated_at": "2026-11-14T00:00:00Z", "categories": {}, "presets": {}, "files": {"rules/a/a.list": {"sha256": "1"}}}
+    (dist / "manifest.json").write_text(__import__("json").dumps(manifest), encoding="utf-8")
+    previous = tmp_path / "previous.json"
+    previous.write_text("", encoding="utf-8")
+    notes = tmp_path / "notes.md"
+    changed = tmp_path / "changed.json"
+    assert publish.main(dist, previous, "t", notes, changed, None) == 0
+    assert __import__("json").loads(changed.read_text())["content_changed"] is True

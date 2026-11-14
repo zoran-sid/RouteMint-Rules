@@ -359,7 +359,8 @@ def build(
     manifest["files"] = _file_hashes(paths.dist)
     write_manifest(paths.dist / "manifest.json", manifest)
     write_notices(paths.root / "THIRD_PARTY_NOTICES.md", upstreams.upstreams, urls["source_url"])
-    update_readme_table(paths.root / "README.md", builds)
+    for doc in (paths.root / "README.md", paths.root / "docs" / "architecture.md"):
+        update_readme_table(doc, builds)
     write_report(
         paths.dist / "build-report.md",
         builds=builds,
