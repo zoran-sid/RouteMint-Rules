@@ -44,6 +44,7 @@ uv run python -m builder build \
 
 ```bash
 python -m builder qr --out docs/qr   # 重新生成 README 的二维码
+# 二维码内容变了要给 README 里的图片地址加 ?v=N，否则 GitHub 图片代理会继续发旧图
 python -m builder publish --help     # 发布辅助（CI 用）
 ```
 

@@ -17,8 +17,8 @@
 
 <table>
 <tr>
-<td align="center"><img src="docs/qr/cn-mainland-mihomo.png" width="150" alt="Clash 扫码导入"><br>Clash / mihomo</td>
-<td align="center"><img src="docs/qr/cn-mainland-shadowrocket.png" width="150" alt="Shadowrocket 扫码导入"><br>Shadowrocket</td>
+<td align="center"><img src="docs/qr/cn-mainland-mihomo.png?v=2" width="150" alt="Clash 扫码导入"><br>Clash / mihomo</td>
+<td align="center"><img src="docs/qr/cn-mainland-shadowrocket.png?v=2" width="150" alt="Shadowrocket 扫码导入"><br>Shadowrocket</td>
 </tr>
 </table>
 
@@ -30,8 +30,8 @@
 
 <table>
 <tr>
-<td align="center"><img src="docs/qr/overseas-mihomo.png" width="150" alt="Clash 扫码导入"><br>Clash / mihomo</td>
-<td align="center"><img src="docs/qr/overseas-shadowrocket.png" width="150" alt="Shadowrocket 扫码导入"><br>Shadowrocket</td>
+<td align="center"><img src="docs/qr/overseas-mihomo.png?v=2" width="150" alt="Clash 扫码导入"><br>Clash / mihomo</td>
+<td align="center"><img src="docs/qr/overseas-shadowrocket.png?v=2" width="150" alt="Shadowrocket 扫码导入"><br>Shadowrocket</td>
 </tr>
 </table>
 
@@ -43,8 +43,8 @@
 
 <table>
 <tr>
-<td align="center"><img src="docs/qr/overseas-return-mihomo.png" width="150" alt="Clash 扫码导入"><br>Clash / mihomo</td>
-<td align="center"><img src="docs/qr/overseas-return-shadowrocket.png" width="150" alt="Shadowrocket 扫码导入"><br>Shadowrocket</td>
+<td align="center"><img src="docs/qr/overseas-return-mihomo.png?v=2" width="150" alt="Clash 扫码导入"><br>Clash / mihomo</td>
+<td align="center"><img src="docs/qr/overseas-return-shadowrocket.png?v=2" width="150" alt="Shadowrocket 扫码导入"><br>Shadowrocket</td>
 </tr>
 </table>
 
@@ -56,8 +56,8 @@
 
 <table>
 <tr>
-<td align="center"><img src="docs/qr/cn-mainland-lite-mihomo.png" width="150" alt="Clash 扫码导入"><br>Clash / mihomo</td>
-<td align="center"><img src="docs/qr/cn-mainland-lite-shadowrocket.png" width="150" alt="Shadowrocket 扫码导入"><br>Shadowrocket</td>
+<td align="center"><img src="docs/qr/cn-mainland-lite-mihomo.png?v=2" width="150" alt="Clash 扫码导入"><br>Clash / mihomo</td>
+<td align="center"><img src="docs/qr/cn-mainland-lite-shadowrocket.png?v=2" width="150" alt="Shadowrocket 扫码导入"><br>Shadowrocket</td>
 </tr>
 </table>
 
@@ -69,15 +69,15 @@
 
 | 客户端 | 扫码 | 地址 |
 |---|---|---|
-| Surge | <img src="docs/qr/cn-mainland-surge.png" width="120"> | `.../cn-mainland/ads-light/surge.conf` |
-| Loon | <img src="docs/qr/cn-mainland-loon.png" width="120"> | `.../cn-mainland/ads-light/loon.conf` |
+| Surge | <img src="docs/qr/cn-mainland-surge.png?v=2" width="120"> | `.../cn-mainland/ads-light/surge.conf` |
+| Loon | <img src="docs/qr/cn-mainland-loon.png?v=2" width="120"> | `.../cn-mainland/ads-light/loon.conf` |
 | Quantumult X | 手动导入 | `.../cn-mainland/ads-light/quantumultx.conf`（QX 不支持用 URL 导入整份配置，下载后在 App 里导入） |
-| sing-box | <img src="docs/qr/cn-mainland-singbox.png" width="120"> | `.../cn-mainland/ads-light/singbox.json` |
+| sing-box | <img src="docs/qr/cn-mainland-singbox.png?v=2" width="120"> | `.../cn-mainland/ads-light/singbox.json` |
 
 地址前缀统一是 `https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/`。
 
-二维码会直接以「配置」导入；如果被当成「订阅」，说明扫的是旧码或用了系统相机，
-请改用客户端内的扫码入口重新扫一次。
+二维码会直接以「配置」导入；如果被当成「订阅」，说明扫的是旧码（浏览器/App 缓存了旧图），
+请刷新本页，或改用客户端内的扫码入口重新扫一次。
 
 节点怎么填：
 
