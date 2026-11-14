@@ -2,7 +2,7 @@ id: overseas
 label: 身在海外
 tagline: 默认直连，只把 AI 与部分流媒体交给代理
 audience: 常驻海外，Google/YouTube 等本来就能直接访问
-summary: 默认全部直连；AI 服务走 AI 专用组；Netflix/Disney+/Max/Prime Video 走流媒体组（片源库可能需要换区）；其余流量直连，只有手动切换时才走代理。
+summary: 默认全部直连；AI 服务走 AI 专用组（按节点名排除香港/澳门/大陆等地区）；TikTok、Netflix、Disney+、Max、Prime Video 走各自的流媒体组；其余流量直连，只有手动切换时才走代理。
 order: 20
 ads: ads-light
 notes: |
