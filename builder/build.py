@@ -375,14 +375,19 @@ def build(
         generated_at=generated_at,
         liveness=liveness_report,
     )
-    write_changelog(
-        paths.root / "CHANGELOG.md",
-        builds=builds,
-        previous=previous,
-        previous_dist=previous_dist,
-        generated_at=generated_at,
-        presets=presets,
-    )
+    # Only rewrite the changelog when there is a previous release to diff
+    # against (CI) or when the file does not exist yet.  Local dev builds then
+    # never clobber the entry CI committed.
+    changelog = paths.root / "CHANGELOG.md"
+    if previous is not None or not changelog.exists():
+        write_changelog(
+            changelog,
+            builds=builds,
+            previous=previous,
+            previous_dist=previous_dist,
+            generated_at=generated_at,
+            presets=presets,
+        )
 
     result = BuildResult(
         categories=builds,
