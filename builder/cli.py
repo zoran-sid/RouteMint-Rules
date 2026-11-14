@@ -21,6 +21,7 @@ def _parser() -> argparse.ArgumentParser:
     build_cmd.add_argument("--refresh", action="store_true", help="ignore the fetch cache")
     build_cmd.add_argument("--offline", action="store_true", help="use snapshots only")
     build_cmd.add_argument("--mihomo-bin", help="path to the pinned mihomo binary")
+    build_cmd.add_argument("--singbox-bin", help="path to the pinned sing-box binary")
     build_cmd.add_argument(
         "--validate", action="store_true", help="run mihomo -t on every rendered config"
     )
@@ -56,12 +57,16 @@ def main(argv: list[str] | None = None) -> int:
         mihomo_bin = None
         if args.mihomo_bin:
             mihomo_bin = require_binary("mihomo", args.mihomo_bin)
+        singbox_bin = None
+        if args.singbox_bin:
+            singbox_bin = require_binary("sing-box", args.singbox_bin)
 
         result = build(
             paths,
             refresh=args.refresh,
             offline=args.offline,
             mihomo_bin=mihomo_bin,
+            singbox_bin=singbox_bin,
             validate=args.validate,
             previous_manifest=Path(args.previous_manifest) if args.previous_manifest else None,
             previous_dist=Path(args.previous_dist) if args.previous_dist else None,

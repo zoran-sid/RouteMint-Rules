@@ -26,12 +26,22 @@ def mihomo_bin() -> Path | None:
 
 
 @pytest.fixture(scope="session")
-def built(paths: Paths, mihomo_bin: Path | None) -> BuildResult:
+def singbox_bin() -> Path | None:
+    explicit = os.environ.get("ROUTEMINT_SINGBOX_BIN")
+    if explicit and Path(explicit).is_file():
+        return Path(explicit).resolve()
+    candidates = sorted((ROOT / ".cache" / "bin").glob("**/sing-box"))
+    return candidates[0].resolve() if candidates else None
+
+
+@pytest.fixture(scope="session")
+def built(paths: Paths, mihomo_bin: Path | None, singbox_bin: Path | None) -> BuildResult:
     """Build once per test session; the fetch cache makes this cheap."""
     return build(
         paths,
         offline=bool(os.environ.get("ROUTEMINT_OFFLINE")),
         mihomo_bin=mihomo_bin,
+        singbox_bin=singbox_bin,
     )
 
 

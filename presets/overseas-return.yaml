@@ -13,6 +13,7 @@ notes: |
 
 groups:
   - name: "🚀 节点选择"
+    tag: proxy
     type: select
     use_providers: true
     members:
@@ -20,12 +21,14 @@ groups:
       - "🎯 全球直连"
 
   - name: "♻️ 自动选择"
+    tag: auto
     type: url-test
     use_providers: true
     exclude_filter: "(?i)(中国|大陆|\\bcn\\b|china)"
     interval: 300
 
   - name: "🏠 回国"
+    tag: cn-return
     type: select
     use_providers: true
     filter: "(?i)(回国|中国|大陆|\\bcn\\b|china|cn2|上海|北京|广州|深圳|杭州|成都|南京|武汉)"
@@ -33,6 +36,7 @@ groups:
       - "🚀 节点选择"
 
   - name: "🤖 AI 服务"
+    tag: ai
     type: select
     use_providers: true
     members:
@@ -41,6 +45,7 @@ groups:
     exclude_filter: "(?i)(香港|港|\\bhk\\b|hong ?kong|澳门|\\bmo\\b|macau|中国|大陆|\\bcn\\b|china|伊朗|\\bir\\b|朝鲜|\\bkp\\b|叙利亚|\\bsy\\b|古巴|\\bcu\\b|俄罗斯|\\bru\\b)"
 
   - name: "♻️ AI 自动选择"
+    tag: ai-auto
     type: url-test
     use_providers: true
     filter: "(?i)(美国|\\bus\\b|united states|日本|\\bjp\\b|japan|新加坡|\\bsg\\b|singapore|台湾|\\btw\\b|taiwan|韩国|\\bkr\\b|korea|英国|\\buk\\b|united kingdom|德国|\\bde\\b|germany|荷兰|\\bnl\\b|netherlands|加拿大|\\bca\\b|canada|澳大利亚|\\bau\\b|australia|法国|\\bfr\\b|france)"
@@ -48,16 +53,19 @@ groups:
     interval: 300
 
   - name: "🎯 全球直连"
+    tag: direct
     type: select
     members:
       - DIRECT
 
   - name: "🛑 广告拦截"
+    tag: reject
     type: select
     members:
       - REJECT
 
   - name: "🐟 漏网之鱼"
+    tag: final
     type: select
     members:
       - "🎯 全球直连"

@@ -161,6 +161,7 @@ class Group:
     name: str
     type: str
     members: tuple[str, ...]
+    tag: str = ""
     use_providers: bool = False
     filter: str | None = None
     exclude_filter: str | None = None
@@ -387,6 +388,7 @@ def load_preset(path: Path, categories: dict[str, CategorySpec]) -> Preset:
         _require(isinstance(raw, dict), f"{where}: groups must be mappings")
         unknown = set(raw) - {
             "name",
+            "tag",
             "type",
             "members",
             "use_providers",
@@ -406,6 +408,7 @@ def load_preset(path: Path, categories: dict[str, CategorySpec]) -> Preset:
             Group(
                 name=str(raw["name"]),
                 type=gtype,
+                tag=str(raw.get("tag", "")),
                 members=tuple(str(m) for m in raw.get("members", [])),
                 use_providers=bool(raw.get("use_providers", False)),
                 filter=raw.get("filter"),

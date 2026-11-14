@@ -143,6 +143,7 @@ def build(
     refresh: bool = False,
     offline: bool = False,
     mihomo_bin: Path | None = None,
+    singbox_bin: Path | None = None,
     validate: bool = False,
     previous_manifest: Path | None = None,
     previous_dist: Path | None = None,
@@ -295,10 +296,16 @@ def build(
     generated_at = _now().isoformat(timespec="seconds")
     urls = load_distribution(paths)
     artifacts = write_rule_artifacts(
-        paths, builds, urls, mihomo_bin, violations, warnings, budgets.files_kb
+        paths, builds, urls, mihomo_bin, singbox_bin, violations, warnings, budgets.files_kb
     )
     config_checks = render_client_configs(
-        paths, presets, builds, urls, generated_at, mihomo_bin=mihomo_bin
+        paths,
+        presets,
+        builds,
+        urls,
+        generated_at,
+        mihomo_bin=mihomo_bin,
+        singbox_bin=singbox_bin,
     )
     if validate and mihomo_bin is None:
         violations.append("--validate requested but no mihomo binary was provided")
@@ -395,6 +402,7 @@ def write_rule_artifacts(
     builds: dict[str, CategoryBuild],
     urls: dict,
     mihomo_bin: Path | None,
+    singbox_bin: Path | None,
     violations: list[str],
     warnings: list[str],
     file_limit_kb: int = 20480,
@@ -409,6 +417,9 @@ def write_rule_artifacts(
             path = folder / f"{cid}.list"
             emit.write_text(path, emit.surge_list(item.rules, title))
             files["surge"] = f"rules/{cid}/{cid}.list"
+            qx = folder / f"{cid}-qx.list"
+            emit.write_text(qx, emit.quantumultx_list(item.rules, title))
+            files["quantumultx"] = f"rules/{cid}/{cid}-qx.list"
         if item.domain_rules:
             path = folder / f"{cid}.yaml"
             emit.write_text(path, emit.mihomo_domain_yaml(item.domain_rules, title))
@@ -426,6 +437,20 @@ def write_rule_artifacts(
                 mrs = folder / f"{cid}{suffix}.mrs"
                 converter.to_mrs("ipcidr", path, mrs)
                 files["mihomo_ip_mrs"] = f"rules/{cid}/{cid}{suffix}.mrs"
+        if item.rules:
+            source = emit.singbox_source_json(item.rules)
+            sb_json = folder / f"{cid}.json"
+            sb_json.write_text(
+                json.dumps(source, ensure_ascii=False) + "\n", encoding="utf-8"
+            )
+            files["singbox_source"] = f"rules/{cid}/{cid}.json"
+            if singbox_bin:
+                try:
+                    emit.compile_srs(singbox_bin, source, folder / f"{cid}.srs")
+                    files["singbox"] = f"rules/{cid}/{cid}.srs"
+                except emit.EmitError as exc:
+                    violations.append(f"{cid}: sing-box compile failed: {exc}")
+
         artifacts[cid] = {
             "files": files,
             "jsdelivr": {k: f"{urls['jsdelivr']}@{urls['branch']}/{v}" for k, v in files.items()},

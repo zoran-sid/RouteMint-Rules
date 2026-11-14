@@ -1,0 +1,26 @@
+#!MANAGED-CONFIG {{ config_url }} interval=86400
+# RouteMint-Rules · {{ preset.label }} · {{ tier }}
+# 由 builder 自动生成，请勿手工编辑。
+#
+# 节点：Surge 没有「配置内订阅」这一节，用 policy-path 引入你的机场订阅（Surge 格式）。
+#       只需把下面 Airport 那一行的 URL 换成你的订阅地址；本文件不含节点与密钥。
+# 规则来自 RULE-SET，策略由本文件的策略组决定。
+# 文档：https://manual.nssurge.com/policy-groups/policy-including.html
+
+[General]
+loglevel = notify
+ipv6 = false
+dns-server = 223.5.5.5, 119.29.29.29
+proxy-test-url = http://www.gstatic.com/generate_204
+skip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, 127.0.0.1, localhost, *.local
+exclude-simple-hostnames = true
+
+[Proxy Group]
+{% for line in surge.groups %}
+{{ line }}
+{% endfor %}
+
+[Rule]
+{% for line in surge.rules %}
+{{ line }}
+{% endfor %}

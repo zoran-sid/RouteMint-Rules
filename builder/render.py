@@ -11,14 +11,40 @@ from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
+import json
+
 from . import emit
 from .spec import ADS_TIERS, Preset, categories_for
 
 SUBSCRIPTION_PLACEHOLDER = "https://sub.example.com/api/v1/client/subscribe?token=YOUR_TOKEN"
+SUB_PLACEHOLDERS = {
+    "mihomo": SUBSCRIPTION_PLACEHOLDER,
+    "surge": SUBSCRIPTION_PLACEHOLDER + "&flag=surge",
+    "loon": SUBSCRIPTION_PLACEHOLDER + "&flag=loon",
+    "quantumultx": SUBSCRIPTION_PLACEHOLDER + "&flag=quantumultx",
+    "singbox": SUBSCRIPTION_PLACEHOLDER,
+}
+
+# Groups whose only member is a built-in policy map to that built-in instead of
+# becoming a policy group on clients where that is allowed (QX).
+BUILTIN_POLICY = {"DIRECT": "direct", "REJECT": "reject"}
 
 CLIENTS = {
     "mihomo": "mihomo.yaml",
     "shadowrocket": "shadowrocket.conf",
+    "surge": "surge.conf",
+    "loon": "loon.conf",
+    "quantumultx": "quantumultx.conf",
+    "singbox": "singbox.json",
+}
+
+# Client-specific file extensions; sing-box gets JSON, everyone else a conf/yaml.
+TEMPLATE_EXT = {
+    "mihomo": "yaml",
+    "shadowrocket": "conf",
+    "surge": "conf",
+    "loon": "conf",
+    "quantumultx": "conf",
 }
 
 # Categories whose domains are resolved by a domestic resolver.  Everything
@@ -54,6 +80,7 @@ def build_context(preset: Preset, tier: str, builds: dict, urls: dict, generated
     groups = [
         {
             "name": group.name,
+            "tag": group.tag,
             "type": group.type,
             "members": list(group.members),
             "use_providers": group.use_providers,
@@ -136,6 +163,120 @@ def build_context(preset: Preset, tier: str, builds: dict, urls: dict, generated
             },
         )
 
+    builtin = {
+        group["name"]: BUILTIN_POLICY[group["members"][0]]
+        for group in groups
+        if len(group["members"]) == 1 and group["members"][0] in BUILTIN_POLICY
+    }
+    # QX policy groups are flat: members are servers from the subscription, and
+    # nesting another group is not documented, so every non-built-in group is
+    # built from the airport resource instead of listing members.
+    qx_policies = [
+        {"name": group["name"], "type": group["type"], "interval": group["interval"]}
+        for group in groups
+        if group["name"] not in builtin
+    ]
+    qx_filters = [
+        {
+            "url": entry.list_url,
+            "tag": entry.tag,
+            "policy": builtin.get(entry.policy, entry.policy),
+        }
+        for entry in sr_entries
+        if entry.kind == "ruleset"
+    ]
+    qx_inline = [
+        {
+            "text": entry.text.replace("DOMAIN-KEYWORD,", "host-keyword, ", 1),
+            "policy": builtin.get(entry.policy, entry.policy),
+        }
+        for entry in sr_entries
+        if entry.kind == "inline"
+    ]
+    surge_lines: list[str] = [
+        f"Airport = select, policy-path={SUB_PLACEHOLDERS['surge']}, "
+        "update-interval=86400, no-alert=true, hidden=true"
+    ]
+    loon_filters: list[str] = []
+    loon_groups: list[str] = []
+
+    for group in groups:
+        name, gtype = group["name"], group["type"]
+        members = list(group["members"])
+        surge = f"{name} = {gtype}"
+        loon = f"{name} = {gtype}"
+        if group["use_providers"]:
+            surge += ", include-other-group=Airport"
+            if group["filter"]:
+                surge += f', policy-regex-filter="{group["filter"]}"'
+                filter_name = f"f-{group['tag'] or name}"
+                loon_filters.append(
+                    f"{filter_name} = NameRegex,Airport,FilterKey = {group['filter']}"
+                )
+                loon += f", {filter_name}"
+            else:
+                loon += ", Airport"
+        for member in members:
+            surge += f", {member}"
+            loon += f", {member}"
+        if gtype != "select":
+            surge += f", url={group['test_url']}, interval={group['interval']}"
+            loon += f", url={group['test_url']}, interval={group['interval']}"
+        surge_lines.append(surge)
+        loon_groups.append(loon)
+
+    surge_rules: list[str] = []
+    loon_remote_rules: list[str] = []
+    loon_rules: list[str] = []
+    qx_filter_remote: list[str] = []
+    qx_filter_local: list[str] = []
+    for entry in sr_entries:
+        if entry.kind == "ruleset":
+            surge_rules.append(f"RULE-SET,{entry.list_url},{entry.policy}")
+            loon_remote_rules.append(f"{entry.list_url},policy={entry.policy},enabled=true")
+            qx_filter_remote.append(
+                f"{entry.list_url}, tag={entry.tag}, "
+                f"force-policy={builtin.get(entry.policy, entry.policy)}, enabled=true"
+            )
+        elif entry.kind == "inline":
+            surge_rules.append(entry.text)
+            loon_rules.append(entry.text)
+            qx_filter_local.append(
+                f"{entry.text.rsplit(',', 1)[0]}, {builtin.get(entry.policy, entry.policy)}"
+            )
+        else:
+            surge_rules.append(f"FINAL,{entry.policy}")
+            loon_rules.append(f"FINAL,{entry.policy}")
+
+    qx_policy_lines: list[str] = []
+    for policy in qx_policies:
+        if policy["type"] == "select":
+            qx_policy_lines.append(f"static = {policy['name']}, resource-tag-regex=^Airport$")
+        else:
+            qx_policy_lines.append(
+                f"url-latency-benchmark = {policy['name']}, resource-tag-regex=^Airport$, "
+                f"check-interval={policy['interval']}, tolerance=0"
+            )
+
+    final_policy = preset.rules[-1].final
+    final_group = next((g for g in groups if g["name"] == final_policy), None)
+    final_first = final_group["members"][0] if final_group and final_group["members"] else ""
+    qx_final = builtin.get(final_first, final_policy)
+    surge_groups = [
+        {
+            "name": group["name"],
+            "type": group["type"],
+            "members": [m for m in group["members"] if m not in BUILTIN_POLICY] + [
+                m for m in group["members"] if m in BUILTIN_POLICY
+            ],
+            "use_providers": group["use_providers"],
+            "policy_filter": group["filter"] if group["use_providers"] else None,
+            "test_url": group["test_url"],
+            "interval": group["interval"],
+        }
+        for group in groups
+    ]
+
     return {
         "preset": preset,
         "tier": tier,
@@ -146,9 +287,119 @@ def build_context(preset: Preset, tier: str, builds: dict, urls: dict, generated
         "sr_rule_entries": sr_entries,
         "dns_policy": dns_policy,
         "subscription_placeholder": SUBSCRIPTION_PLACEHOLDER,
+        "sub_placeholders": SUB_PLACEHOLDERS,
         "urls": urls,
         "config_url": "",
         "rules_total": sum(builds[cid].counts["total"] for cid in categories),
+        "sb": _singbox_model(preset, groups, categories, builds, urls),
+        "surge_groups": surge_groups,
+        "surge": {"groups": surge_lines, "rules": surge_rules},
+        "loon": {
+            "filters": loon_filters,
+            "groups": loon_groups,
+            "remote_rules": loon_remote_rules,
+            "rules": loon_rules,
+        },
+        "qx": {
+            "policies": qx_policies,
+            "filters": qx_filters,
+            "inline": qx_inline,
+            "final": qx_final,
+            "policy_lines": qx_policy_lines,
+            "filter_remote": qx_filter_remote,
+            "filter_local": qx_filter_local,
+            "sub": SUB_PLACEHOLDERS["quantumultx"],
+        },
+    }
+
+
+SINGBOX_RESERVED = {"direct", "block", "airport"}
+
+
+def _group_tag(group: dict, index: int) -> str:
+    tag = group["tag"] or f"g{index + 1}"
+    # `direct` / `block` / `airport` are outbound tags we always emit ourselves.
+    return f"g-{tag}" if tag in SINGBOX_RESERVED else tag
+
+
+def _singbox_model(preset: Preset, groups: list[dict], categories: list[str], builds: dict, urls: dict) -> dict:
+    """sing-box config model.
+
+    sing-box has no node-name regex filter, so the AI group cannot exclude
+    regions automatically on this client; that is documented in the README.
+    The outbound list contains a placeholder SOCKS outbound because a sing-box
+    config must be syntactically complete while never containing real nodes.
+    """
+    policy_tag: dict[str, str] = {}
+    for index, group in enumerate(groups):
+        policy_tag[group["name"]] = _group_tag(group, index)
+    policy_tag["DIRECT"] = "direct"
+    policy_tag["REJECT"] = "block"
+
+    outbounds: list[dict] = []
+    for index, group in enumerate(groups):
+        members: list[str] = []
+        for member in group["members"]:
+            tag = policy_tag.get(member, "direct")
+            if tag not in members:
+                members.append(tag)
+        if group["use_providers"]:
+            members.append("airport")
+        if not members:
+            members = ["airport"]
+        entry: dict = {"type": "selector" if group["type"] == "select" else "urltest",
+                       "tag": _group_tag(group, index), "outbounds": members}
+        if group["type"] == "select":
+            entry["default"] = members[0]
+        else:
+            entry["url"] = group["test_url"]
+            entry["interval"] = f"{group['interval']}s"
+        outbounds.append(entry)
+
+    outbounds += [
+        {"type": "socks", "tag": "airport", "server": "127.0.0.1", "server_port": 1080},
+        {"type": "direct", "tag": "direct"},
+        {"type": "block", "tag": "block"},
+    ]
+
+    rule_sets: list[dict] = []
+    route_rules: list[dict] = [
+        {"action": "sniff"},
+        {"protocol": "dns", "action": "hijack-dns"},
+    ]
+    dns_rules: list[dict] = []
+    foreign: list[str] = []
+    domestic: list[str] = []
+
+    for ref in preset.rules:
+        if ref.final or ref.category not in categories:
+            continue
+        item = builds[ref.category]
+        tag = f"rs-{ref.category}"
+        if item.domain_rules or item.ip_rules:
+            rule_sets.append(
+                {
+                    "type": "remote",
+                    "tag": tag,
+                    "format": "binary",
+                    "url": f"{urls['jsdelivr']}@{urls['branch']}/rules/{ref.category}/{ref.category}.srs",
+                    "download_detour": "proxy",
+                }
+            )
+            route_rules.append({"rule_set": tag, "outbound": policy_tag[ref.policy or "DIRECT"]})
+        if item.domain_rules:
+            (domestic if ref.category in DOMESTIC_CATEGORIES else foreign).append(tag)
+
+    return {
+        "dns_detour": policy_tag[proxy_group_name(preset)],
+        "outbounds": outbounds,
+        "rule_sets": rule_sets,
+        "rules": route_rules,
+        "dns_rules": (
+            ([{"rule_set": domestic, "server": "domestic"}] if domestic else [])
+            + ([{"rule_set": foreign, "server": "remote"}] if foreign else [])
+        ),
+        "final": policy_tag[preset.rules[-1].final],
     }
 
 
@@ -180,6 +431,48 @@ def _provider(
     }
 
 
+def singbox_config(context: dict) -> dict:
+    sb = context["sb"]
+    return {
+        "log": {"level": "info", "timestamp": True},
+        "dns": {
+            "servers": [
+                {
+                    "type": "https",
+                    "tag": "domestic",
+                    "server": "dns.alidns.com",
+                    "detour": "direct",
+                },
+                {
+                    "type": "https",
+                    "tag": "remote",
+                    "server": "1.1.1.1/dns-query",
+                    "detour": sb["dns_detour"],
+                },
+            ],
+            "rules": sb["dns_rules"],
+            "final": "domestic",
+            "strategy": "prefer_ipv4",
+        },
+        "inbounds": [
+            {
+                "type": "tun",
+                "tag": "tun-in",
+                "address": ["172.19.0.1/30"],
+                "auto_route": True,
+                "strict_route": True,
+            }
+        ],
+        "outbounds": sb["outbounds"],
+        "route": {
+            "rules": sb["rules"],
+            "rule_set": sb["rule_sets"],
+            "final": sb["final"],
+            "default_domain_resolver": {"server": "domestic"},
+        },
+    }
+
+
 def render_client_configs(
     paths,
     presets: list[Preset],
@@ -187,6 +480,7 @@ def render_client_configs(
     urls: dict,
     generated_at: str,
     mihomo_bin: Path | None = None,
+    singbox_bin: Path | None = None,
 ) -> list[dict]:
     env = Environment(
         loader=FileSystemLoader(str(paths.templates)),
@@ -205,17 +499,25 @@ def render_client_configs(
                 context["config_url"] = (
                     f"{urls['jsdelivr']}@{urls['branch']}/configs/{preset.id}/{tier}/{filename}"
                 )
-                extension = filename.split(".")[-1]
-                template = env.get_template(f"{client}/config.{extension}.j2")
-                text = template.render(**context, client=client, filename=filename)
-                emit.write_text(folder / filename, text)
+                if client == "singbox":
+                    text = json.dumps(singbox_config(context), ensure_ascii=False, indent=2) + "\n"
+                    emit.write_text(folder / filename, text)
+                else:
+                    extension = TEMPLATE_EXT[client]
+                    template = env.get_template(f"{client}/config.{extension}.j2")
+                    text = template.render(**context, client=client, filename=filename)
+                    emit.write_text(folder / filename, text)
                 if client == "mihomo" and mihomo_bin is not None:
                     ok, output = emit.Converter(mihomo_bin).test_config(folder / filename)
-                    checks.append(
-                        {
-                            "file": f"configs/{preset.id}/{tier}/{filename}",
-                            "ok": ok,
-                            "output": output,
-                        }
-                    )
+                elif client == "singbox" and singbox_bin is not None:
+                    ok, output = emit.test_singbox_config(singbox_bin, folder / filename)
+                else:
+                    continue
+                checks.append(
+                    {
+                        "file": f"configs/{preset.id}/{tier}/{filename}",
+                        "ok": ok,
+                        "output": output,
+                    }
+                )
     return checks

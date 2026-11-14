@@ -49,6 +49,26 @@ def surge_list(rules: list[Rule], title: str) -> str:
     return "\n".join(lines) + "\n"
 
 
+def quantumultx_list(rules: list[Rule], title: str) -> str:
+    """Quantumult X remote filter.
+
+    Grammar (official sample): ``host,`` / ``host-suffix,`` / ``host-keyword,``
+    / ``ip-cidr,`` / ``ip6-cidr,`` with NO policy column — the policy is set by
+    the ``[filter_remote]`` line that references this file.
+    Docs: https://github.com/crossutility/Quantumult-X/blob/master/sample.conf
+    """
+    kind = {
+        RuleType.DOMAIN: "host",
+        RuleType.DOMAIN_SUFFIX: "host-suffix",
+        RuleType.DOMAIN_KEYWORD: "host-keyword",
+        RuleType.IP_CIDR: "ip-cidr",
+        RuleType.IP_CIDR6: "ip6-cidr",
+    }
+    lines = [_header(title, len(rules)).rstrip("\n")]
+    lines += [f"{kind[rule.type]}, {rule.value}" for rule in rules]
+    return "\n".join(lines) + "\n"
+
+
 def mihomo_domain_yaml(rules: list[Rule], title: str) -> str:
     """mihomo domain-behaviour rule-provider.
 
@@ -109,6 +129,17 @@ def validate_with_mihomo(binary: Path, configs: list[Path]) -> list[tuple[Path, 
     return [(path, *converter.test_config(path)) for path in configs]
 
 
+def test_singbox_config(binary: Path, config: Path) -> tuple[bool, str]:
+    """``sing-box check`` validates structure only; it does not fetch rule-sets."""
+    result = subprocess.run(
+        [str(binary), "check", "-c", str(config)],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    return result.returncode == 0, (result.stdout + result.stderr).strip()
+
+
 def validate_with_singbox(binary: Path, configs: list[Path]) -> list[tuple[Path, bool, str]]:
     """``sing-box check -c``; does not fetch remote rule-sets by design."""
     results = []
@@ -139,22 +170,30 @@ def singbox_source_json(rules: list[Rule]) -> dict:
         headless["domain_suffix"] = suffixes
     if keywords:
         headless["domain_keyword"] = keywords
+    rules_out: list[dict] = []
+    if headless:
+        rules_out.append(headless)
     if cidrs:
-        headless["ip_cidr"] = cidrs
-    return {"version": 5, "rules": [headless] if headless else []}
+        rules_out.append({"ip_cidr": cidrs})
+    return {"version": 5, "rules": rules_out}
 
 
-def compile_srs(binary: Path, source: dict, target: Path, tmpdir: Path) -> None:
+def compile_srs(binary: Path, source: dict, target: Path) -> None:
     import json
 
-    tmp_json = Path(tempfile.mkstemp(suffix=".json", dir=tmpdir)[1])
-    tmp_json.write_text(json.dumps(source, ensure_ascii=False), encoding="utf-8")
-    result = subprocess.run(
-        [str(binary), "rule-set", "compile", "--output", str(target), str(tmp_json)],
-        capture_output=True,
-        text=True,
-        check=False,
-    )
+    handle, name = tempfile.mkstemp(suffix=".json", prefix="routemint-srs-")
+    tmp_json = Path(name)
+    try:
+        with open(handle, "w", encoding="utf-8") as stream:
+            json.dump(source, stream, ensure_ascii=False)
+        result = subprocess.run(
+            [str(binary), "rule-set", "compile", "--output", str(target), str(tmp_json)],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+    finally:
+        tmp_json.unlink(missing_ok=True)
     if result.returncode != 0 or not target.is_file():
         raise EmitError(f"sing-box compile failed: {result.stderr.strip()}")
 

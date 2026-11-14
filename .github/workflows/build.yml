@@ -26,6 +26,7 @@ concurrency:
 
 env:
   MIHOMO_VERSION: v1.19.34
+  SINGBOX_VERSION: "1.14.4"
   UV_CACHE_DIR: .cache/uv
 
 jobs:
@@ -55,7 +56,7 @@ jobs:
           restore-keys: |
             upstreams-
 
-      - name: Install pinned mihomo
+      - name: Install pinned mihomo and sing-box
         run: |
           set -euo pipefail
           mkdir -p bin
@@ -63,14 +64,21 @@ jobs:
             "https://github.com/MetaCubeX/mihomo/releases/download/${MIHOMO_VERSION}/mihomo-linux-amd64-${MIHOMO_VERSION}.gz"
           gunzip -c /tmp/mihomo.gz > bin/mihomo
           chmod +x bin/mihomo
+          curl -fsSL -o /tmp/singbox.tar.gz \
+            "https://github.com/SagerNet/sing-box/releases/download/v${SINGBOX_VERSION}/sing-box-${SINGBOX_VERSION}-linux-amd64.tar.gz"
+          tar -xzf /tmp/singbox.tar.gz -C /tmp
+          mv "/tmp/sing-box-${SINGBOX_VERSION}-linux-amd64/sing-box" bin/sing-box
+          chmod +x bin/sing-box
+          bin/sing-box version
           bin/mihomo -v
 
       - name: Build and validate
-        run: uv run python -m builder build --mihomo-bin "$PWD/bin/mihomo" --validate
+        run: uv run python -m builder build --mihomo-bin "$PWD/bin/mihomo" --singbox-bin "$PWD/bin/sing-box" --validate
 
       - name: Test
         env:
           ROUTEMINT_MIHOMO_BIN: ${{ github.workspace }}/bin/mihomo
+          ROUTEMINT_SINGBOX_BIN: ${{ github.workspace }}/bin/sing-box
         run: uv run pytest
 
       - name: Upload dist

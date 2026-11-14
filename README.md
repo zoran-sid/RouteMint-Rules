@@ -35,18 +35,48 @@ clash://install-config?url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fzoran-sid%2FRou
 > 规则集以 `.mrs`（mihomo 二进制格式）分发，比 YAML 文本省内存、加载更快。
 > 客户端不支持 `.mrs` 时，把 `format: mrs` 改成 `format: yaml` 并换用同目录 `.yaml` 链接。
 
-### Shadowrocket
+### 其他客户端
 
-```text
-https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland/ads-light/shadowrocket.conf
-```
+同一个预设、同一个档位，换文件名就是换客户端（以 `cn-mainland` + `ads-light` 为例）：
 
-在 Shadowrocket「配置 → 添加配置」里粘贴该地址。节点请另行添加机场订阅，
-配置里的 `PROXY` 指你当前选中的代理；`update-url` 会让它每天自动拉新版。
+| 客户端 | 配置文件 | 地址后缀 | 一键导入 / 说明 |
+|---|---|---|---|
+| Clash / mihomo | `mihomo.yaml` | `mihomo.yaml` | `clash://install-config?url=<编码后的地址>` |
+| Shadowrocket | `shadowrocket.conf` | `shadowrocket.conf` | 配置 → 添加配置 → 粘贴地址 |
+| Surge | `surge.conf` | `surge.conf` | `surge:///install-config?url=<编码后的地址>` |
+| Loon | `loon.conf` | `loon.conf` | `loon://import?sub=<编码后的地址>` |
+| Quantumult X | `quantumultx.conf` | `quantumultx.conf` | 手动导入配置文件（见下方说明） |
+| sing-box | `singbox.json` | `singbox.json` | `sing-box://import-remote-profile?url=<编码后的地址>` |
 
-**已知限制**：Shadowrocket 的远程配置不支持按节点名正则过滤，所以「AI 组自动排除
-香港/澳门/大陆节点」「回国组自动筛选国内节点」只在 mihomo 配置里生效。
-Shadowrocket 上需要你手动在对应组里选节点。
+各客户端的节点如何填：
+
+- **mihomo**：改 `proxy-providers.airport.url`；
+- **Surge**：改策略组里唯一一行 `Airport = select, policy-path=...` 的 URL（Surge 没有配置内订阅段）；
+- **Loon**：改 `[Remote Proxy]` 里 `Airport = ...` 的 URL；
+- **Quantumult X**：改 `[server_remote]` 里 `Airport` 那一行；
+- **sing-box**：完整配置必须自带 outbounds，本文件用 `127.0.0.1:1080` 的 SOCKS 占位。
+  正确用法是把 `route` / `dns` / `rule_set` 三段合并进你由订阅生成的配置，或直接把
+  `airport` 出站替换成你的节点出站。规则集本身（`.srs`）可以直接引用，不需要改。
+
+Quantumult X 还有一个限制：它不支持整份远程配置自动更新，只有 `[server_remote]` /
+`[filter_remote]` 会自己刷新。想一键更新规则可以用官方的
+`quantumult-x:///update-configuration?remote-resource=<URL 编码的 JSON>`，JSON 里放
+`{"filter_remote":[...]}`，具体字段见 QX 官方 `url-scheme.md`。
+
+### 客户端能力差异
+
+同样是「AI 组排除香港/澳门/大陆节点」，各客户端能做到的程度不同：
+
+| 客户端 | 按节点名过滤 | 说明 |
+|---|---|---|
+| mihomo | ✅ `filter` + `exclude-filter` | 唯一能做到「正向包含 + 反向排除」双保险 |
+| Surge | ⚠️ `policy-regex-filter` | 只能正向筛选；节点名写成「HK-US」这种混合名时可能漏过 |
+| Loon | ⚠️ `[Remote Filter]` NameRegex | 同上 |
+| Shadowrocket | ❌ | 远程配置没有节点名过滤，需手动选节点 |
+| Quantumult X | ❌ | 策略组只能按订阅资源/服务器标签划分 |
+| sing-box | ❌ | 策略组没有按名字过滤的参数 |
+
+这一列是产品取舍：客户端不提供的功能，本仓库不会用「看似支持」的写法去糊弄。
 
 ### 全部订阅地址
 
@@ -223,6 +253,9 @@ AI 单独留一组，是因为它需要按节点名排除地区，FINAL 做不�
 | mihomo `.mrs` | `rules/ai/ai.mrs` | mihomo（推荐，二进制、省内存） |
 | mihomo `.yaml` | `rules/ai/ai.yaml` | mihomo（domain behavior） |
 | 通用 `.list` | `rules/ai/ai.list` | Surge / Shadowrocket / Loon |
+| QX `.list` | `rules/ai/ai-qx.list` | Quantumult X（`host-suffix, xxx` 语法，无策略列） |
+| sing-box `.srs` | `rules/ai/ai.srs` | sing-box（二进制规则集） |
+| sing-box `.json` | `rules/ai/ai.json` | sing-box 源格式（version 5），便于自行编译 |
 
 完整前缀：`https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/`。
 
@@ -275,11 +308,18 @@ uv run python -m builder build          # 构建到 dist/
 uv run pytest                           # 单测 + 产物冒烟测试
 ```
 
-校验生成的 mihomo 配置（需要本地 mihomo 二进制）：
+校验生成的配置（需要本地 mihomo / sing-box 二进制）：
 
 ```bash
-uv run python -m builder build --mihomo-bin /path/to/mihomo --validate
+uv run python -m builder build \
+  --mihomo-bin /path/to/mihomo \
+  --singbox-bin /path/to/sing-box \
+  --validate
 ```
+
+`--validate` 会对 24 份配置执行 `mihomo -t`（mihomo）与 `sing-box check`（sing-box）。
+Surge / Loon / Quantumult X 没有可脚本化的校验器，改为在 `tests/test_dist.py` 里做结构断言
+（段落、结尾 FINAL、URL 白名单、无凭据）。
 
 上游数据缓存在 `.cache/upstreams/`，单个上游失败时沿用上一次成功的快照并在报告里标注，
 不会产出空文件。`--offline` 完全使用快照。
@@ -306,8 +346,8 @@ urlhaus-filter（CC0 数据）。AdGuard 与 EasyList 因 GPL / CC-BY-SA 与本�
 
 - [x] 阶段一：核心分类、mihomo + Shadowrocket、`cn-mainland`、每日 CI
 - [x] 阶段二：流媒体/开发者/游戏/大厂/回国分类，`overseas`、`overseas-return`、`cn-mainland-lite`
-- [ ] 阶段三：Surge / Loon / Quantumult X / sing-box 的规则与配置输出
-- [ ] 阶段四：失效域名抽检、CHANGELOG 自动提交、GitHub Release、README 表格自动更新
+- [x] 阶段三：Surge / Loon / Quantumult X / sing-box 的规则与配置输出
+- [ ] 阶段四：失效域名抽检、CHANGELOG 自动提交、GitHub Release、release 分支发布
 
 已知限制：
 

@@ -45,8 +45,21 @@ https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainlan
 ```
 
 Swap `cn-mainland` for any preset and `ads-light` for `ads-off` / `ads-strict` to pick
-another combination. Rule sets are also published individually under `rules/<category>/`
-as `.mrs`, `.yaml` and `.list`.
+another combination. The same path with `surge.conf`, `loon.conf`, `quantumultx.conf` or
+`singbox.json` serves the other clients; each file only contains a placeholder for your
+subscription.
+
+Per-client node filtering:
+
+| Client | Filter by node name | Note |
+|---|---|---|
+| mihomo | yes (`filter` + `exclude-filter`) | the only client with both allow- and deny-lists |
+| Surge | partial (`policy-regex-filter`) | allow-list only |
+| Loon | partial (`[Remote Filter]` NameRegex) | allow-list only |
+| Shadowrocket / Quantumult X / sing-box | no | pick nodes manually |
+
+Rule sets are published individually under `rules/<category>/` as `.mrs`, `.yaml`,
+`.list` (Surge family), `-qx.list` (Quantumult X), `.srs` / `.json` (sing-box).
 
 ## Design notes
 
@@ -72,7 +85,8 @@ as `.mrs`, `.yaml` and `.list`.
 ```bash
 uv sync --frozen
 uv run python -m builder check
-uv run python -m builder build --mihomo-bin /path/to/mihomo --validate
+uv run python -m builder build --mihomo-bin /path/to/mihomo \
+  --singbox-bin /path/to/sing-box --validate
 uv run pytest
 ```
 
