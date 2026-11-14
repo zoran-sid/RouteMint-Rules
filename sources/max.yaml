@@ -1,0 +1,9 @@
+id: max
+meta:
+  description: Max / HBO Max
+  strategy: "🎬 Max"
+  notes: v2fly 的分类名是 hbo，同时覆盖 hbomax.com 与 max.com。
+include:
+  - upstream: v2fly-dlc
+    categories: [hbo]
+add:

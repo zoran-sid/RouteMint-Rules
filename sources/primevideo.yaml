@@ -1,0 +1,12 @@
+id: primevideo
+meta:
+  description: Prime Video
+  strategy: "🎬 Prime Video"
+  notes: 只收视频相关域名，不把整个 amazon.com 拉进来。
+include:
+  - upstream: v2fly-dlc
+    categories: [primevideo]
+add:
+  - DOMAIN-SUFFIX,primevideo.com
+  - DOMAIN-SUFFIX,aiv-cdn.net
+  - DOMAIN-SUFFIX,aiv-delivery.net

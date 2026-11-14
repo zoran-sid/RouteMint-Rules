@@ -1,0 +1,33 @@
+id: dev
+meta:
+  description: 开发者服务（代码托管、包管理、模型托管）
+  strategy: "🌍 境外服务"
+  notes: 覆盖 GitHub/GitLab/Docker Hub/npm/PyPI/crates.io/Go proxy/Hugging Face。CI 拉镜像时最容易卡住的就是这些域名。
+include:
+  - upstream: v2fly-dlc
+    categories: [github]
+  - upstream: v2fly-dlc
+    categories: [gitlab]
+  - upstream: v2fly-dlc
+    categories: [docker]
+  - upstream: v2fly-dlc
+    categories: [npmjs]
+  - upstream: v2fly-dlc
+    categories: [python]
+  - upstream: v2fly-dlc
+    categories: [rust]
+  - upstream: v2fly-dlc
+    categories: [golang]
+  - upstream: v2fly-dlc
+    categories: [huggingface]
+add:
+  - DOMAIN-SUFFIX,ghcr.io
+  - DOMAIN-SUFFIX,githubusercontent.com
+  - DOMAIN-SUFFIX,githubassets.com
+  - DOMAIN-SUFFIX,registry.npmjs.org
+  - DOMAIN-SUFFIX,pypi.org
+  - DOMAIN-SUFFIX,files.pythonhosted.org
+  - DOMAIN-SUFFIX,crates.io
+  - DOMAIN-SUFFIX,proxy.golang.org
+  - DOMAIN-SUFFIX,hf.co
+  - DOMAIN-SUFFIX,cdn.jsdelivr.net

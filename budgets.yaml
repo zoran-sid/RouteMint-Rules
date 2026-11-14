@@ -8,8 +8,25 @@ defaults:
 
 categories:
   cn: 7000
-  cn-ip: 12000
+  cn-ip: 8000
+  cn-ip6: 4500
   proxy: 26000
+  netflix: 80
+  disney: 400
+  youtube: 300
+  spotify: 80
+  tiktok: 100
+  max: 150
+  primevideo: 80
+  streaming-others: 3000
+  cn-region-locked: 200
+  dev: 2000
+  game-download: 60
+  game-platform: 600
+  telegram: 80
+  apple: 2500
+  microsoft: 1000
+  google: 1600
   reject-ads: 32000
   reject-tracker: 2500
   reject-malware: 25000
@@ -22,7 +39,10 @@ categories:
   private: 80
 
 presets:
-  cn-mainland: 100000
+  cn-mainland: 110000
+  overseas: 60000
+  overseas-return: 70000
+  cn-mainland-lite: 65000
 
 distribution:
   # jsDelivr 限制：单文件 20 MB，整包 150 MB。

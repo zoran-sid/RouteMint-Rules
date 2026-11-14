@@ -23,6 +23,11 @@ USER_AGENT = "RouteMint-Rules/0.1 (+https://github.com/zoran-sid/RouteMint-Rules
 class FetchError(Exception):
     """No network copy and no usable snapshot."""
 
+    def __init__(self, message: str, *, url: str = "", status: int | None = None) -> None:
+        super().__init__(message)
+        self.url = url
+        self.status = status
+
 
 @dataclass
 class FetchOutcome:
@@ -144,16 +149,23 @@ class Fetcher:
 
     def _download(self, url: str) -> bytes:
         last_error: Exception | None = None
+        status: int | None = None
         for attempt in range(self.retries + 1):
             try:
                 response = self._client.get(url)
                 response.raise_for_status()
                 return response.content
+            except httpx.HTTPStatusError as exc:
+                last_error = exc
+                status = exc.response.status_code
+                # A 404 will not become a 200 by retrying.
+                if 400 <= status < 500 and status != 429:
+                    break
             except (httpx.HTTPError, OSError) as exc:
                 last_error = exc
-                if attempt < self.retries:
-                    time.sleep(1.5 * (attempt + 1))
-        raise FetchError(f"{url}: {last_error}")
+            if attempt < self.retries:
+                time.sleep(1.5 * (attempt + 1))
+        raise FetchError(f"{url}: {last_error}", url=url, status=status)
 
     def _load(self, url: str) -> FetchOutcome:
         cached = self._read_cache(url)

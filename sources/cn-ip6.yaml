@@ -1,0 +1,10 @@
+id: cn-ip6
+meta:
+  description: 中国大陆 IPv6 段
+  strategy: "🎯 全球直连"
+  notes: |
+    与 cn-ip 同源，拆开是为了让 ipv6: false 的客户端（含本仓库默认模板）
+    和精简版预设省掉这三千多条规则。
+include:
+  - upstream: china-operator-ip
+    categories: [china6.txt]

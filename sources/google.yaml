@@ -1,0 +1,9 @@
+id: google
+meta:
+  description: Google 服务（搜索、地图、Gmail 等）
+  strategy: "🌍 境外服务"
+  notes: YouTube 与 Gemini 优先级更高，会从本类裁掉，避免同一域名落在两个策略组。
+include:
+  - upstream: v2fly-dlc
+    categories: [google]
+add:

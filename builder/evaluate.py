@@ -11,7 +11,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from .model import Rule, RuleError
-from .spec import ADS_TIERS, Preset
+from .spec import Preset, categories_for
 
 _CACHE: dict[Path, list[Rule]] = {}
 
@@ -36,15 +36,7 @@ def load_ruleset_list(path: Path) -> list[Rule]:
 
 
 def tier_categories(preset: Preset, tier: str) -> list[str]:
-    enabled = set(ADS_TIERS[tier])
-    out: list[str] = []
-    for ref in preset.rules:
-        if not ref.category:
-            continue
-        if ref.category.startswith("reject-") and ref.category not in enabled:
-            continue
-        out.append(ref.category)
-    return out
+    return categories_for(preset, tier)
 
 
 def explain(dist: Path, preset: Preset, tier: str, target: str) -> tuple[str, str] | None:
@@ -66,4 +58,7 @@ def explain(dist: Path, preset: Preset, tier: str, target: str) -> tuple[str, st
                 return ref.category, ref.policy or "DIRECT"
             if not is_ip and rule.matches_domain(target):
                 return ref.category, ref.policy or "DIRECT"
+    final = next((ref.final for ref in preset.rules if ref.final), None)
+    if final:
+        return "FINAL", final
     return None

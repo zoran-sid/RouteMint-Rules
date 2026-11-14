@@ -124,3 +124,25 @@ def test_exact_domain_equal_to_higher_suffix_is_dropped():
     )
     assert values(resolved["proxy"]) == ["DOMAIN-SUFFIX,example.net"]
     assert values(resolved["ai"]) == ["DOMAIN-SUFFIX,openai.com"]
+
+
+def test_conflict_drop_requires_winner_in_every_preset():
+    per_category = {
+        "cn": rules("DOMAIN-SUFFIX,bilibili.com", "DOMAIN-SUFFIX,baidu.com"),
+        "cn-region-locked": rules("DOMAIN-SUFFIX,bilibili.com"),
+    }
+    # Unsafe: some preset uses cn without cn-region-locked, so the shared file wins.
+    resolved, stats = resolve_conflicts(
+        per_category, ["cn-region-locked", "cn"], allowed_winners={"cn": set()}
+    )
+    assert stats.conflicts == 0
+    assert "DOMAIN-SUFFIX,bilibili.com" in values(resolved["cn"])
+
+    # Safe: every preset using cn also uses cn-region-locked.
+    resolved, stats = resolve_conflicts(
+        per_category,
+        ["cn-region-locked", "cn"],
+        allowed_winners={"cn": {"cn-region-locked"}},
+    )
+    assert stats.conflicts == 1
+    assert "DOMAIN-SUFFIX,bilibili.com" not in values(resolved["cn"])

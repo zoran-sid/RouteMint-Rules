@@ -4,8 +4,8 @@ meta:
   strategy: "🎯 全球直连"
   notes: |
     来自 gaoyifan/china-operator-ip（MIT，按 BGP/ASN 生成，每日更新），
-    比 APNIC 注册数据更贴近真实路由。IPv4 与 IPv6 合并在同一个文件里，
-    构建时会各自 collapse_addresses。
+    比 APNIC 注册数据更贴近真实路由。IPv6 单独拆到 cn-ip6，
+    关闭 IPv6 的客户端可以只引用这一份。
 include:
   - upstream: china-operator-ip
-    categories: [china46.txt]
+    categories: [china.txt]

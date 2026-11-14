@@ -99,7 +99,9 @@ def _supernets(net: ipaddress._BaseNetwork):
 
 
 def resolve_conflicts(
-    per_category: dict[str, list[Rule]], precedence: list[str]
+    per_category: dict[str, list[Rule]],
+    precedence: list[str],
+    allowed_winners: dict[str, set[str]] | None = None,
 ) -> tuple[dict[str, list[Rule]], OptimizationStats]:
     """Higher-precedence categories win; losers are dropped and recorded.
 
@@ -146,6 +148,9 @@ def resolve_conflicts(
                         winner, reason = owners[supernet], f"inside {supernet}"
                         break
 
+            if winner is not None and allowed_winners is not None:
+                if winner not in allowed_winners.get(category, set()):
+                    winner = None
             if winner is not None:
                 stats.conflicts += 1
                 if len(stats.decisions) < 200:

@@ -1,0 +1,81 @@
+id: overseas-return
+label: 海外华人回国
+tagline: 默认直连，限区内容走回国节点
+audience: 常驻海外，需要看 B 站、网易云、爱奇艺、腾讯视频等中国大陆限区内容
+summary: 默认全部直连；中国大陆限区内容走「回国」组（按节点名自动筛出国内节点）；AI 组默认直连，遇到不可用时可一键切到代理节点。
+order: 30
+ads: ads-light
+notes: |
+  回国组用节点名正则筛选国内节点（回国/中国/大陆/CN/上海/北京…）。
+  机场通常把回国线路命名为「回国」「CN2」「上海中转」之类，如果你的机场命名不同，
+  改这个组的 filter 即可。
+  「漏网之鱼」成员顺序是 直连 → 节点选择，默认不代理。
+
+groups:
+  - name: "🚀 节点选择"
+    type: select
+    use_providers: true
+    members:
+      - "♻️ 自动选择"
+      - "🎯 全球直连"
+
+  - name: "♻️ 自动选择"
+    type: url-test
+    use_providers: true
+    exclude_filter: "(?i)(中国|大陆|\\bcn\\b|china)"
+    interval: 300
+
+  - name: "🏠 回国"
+    type: select
+    use_providers: true
+    filter: "(?i)(回国|中国|大陆|\\bcn\\b|china|cn2|上海|北京|广州|深圳|杭州|成都|南京|武汉)"
+    members:
+      - "🚀 节点选择"
+
+  - name: "🤖 AI 服务"
+    type: select
+    use_providers: true
+    members:
+      - "🎯 全球直连"
+      - "♻️ AI 自动选择"
+    exclude_filter: "(?i)(香港|港|\\bhk\\b|hong ?kong|澳门|\\bmo\\b|macau|中国|大陆|\\bcn\\b|china|伊朗|\\bir\\b|朝鲜|\\bkp\\b|叙利亚|\\bsy\\b|古巴|\\bcu\\b|俄罗斯|\\bru\\b)"
+
+  - name: "♻️ AI 自动选择"
+    type: url-test
+    use_providers: true
+    filter: "(?i)(美国|\\bus\\b|united states|日本|\\bjp\\b|japan|新加坡|\\bsg\\b|singapore|台湾|\\btw\\b|taiwan|韩国|\\bkr\\b|korea|英国|\\buk\\b|united kingdom|德国|\\bde\\b|germany|荷兰|\\bnl\\b|netherlands|加拿大|\\bca\\b|canada|澳大利亚|\\bau\\b|australia|法国|\\bfr\\b|france)"
+    exclude_filter: "(?i)(香港|港|\\bhk\\b|hong ?kong|澳门|\\bmo\\b|macau|中国|大陆|\\bcn\\b|china|俄罗斯|\\bru\\b)"
+    interval: 300
+
+  - name: "🎯 全球直连"
+    type: select
+    members:
+      - DIRECT
+
+  - name: "🛑 广告拦截"
+    type: select
+    members:
+      - REJECT
+
+  - name: "🐟 漏网之鱼"
+    type: select
+    members:
+      - "🎯 全球直连"
+      - "🚀 节点选择"
+
+rules:
+  - {category: private, policy: "🎯 全球直连"}
+  - {category: reject-malware, policy: "🛑 广告拦截"}
+  - {category: reject-tracker, policy: "🛑 广告拦截"}
+  - {category: reject-ads, policy: "🛑 广告拦截"}
+  - {category: ai-openai, policy: "🤖 AI 服务"}
+  - {category: ai-anthropic, policy: "🤖 AI 服务"}
+  - {category: ai-gemini, policy: "🤖 AI 服务"}
+  - {category: ai-copilot, policy: "🤖 AI 服务"}
+  - {category: ai-perplexity, policy: "🤖 AI 服务"}
+  - {category: ai-others, policy: "🤖 AI 服务"}
+  - {category: cn-region-locked, policy: "🏠 回国"}
+  - {category: cn, policy: "🎯 全球直连"}
+  - {category: cn-ip, policy: "🎯 全球直连", no_resolve: true}
+  - {category: cn-ip6, policy: "🎯 全球直连", no_resolve: true}
+  - {final: "🐟 漏网之鱼"}

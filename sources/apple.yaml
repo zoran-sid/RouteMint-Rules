@@ -1,0 +1,9 @@
+id: apple
+meta:
+  description: Apple 服务
+  strategy: "🎯 全球直连"
+  notes: Apple 在中国大陆有完整 CDN，直连通常比代理快；App Store 与 iCloud 都属于这一类。
+include:
+  - upstream: v2fly-dlc
+    categories: [apple]
+add:

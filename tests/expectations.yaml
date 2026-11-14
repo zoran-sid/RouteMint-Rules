@@ -1,6 +1,8 @@
 # 冒烟测试用例：这些域名/地址的路由是产品承诺，改坏了必须让 CI 红。
 # category 是「命中的分类」，policy 是「最终策略组」，两者都校验。
+# 未命中任何分类时 category 记为 FINAL，policy 为该预设的兜底策略组。
 cases:
+  # --- cn-mainland ---
   - domain: chatgpt.com
     preset: cn-mainland
     category: ai-openai
@@ -25,11 +27,29 @@ cases:
     preset: cn-mainland
     category: ai-perplexity
     policy: "🤖 AI 服务"
+  - domain: youtube.com
+    preset: cn-mainland
+    category: youtube
+    policy: "📺 YouTube"
+  - domain: netflix.com
+    preset: cn-mainland
+    category: netflix
+    policy: "🎬 Netflix"
+  - domain: github.com
+    preset: cn-mainland
+    category: dev
+    policy: "🌍 境外服务"
   - domain: baidu.com
     preset: cn-mainland
     category: cn
     policy: "🎯 全球直连"
   - domain: weibo.com
+    preset: cn-mainland
+    category: cn
+    policy: "🎯 全球直连"
+  # 共享分类的回归用例：bilibili 在 cn 与 cn-region-locked 都有，
+  # cn-mainland 没用回国组，必须仍然直连。
+  - domain: bilibili.com
     preset: cn-mainland
     category: cn
     policy: "🎯 全球直连"
@@ -41,14 +61,6 @@ cases:
     preset: cn-mainland
     category: reject-ads
     policy: "🛑 广告拦截"
-  - domain: google-analytics.com
-    preset: cn-mainland
-    category: reject-tracker
-    policy: "🛑 广告拦截"
-  - domain: github.com
-    preset: cn-mainland
-    category: proxy
-    policy: "🌍 境外服务"
   - domain: 10.1.2.3
     preset: cn-mainland
     category: private
@@ -57,3 +69,53 @@ cases:
     preset: cn-mainland
     category: cn-ip
     policy: "🎯 全球直连"
+
+  # --- overseas-return：限区内容必须走回国组 ---
+  - domain: bilibili.com
+    preset: overseas-return
+    category: cn-region-locked
+    policy: "🏠 回国"
+  - domain: music.163.com
+    preset: overseas-return
+    category: cn-region-locked
+    policy: "🏠 回国"
+  - domain: v.qq.com
+    preset: overseas-return
+    category: cn-region-locked
+    policy: "🏠 回国"
+  - domain: taobao.com
+    preset: overseas-return
+    category: cn
+    policy: "🎯 全球直连"
+
+  # --- overseas：默认直连，只有 AI 与部分流媒体走代理 ---
+  - domain: netflix.com
+    preset: overseas
+    category: netflix
+    policy: "🌍 流媒体"
+  - domain: chatgpt.com
+    preset: overseas
+    category: ai-openai
+    policy: "🤖 AI 服务"
+  - domain: baidu.com
+    preset: overseas
+    category: FINAL
+    policy: "🐟 漏网之鱼"
+  - domain: github.com
+    preset: overseas
+    category: FINAL
+    policy: "🐟 漏网之鱼"
+
+  # --- lite：只保留 ai 汇总分类 ---
+  - domain: claude.ai
+    preset: cn-mainland-lite
+    category: ai
+    policy: "🤖 AI 服务"
+  - domain: baidu.com
+    preset: cn-mainland-lite
+    category: cn
+    policy: "🎯 全球直连"
+  - domain: youtube.com
+    preset: cn-mainland-lite
+    category: FINAL
+    policy: "🐟 漏网之鱼"

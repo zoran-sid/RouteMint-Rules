@@ -101,3 +101,30 @@ def test_shadowrocket_has_managed_config_header(built):
         assert "[General]" in text and "[Rule]" in text
         assert "update-url" in text
         assert text.rstrip().splitlines()[-1].startswith("FINAL,")
+
+
+def test_every_provider_url_resolves_to_a_file(built):
+    """A provider URL that points at a missing file is a silent runtime break."""
+    prefix = "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/"
+    for path in (built.dist / "configs").rglob("mihomo.yaml"):
+        text = path.read_text(encoding="utf-8")
+        for line in text.splitlines():
+            line = line.strip()
+            if not line.startswith("url:") or prefix not in line:
+                continue
+            relative = line.split(prefix, 1)[1].strip('"')
+            assert (built.dist / relative).is_file(), f"{path.name}: missing {relative}"
+
+
+def test_every_rule_provider_tag_is_used(built):
+    import yaml
+
+    for path in (built.dist / "configs").rglob("mihomo.yaml"):
+        data = yaml.safe_load(path.read_text(encoding="utf-8"))
+        declared = set(data.get("rule-providers") or {})
+        used = set()
+        for rule in data["rules"]:
+            if rule.startswith("RULE-SET,"):
+                used.add(rule.split(",")[1])
+        assert used <= declared, f"{path.name}: undeclared {used - declared}"
+        assert declared <= used, f"{path.name}: unused {declared - used}"

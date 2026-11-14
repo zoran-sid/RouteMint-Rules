@@ -41,6 +41,7 @@ from .report import (
 from .resolve import ResolvedCategory, Resolver
 from .spec import (
     ADS_TIERS,
+    categories_for,
     CategorySpec,
     Preset,
     load_budgets,
@@ -179,6 +180,7 @@ def build(
     resolver = Resolver(upstreams, fetcher)
 
     builds: dict[str, CategoryBuild] = {}
+    fetch_stats: dict = {}
     try:
         for cid in sorted(buildable):
             resolved = resolver.resolve(categories[cid])
@@ -186,6 +188,7 @@ def build(
     except FetchError as exc:
         raise BuildError(str(exc)) from exc
     finally:
+        fetch_stats = fetcher.stats.as_dict()
         fetcher.close()
 
     for build_item in builds.values():
@@ -193,8 +196,25 @@ def build(
 
     ordered = [c for c in precedence if c in builds]
     ordered += [c for c in builds if c not in ordered]
+
+    # A shared rule file must stay correct for every preset that references it,
+    # so a rule may only be dropped when all those presets also include the
+    # category that would take it over.
+    presets_by_category: dict[str, set[str]] = {cid: set() for cid in builds}
+    for preset in presets:
+        for tier in ADS_TIERS:
+            for cid in categories_for(preset, tier):
+                presets_by_category.setdefault(cid, set()).add(preset.id)
+    allowed_winners = {
+        cid: {
+            other
+            for other in builds
+            if other != cid and presets_by_category.get(cid, set()) <= presets_by_category.get(other, set())
+        }
+        for cid in builds
+    }
     arbitrated, conflict_stats = resolve_conflicts(
-        {cid: builds[cid].rules for cid in ordered}, ordered
+        {cid: builds[cid].rules for cid in ordered}, ordered, allowed_winners
     )
     for cid, rules in arbitrated.items():
         builds[cid].rules = rules
@@ -321,7 +341,7 @@ def build(
         builds=builds,
         presets=presets,
         budgets=budgets,
-        fetcher_stats={},
+        fetcher_stats=fetch_stats,
         conflicts=conflict_stats,
         violations=violations,
         warnings=warnings,
@@ -350,20 +370,8 @@ def build(
     return result
 
 
-def preset_categories(preset: Preset, tier: str) -> list[str]:
-    enabled_ads = set(ADS_TIERS[tier])
-    cats = []
-    for ref in preset.rules:
-        if not ref.category:
-            continue
-        if ref.category.startswith("reject-") and ref.category not in enabled_ads:
-            continue
-        cats.append(ref.category)
-    return cats
-
-
 def preset_total(builds: dict[str, CategoryBuild], preset: Preset, tier: str) -> int:
-    return sum(builds[cid].counts["total"] for cid in preset_categories(preset, tier))
+    return sum(builds[cid].counts["total"] for cid in categories_for(preset, tier))
 
 
 def load_distribution(paths: Paths) -> dict:

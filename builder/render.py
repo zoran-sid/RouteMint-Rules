@@ -12,7 +12,7 @@ from pathlib import Path
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
 from . import emit
-from .spec import ADS_TIERS, Preset
+from .spec import ADS_TIERS, Preset, categories_for
 
 SUBSCRIPTION_PLACEHOLDER = "https://sub.example.com/api/v1/client/subscribe?token=YOUR_TOKEN"
 
@@ -23,7 +23,16 @@ CLIENTS = {
 
 # Categories whose domains are resolved by a domestic resolver.  Everything
 # else in a preset is a foreign service and must not touch a CN resolver.
-DOMESTIC_CATEGORIES = {"private", "cn", "cn-ip", "reject-ads", "reject-tracker", "reject-malware"}
+DOMESTIC_CATEGORIES = {
+    "private",
+    "cn",
+    "cn-ip",
+    "cn-ip6",
+    "cn-region-locked",
+    "reject-ads",
+    "reject-tracker",
+    "reject-malware",
+}
 
 
 @dataclass
@@ -37,15 +46,7 @@ class RuleEntry:
 
 
 def tier_categories(preset: Preset, tier: str) -> list[str]:
-    enabled_ads = set(ADS_TIERS[tier])
-    categories: list[str] = []
-    for ref in preset.rules:
-        if not ref.category:
-            continue
-        if ref.category.startswith("reject-") and ref.category not in enabled_ads:
-            continue
-        categories.append(ref.category)
-    return categories
+    return categories_for(preset, tier)
 
 
 def build_context(preset: Preset, tier: str, builds: dict, urls: dict, generated_at: str) -> dict:

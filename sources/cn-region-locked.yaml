@@ -1,0 +1,45 @@
+id: cn-region-locked
+meta:
+  description: 中国大陆限区内容（海外需回国节点）
+  strategy: "🏠 回国"
+  notes: |
+    只在 overseas-return 预设启用。这些服务的版权/牌照按中国大陆划分，
+    海外 IP 会被限制或直接拒绝：B 站港澳台外限区、网易云音乐、爱奇艺、
+    腾讯视频、优酷、芒果 TV、QQ 音乐。
+    只收媒体域名，不收 qq.com / 163.com 这种会被聊天、邮箱共用的主域，
+    否则回国组会顺手把微信、邮件也拖进去。
+include: []
+add:
+  # B 站（含视频 CDN 与 API）
+  - DOMAIN-SUFFIX,bilibili.com
+  - DOMAIN-SUFFIX,b23.tv
+  - DOMAIN-SUFFIX,biliapi.net
+  - DOMAIN-SUFFIX,biliapi.com
+  - DOMAIN-SUFFIX,bilibili.co
+  - DOMAIN-SUFFIX,hdslb.com
+  - DOMAIN-SUFFIX,bilivideo.com
+  - DOMAIN-SUFFIX,bilivideo.cn
+  # 网易云音乐（只取音乐子域与音频 CDN）
+  - DOMAIN-SUFFIX,music.163.com
+  - DOMAIN-SUFFIX,music.126.net
+  - DOMAIN-SUFFIX,m701.music.126.net
+  # 爱奇艺
+  - DOMAIN-SUFFIX,iqiyi.com
+  - DOMAIN-SUFFIX,qiyi.com
+  - DOMAIN-SUFFIX,iqiyipic.com
+  - DOMAIN-SUFFIX,71.am
+  # 腾讯视频（避开 qq.com 主域）
+  - DOMAIN-SUFFIX,v.qq.com
+  - DOMAIN-SUFFIX,vv.video.qq.com
+  - DOMAIN-SUFFIX,video.qq.com
+  - DOMAIN-SUFFIX,puui.qpic.cn
+  # 优酷
+  - DOMAIN-SUFFIX,youku.com
+  - DOMAIN-SUFFIX,ykimg.com
+  # 芒果 TV
+  - DOMAIN-SUFFIX,mgtv.com
+  - DOMAIN-SUFFIX,hitv.com
+  # QQ 音乐
+  - DOMAIN-SUFFIX,y.qq.com
+  - DOMAIN-SUFFIX,qqmusic.qq.com
+  - DOMAIN-SUFFIX,music.tc.qq.com

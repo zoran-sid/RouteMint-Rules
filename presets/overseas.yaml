@@ -1,0 +1,81 @@
+id: overseas
+label: 身在海外
+tagline: 默认直连，只把 AI 与部分流媒体交给代理
+audience: 常驻海外，Google/YouTube 等本来就能直接访问
+summary: 默认全部直连；AI 服务走 AI 专用组；Netflix/Disney+/Max/Prime Video 走流媒体组（片源库可能需要换区）；其余流量直连，只有手动切换时才走代理。
+order: 20
+ads: ads-light
+notes: |
+  海外用户访问大多数站点不需要代理，直连更快也更省流量。
+  「漏网之鱼」成员顺序是 直连 → 节点选择，即未命中分类的流量默认直连；
+  如果你在某些站点上发现代理反而更快，把该站点补进 sources/proxy.yaml 并把它指向代理组即可。
+
+groups:
+  - name: "🚀 节点选择"
+    type: select
+    use_providers: true
+    members:
+      - "♻️ 自动选择"
+      - "🎯 全球直连"
+
+  - name: "♻️ 自动选择"
+    type: url-test
+    use_providers: true
+    exclude_filter: "(?i)(中国|大陆|\\bcn\\b|china)"
+    interval: 300
+
+  - name: "🤖 AI 服务"
+    type: select
+    use_providers: true
+    members:
+      - "♻️ AI 自动选择"
+      - "🎯 全球直连"
+    exclude_filter: "(?i)(香港|港|\\bhk\\b|hong ?kong|澳门|\\bmo\\b|macau|中国|大陆|\\bcn\\b|china|伊朗|\\bir\\b|朝鲜|\\bkp\\b|叙利亚|\\bsy\\b|古巴|\\bcu\\b|俄罗斯|\\bru\\b)"
+
+  - name: "♻️ AI 自动选择"
+    type: url-test
+    use_providers: true
+    filter: "(?i)(美国|\\bus\\b|united states|日本|\\bjp\\b|japan|新加坡|\\bsg\\b|singapore|台湾|\\btw\\b|taiwan|韩国|\\bkr\\b|korea|英国|\\buk\\b|united kingdom|德国|\\bde\\b|germany|荷兰|\\bnl\\b|netherlands|加拿大|\\bca\\b|canada|澳大利亚|\\bau\\b|australia|法国|\\bfr\\b|france)"
+    exclude_filter: "(?i)(香港|港|\\bhk\\b|hong ?kong|澳门|\\bmo\\b|macau|中国|大陆|\\bcn\\b|china|俄罗斯|\\bru\\b)"
+    interval: 300
+
+  # 片源库按 IP 地区划分：想换区时在这里选对应地区节点。
+  - name: "🌍 流媒体"
+    type: select
+    use_providers: true
+    members:
+      - "♻️ 自动选择"
+      - "🎯 全球直连"
+
+  - name: "🎯 全球直连"
+    type: select
+    members:
+      - DIRECT
+
+  - name: "🛑 广告拦截"
+    type: select
+    members:
+      - REJECT
+
+  - name: "🐟 漏网之鱼"
+    type: select
+    members:
+      - "🎯 全球直连"
+      - "🚀 节点选择"
+
+rules:
+  - {category: private, policy: "🎯 全球直连"}
+  - {category: reject-malware, policy: "🛑 广告拦截"}
+  - {category: reject-tracker, policy: "🛑 广告拦截"}
+  - {category: reject-ads, policy: "🛑 广告拦截"}
+  - {category: ai-openai, policy: "🤖 AI 服务"}
+  - {category: ai-anthropic, policy: "🤖 AI 服务"}
+  - {category: ai-gemini, policy: "🤖 AI 服务"}
+  - {category: ai-copilot, policy: "🤖 AI 服务"}
+  - {category: ai-perplexity, policy: "🤖 AI 服务"}
+  - {category: ai-others, policy: "🤖 AI 服务"}
+  - {category: netflix, policy: "🌍 流媒体"}
+  - {category: disney, policy: "🌍 流媒体"}
+  - {category: max, policy: "🌍 流媒体"}
+  - {category: primevideo, policy: "🌍 流媒体"}
+  - {final: "🐟 漏网之鱼"}

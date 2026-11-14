@@ -1,0 +1,24 @@
+id: streaming-others
+meta:
+  description: 其他流媒体与音视频平台
+  strategy: "📺 其他流媒体"
+  notes: v2fly category-media 覆盖面大（新闻/电台都在内），但与上面的专用分类重叠的条目会按优先级裁决让位。
+include:
+  - upstream: v2fly-dlc
+    categories: [category-media]
+add:
+  - DOMAIN-SUFFIX,twitch.tv
+  - DOMAIN-SUFFIX,ttvnw.net
+  - DOMAIN-SUFFIX,hulu.com
+  - DOMAIN-SUFFIX,crunchyroll.com
+  - DOMAIN-SUFFIX,vimeo.com
+  - DOMAIN-SUFFIX,dailymotion.com
+  - DOMAIN-SUFFIX,soundcloud.com
+  - DOMAIN-SUFFIX,deezer.com
+  - DOMAIN-SUFFIX,tidal.com
+  - DOMAIN-SUFFIX,paramountplus.com
+  - DOMAIN-SUFFIX,peacocktv.com
+  - DOMAIN-SUFFIX,discoveryplus.com
+  - DOMAIN-SUFFIX,pluto.tv
+  - DOMAIN-SUFFIX,iheart.com
+  - DOMAIN-SUFFIX,apple-tvplus.com

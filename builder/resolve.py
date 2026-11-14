@@ -4,7 +4,8 @@ Two upstream shapes are supported:
 
 * ``v2fly-dat`` - one ``dlc.dat`` download holds all 1556 categories, so no
   recursive ``include:`` walking is needed (and no thousand-request build).
-* everything else - one file per include, parsed with the declared format.
+* text lists - one file per include, with ``include:`` expanded recursively
+  under a depth limit and cycle guard.
 """
 
 from __future__ import annotations
@@ -15,6 +16,8 @@ from .fetch import Fetcher, FetchError
 from .model import Rule
 from .parse import PARSERS, ParsedDocument, parse_v2fly_dat
 from .spec import CategorySpec, Include, Upstream, Upstreams
+
+MAX_INCLUDE_DEPTH = 6
 
 
 @dataclass
@@ -53,23 +56,18 @@ class Resolver:
                 raise ResolveError(f"{spec.id}: unknown upstream {include.upstream!r}")
             if upstream.format == "v2fly-dat":
                 rules.extend(self._from_dat(upstream, include, resolved))
-                urls.add(upstream.url or "")
+                if upstream.url:
+                    urls.add(upstream.url)
                 continue
-            for doc in self._documents(upstream, include):
-                urls.add(doc[0])
-                for parsed in doc[1].rules:
-                    if include.exclude_attributes and parsed.attributes & set(
-                        include.exclude_attributes
-                    ):
-                        continue
-                    rules.append(parsed.rule)
-                resolved.invalid += doc[1].invalid
-                resolved.unsupported += len(doc[1].unsupported)
+            expand = self._expand_text(
+                upstream, include, depth=0, seen=set(), resolved=resolved, urls=urls
+            )
+            rules.extend(expand)
 
         resolved.from_upstream = len(rules)
-        resolved.urls = sorted(u for u in urls if u)
-        resolved.degraded = any(
-            (self.fetcher._mem.get(url) is not None and self.fetcher._mem[url].stale)
+        resolved.urls = sorted(urls)
+        resolved.degraded = resolved.degraded or any(
+            (outcome := self.fetcher._mem.get(url)) is not None and outcome.stale
             for url in resolved.urls
         )
         if not spec.compose:
@@ -85,7 +83,7 @@ class Resolver:
         if upstream.url is None:
             raise ResolveError(f"{upstream.id}: v2fly-dat requires url")
         try:
-            outcome = self.fetcher.get_text(upstream.url)
+            outcome = self.fetcher.get(upstream.url)
         except FetchError as exc:
             raise ResolveError(f"{upstream.id}: {exc}") from exc
         try:
@@ -103,6 +101,7 @@ class Resolver:
         if self._dat_stale.get(upstream.id):
             resolved.degraded = True
         out: list[Rule] = []
+        excluded = set(include.exclude_attributes)
         for category in include.categories:
             doc = documents.get(category)
             if doc is None:
@@ -110,7 +109,6 @@ class Resolver:
                 continue
             resolved.invalid += doc.invalid
             resolved.unsupported += len(doc.unsupported)
-            excluded = set(include.exclude_attributes)
             out.extend(
                 parsed.rule
                 for parsed in doc.rules
@@ -118,23 +116,76 @@ class Resolver:
             )
         return out
 
-    # -- single-file upstreams -------------------------------------------
-    def _documents(self, upstream: Upstream, include: Include) -> list[tuple[str, ParsedDocument]]:
-        categories = include.categories or ("",)
-        out: list[tuple[str, ParsedDocument]] = []
-        for category in categories:
-            url = upstream.url_for(category if category else None)
-            key = (upstream.id, category)
-            if key not in self._docs:
-                try:
-                    outcome = self.fetcher.get_text(url)
-                except FetchError as exc:
-                    raise ResolveError(f"{upstream.id}/{category}: {exc}") from exc
-                parser = PARSERS[upstream.format]
-                if upstream.format == "apnic":
-                    doc = parser(outcome.text, country=str(upstream.options.get("country", "CN")))
-                else:
-                    doc = parser(outcome.text)
-                self._docs[key] = doc
-            out.append((url, self._docs[key]))
+    # -- text upstreams --------------------------------------------------
+    def _document(self, upstream: Upstream, category: str) -> ParsedDocument:
+        url = upstream.url_for(category or None)
+        key = (upstream.id, category)
+        if key in self._docs:
+            return self._docs[key]
+        try:
+            outcome = self.fetcher.get(url)
+        except FetchError as exc:
+            if exc.status == 404:
+                raise _Missing(category) from exc
+            raise ResolveError(f"{upstream.id}/{category}: {exc}") from exc
+        parser = PARSERS[upstream.format]
+        if upstream.format == "apnic":
+            doc = parser(outcome.text, country=str(upstream.options.get("country", "CN")))
+        else:
+            doc = parser(outcome.text)
+        self._docs[key] = doc
+        return doc
+
+    def _expand_text(
+        self,
+        upstream: Upstream,
+        include: Include,
+        *,
+        depth: int,
+        seen: set[str],
+        resolved: ResolvedCategory,
+        urls: set[str],
+    ) -> list[Rule]:
+        if depth > MAX_INCLUDE_DEPTH:
+            raise ResolveError(f"{upstream.id}: include depth exceeded")
+        excluded = set(include.exclude_attributes)
+        out: list[Rule] = []
+        for category in include.categories or ("",):
+            if category in seen:
+                continue
+            seen.add(category)
+            try:
+                doc = self._document(upstream, category)
+            except _Missing:
+                resolved.missing.append(category or upstream.url or upstream.id)
+                continue
+            urls.add(upstream.url_for(category or None))
+            resolved.invalid += doc.invalid
+            resolved.unsupported += len(doc.unsupported)
+            out.extend(
+                parsed.rule
+                for parsed in doc.rules
+                if not excluded or not (parsed.attributes & excluded)
+            )
+            if not upstream.url_template:
+                continue
+            for child in doc.includes:
+                out.extend(
+                    self._expand_text(
+                        upstream,
+                        Include(
+                            upstream=include.upstream,
+                            categories=(child,),
+                            exclude_attributes=include.exclude_attributes,
+                        ),
+                        depth=depth + 1,
+                        seen=seen,
+                        resolved=resolved,
+                        urls=urls,
+                    )
+                )
         return out
+
+
+class _Missing(Exception):
+    """A declared upstream category does not exist (usually an upstream rename)."""

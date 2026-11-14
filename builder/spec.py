@@ -76,6 +76,7 @@ CATEGORY_ORDER = [
     "proxy",
     "cn",
     "cn-ip",
+    "cn-ip6",
 ]
 
 ADS_TIERS = {
@@ -189,15 +190,7 @@ class Preset:
     notes: str = ""
 
     def active_categories(self) -> list[str]:
-        """Categories to build for this preset, with the ads tier folded in."""
-        cats: list[str] = []
-        for ref in self.rules:
-            if ref.category and ref.category not in cats:
-                cats.append(ref.category)
-        for tier_category in ADS_TIERS[self.ads]:
-            if tier_category not in cats:
-                cats.append(tier_category)
-        return [c for c in CATEGORY_ORDER if c in cats] + [c for c in cats if c not in CATEGORY_ORDER]
+        return categories_for(self, self.ads)
 
     def policy_for(self, category: str) -> str | None:
         for ref in self.rules:
@@ -221,6 +214,20 @@ class Budgets:
 
     def preset_limit(self, preset: str) -> int:
         return self.presets.get(preset, 10**9)
+
+
+def categories_for(preset: Preset, tier: str) -> list[str]:
+    """Categories a preset actually emits for one ads tier, in canonical order."""
+    enabled_ads = set(ADS_TIERS[tier])
+    cats: list[str] = []
+    for ref in preset.rules:
+        if not ref.category:
+            continue
+        if ref.category.startswith("reject-") and ref.category not in enabled_ads:
+            continue
+        if ref.category not in cats:
+            cats.append(ref.category)
+    return cats
 
 
 # --------------------------------------------------------------------------

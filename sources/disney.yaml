@@ -1,0 +1,13 @@
+id: disney
+meta:
+  description: Disney+ / Hulu / ESPN（Disney 体系）
+  strategy: "🎬 Disney+"
+  notes: v2fly 的 disney 表已覆盖 Hulu 与 ESPN，不额外拆组。
+include:
+  - upstream: v2fly-dlc
+    categories: [disney]
+add:
+  - DOMAIN-SUFFIX,disneyplus.com
+  - DOMAIN-SUFFIX,disney-plus.net
+  - DOMAIN-SUFFIX,dssott.com
+  - DOMAIN-SUFFIX,bamgrid.com

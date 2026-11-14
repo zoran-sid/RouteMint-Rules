@@ -1,0 +1,15 @@
+id: netflix
+meta:
+  description: Netflix
+  strategy: "🎬 Netflix"
+  notes: 流媒体按服务拆组，方便按片源库选节点（不同地区片源不同）。
+include:
+  - upstream: v2fly-dlc
+    categories: [netflix]
+add:
+  - DOMAIN-SUFFIX,netflix.com
+  - DOMAIN-SUFFIX,netflix.net
+  - DOMAIN-SUFFIX,nflxvideo.net
+  - DOMAIN-SUFFIX,nflximg.net
+  - DOMAIN-SUFFIX,nflxext.com
+  - DOMAIN-SUFFIX,nflxso.net

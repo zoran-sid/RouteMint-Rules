@@ -2,13 +2,14 @@ id: cn-mainland
 label: 身在中国大陆
 tagline: 国内直连、境外代理、AI 走专用组
 audience: 常驻中国大陆，需要稳定访问境外服务与 AI
-summary: 国内域名与 IP 直连；境外服务走代理；AI 服务走独立策略组，并自动排除香港、澳门、大陆等不受支持地区的节点；广告拦截默认轻度。
+summary: 国内域名与 IP 直连；境外服务走代理；AI 与流媒体各自成组；广告拦截默认轻度；无法判断的流量优先走代理。
 order: 10
 ads: ads-light
 notes: |
   AI 组为什么要排除节点：OpenAI/Anthropic/Gemini 会按出口 IP 判断地区，
   香港、澳门、中国大陆节点会被拒绝或触发风控，所以 AI 组必须先按节点名
   过滤掉这些地区，再在剩余节点里选延迟最低的。
+  「漏网之鱼」成员顺序是 节点选择 → 直连，即未命中任何分类的域名优先走代理。
 
 groups:
   - name: "🚀 节点选择"
@@ -24,7 +25,6 @@ groups:
     exclude_filter: "(?i)(香港|港|\\bhk\\b|hong ?kong|澳门|\\bmo\\b|macau|中国|大陆|\\bcn\\b|china|伊朗|\\bir\\b|朝鲜|\\bkp\\b|叙利亚|\\bsy\\b|古巴|\\bcu\\b)"
     interval: 300
 
-  # AI 专用组：先排除不受支持的地区，再在可用地区里挑延迟最低的节点。
   - name: "🤖 AI 服务"
     type: select
     use_providers: true
@@ -39,6 +39,54 @@ groups:
     filter: "(?i)(美国|\\bus\\b|united states|日本|\\bjp\\b|japan|新加坡|\\bsg\\b|singapore|台湾|\\btw\\b|taiwan|韩国|\\bkr\\b|korea|英国|\\buk\\b|united kingdom|德国|\\bde\\b|germany|荷兰|\\bnl\\b|netherlands|加拿大|\\bca\\b|canada|澳大利亚|\\bau\\b|australia|法国|\\bfr\\b|france)"
     exclude_filter: "(?i)(香港|港|\\bhk\\b|hong ?kong|澳门|\\bmo\\b|macau|中国|大陆|\\bcn\\b|china|伊朗|\\bir\\b|朝鲜|\\bkp\\b|叙利亚|\\bsy\\b|古巴|\\bcu\\b|俄罗斯|\\bru\\b)"
     interval: 300
+
+  - name: "🎬 Netflix"
+    type: select
+    use_providers: true
+    members: ["♻️ 自动选择", "🎯 全球直连"]
+    exclude_filter: "(?i)(中国|大陆|\\bcn\\b|china)"
+
+  - name: "🎬 Disney+"
+    type: select
+    use_providers: true
+    members: ["♻️ 自动选择", "🎯 全球直连"]
+    exclude_filter: "(?i)(中国|大陆|\\bcn\\b|china)"
+
+  - name: "📺 YouTube"
+    type: select
+    use_providers: true
+    members: ["♻️ 自动选择", "🎯 全球直连"]
+    exclude_filter: "(?i)(中国|大陆|\\bcn\\b|china)"
+
+  - name: "🎵 Spotify"
+    type: select
+    use_providers: true
+    members: ["♻️ 自动选择", "🎯 全球直连"]
+    exclude_filter: "(?i)(中国|大陆|\\bcn\\b|china)"
+
+  - name: "🎬 TikTok"
+    type: select
+    use_providers: true
+    members: ["♻️ 自动选择", "🎯 全球直连"]
+    exclude_filter: "(?i)(香港|\\bhk\\b|hong ?kong|中国|大陆|\\bcn\\b|china)"
+
+  - name: "🎬 Max"
+    type: select
+    use_providers: true
+    members: ["♻️ 自动选择", "🎯 全球直连"]
+    exclude_filter: "(?i)(中国|大陆|\\bcn\\b|china)"
+
+  - name: "🎬 Prime Video"
+    type: select
+    use_providers: true
+    members: ["♻️ 自动选择", "🎯 全球直连"]
+    exclude_filter: "(?i)(中国|大陆|\\bcn\\b|china)"
+
+  - name: "📺 其他流媒体"
+    type: select
+    use_providers: true
+    members: ["♻️ 自动选择", "🎯 全球直连"]
+    exclude_filter: "(?i)(中国|大陆|\\bcn\\b|china)"
 
   - name: "🌍 境外服务"
     type: select
@@ -75,7 +123,23 @@ rules:
   - {category: ai-copilot, policy: "🤖 AI 服务"}
   - {category: ai-perplexity, policy: "🤖 AI 服务"}
   - {category: ai-others, policy: "🤖 AI 服务"}
+  - {category: netflix, policy: "🎬 Netflix"}
+  - {category: disney, policy: "🎬 Disney+"}
+  - {category: youtube, policy: "📺 YouTube"}
+  - {category: spotify, policy: "🎵 Spotify"}
+  - {category: tiktok, policy: "🎬 TikTok"}
+  - {category: max, policy: "🎬 Max"}
+  - {category: primevideo, policy: "🎬 Prime Video"}
+  - {category: streaming-others, policy: "📺 其他流媒体"}
+  - {category: dev, policy: "🌍 境外服务"}
+  - {category: game-download, policy: "🎯 全球直连"}
+  - {category: game-platform, policy: "🌍 境外服务"}
+  - {category: telegram, policy: "🌍 境外服务"}
+  - {category: apple, policy: "🎯 全球直连"}
+  - {category: microsoft, policy: "🎯 全球直连"}
+  - {category: google, policy: "🌍 境外服务"}
   - {category: proxy, policy: "🌍 境外服务"}
   - {category: cn, policy: "🎯 全球直连"}
   - {category: cn-ip, policy: "🎯 全球直连", no_resolve: true}
+  - {category: cn-ip6, policy: "🎯 全球直连", no_resolve: true}
   - {final: "🐟 漏网之鱼"}

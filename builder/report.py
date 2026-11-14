@@ -11,6 +11,7 @@ from datetime import datetime
 from pathlib import Path
 
 from .model import Rule, RuleType
+from .spec import categories_for
 from .optimize import OptimizationStats
 
 CATEGORY_TITLES = {
@@ -75,11 +76,15 @@ def write_report(
         "## 预设规模",
         "",
         _table(
-            ["预设", "广告档位", "规则数", "预算"],
+            ["预设", "ads-off", "ads-light", "ads-strict", "预算"],
             [
-                [p.id, p.ads, str(item_total), str(budgets.preset_limit(p.id))]
+                [p.id]
+                + [
+                    str(sum(builds[c].counts["total"] for c in categories_for(p, tier)))
+                    for tier in ("ads-off", "ads-light", "ads-strict")
+                ]
+                + [str(budgets.preset_limit(p.id))]
                 for p in presets
-                for item_total in [sum(builds[c].counts["total"] for c in p.active_categories())]
             ],
         ),
         "",
@@ -99,6 +104,26 @@ def write_report(
             parts.append(f"\n（仅显示前 {len(sample)} 条，共 {conflicts.conflicts} 条。）")
     else:
         parts.append("无跨分类冲突。")
+
+    if fetcher_stats:
+        parts += [
+            "",
+            "## 上游抓取",
+            "",
+            _table(
+                ["网络下载", "命中缓存", "沿用旧快照", "失败"],
+                [
+                    [
+                        str(fetcher_stats.get("network", 0)),
+                        str(fetcher_stats.get("cache_hits", 0)),
+                        str(fetcher_stats.get("stale_hits", 0)),
+                        str(len(fetcher_stats.get("failures", []))),
+                    ]
+                ],
+            ),
+        ]
+        for failure in fetcher_stats.get("failures", [])[:10]:
+            parts.append(f"- 失败：{failure}")
 
     parts += ["", "## 配置校验", ""]
     if config_checks:
@@ -200,10 +225,17 @@ def write_changelog(
 
 def _preset_lines(builds: dict, presets) -> str:
     rows = [
-        f"| {preset.id} | {preset.ads} | {sum(builds[c].counts['total'] for c in preset.active_categories())} |"
+        f"| {preset.id} | "
+        + " | ".join(
+            str(sum(builds[c].counts["total"] for c in categories_for(preset, tier)))
+            for tier in ("ads-off", "ads-light", "ads-strict")
+        )
+        + " |"
         for preset in presets
     ]
-    return "\n".join(["| 预设 | 广告档位 | 规则数 |", "|---|---|---|", *rows])
+    return "\n".join(
+        ["| 预设 | ads-off | ads-light | ads-strict |", "|---|---|---|---|", *rows]
+    )
 
 
 def summary_line(result) -> str:

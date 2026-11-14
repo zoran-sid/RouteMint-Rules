@@ -1,0 +1,17 @@
+id: game-platform
+meta:
+  description: 游戏商店、社区与联机服务
+  strategy: "🌍 境外服务"
+  notes: 与 game-download 重叠的下载域名会被优先级裁掉，只留商店/社区/联机部分。
+include:
+  - upstream: v2fly-dlc
+    categories: [steam]
+  - upstream: v2fly-dlc
+    categories: [epicgames]
+  - upstream: v2fly-dlc
+    categories: [playstation]
+  - upstream: v2fly-dlc
+    categories: [xbox]
+  - upstream: v2fly-dlc
+    categories: [nintendo]
+add:

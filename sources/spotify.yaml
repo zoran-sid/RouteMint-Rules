@@ -1,0 +1,12 @@
+id: spotify
+meta:
+  description: Spotify
+  strategy: "🎵 Spotify"
+  notes: 注册地区决定可听曲库，所以单独一组便于选节点。
+include:
+  - upstream: v2fly-dlc
+    categories: [spotify]
+add:
+  - DOMAIN-SUFFIX,scdn.co
+  - DOMAIN-SUFFIX,spotifycdn.com
+  - DOMAIN-SUFFIX,spotify.link

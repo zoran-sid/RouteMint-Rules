@@ -33,3 +33,4 @@ precedence:
   - cn
   - proxy
   - cn-ip
+  - cn-ip6

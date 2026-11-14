@@ -1,0 +1,9 @@
+id: microsoft
+meta:
+  description: Microsoft 服务
+  strategy: "🎯 全球直连"
+  notes: Microsoft 在中国大陆有 CDN；copilot.microsoft.com 已按 AI 优先级从本类裁掉。
+include:
+  - upstream: v2fly-dlc
+    categories: [microsoft]
+add:

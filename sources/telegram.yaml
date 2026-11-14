@@ -1,0 +1,22 @@
+id: telegram
+meta:
+  description: Telegram（域名 + 官方 IP 段）
+  strategy: "🌍 境外服务"
+  notes: IP 段来自 Telegram 官方公布的 CIDR（core.telegram.org/resources/cidr.txt），客户端直连 IP 时也能命中。
+include:
+  - upstream: v2fly-dlc
+    categories: [telegram]
+add:
+  - IP-CIDR,91.108.4.0/22
+  - IP-CIDR,91.108.8.0/22
+  - IP-CIDR,91.108.12.0/22
+  - IP-CIDR,91.108.16.0/22
+  - IP-CIDR,91.108.20.0/22
+  - IP-CIDR,91.108.56.0/22
+  - IP-CIDR,149.154.160.0/20
+  - IP-CIDR,185.76.151.0/24
+  - IP-CIDR6,2001:b28:f23d::/48
+  - IP-CIDR6,2001:b28:f23f::/48
+  - IP-CIDR6,2001:67c:4e8::/48
+  - IP-CIDR6,2001:b28:f23c::/48
+  - IP-CIDR6,2a0a:f280::/32
