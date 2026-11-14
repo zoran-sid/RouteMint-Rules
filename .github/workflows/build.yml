@@ -70,11 +70,27 @@ jobs:
           tar -xzf /tmp/singbox.tar.gz -C /tmp
           mv "/tmp/sing-box-${SINGBOX_VERSION}-linux-amd64/sing-box" bin/sing-box
           chmod +x bin/sing-box
-          bin/sing-box version
           bin/mihomo -v
+          bin/sing-box version
+
+      - name: Fetch previous release snapshot
+        run: |
+          set +e
+          mkdir -p .cache/previous-dist
+          git fetch --depth=1 origin release
+          git show FETCH_HEAD:manifest.json > .cache/previous-manifest.json
+          git archive FETCH_HEAD rules | tar -x -C .cache/previous-dist
+          true
 
       - name: Build and validate
-        run: uv run python -m builder build --mihomo-bin "$PWD/bin/mihomo" --singbox-bin "$PWD/bin/sing-box" --validate
+        run: |
+          uv run python -m builder build \
+            --mihomo-bin "$PWD/bin/mihomo" \
+            --singbox-bin "$PWD/bin/sing-box" \
+            --previous-manifest .cache/previous-manifest.json \
+            --previous-dist .cache/previous-dist \
+            --check-domains \
+            --validate
 
       - name: Test
         env:
@@ -86,15 +102,105 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: dist
-          path: dist/
+          path: |
+            dist/
+            CHANGELOG.md
           retention-days: 7
 
-      - name: Upload build report
-        if: always()
-        uses: actions/upload-artifact@v4
+  publish:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    env:
+      UV_CACHE_DIR: .cache/uv
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
         with:
-          name: build-report
-          path: |
-            dist/build-report.md
-            dist/manifest.json
-          retention-days: 14
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync --frozen
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: .
+
+      - name: Read previous manifest
+        run: |
+          set +e
+          git fetch --depth=1 origin release
+          git show FETCH_HEAD:manifest.json > /tmp/previous-manifest.json 2>/dev/null
+          rm -f /tmp/empty
+          true
+
+      - name: Compute release info
+        id: info
+        run: |
+          set -euo pipefail
+          TAG="build-$(date -u +%Y%m%d-%H%M)"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          uv run python -m builder publish \
+            --dist dist \
+            --previous /tmp/previous-manifest.json \
+            --tag "$TAG" \
+            --notes-out /tmp/notes.md \
+            --changed-out /tmp/changed.json \
+            --changelog CHANGELOG.md
+          uv run python - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          info = json.load(open("/tmp/changed.json"))
+          print(f"content_changed={str(info['content_changed']).lower()}")
+          print(f"changed_count={info['count']}")
+          PY
+
+      - name: Push release branch
+        if: steps.info.outputs.content_changed == 'true'
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/release && mkdir -p /tmp/release && cd /tmp/release
+          git init -q -b release
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          cp -r "$GITHUB_WORKSPACE/dist/." .
+          cp "$GITHUB_WORKSPACE/CHANGELOG.md" .
+          git add -A
+          git commit -q -m "release: ${{ steps.info.outputs.tag }}"
+          git push -f "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" release
+
+      - name: Purge jsDelivr cache
+        if: steps.info.outputs.content_changed == 'true'
+        run: uv run python -m builder purge --changed /tmp/changed.json --root .
+
+      - name: Create GitHub release
+        if: steps.info.outputs.content_changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${{ steps.info.outputs.tag }}" \
+            --title "规则更新 $(date -u +%Y-%m-%d)" \
+            --target release \
+            --notes-file /tmp/notes.md
+
+      - name: Commit changelog to main
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- CHANGELOG.md; then
+            echo "changelog unchanged"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add CHANGELOG.md
+          git commit -q -m "chore: changelog $(date -u +%F) [skip ci]"
+          git push origin HEAD:main

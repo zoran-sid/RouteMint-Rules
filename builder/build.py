@@ -18,7 +18,7 @@ from dataclasses import dataclass, field
 from datetime import UTC, datetime
 from pathlib import Path
 
-from . import emit
+from . import emit, liveness as liveness_mod
 from .config import ConfigError, Paths, load_yaml
 from .fetch import FetchError, Fetcher
 from .model import Rule, RuleType
@@ -148,6 +148,8 @@ def build(
     previous_manifest: Path | None = None,
     previous_dist: Path | None = None,
     allow_drop: bool = False,
+    check_domains: bool = False,
+    domain_sample: int = 40,
 ) -> BuildResult:
     upstreams = load_upstreams(paths)
     budgets = load_budgets(paths)
@@ -293,6 +295,19 @@ def build(
             else:
                 warnings.append(f"preset {preset.id} ({tier}): {total} rules")
 
+    liveness_report: dict = {"checked": 0, "dead": []}
+    if check_domains:
+        specs = {cid: item.spec for cid, item in builds.items()}
+        sample = liveness_mod.candidates(
+            specs, domain_sample, seed=datetime.now(tz=UTC).strftime("%Y-%m-%d")
+        )
+        results = liveness_mod.check(sample)
+        liveness_report = liveness_mod.summarize(results)
+        for entry in liveness_report["dead"]:
+            warnings.append(
+                f"疑似失效域名：{entry['rule']}（{entry['category']}），建议核实后从 sources 删除"
+            )
+
     generated_at = _now().isoformat(timespec="seconds")
     urls = load_distribution(paths)
     artifacts = write_rule_artifacts(
@@ -329,6 +344,7 @@ def build(
             for preset in presets
         },
         "artifacts": artifacts,
+        "liveness": liveness_report,
         "upstreams": [
             {
                 "id": upstream.id,
@@ -340,6 +356,7 @@ def build(
         ],
     }
 
+    manifest["files"] = _file_hashes(paths.dist)
     write_manifest(paths.dist / "manifest.json", manifest)
     write_notices(paths.root / "THIRD_PARTY_NOTICES.md", upstreams.upstreams, urls["source_url"])
     update_readme_table(paths.root / "README.md", builds)
@@ -355,6 +372,7 @@ def build(
         previous=previous,
         config_checks=config_checks,
         generated_at=generated_at,
+        liveness=liveness_report,
     )
     write_changelog(
         paths.root / "CHANGELOG.md",
@@ -375,6 +393,17 @@ def build(
         config_checks=config_checks,
     )
     return result
+
+
+def _file_hashes(root: Path) -> dict[str, dict]:
+    files: dict[str, dict] = {}
+    for path in sorted(root.rglob("*")):
+        if path.is_file():
+            files[path.relative_to(root).as_posix()] = {
+                "sha256": _sha256(path),
+                "bytes": path.stat().st_size,
+            }
+    return files
 
 
 def preset_total(builds: dict[str, CategoryBuild], preset: Preset, tier: str) -> int:

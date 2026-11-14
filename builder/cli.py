@@ -31,9 +31,27 @@ def _parser() -> argparse.ArgumentParser:
     build_cmd.add_argument(
         "--keep-dist", action="store_true", help="do not remove stale files before building"
     )
+    build_cmd.add_argument(
+        "--check-domains",
+        action="store_true",
+        help="resolve a sample of hand-added domains and report NXDOMAIN (report only)",
+    )
+    build_cmd.add_argument("--domain-sample", type=int, default=40)
     build_cmd.add_argument("--quiet", action="store_true")
 
     sub.add_parser("check", help="validate YAML configuration without touching the network")
+
+    publish_cmd = sub.add_parser("publish", help="compute release notes and changed files")
+    publish_cmd.add_argument("--dist", default="dist")
+    publish_cmd.add_argument("--previous", help="manifest.json from the release branch")
+    publish_cmd.add_argument("--tag", required=True)
+    publish_cmd.add_argument("--notes-out", required=True)
+    publish_cmd.add_argument("--changed-out", required=True)
+    publish_cmd.add_argument("--changelog", default="CHANGELOG.md")
+
+    purge_cmd = sub.add_parser("purge", help="purge changed files from the jsDelivr cache")
+    purge_cmd.add_argument("--changed", required=True)
+    purge_cmd.add_argument("--root", default=".")
     return parser
 
 
@@ -42,6 +60,22 @@ def main(argv: list[str] | None = None) -> int:
     paths = Paths(Path(args.root).resolve())
 
     try:
+        if args.command == "publish":
+            from .publish import main as publish_main
+
+            return publish_main(
+                Path(args.dist),
+                Path(args.previous) if args.previous else None,
+                args.tag,
+                Path(args.notes_out),
+                Path(args.changed_out),
+                Path(args.changelog) if args.changelog else None,
+            )
+        if args.command == "purge":
+            from .publish import purge_from_changed
+
+            return purge_from_changed(Path(args.changed), Path(args.root).resolve())
+
         if args.command == "check":
             from .spec import load_budgets, load_categories, load_presets, load_upstreams
 
@@ -71,6 +105,8 @@ def main(argv: list[str] | None = None) -> int:
             previous_manifest=Path(args.previous_manifest) if args.previous_manifest else None,
             previous_dist=Path(args.previous_dist) if args.previous_dist else None,
             allow_drop=args.allow_drop,
+            check_domains=args.check_domains,
+            domain_sample=args.domain_sample,
         )
     except (ConfigError, BuildError, EmitError) as exc:
         print(f"error: {exc}", file=sys.stderr)

@@ -277,6 +277,46 @@ rules:
   - MATCH,🐟 漏网之鱼
 ```
 
+## 发布流程
+
+每天 19:17 UTC（北京时间凌晨 3:17）自动跑一次，也可以在 Actions 里手动触发。
+一次完整发布分两段：
+
+**build（只读）**
+
+1. 拉取上游（失败沿用上次快照）；
+2. 归一化、去重、后缀压缩、IP 合并、跨分类冲突裁决；
+3. 预算校验、30% 突变保护、冒烟测试；
+4. 生成 6 种客户端的规则与配置；
+5. `mihomo -t` ×12 + `sing-box check` ×12；
+6. 抽样解析手工域名，NXDOMAIN 写进报告（不阻断）。
+
+任何一步失败都不会发布，release 分支保持上一版可用。
+
+**publish（需要写权限）**
+
+1. 与 release 分支上的 `manifest.json` 逐文件比对 SHA256；
+2. 只有 `rules/` 或 `configs/` 真的变了才继续，否则直接跳过——不会产生空提交；
+3. 以**单一提交**强制推送到 `release` 分支（历史不会膨胀）；
+4. 对变更文件逐个调用 `purge.jsdelivr.net` 刷新缓存；
+5. 用当天的 CHANGELOG 段落创建 GitHub Release；
+6. 把 `CHANGELOG.md` 提交回 `main`（带 `[skip ci]`，不会自我触发）。
+
+产物内容不含时间戳，所以「规则没变」时生成的文件是逐字节相同的，比对才可靠。
+
+## 质量校验说明
+
+| 校验 | 类型 | 说明 |
+|---|---|---|
+| YAML schema | 必过 | `sources/`、`presets/` 的字段、顺序、必填项 |
+| 条数预算 | 必过 | 每个分类、每个预设 × 档位都有上限 |
+| 突变保护 | 必过 | 某分类较上一版下降超 30% 即中止（`reject-malware` 除外） |
+| 配置可加载 | 必过 | `mihomo -t`、`sing-box check` |
+| 路由冒烟 | 必过 | `tests/expectations.yaml`，按产物实际匹配 |
+| 失效域名 | 报告 | 每天轮换抽样 40 个手工域名，连续 NXDOMAIN 才标记 |
+| 冲突裁决 | 报告 | 谁被谁裁掉、原因、样例 |
+| 版本差异 | 报告 | 每分类增删条数与样例，写入 CHANGELOG 与 Release |
+
 ## 仓库结构
 
 ```text
@@ -290,6 +330,7 @@ builder/                # Python 构建：fetch / parse / optimize / emit / rend
 tests/                  # pytest 与冒烟用例 expectations.yaml
 .github/workflows/      # build.yml、pr-check.yml
 dist/                   # 构建产物（CI 发布到 release 分支，不入 main）
+# release 分支：dist/ 的内容放在根目录，jsDelivr 与 Raw 都指向它
 ```
 
 两点说明：
@@ -305,6 +346,7 @@ dist/                   # 构建产物（CI 发布到 release 分支，不入 ma
 uv sync --frozen
 uv run python -m builder check          # 只校验 YAML，不联网
 uv run python -m builder build          # 构建到 dist/
+uv run python -m builder build --check-domains   # 额外抽样检测失效域名（报告项）
 uv run pytest                           # 单测 + 产物冒烟测试
 ```
 
@@ -347,7 +389,7 @@ urlhaus-filter（CC0 数据）。AdGuard 与 EasyList 因 GPL / CC-BY-SA 与本�
 - [x] 阶段一：核心分类、mihomo + Shadowrocket、`cn-mainland`、每日 CI
 - [x] 阶段二：流媒体/开发者/游戏/大厂/回国分类，`overseas`、`overseas-return`、`cn-mainland-lite`
 - [x] 阶段三：Surge / Loon / Quantumult X / sing-box 的规则与配置输出
-- [ ] 阶段四：失效域名抽检、CHANGELOG 自动提交、GitHub Release、release 分支发布
+- [x] 阶段四：失效域名抽检、CHANGELOG 自动提交、GitHub Release、release 分支发布
 
 已知限制：
 

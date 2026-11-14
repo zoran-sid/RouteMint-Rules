@@ -60,6 +60,7 @@ def write_report(
     previous: dict | None,
     config_checks: list[dict],
     generated_at: str,
+    liveness: dict | None = None,
 ) -> None:
     rows = [_counts_row(cid, item, budgets) for cid, item in sorted(builds.items())]
     total = sum(item.counts["total"] for item in builds.values())
@@ -134,6 +135,16 @@ def write_report(
         parts.append(_table(["文件", "结果", "输出"], rows))
     else:
         parts.append("本次未运行 mihomo -t（未提供二进制）。")
+
+    parts += ["", "## 失效域名抽样（报告项）", ""]
+    if liveness and liveness.get("checked"):
+        dead = liveness.get("dead", [])
+        parts.append(f"本次抽样解析 {liveness['checked']} 个手工域名，NXDOMAIN {len(dead)} 个。")
+        if dead:
+            parts.append("")
+            parts.append(_table(["分类", "规则"], [[d["category"], d["rule"]] for d in dead]))
+    else:
+        parts.append("本次未运行（加 `--check-domains` 开启）。")
 
     parts += ["", "## 警告", ""]
     parts += [f"- {w}" for w in warnings] or ["- 无"]
