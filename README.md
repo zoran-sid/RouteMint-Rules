@@ -118,8 +118,9 @@ OpenAI / Anthropic / Gemini 按出口 IP 判断地区，香港、澳门、大陆
 按节点名先把这些地区排除掉，再在剩下的节点里挑最快的。细节见[规则体系](docs/architecture.md)。
 
 **链接打开是旧规则？**
-jsDelivr 的分支缓存最长 12 小时（发布后会自动刷新变更文件）。着急就把地址前缀换成
-`https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/`。
+jsDelivr 对分支引用的缓存最长 12 小时，purge 对分支不保证生效，所以新规则可能要等一会儿。
+要立刻拿到最新版，把地址前缀换成
+`https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/`（Raw 无缓存）。
 
 **会不会拖慢手机？**
 规则集以 mihomo 二进制格式 `.mrs` 分发，配里只有二十来条 `RULE-SET` 引用，不是几万行文本；

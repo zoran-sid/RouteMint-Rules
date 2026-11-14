@@ -37,7 +37,7 @@
 1. 与 `release` 分支上的 `manifest.json` 逐文件比对 SHA256；
 2. 只有 `rules/` 或 `configs/` 真的变了才继续，否则直接跳过，不产生空提交；
 3. 以**单一提交**强制推送到 `release` 分支（历史不会膨胀）；
-4. 对变更文件逐个调用 `purge.jsdelivr.net` 刷新缓存；
+4. 对变更文件逐个调用 `purge.jsdelivr.net`（尽力而为：分支引用可能忽略 purge）；
 5. 用当天 CHANGELOG 段落创建 GitHub Release；
 6. 把 `CHANGELOG.md` 提交回 `main`（带 `[skip ci]`，不会自我触发）。
 
@@ -46,7 +46,9 @@
 ## 分发
 
 - **jsDelivr**：`https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/...`
-  分支引用缓存最长 12 小时，发布后会自动 purge 变更文件。
+  分支引用的缓存最长 12 小时，且官方只保证「版本别名」可 purge，分支引用实测不会被
+  purge 立即刷新。工作流仍会对变更文件调用 purge（能生效时生效），但**不要指望分钟级更新**；
+  线上内容最迟 12 小时内自动追上。
 - **GitHub Raw**：`https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/...`
   没有缓存，国内访问可能不稳定。
 
