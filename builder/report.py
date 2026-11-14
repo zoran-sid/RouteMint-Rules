@@ -200,7 +200,9 @@ def write_changelog(
     marker = f"## {day}"
     existing = existing.split(marker)[0].strip()
 
-    lines = [marker, "", f"构建时间：`{generated_at}`", ""]
+    # No timestamp inside the entry: a same-day rebuild then produces identical
+    # text, so CI's changelog commit and local builds stop conflicting.
+    lines = [marker, ""]
     if not previous:
         lines.append("首次构建，无历史对比。")
     else:

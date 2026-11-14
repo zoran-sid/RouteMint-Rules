@@ -50,6 +50,9 @@ python -m builder qr --out docs/qr   # 重新生成 README 的二维码
 python -m builder publish --help     # 发布辅助（CI 用）
 ```
 
+`CHANGELOG.md` 由构建生成并与 CI 回写的提交共用同一文件；同一天重复构建时内容一致，
+若上游数据变化导致冲突，先 `git checkout --theirs CHANGELOG.md` 再重新构建即可。
+
 上游数据缓存在 `.cache/upstreams/`，单个上游失败时沿用上一次成功的快照并在报告里标注，
 不会产出空文件。`--offline` 完全使用快照。
 
