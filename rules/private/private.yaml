@@ -1,0 +1,7 @@
+# 局域网、保留地址、本地主机名 · 5 rules
+payload:
+  - "localhost"
+  - "+.home.arpa"
+  - "+.lan"
+  - "+.local"
+  - "+.localhost"
