@@ -1,0 +1,13 @@
+id: cn
+meta:
+  description: 中国大陆域名
+  strategy: "🎯 全球直连"
+  notes: |
+    v2fly geolocation-cn 递归展开后包含大量 category-* 子表。
+    .cn 顶级域单独补一条后缀即可覆盖长尾，不需要逐条枚举。
+include:
+  - upstream: v2fly-dlc
+    categories: [cn]
+add:
+  - DOMAIN-SUFFIX,cn
+  - DOMAIN-SUFFIX,xn--fiqs8s

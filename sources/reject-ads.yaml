@@ -1,0 +1,15 @@
+id: reject-ads
+meta:
+  description: 广告域名（含插屏、弹窗、推送广告）
+  strategy: REJECT
+  regions_available: []
+  regions_restricted: []
+  notes: |
+    ads-light 的第一层。上游选 ShadowWhisperer/BlockLists（Unlicense），
+    因为 AdGuard DNS filter 是 GPL-3.0、EasyList 是 GPL-3.0/CC-BY-SA，
+    与本仓库 MIT 许可证不兼容，不能随产物分发。
+  references:
+    - https://github.com/ShadowWhisperer/BlockLists
+include:
+  - upstream: shadowwhisperer
+    categories: [Ads]

@@ -1,0 +1,91 @@
+name: build
+
+on:
+  schedule:
+    # 03:17 UTC = 11:17 Asia/Shanghai, deliberately off the top of the hour.
+    - cron: "17 19 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "sources/**"
+      - "presets/**"
+      - "templates/**"
+      - "builder/**"
+      - "tests/**"
+      - "upstreams.yaml"
+      - "budgets.yaml"
+      - "uv.lock"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  MIHOMO_VERSION: v1.19.34
+  UV_CACHE_DIR: .cache/uv
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync --frozen
+
+      - name: Restore upstream snapshots
+        uses: actions/cache@v4
+        with:
+          path: .cache/upstreams
+          key: upstreams-${{ github.run_id }}
+          restore-keys: |
+            upstreams-
+
+      - name: Install pinned mihomo
+        run: |
+          set -euo pipefail
+          mkdir -p bin
+          curl -fsSL -o /tmp/mihomo.gz \
+            "https://github.com/MetaCubeX/mihomo/releases/download/${MIHOMO_VERSION}/mihomo-linux-amd64-${MIHOMO_VERSION}.gz"
+          gunzip -c /tmp/mihomo.gz > bin/mihomo
+          chmod +x bin/mihomo
+          bin/mihomo -v
+
+      - name: Build and validate
+        run: uv run python -m builder build --mihomo-bin "$PWD/bin/mihomo" --validate
+
+      - name: Test
+        env:
+          ROUTEMINT_MIHOMO_BIN: ${{ github.workspace }}/bin/mihomo
+        run: uv run pytest
+
+      - name: Upload dist
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          retention-days: 7
+
+      - name: Upload build report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-report
+          path: |
+            dist/build-report.md
+            dist/manifest.json
+          retention-days: 14

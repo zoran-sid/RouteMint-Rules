@@ -1,0 +1,74 @@
+name: 规则修改请求
+description: 添加、删除或调整某条域名规则
+title: "[rule] 域名 → 期望分类"
+labels: ["rule-request"]
+body:
+  - type: input
+    id: domain
+    attributes:
+      label: 域名
+      description: 需要添加或调整的完整域名（不要带 http:// 或路径）
+      placeholder: example.com
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: 期望分类
+      options:
+        - ai-openai
+        - ai-anthropic
+        - ai-gemini
+        - ai-copilot
+        - ai-perplexity
+        - ai-others
+        - proxy
+        - cn
+        - cn-ip
+        - dev
+        - game-download
+        - game-platform
+        - netflix
+        - disney
+        - youtube
+        - spotify
+        - tiktok
+        - max
+        - primevideo
+        - streaming-others
+        - cn-region-locked
+        - apple
+        - microsoft
+        - google
+        - telegram
+        - reject-ads
+        - reject-tracker
+        - reject-malware
+        - private
+        - 其他（请在理由里说明）
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: 理由
+      description: 为什么这个域名属于该分类？服务官网、官方文档、抓包结果都可以。
+      placeholder: 该域名是 xx 服务的 API 端点，官方文档见 …
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: 验证方式
+      description: 你如何确认的？贴截图、dig 结果或页面出处。
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 自查
+      options:
+        - label: 我确认这个域名不是机场节点域名，也不含个人信息
+          required: true
+        - label: 我知道不合规的请求会被关闭，且不会得到解释
+          required: false

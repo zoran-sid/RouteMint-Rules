@@ -1,0 +1,14 @@
+id: ai
+meta:
+  description: AI 服务汇总（六个子分类的并集）
+  strategy: "🤖 AI 服务"
+  notes: |
+    给「不想把 AI 拆成六个策略组」的用户使用：一个分类、一个组。
+    它由构建时合并子分类得到，默认预设仍使用子分类，方便按服务单独选节点。
+compose:
+  - ai-openai
+  - ai-anthropic
+  - ai-gemini
+  - ai-copilot
+  - ai-perplexity
+  - ai-others

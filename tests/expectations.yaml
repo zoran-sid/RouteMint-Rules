@@ -1,0 +1,59 @@
+# 冒烟测试用例：这些域名/地址的路由是产品承诺，改坏了必须让 CI 红。
+# category 是「命中的分类」，policy 是「最终策略组」，两者都校验。
+cases:
+  - domain: chatgpt.com
+    preset: cn-mainland
+    category: ai-openai
+    policy: "🤖 AI 服务"
+  - domain: api.openai.com
+    preset: cn-mainland
+    category: ai-openai
+    policy: "🤖 AI 服务"
+  - domain: claude.ai
+    preset: cn-mainland
+    category: ai-anthropic
+    policy: "🤖 AI 服务"
+  - domain: gemini.google.com
+    preset: cn-mainland
+    category: ai-gemini
+    policy: "🤖 AI 服务"
+  - domain: copilot.microsoft.com
+    preset: cn-mainland
+    category: ai-copilot
+    policy: "🤖 AI 服务"
+  - domain: perplexity.ai
+    preset: cn-mainland
+    category: ai-perplexity
+    policy: "🤖 AI 服务"
+  - domain: baidu.com
+    preset: cn-mainland
+    category: cn
+    policy: "🎯 全球直连"
+  - domain: weibo.com
+    preset: cn-mainland
+    category: cn
+    policy: "🎯 全球直连"
+  - domain: doubleclick.net
+    preset: cn-mainland
+    category: reject-tracker
+    policy: "🛑 广告拦截"
+  - domain: applovin.com
+    preset: cn-mainland
+    category: reject-ads
+    policy: "🛑 广告拦截"
+  - domain: google-analytics.com
+    preset: cn-mainland
+    category: reject-tracker
+    policy: "🛑 广告拦截"
+  - domain: github.com
+    preset: cn-mainland
+    category: proxy
+    policy: "🌍 境外服务"
+  - domain: 10.1.2.3
+    preset: cn-mainland
+    category: private
+    policy: "🎯 全球直连"
+  - domain: 1.0.1.1
+    preset: cn-mainland
+    category: cn-ip
+    policy: "🎯 全球直连"

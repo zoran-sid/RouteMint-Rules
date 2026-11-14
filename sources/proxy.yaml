@@ -1,0 +1,11 @@
+id: proxy
+meta:
+  description: 其余境外常用服务
+  strategy: "🌍 境外服务"
+  notes: |
+    取自 v2fly geolocation-!cn（在中国大陆没有接入点的域名），并剔除带 @cn 属性的条目。
+    其中与 AI、流媒体等分类重叠的域名会被冲突裁决裁掉，避免重复下发。
+include:
+  - upstream: v2fly-dlc
+    categories: ["geolocation-!cn"]
+    exclude_attributes: [cn]

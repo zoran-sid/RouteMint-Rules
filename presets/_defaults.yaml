@@ -1,0 +1,35 @@
+# 全局裁决规则：两个分类同时命中一个域名时，列表靠前的分类获胜，
+# 落败分类里的那条规则会被删除，并写进构建报告的「冲突裁决」。
+#
+# 原则：具体胜过笼统（ai-openai > proxy），国内胜过境外（cn > proxy），
+# 拦截最优先（reject-* > 一切，private 除外）。聚合分类（ai）不参与裁决。
+precedence:
+  - private
+  - reject-malware
+  - reject-tracker
+  - reject-ads
+  - ai-openai
+  - ai-anthropic
+  - ai-gemini
+  - ai-copilot
+  - ai-perplexity
+  - ai-others
+  - netflix
+  - disney
+  - youtube
+  - spotify
+  - tiktok
+  - max
+  - primevideo
+  - streaming-others
+  - cn-region-locked
+  - dev
+  - game-download
+  - game-platform
+  - telegram
+  - apple
+  - microsoft
+  - google
+  - cn
+  - proxy
+  - cn-ip

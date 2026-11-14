@@ -1,0 +1,76 @@
+id: reject-tracker
+meta:
+  description: 常见追踪器、分析 SDK、归因与热图服务
+  strategy: REJECT
+  notes: |
+    只保留「拦掉不会破坏正常功能」的高频追踪域名（手工精选 + 上游 Marketing 分类）。
+    故意不收国内统计 SDK（友盟、GrowingIO 等），轻度档拦截它们会拖垮部分国产 App。
+  references:
+    - https://github.com/ShadowWhisperer/BlockLists
+include:
+  - upstream: shadowwhisperer
+    categories: [Marketing]
+add:
+  # 广告网络与归因
+  - DOMAIN-SUFFIX,doubleclick.net
+  - DOMAIN-SUFFIX,googlesyndication.com
+  - DOMAIN-SUFFIX,googleadservices.com
+  - DOMAIN-SUFFIX,googletagmanager.com
+  - DOMAIN-SUFFIX,googletagservices.com
+  - DOMAIN-SUFFIX,google-analytics.com
+  - DOMAIN-SUFFIX,scorecardresearch.com
+  - DOMAIN-SUFFIX,quantserve.com
+  - DOMAIN-SUFFIX,criteo.com
+  - DOMAIN-SUFFIX,criteo.net
+  - DOMAIN-SUFFIX,taboola.com
+  - DOMAIN-SUFFIX,outbrain.com
+  - DOMAIN-SUFFIX,adsrvr.org
+  - DOMAIN-SUFFIX,rubiconproject.com
+  - DOMAIN-SUFFIX,pubmatic.com
+  - DOMAIN-SUFFIX,openx.net
+  - DOMAIN-SUFFIX,casalemedia.com
+  - DOMAIN-SUFFIX,33across.com
+  - DOMAIN-SUFFIX,adnxs.com
+  - DOMAIN-SUFFIX,appnexus.com
+  - DOMAIN-SUFFIX,moatads.com
+  - DOMAIN-SUFFIX,amazon-adsystem.com
+  - DOMAIN-SUFFIX,adsymptotic.com
+  - DOMAIN-SUFFIX,advertising.com
+  - DOMAIN-SUFFIX,adroll.com
+  - DOMAIN-SUFFIX,flashtalking.com
+  - DOMAIN-SUFFIX,mathtag.com
+  - DOMAIN-SUFFIX,smartadserver.com
+  - DOMAIN-SUFFIX,teads.tv
+  - DOMAIN-SUFFIX,tremorhub.com
+  - DOMAIN-SUFFIX,innovid.com
+  - DOMAIN-SUFFIX,spotxchange.com
+  - DOMAIN-SUFFIX,sharethrough.com
+  - DOMAIN-SUFFIX,3lift.com
+  - DOMAIN-SUFFIX,indexww.com
+  - DOMAIN-SUFFIX,districtm.io
+  # 移动归因 / 分析 SDK
+  - DOMAIN-SUFFIX,appsflyer.com
+  - DOMAIN-SUFFIX,adjust.com
+  - DOMAIN-SUFFIX,kochava.com
+  - DOMAIN-SUFFIX,branch.io
+  - DOMAIN-SUFFIX,amplitude.com
+  - DOMAIN-SUFFIX,mixpanel.com
+  - DOMAIN-SUFFIX,segment.com
+  - DOMAIN-SUFFIX,segment.io
+  - DOMAIN-SUFFIX,heap.io
+  - DOMAIN-SUFFIX,fullstory.com
+  - DOMAIN-SUFFIX,hotjar.com
+  - DOMAIN-SUFFIX,smartlook.com
+  - DOMAIN-SUFFIX,mouseflow.com
+  - DOMAIN-SUFFIX,luckyorange.com
+  - DOMAIN-SUFFIX,crazyegg.com
+  - DOMAIN-SUFFIX,optimizely.com
+  - DOMAIN-SUFFIX,vwo.com
+  - DOMAIN-SUFFIX,statsig.com
+  - DOMAIN-SUFFIX,newrelic.com
+  - DOMAIN-SUFFIX,nr-data.net
+  - DOMAIN-SUFFIX,sentry.io
+  - DOMAIN-SUFFIX,bugsnag.com
+  - DOMAIN-SUFFIX,datadoghq.com
+  - DOMAIN-SUFFIX,loggly.com
+  - DOMAIN-SUFFIX,amplitude.co

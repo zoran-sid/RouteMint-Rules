@@ -1,0 +1,20 @@
+id: ai-gemini
+meta:
+  description: Google Gemini / AI Studio / DeepMind
+  strategy: "🤖 AI 服务"
+  regions_available: [US, JP, SG, TW, KR, GB, DE, NL, CA, AU]
+  regions_restricted: [CN, HK, MO, RU, IR, KP, SY, CU]
+  notes: |
+    不走 v2fly 的 google-gemini（它只是 google-deepmind 的兼容别名），
+    这里手工维护 Gemini 实际用到的端点，避免把整个 google.com 拉进 AI 组。
+  references:
+    - https://gemini.google.com
+include: []
+add:
+  - DOMAIN,gemini.google.com
+  - DOMAIN-SUFFIX,gemini.google
+  - DOMAIN-SUFFIX,aistudio.google.com
+  - DOMAIN-SUFFIX,generativelanguage.googleapis.com
+  - DOMAIN-SUFFIX,deepmind.google
+  - DOMAIN-SUFFIX,deepmind.com
+  - DOMAIN-SUFFIX,bard.google.com

@@ -1,0 +1,11 @@
+id: cn-ip
+meta:
+  description: 中国大陆 IP 段
+  strategy: "🎯 全球直连"
+  notes: |
+    来自 gaoyifan/china-operator-ip（MIT，按 BGP/ASN 生成，每日更新），
+    比 APNIC 注册数据更贴近真实路由。IPv4 与 IPv6 合并在同一个文件里，
+    构建时会各自 collapse_addresses。
+include:
+  - upstream: china-operator-ip
+    categories: [china46.txt]

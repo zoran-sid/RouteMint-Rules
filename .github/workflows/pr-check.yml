@@ -1,0 +1,62 @@
+name: pr-check
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-check-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  MIHOMO_VERSION: v1.19.34
+  UV_CACHE_DIR: .cache/uv
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync --frozen
+
+      - name: Restore upstream snapshots
+        uses: actions/cache@v4
+        with:
+          path: .cache/upstreams
+          key: upstreams-${{ github.run_id }}
+          restore-keys: |
+            upstreams-
+
+      - name: Install pinned mihomo
+        run: |
+          set -euo pipefail
+          mkdir -p bin
+          curl -fsSL -o /tmp/mihomo.gz \
+            "https://github.com/MetaCubeX/mihomo/releases/download/${MIHOMO_VERSION}/mihomo-linux-amd64-${MIHOMO_VERSION}.gz"
+          gunzip -c /tmp/mihomo.gz > bin/mihomo
+          chmod +x bin/mihomo
+
+      - name: Validate YAML
+        run: uv run python -m builder check
+
+      - name: Build and validate
+        run: uv run python -m builder build --mihomo-bin "$PWD/bin/mihomo" --validate
+
+      - name: Test
+        env:
+          ROUTEMINT_MIHOMO_BIN: ${{ github.workspace }}/bin/mihomo
+        run: uv run pytest

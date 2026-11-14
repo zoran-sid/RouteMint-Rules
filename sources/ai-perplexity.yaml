@@ -1,0 +1,14 @@
+id: ai-perplexity
+meta:
+  description: Perplexity
+  strategy: "🤖 AI 服务"
+  regions_available: [US, JP, SG, TW, GB, DE, NL, CA, AU]
+  regions_restricted: [CN, HK, MO, RU, IR, KP, SY, CU]
+  notes: 体量很小，单独成类是为了让用户能在策略组里精确选择是否代理。
+  references:
+    - https://www.perplexity.ai
+include:
+  - upstream: v2fly-dlc
+    categories: [perplexity]
+add:
+  - DOMAIN-SUFFIX,perplexity.ai

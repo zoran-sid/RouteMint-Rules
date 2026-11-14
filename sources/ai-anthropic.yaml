@@ -1,0 +1,19 @@
+id: ai-anthropic
+meta:
+  description: Anthropic / Claude
+  strategy: "🤖 AI 服务"
+  regions_available: [US, JP, SG, TW, GB, DE, NL, CA, AU]
+  regions_restricted: [CN, HK, MO, RU, IR, KP, SY, CU]
+  notes: |
+    Claude 明确不向中国大陆与香港提供服务，且对机房 IP 有额外风控，
+    建议 AI 组优先选择家宽属性的节点。
+  references:
+    - https://www.anthropic.com/supported-countries
+include:
+  - upstream: v2fly-dlc
+    categories: [anthropic]
+add:
+  - DOMAIN-SUFFIX,claude.ai
+  - DOMAIN-SUFFIX,claude.com
+  - DOMAIN-SUFFIX,claudeusercontent.com
+  - DOMAIN-SUFFIX,anthropic.com

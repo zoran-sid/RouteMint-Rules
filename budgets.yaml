@@ -1,0 +1,30 @@
+# 规则条数预算。超限是「必过项」，会阻断发布。
+# 目的不是精确，而是防止上游改结构时把 10 万条规则悄悄塞进手机。
+defaults:
+  category_rules: 20000
+  keyword_rules: 3
+  # 某分类较上一版下降超过该比例即视为上游异常，中止发布。
+  drop_ratio: 0.30
+
+categories:
+  cn: 7000
+  cn-ip: 12000
+  proxy: 26000
+  reject-ads: 32000
+  reject-tracker: 2500
+  reject-malware: 25000
+  ai-openai: 60
+  ai-anthropic: 60
+  ai-gemini: 40
+  ai-copilot: 40
+  ai-perplexity: 20
+  ai-others: 260
+  private: 80
+
+presets:
+  cn-mainland: 100000
+
+distribution:
+  # jsDelivr 限制：单文件 20 MB，整包 150 MB。
+  file_kb: 20480
+  repo_mb: 150

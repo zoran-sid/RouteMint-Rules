@@ -1,0 +1,22 @@
+id: ai-openai
+meta:
+  description: OpenAI / ChatGPT / Sora
+  strategy: "🤖 AI 服务"
+  regions_available: [US, JP, SG, TW, KR, GB, DE, NL, CA, AU]
+  regions_restricted: [CN, HK, MO, RU, IR, KP, SY, CU]
+  notes: |
+    OpenAI 按出口 IP 判断地区，香港、澳门、中国大陆节点会被直接拒绝，
+    俄罗斯等地区同样不可用。因此 AI 策略组必须按节点名排除这些地区。
+    静态资源域名（oaistatic / oaiusercontent）也走代理，否则页面功能不全。
+  references:
+    - https://platform.openai.com/docs/supported-countries
+include:
+  - upstream: v2fly-dlc
+    categories: [openai]
+add:
+  - DOMAIN-SUFFIX,chatgpt.com
+  - DOMAIN-SUFFIX,chat.com
+  - DOMAIN-SUFFIX,oaistatic.com
+  - DOMAIN-SUFFIX,oaiusercontent.com
+  - DOMAIN-SUFFIX,sora.com
+  - DOMAIN-SUFFIX,openai.com

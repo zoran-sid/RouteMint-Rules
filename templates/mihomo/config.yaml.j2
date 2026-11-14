@@ -1,0 +1,123 @@
+# RouteMint-Rules · {{ preset.label }} · {{ tier }}
+# 由 builder 自动生成，请勿手工编辑。预设说明：{{ preset.summary }}
+#
+# 使用前只需改一处：把 proxy-providers.airport.url 换成你自己的机场订阅地址。
+# 本文件不含任何节点、订阅或密钥。
+#
+# 规则顺序：private → reject → ai → 流媒体 → 回国 → dev → game → telegram
+#           → apple/microsoft/google → proxy → cn → cn-ip → MATCH
+# 顺序即路由契约，改动请改 presets/{{ preset.id }}.yaml 而不是这里。
+
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: info
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+find-process-mode: "off"
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+# 嗅探让域名在 fake-ip 模式下仍是域名，代理端可自行解析，避免本地 DNS 泄漏。
+sniffer:
+  enable: true
+  force-dns-mapping: true
+  parse-pure-ip: true
+  override-destination: false
+  sniff:
+    HTTP:
+      ports: [80, 8080-8880]
+    TLS:
+      ports: [443, 8443]
+    QUIC:
+      ports: [443, 8443]
+
+dns:
+  enable: true
+  ipv6: false
+  listen: 0.0.0.0:1053
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - "*.local"
+    - "+.msftconnecttest.com"
+    - "+.msftncsi.com"
+    - "localhost.ptlogin2.qq.com"
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  # 默认走国内 DoH：只有直连域名需要本地解析，CN 域名用国内 DNS 最快。
+  nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+  proxy-server-nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+  # 防泄漏的核心：境外分类的域名一律用境外 DoH，并强制经由代理组发出。
+  # `rule-set:<tag>` 仅支持 behavior=domain 的规则集（见 rule-providers）。
+  nameserver-policy:
+{% for policy in dns_policy %}
+    "{{ policy.key }}":
+{% for server in policy.servers %}
+      - "{{ server }}"
+{% endfor %}
+{% endfor %}
+
+proxy-providers:
+  airport:
+    type: http
+    # TODO: 换成你的机场订阅地址（支持 Clash/mihomo 格式订阅）。
+    url: "{{ subscription_placeholder }}"
+    interval: 86400
+    path: ./providers/airport.yaml
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+      lazy: false
+
+proxy-groups:
+{% for group in groups %}
+  - name: "{{ group.name }}"
+    type: {{ group.type }}
+{% if group.use_providers %}
+    use:
+      - airport
+{% endif %}
+{% if group.members %}
+    proxies:
+{% for member in group.members %}
+      - "{{ member }}"
+{% endfor %}
+{% endif %}
+{% if group.filter %}
+    filter: '{{ group.filter }}'
+{% endif %}
+{% if group.exclude_filter %}
+    exclude-filter: '{{ group.exclude_filter }}'
+{% endif %}
+{% if group.type != "select" %}
+    url: {{ group.test_url }}
+    interval: {{ group.interval }}
+{% endif %}
+{% endfor %}
+
+rules:
+{% for entry in rule_entries %}
+  - {{ entry.text }}
+{% endfor %}
+
+rule-providers:
+{% for provider in providers %}
+  {{ provider.tag }}:
+    type: http
+    behavior: {{ provider.behavior }}
+    format: mrs
+    url: "{{ provider.url }}"
+    path: "{{ provider.path }}"
+    interval: 86400
+{% endfor %}

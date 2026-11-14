@@ -1,0 +1,17 @@
+id: ai-copilot
+meta:
+  description: GitHub Copilot / Microsoft Copilot
+  strategy: "🤖 AI 服务"
+  regions_available: [US, JP, SG, TW, KR, GB, DE, NL, CA, AU]
+  regions_restricted: [CN, HK, MO, RU, IR, KP, SY, CU]
+  notes: |
+    copilot.microsoft.com 属于 microsoft.com 的子域，但按分类优先级 AI > microsoft，
+    会被从 microsoft 分类里裁掉，从而稳定落到 AI 组。
+include:
+  - upstream: v2fly-dlc
+    categories: [github-copilot]
+add:
+  - DOMAIN-SUFFIX,copilot.microsoft.com
+  - DOMAIN-SUFFIX,api.githubcopilot.com
+  - DOMAIN-SUFFIX,githubcopilot.com
+  - DOMAIN-SUFFIX,copilot-proxy.githubusercontent.com
