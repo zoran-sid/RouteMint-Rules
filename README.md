@@ -88,6 +88,29 @@ Raw 不走 CDN，国内访问可能不稳定。
 
 三档只是分类开关，规则内容完全一样；换 URL 即换档位，不需要重新导入订阅。
 
+### 为什么广告源不用 AdGuard / EasyList
+
+这是本仓库与主流规则仓库最不一样的地方。实测一下同行现状：
+
+| 仓库 | 声明的许可证 | 广告列表来源 | 规模 |
+|---|---|---|---|
+| blackmatrix7/ios_rule_script | GPL-2.0 | 未标注，实际是 AdGuard / EasyList 派生 | 291,159 |
+| Loyalsoldier/clash-rules | GPL-3.0 | `category-ads-all`（v2fly + EasyList + AdGuard + Peter Lowe 等） | 200,345 |
+| ACL4SSR/ACL4SSR | CC-BY-SA-4.0 | `BanEasyList.list` 直接写明来源 easylist.txt | 40,977 |
+| 本仓库 | MIT | ShadowWhisperer + v2fly + AdGuard cname-trackers | 37,113 |
+
+也就是说：主流仓库确实把 GPL / CC-BY-SA 来源的列表直接再分发了（有的干脆不放 LICENSE），
+但这与「仓库声明 MIT」是冲突的。本仓库选择只用可再分发的来源：
+
+- **ShadowWhisperer/BlockLists**（Unlicense）：主体广告列表；
+- **v2fly category-ads-all**（MIT）：v2fly 用 `@ads` 标注的广告域名，偏中国大陆；
+- **AdGuard cname-trackers**（MIT）：用 CNAME 伪装成自有子域的广告端点，普通 hosts 列表抓不到；
+- **urlhaus-filter**（MIT / CC0 数据）：恶意域名，只在 ads-strict 启用。
+
+代价是比 29 万条的版本少覆盖一些长尾与内嵌广告；换来的是产物可以光明正大按 MIT 分发。
+如果你更想要覆盖率而不是许可证干净，可以自行接入 AdGuard SDNS / EasyList，
+但那时产物整体应按 GPL-3.0 分发，`THIRD_PARTY_NOTICES.md` 里的说明也要跟着改。
+
 ## 分类说明
 
 条数由构建自动写入，每次发布同步更新。
@@ -95,15 +118,15 @@ Raw 不走 CDN，国内访问可能不稳定。
 <!-- BEGIN CATEGORY TABLE -->
 | 分类 | 内容 | 条数 | 推荐策略 |
 |---|---|---|---|
-| `ai` | AI 服务汇总（六个子分类的并集） | 227 | 🤖 AI 服务 |
+| `ai` | AI 服务汇总（六个子分类的并集） | 225 | 🤖 AI 服务 |
 | `ai-anthropic` | Anthropic / Claude | 19 | 🤖 AI 服务 |
 | `ai-copilot` | GitHub Copilot / Microsoft Copilot | 9 | 🤖 AI 服务 |
 | `ai-gemini` | Google Gemini / AI Studio / DeepMind | 7 | 🤖 AI 服务 |
-| `ai-openai` | OpenAI / ChatGPT / Sora | 22 | 🤖 AI 服务 |
+| `ai-openai` | OpenAI / ChatGPT / Sora | 20 | 🤖 AI 服务 |
 | `ai-others` | 其他 AI 服务（对话、绘图、语音、模型托管） | 165 | 🤖 AI 服务 |
 | `ai-perplexity` | Perplexity | 5 | 🤖 AI 服务 |
 | `apple` | Apple 服务 | 1583 | 🎯 全球直连 |
-| `cn` | 中国大陆域名 | 6235 | 🎯 全球直连 |
+| `cn` | 中国大陆域名 | 6203 | 🎯 全球直连 |
 | `cn-ip` | 中国大陆 IP 段 | 6211 | 🎯 全球直连 |
 | `cn-ip6` | 中国大陆 IPv6 段 | 3428 | 🎯 全球直连 |
 | `cn-region-locked` | 中国大陆限区内容（海外需回国节点） | 24 | 🏠 回国 |
@@ -111,20 +134,20 @@ Raw 不走 CDN，国内访问可能不稳定。
 | `disney` | Disney+ / Hulu / ESPN（Disney 体系） | 218 | 🎬 Disney+ |
 | `game-download` | 游戏下载 CDN（体积大、可直连） | 15 | 🎯 全球直连 |
 | `game-platform` | 游戏商店、社区与联机服务 | 258 | 🌍 境外服务 |
-| `google` | Google 服务（搜索、地图、Gmail 等） | 663 | 🌍 境外服务 |
+| `google` | Google 服务（搜索、地图、Gmail 等） | 619 | 🌍 境外服务 |
 | `max` | Max / HBO Max | 64 | 🎬 Max |
-| `microsoft` | Microsoft 服务 | 556 | 🎯 全球直连 |
+| `microsoft` | Microsoft 服务 | 554 | 🎯 全球直连 |
 | `netflix` | Netflix | 24 | 🎬 Netflix |
 | `primevideo` | Prime Video | 25 | 🎬 Prime Video |
 | `private` | 局域网、保留地址、本地主机名 | 23 | DIRECT |
-| `proxy` | 其余境外常用服务 | 18588 | 🌍 境外服务 |
-| `reject-ads` | 广告域名（含插屏、弹窗、推送广告） | 29335 | REJECT |
+| `proxy` | 其余境外常用服务 | 18563 | 🌍 境外服务 |
+| `reject-ads` | 广告域名（含插屏、弹窗、推送广告） | 37113 | REJECT |
 | `reject-malware` | 恶意软件分发与钓鱼域名 | 18377 | REJECT |
 | `reject-tracker` | 常见追踪器、分析 SDK、归因与热图服务 | 668 | REJECT |
 | `spotify` | Spotify | 23 | 🎵 Spotify |
 | `streaming-others` | 其他流媒体与音视频平台 | 1587 | 📺 其他流媒体 |
 | `telegram` | Telegram（域名 + 官方 IP 段） | 31 | 🌍 境外服务 |
-| `tiktok` | TikTok（不含抖音） | 40 | 🎬 TikTok |
+| `tiktok` | TikTok（不含抖音） | 36 | 🎬 TikTok |
 | `youtube` | YouTube 及视频 CDN | 177 | 📺 YouTube |
 <!-- END CATEGORY TABLE -->
 
@@ -188,7 +211,7 @@ OpenAI、Anthropic、Google Gemini 都按**出口 IP 归属地**判断可用性�
 - 跳过 `proxy` 分类（两万多条）和 `cn-ip6`（三千多条），因为默认配置关闭 IPv6；
 - 只保留 `private`、三档广告、`ai`（汇总）、`cn`、`cn-ip` 五个分类。
 
-规则条数约为标准版的六成；再把档位换成 `ads-off`，总量会降到一万出头。
+规则条数约为标准版的六成五（约 5 万 vs 7.8 万）；再把档位换成 `ads-off`，总量会降到一万二。
 AI 单独留一组，是因为它需要按节点名排除地区，FINAL 做不到这件事。
 
 ## 高级用法：只引用单个规则集
@@ -291,4 +314,5 @@ urlhaus-filter（CC0 数据）。AdGuard 与 EasyList 因 GPL / CC-BY-SA 与本�
 - Shadowrocket 不支持节点名正则过滤，AI / 回国组需手动选节点。
 - v2fly 里有约 160 条 `regexp:` 规则没有导出（构建报告里按分类计数），主要是一些 CDN 边缘域名。
 - `reject-malware` 的条数每天波动较大，已单独关闭 30% 突变保护。
+- 广告分类（约 3.7 万条）是全仓库最大的单类；`ads-off` 档位可以完全去掉它。
 - `cn-region-locked` 是手工维护的媒体域名清单，不含银行类 App（其域名难以稳定枚举）。

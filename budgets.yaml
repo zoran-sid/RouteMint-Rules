@@ -27,7 +27,7 @@ categories:
   apple: 2500
   microsoft: 1000
   google: 1600
-  reject-ads: 32000
+  reject-ads: 45000
   reject-tracker: 2500
   reject-malware: 25000
   ai-openai: 60
@@ -41,8 +41,8 @@ categories:
 presets:
   cn-mainland: 110000
   overseas: 60000
-  overseas-return: 70000
-  cn-mainland-lite: 65000
+  overseas-return: 75000
+  cn-mainland-lite: 72000
 
 distribution:
   # jsDelivr 限制：单文件 20 MB，整包 150 MB。

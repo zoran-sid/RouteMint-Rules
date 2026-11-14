@@ -9,7 +9,8 @@
 | `v2fly-dlc` | v2fly domain-list-community | MIT | [https://github.com/v2fly/domain-list-community](https://github.com/v2fly/domain-list-community) |
 | `china-operator-ip` | gaoyifan/china-operator-ip | MIT | [https://github.com/gaoyifan/china-operator-ip](https://github.com/gaoyifan/china-operator-ip) |
 | `shadowwhisperer` | ShadowWhisperer/BlockLists | Unlicense | [https://github.com/ShadowWhisperer/BlockLists](https://github.com/ShadowWhisperer/BlockLists) |
-| `urlhaus` | malware-filter/urlhaus-filter（GitLab） | CC0-1.0 | [https://gitlab.com/malware-filter/urlhaus-filter](https://gitlab.com/malware-filter/urlhaus-filter) |
+| `cname-trackers` | AdGuard CNAME disguised ads list | MIT | [https://github.com/AdguardTeam/cname-trackers](https://github.com/AdguardTeam/cname-trackers) |
+| `urlhaus` | malware-filter/urlhaus-filter（GitLab） | MIT / CC0-1.0 | [https://gitlab.com/malware-filter/urlhaus-filter](https://gitlab.com/malware-filter/urlhaus-filter) |
 
 ## 逐项说明
 
@@ -31,9 +32,15 @@
 - 许可证原文：https://github.com/ShadowWhisperer/BlockLists/blob/master/LICENSE
 - 项目主页：https://github.com/ShadowWhisperer/BlockLists
 
+### AdGuard CNAME disguised ads list
+
+- 许可证：MIT
+- 许可证原文：https://github.com/AdguardTeam/cname-trackers/blob/master/LICENSE
+- 项目主页：https://github.com/AdguardTeam/cname-trackers
+
 ### malware-filter/urlhaus-filter（GitLab）
 
-- 许可证：CC0-1.0
+- 许可证：MIT / CC0-1.0
 - 许可证原文：https://gitlab.com/malware-filter/urlhaus-filter/-/blob/main/LICENSE-CC0.md
 - 项目主页：https://gitlab.com/malware-filter/urlhaus-filter
 

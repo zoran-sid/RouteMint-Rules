@@ -8,8 +8,18 @@ meta:
     ads-light 的第一层。上游选 ShadowWhisperer/BlockLists（Unlicense），
     因为 AdGuard DNS filter 是 GPL-3.0、EasyList 是 GPL-3.0/CC-BY-SA，
     与本仓库 MIT 许可证不兼容，不能随产物分发。
+    主流规则仓库（blackmatrix7 29 万条、Loyalsoldier 20 万条）实际上是直接
+    再分发 AdGuard/EasyList 的派生数据（这两个仓库自身分别声明 GPL-2.0 / GPL-3.0，
+    但都不标注数据来源的许可证）；本仓库不走这条路，改用 MIT/Unlicense 组合，
+    代价是覆盖少一些，但许可证是干净的。
   references:
     - https://github.com/ShadowWhisperer/BlockLists
 include:
+  # 主列表：覆盖面大、许可证干净（Unlicense）。
   - upstream: shadowwhisperer
     categories: [Ads]
+  # 补充：v2fly 用 @ads 属性标注的广告域名（MIT），主要补中国大陆的广告联盟。
+  - upstream: v2fly-dlc
+    categories: [category-ads-all]
+  # CNAME 伪装广告：托管在看似自有子域上的广告/追踪端点（MIT）。
+  - upstream: cname-trackers
