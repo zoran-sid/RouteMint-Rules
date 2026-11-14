@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pytest
 
-from builder.qr import CLIENT_FILES, config_url, generate, qr_payload
+from builder.qr import QR_CLIENTS, config_url, generate, qr_payload
 
 ROOT = Path(__file__).resolve().parents[1]
 QR_DIR = ROOT / "docs" / "qr"
@@ -13,7 +13,7 @@ PRESETS = ["cn-mainland", "cn-mainland-lite", "overseas", "overseas-return"]
 
 
 def test_all_qr_codes_exist():
-    expected = {f"{preset}-{client}.png" for preset in PRESETS for client in CLIENT_FILES}
+    expected = {f"{preset}-{client}.png" for preset in PRESETS for client in QR_CLIENTS}
     present = {path.name for path in QR_DIR.glob("*.png")}
     assert expected <= present, sorted(expected - present)
 
@@ -22,7 +22,7 @@ def test_qr_codes_are_current(tmp_path: Path):
     written = generate(
         __import__("builder.config", fromlist=["Paths"]).Paths(ROOT), tmp_path, PRESETS
     )
-    assert len(written) == len(PRESETS) * len(CLIENT_FILES)
+    assert len(written) == len(PRESETS) * len(QR_CLIENTS)
     for path in written:
         committed = QR_DIR / path.name
         assert committed.read_bytes() == path.read_bytes(), f"{path.name} is stale"
@@ -34,7 +34,7 @@ def test_qr_payload_uses_client_scheme():
     assert qr_payload("loon", url).startswith("loon://import?sub=")
     assert qr_payload("surge", url).startswith("surge:///install-config?url=")
     assert qr_payload("singbox", url).startswith("sing-box://import-remote-profile?url=")
-    assert qr_payload("shadowrocket", url) == url
+    assert qr_payload("shadowrocket", url) == f"shadowrocket://config/add/{url}"
 
 
 def test_config_url_points_at_release_branch():
@@ -49,7 +49,7 @@ def test_readme_references_every_preset_qr():
     text = (ROOT / "README.md").read_text(encoding="utf-8")
     for preset in PRESETS:
         assert f"docs/qr/{preset}-mihomo.png" in text
-    for client in ("surge", "loon", "quantumultx", "singbox"):
+    for client in ("surge", "loon", "singbox"):
         assert f"docs/qr/cn-mainland-{client}.png" in text
 
 
@@ -72,3 +72,31 @@ def test_docs_are_not_empty(name):
     path = ROOT / "docs" / name
     assert path.is_file()
     assert len(path.read_text(encoding="utf-8")) > 500
+
+
+def test_shadowrocket_qr_is_not_a_subscription():
+    """Regression: a bare https QR made Shadowrocket add a subscription."""
+    import zxingcpp
+    from PIL import Image
+
+    image = Image.open(QR_DIR / "cn-mainland-shadowrocket.png")
+    payload = zxingcpp.read_barcodes(image)[0].text
+    assert payload.startswith("shadowrocket://config/add/https://")
+    assert not payload.startswith("https://")
+
+
+def test_every_qr_decodes_to_its_client_scheme():
+    import zxingcpp
+    from PIL import Image
+
+    prefixes = {
+        "mihomo": "clash://install-config?url=",
+        "shadowrocket": "shadowrocket://config/add/https://",
+        "surge": "surge:///install-config?url=",
+        "loon": "loon://import?sub=",
+        "singbox": "sing-box://import-remote-profile?url=",
+    }
+    for path in sorted(QR_DIR.glob("*.png")):
+        client = next(c for c in prefixes if path.name.endswith(f"-{c}.png"))
+        payload = zxingcpp.read_barcodes(Image.open(path))[0].text
+        assert payload.startswith(prefixes[client]), f"{path.name}: {payload[:60]}"

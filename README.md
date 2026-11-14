@@ -71,10 +71,13 @@
 |---|---|---|
 | Surge | <img src="docs/qr/cn-mainland-surge.png" width="120"> | `.../cn-mainland/ads-light/surge.conf` |
 | Loon | <img src="docs/qr/cn-mainland-loon.png" width="120"> | `.../cn-mainland/ads-light/loon.conf` |
-| Quantumult X | <img src="docs/qr/cn-mainland-quantumultx.png" width="120"> | `.../cn-mainland/ads-light/quantumultx.conf` |
+| Quantumult X | 手动导入 | `.../cn-mainland/ads-light/quantumultx.conf`（QX 不支持用 URL 导入整份配置，下载后在 App 里导入） |
 | sing-box | <img src="docs/qr/cn-mainland-singbox.png" width="120"> | `.../cn-mainland/ads-light/singbox.json` |
 
 地址前缀统一是 `https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/`。
+
+二维码会直接以「配置」导入；如果被当成「订阅」，说明扫的是旧码或用了系统相机，
+请改用客户端内的扫码入口重新扫一次。
 
 节点怎么填：
 
@@ -97,6 +100,10 @@
 | `ads-strict` | 再加恶意域名 | `.../configs/cn-mainland/ads-strict/mihomo.yaml` |
 
 ## 常见问题
+
+**扫码后被当成订阅了？**
+Shadowrocket 需要 `shadowrocket://config/add/...` 这种协议才会按配置导入，普通网址会被当成
+节点订阅。本页二维码已经是配置协议；如果你之前存过旧码，重新扫一次即可。
 
 **扫码后没有节点？**
 本仓库只发规则，不提供节点。请在客户端里添加你自己的机场订阅，配置里只有一处占位符要改。

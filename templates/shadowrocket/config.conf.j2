@@ -18,6 +18,10 @@ fallback-dns-server = https://1.1.1.1/dns-query
 ipv6 = false
 icmp-auto-reply = true
 
+[Proxy]
+# 节点由你在 Shadowrocket 里添加的机场订阅提供，本文件不含任何节点。
+# 这一段留空即可，不影响配置导入。
+
 [Proxy Group]
 {% for group in groups %}
 {% set members = group.members if group.members else ["PROXY"] %}

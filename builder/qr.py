@@ -31,15 +31,21 @@ def config_url(urls: dict, preset: str, tier: str, client: str) -> str:
     )
 
 
-def qr_payload(client: str, url: str) -> str:
-    """Encode the client's own import scheme where one is documented.
+# Quantumult X cannot import a whole remote profile by URL, so it gets no QR.
+QR_CLIENTS = ("mihomo", "shadowrocket", "surge", "loon", "singbox")
 
-    Scanning with the client's built-in scanner always works with the plain
-    URL; the scheme variant additionally lets the system camera open the app.
+
+def qr_payload(client: str, url: str) -> str:
+    """Encode the client's import scheme.
+
+    Shadowrocket must use ``shadowrocket://config/add/<url>``; a bare https URL
+    is interpreted as a *proxy subscription*, not as a config file.
     """
     encoded = urllib.parse.quote(url, safe="")
     if client == "mihomo":
         return f"clash://install-config?url={encoded}"
+    if client == "shadowrocket":
+        return f"shadowrocket://config/add/{url}"
     if client == "surge":
         return f"surge:///install-config?url={encoded}"
     if client == "loon":
@@ -56,7 +62,7 @@ def generate(paths: Paths, out: Path, presets: list[str] | None = None) -> list[
     written: list[Path] = []
     for preset in preset_ids:
         tier = "ads-light"
-        for client in CLIENT_FILES:
+        for client in QR_CLIENTS:
             path = out / f"{preset}-{client}.png"
             payload = qr_payload(client, config_url(urls, preset, tier, client))
             segno.make(payload, error="m").save(
