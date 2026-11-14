@@ -20,3 +20,6 @@ package = false
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"
+# `uv run pytest` uses the console script, which does not put the repo root on
+# sys.path the way `python -m pytest` does.
+pythonpath = ["."]

@@ -16,6 +16,7 @@ on:
       - "upstreams.yaml"
       - "budgets.yaml"
       - "uv.lock"
+      - "pyproject.toml"
 
 permissions:
   contents: read
