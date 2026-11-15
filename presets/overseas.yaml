@@ -2,7 +2,7 @@ id: overseas
 label: 身在海外
 tagline: 默认直连，只把 AI 与部分流媒体交给代理
 audience: 常驻海外，Google/YouTube 等本来就能直接访问
-summary: 默认全部直连；AI 服务走 AI 专用组（按节点名排除香港/澳门/大陆等地区）；TikTok、Netflix、Disney+、Max、Prime Video 走各自的流媒体组；其余流量直连，只有手动切换时才走代理。
+summary: 默认全部直连；AI 服务走 AI 专用组（按节点名排除香港/澳门/大陆等地区）；Google、YouTube 直连；TikTok、Netflix、Disney+、Max、Prime Video 走独立策略组；其余流量直连，只有手动切换时才走代理。
 order: 20
 ads: ads-light
 notes: |
@@ -43,15 +43,44 @@ groups:
     exclude_filter: "(?i)(?:^|[^a-z])(?:香港|港|hong ?kong|hk|澳门|macau|macao|mo|中国|大陆|cn|china|伊朗|iran|ir|朝鲜|kp|叙利亚|sy|古巴|cu|俄罗斯|russia|moscow|ru|上海|北京|广州|深圳|杭州|成都|南京|武汉|回国|🇭🇰|🇲🇴|🇨🇳|🇮🇷|🇰🇵|🇸🇾|🇨🇺|🇷🇺)(?:[^a-z]|$)"
     interval: 300
 
-  # 片源库按 IP 地区划分：想换区时在这里选对应地区节点。
+  # 手动固定流媒体出口，避免延迟测试自动跨区切换。
   - name: "🌍 流媒体"
     tag: streaming
     type: select
     use_providers: true
+    exclude_filter: "(?i)(中国|大陆|回国|🇨🇳)"
+
+  - name: "🎬 Netflix"
+    tag: netflix
+    type: select
+    use_providers: true
     members:
-      - "♻️ 自动选择"
+      - "🌍 流媒体"
       - "🎯 全球直连"
-    exclude_filter: "(?i)(?:^|[^a-z])(?:中国|大陆|cn|china|上海|北京|广州|深圳|杭州|成都|南京|武汉|回国|🇨🇳)(?:[^a-z]|$)"
+
+  - name: "🎬 Disney+"
+    tag: disney
+    type: select
+    use_providers: true
+    members:
+      - "🌍 流媒体"
+      - "🎯 全球直连"
+
+  - name: "🎬 Max"
+    tag: max
+    type: select
+    use_providers: true
+    members:
+      - "🌍 流媒体"
+      - "🎯 全球直连"
+
+  - name: "🎬 Prime Video"
+    tag: primevideo
+    type: select
+    use_providers: true
+    members:
+      - "🌍 流媒体"
+      - "🎯 全球直连"
 
   # TikTok 按 IP 地区限定，香港/大陆/澳门节点会直接不可用。
   - name: "🎬 TikTok"
@@ -93,9 +122,11 @@ rules:
   - {category: ai-copilot, policy: "🤖 AI 服务"}
   - {category: ai-perplexity, policy: "🤖 AI 服务"}
   - {category: ai-others, policy: "🤖 AI 服务"}
-  - {category: netflix, policy: "🌍 流媒体"}
-  - {category: disney, policy: "🌍 流媒体"}
+  - {category: netflix, policy: "🎬 Netflix"}
+  - {category: disney, policy: "🎬 Disney+"}
+  - {category: youtube, policy: "🎯 全球直连"}
   - {category: tiktok, policy: "🎬 TikTok"}
-  - {category: max, policy: "🌍 流媒体"}
-  - {category: primevideo, policy: "🌍 流媒体"}
+  - {category: max, policy: "🎬 Max"}
+  - {category: primevideo, policy: "🎬 Prime Video"}
+  - {category: google, policy: "🎯 全球直连"}
   - {final: "🐟 漏网之鱼"}

@@ -50,19 +50,6 @@ TEMPLATE_EXT = {
     "quantumultx": "conf",
 }
 
-# Categories whose domains are resolved by a domestic resolver.  Everything
-# else in a preset is a foreign service and must not touch a CN resolver.
-DOMESTIC_CATEGORIES = {
-    "private",
-    "cn",
-    "cn-ip",
-    "cn-ip6",
-    "cn-region-locked",
-    "reject-ads",
-    "reject-tracker",
-    "reject-malware",
-}
-
 
 @dataclass
 class RuleEntry:
@@ -99,7 +86,12 @@ def build_context(preset: Preset, tier: str, builds: dict, urls: dict, generated
     entries: list[RuleEntry] = []
     sr_entries: list[RuleEntry] = []
     dns_policy: list[dict] = []
-    dns_proxy_group = proxy_group_name(preset)
+    mainland = preset.id.startswith("cn-mainland")
+    default_dns = (
+        ["https://dns.alidns.com/dns-query", "https://doh.pub/dns-query"]
+        if mainland else ["system"]
+    )
+    bootstrap_dns = ["223.5.5.5", "119.29.29.29"] if mainland else ["1.1.1.1", "8.8.8.8"]
 
     for ref in preset.rules:
         if ref.final:
@@ -141,41 +133,27 @@ def build_context(preset: Preset, tier: str, builds: dict, urls: dict, generated
             inline = f"DOMAIN-KEYWORD,{keyword.value},{policy}"
             entries.append(RuleEntry(kind="inline", text=inline, policy=policy))
             sr_entries.append(RuleEntry(kind="inline", text=inline, policy=policy))
-        if ref.category not in DOMESTIC_CATEGORIES and item.domain_rules:
-            dns_policy.append(
-                {
-                    "key": f"rule-set:{ref.category}",
-                    "servers": [f"https://1.1.1.1/dns-query#{dns_proxy_group}"],
-                }
-            )
-
-    if "private" in categories and builds["private"].domain_rules:
-        dns_policy.insert(
-            0,
-            {
-                "key": "rule-set:private",
-                "servers": ["https://dns.alidns.com/dns-query", "https://doh.pub/dns-query"],
-            },
-        )
-    if "cn" in categories and builds["cn"].domain_rules:
-        dns_policy.insert(
-            0,
-            {
-                "key": "rule-set:cn",
-                "servers": ["https://dns.alidns.com/dns-query", "https://doh.pub/dns-query"],
-            },
-        )
+        if item.domain_rules and not ref.category.startswith("reject-"):
+            # DNS follows the service policy, including a manually chosen DIRECT.
+            # A return-media query must leave through the same mainland exit.
+            if ref.category == "private":
+                servers = ["system"]
+            elif ref.category in {"cn", "cn-region-locked"}:
+                servers = [f"https://dns.alidns.com/dns-query#{policy}"]
+            else:
+                servers = [f"https://1.1.1.1/dns-query#{policy}"]
+            dns_policy.append({"key": f"rule-set:{ref.category}", "servers": servers})
 
     builtin = {
         group["name"]: BUILTIN_POLICY[group["members"][0]]
         for group in groups
-        if len(group["members"]) == 1 and group["members"][0] in BUILTIN_POLICY
+        if not group["use_providers"] and len(group["members"]) == 1 and group["members"][0] in BUILTIN_POLICY
     }
     # QX policy groups are flat: members are servers from the subscription, and
     # nesting another group is not documented, so every non-built-in group is
     # built from the airport resource instead of listing members.
     qx_policies = [
-        {"name": group["name"], "type": group["type"], "interval": group["interval"]}
+        {**group}
         for group in groups
         if group["name"] not in builtin
     ]
@@ -208,6 +186,8 @@ def build_context(preset: Preset, tier: str, builds: dict, urls: dict, generated
         members = list(group["members"])
         surge = f"{name} = {gtype}"
         loon = f"{name} = {gtype}"
+        for member in members:
+            loon += f", {member}"
         if group["use_providers"]:
             surge += ", include-other-group=Airport"
             if group["filter"]:
@@ -221,7 +201,6 @@ def build_context(preset: Preset, tier: str, builds: dict, urls: dict, generated
                 loon += ", Airport"
         for member in members:
             surge += f", {member}"
-            loon += f", {member}"
         if gtype != "select":
             surge += f", url={group['test_url']}, interval={group['interval']}"
             loon += f", url={group['test_url']}, interval={group['interval']}"
@@ -238,14 +217,14 @@ def build_context(preset: Preset, tier: str, builds: dict, urls: dict, generated
             surge_rules.append(f"RULE-SET,{entry.list_url},{entry.policy}")
             loon_remote_rules.append(f"{entry.list_url},policy={entry.policy},enabled=true")
             qx_filter_remote.append(
-                f"{entry.list_url}, tag={entry.tag}, "
+                f"{entry.list_url.removesuffix('.list')}-qx.list, tag={entry.tag}, "
                 f"force-policy={builtin.get(entry.policy, entry.policy)}, enabled=true"
             )
         elif entry.kind == "inline":
             surge_rules.append(entry.text)
             loon_rules.append(entry.text)
             qx_filter_local.append(
-                f"{entry.text.rsplit(',', 1)[0]}, {builtin.get(entry.policy, entry.policy)}"
+                f"{entry.text.rsplit(',', 1)[0].replace('DOMAIN-KEYWORD,', 'host-keyword, ', 1)}, {builtin.get(entry.policy, entry.policy)}"
             )
         else:
             surge_rules.append(f"FINAL,{entry.policy}")
@@ -254,7 +233,12 @@ def build_context(preset: Preset, tier: str, builds: dict, urls: dict, generated
     qx_policy_lines: list[str] = []
     for policy in qx_policies:
         if policy["type"] == "select":
-            qx_policy_lines.append(f"static = {policy['name']}, resource-tag-regex=^Airport$")
+            # QX groups are flattened to subscription servers. Preserve an
+            # explicit DIRECT/REJECT default instead of silently proxying it.
+            first = policy["members"][0] if policy["members"] else ""
+            default = builtin.get(first, BUILTIN_POLICY.get(first, ""))
+            prefix = f"{default}, " if default else ""
+            qx_policy_lines.append(f"static = {policy['name']}, {prefix}resource-tag-regex=^Airport$")
         else:
             qx_policy_lines.append(
                 f"url-latency-benchmark = {policy['name']}, resource-tag-regex=^Airport$, "
@@ -289,6 +273,9 @@ def build_context(preset: Preset, tier: str, builds: dict, urls: dict, generated
         "rule_entries": entries,
         "sr_rule_entries": sr_entries,
         "dns_policy": dns_policy,
+        "default_dns": default_dns,
+        "bootstrap_dns": bootstrap_dns,
+        "mainland": mainland,
         "subscription_placeholder": SUBSCRIPTION_PLACEHOLDER,
         "sub_placeholders": SUB_PLACEHOLDERS,
         "urls": urls,
@@ -371,47 +358,49 @@ def _singbox_model(preset: Preset, groups: list[dict], categories: list[str], bu
         {"protocol": "dns", "action": "hijack-dns"},
     ]
     dns_rules: list[dict] = []
-    foreign: list[str] = []
-    domestic: list[str] = []
+    dns_servers: list[dict] = []
 
     for ref in preset.rules:
         if ref.final or ref.category not in categories:
             continue
         item = builds[ref.category]
         tag = f"rs-{ref.category}"
-        if item.domain_rules or item.ip_rules:
+        if item.rules:
             rule_sets.append(
                 {
                     "type": "remote",
                     "tag": tag,
                     "format": "binary",
                     "url": f"{urls['jsdelivr']}@{urls['branch']}/rules/{ref.category}/{ref.category}.srs",
-                    "download_detour": "proxy",
+                    "download_detour": "proxy" if preset.id.startswith("cn-mainland") else "direct",
                 }
             )
             route_rules.append({"rule_set": tag, "outbound": policy_tag[ref.policy or "DIRECT"]})
-        if item.domain_rules:
-            (domestic if ref.category in DOMESTIC_CATEGORIES else foreign).append(tag)
+        if item.domain_rules and not ref.category.startswith("reject-"):
+            if ref.category == "private":
+                dns_tag = "local"
+            else:
+                outbound = policy_tag[ref.policy or "DIRECT"]
+                domestic = ref.category in {"cn", "cn-region-locked"}
+                dns_tag = f"dns-{'cn' if domestic else 'remote'}-{outbound}"
+                if not any(server["tag"] == dns_tag for server in dns_servers):
+                    dns_servers.append({
+                        "type": "https", "tag": dns_tag,
+                        "server": "223.5.5.5" if domestic else "1.1.1.1",
+                        "path": "/dns-query", "detour": outbound,
+                        **({"tls": {"server_name": "dns.alidns.com"}} if domestic else {}),
+                    })
+            dns_rules.append({"rule_set": tag, "server": dns_tag})
 
     return {
-        "dns_detour": policy_tag[proxy_group_name(preset)],
+        "dns_servers": dns_servers,
+        "default_dns": "domestic" if preset.id.startswith("cn-mainland") else "local",
         "outbounds": outbounds,
         "rule_sets": rule_sets,
         "rules": route_rules,
-        "dns_rules": (
-            ([{"rule_set": domestic, "server": "domestic"}] if domestic else [])
-            + ([{"rule_set": foreign, "server": "remote"}] if foreign else [])
-        ),
+        "dns_rules": dns_rules,
         "final": policy_tag[preset.rules[-1].final],
     }
-
-
-def proxy_group_name(preset: Preset) -> str:
-    """Group used to reach foreign DNS servers; the first group that proxies."""
-    for group in preset.groups:
-        if group.name.startswith("🚀"):
-            return group.name
-    return preset.groups[0].name
 
 
 def _provider(
@@ -440,21 +429,14 @@ def singbox_config(context: dict) -> dict:
         "log": {"level": "info", "timestamp": True},
         "dns": {
             "servers": [
-                {
-                    "type": "https",
-                    "tag": "domestic",
-                    "server": "dns.alidns.com",
-                    "detour": "direct",
-                },
-                {
-                    "type": "https",
-                    "tag": "remote",
-                    "server": "1.1.1.1/dns-query",
-                    "detour": sb["dns_detour"],
-                },
+                {"type": "local", "tag": "local"},
+                {"type": "https", "tag": "domestic", "server": "223.5.5.5",
+                 "path": "/dns-query", "tls": {"server_name": "dns.alidns.com"},
+                 "detour": "direct"},
+                *sb["dns_servers"],
             ],
             "rules": sb["dns_rules"],
-            "final": "domestic",
+            "final": sb["default_dns"],
             "strategy": "prefer_ipv4",
         },
         "inbounds": [
@@ -471,7 +453,7 @@ def singbox_config(context: dict) -> dict:
             "rules": sb["rules"],
             "rule_set": sb["rule_sets"],
             "final": sb["final"],
-            "default_domain_resolver": {"server": "domestic"},
+            "default_domain_resolver": {"server": sb["default_dns"]},
         },
     }
 

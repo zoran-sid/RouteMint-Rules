@@ -47,18 +47,20 @@ dns:
     - "+.msftconnecttest.com"
     - "+.msftncsi.com"
     - "localhost.ptlogin2.qq.com"
+  # 海外使用当前网络 DNS；大陆使用国内 DoH。节点域名独立解析，避免递归。
   default-nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
-  # 默认走国内 DoH：只有直连域名需要本地解析，CN 域名用国内 DNS 最快。
+{% for server in bootstrap_dns %}
+    - {{ server }}
+{% endfor %}
   nameserver:
-    - https://dns.alidns.com/dns-query
-    - https://doh.pub/dns-query
+{% for server in default_dns %}
+    - {{ server }}
+{% endfor %}
   proxy-server-nameserver:
-    - https://dns.alidns.com/dns-query
-    - https://doh.pub/dns-query
-  # 防泄漏的核心：境外分类的域名一律用境外 DoH，并强制经由代理组发出。
-  # `rule-set:<tag>` 仅支持 behavior=domain 的规则集（见 rule-providers）。
+{% for server in default_dns %}
+    - {{ server }}
+{% endfor %}
+  # 服务 DNS 经同一策略组发出；切换服务出口时，DNS 同步切换。
   nameserver-policy:
 {% for policy in dns_policy %}
     "{{ policy.key }}":

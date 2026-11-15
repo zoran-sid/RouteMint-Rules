@@ -10,7 +10,7 @@
 [General]
 loglevel = notify
 ipv6 = false
-dns-server = 223.5.5.5, 119.29.29.29
+dns-server = {{ "223.5.5.5, 119.29.29.29" if mainland else "system" }}
 proxy-test-url = http://www.gstatic.com/generate_204
 skip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, 127.0.0.1, localhost, *.local
 exclude-simple-hostnames = true

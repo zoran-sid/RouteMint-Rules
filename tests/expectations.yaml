@@ -92,7 +92,7 @@ cases:
   - domain: netflix.com
     preset: overseas
     category: netflix
-    policy: "🌍 流媒体"
+    policy: "🎬 Netflix"
   - domain: chatgpt.com
     preset: overseas
     category: ai-openai
@@ -119,3 +119,26 @@ cases:
     preset: cn-mainland-lite
     category: FINAL
     policy: "🐟 漏网之鱼"
+
+  # 海外的 Google/YouTube 直连与 AI 例外。
+  - {domain: www.google.com, preset: overseas, category: google, policy: "🎯 全球直连"}
+  - {domain: youtube.com, preset: overseas, category: youtube, policy: "🎯 全球直连"}
+  - {domain: r1.googlevideo.com, preset: overseas, category: youtube, policy: "🎯 全球直连"}
+  - {domain: gemini.google.com, preset: overseas, category: ai-gemini, policy: "🤖 AI 服务"}
+  - {domain: claude.ai, preset: overseas, category: ai-anthropic, policy: "🤖 AI 服务"}
+  - {domain: nflxvideo.net, preset: overseas, category: netflix, policy: "🎬 Netflix"}
+  - {domain: fast.com, preset: overseas, category: netflix, policy: "🎬 Netflix"}
+  - {domain: netflixdnstest10.com, preset: overseas, category: netflix, policy: "🎬 Netflix"}
+  - {domain: apiproxy-device-prod-nlb-123.us-east-1.elb.amazonaws.com, preset: overseas, category: netflix, policy: "🎬 Netflix"}
+  - {domain: apiproxy-website-nlb-prod-123.us-east-1.elb.amazonaws.com, preset: overseas, category: netflix, policy: "🎬 Netflix"}
+  - {domain: dualstack.apiproxy-123.us-east-1.elb.amazonaws.com, preset: overseas, category: netflix, policy: "🎬 Netflix"}
+  - {domain: dualstack.ichnaea-web-123.us-east-1.elb.amazonaws.com, preset: overseas, category: netflix, policy: "🎬 Netflix"}
+  - {domain: max.com, preset: overseas, category: max, policy: "🎬 Max"}
+  - {domain: hbomaxcdn.com, preset: overseas, category: max, policy: "🎬 Max"}
+  - {domain: hbomax-images.warnermediacdn.com, preset: overseas, category: max, policy: "🎬 Max"}
+  # 回国媒体补齐 CDN，普通国内服务继续直连。
+  - {domain: 71edge.com, preset: overseas-return, category: cn-region-locked, policy: "🏠 回国"}
+  - {domain: acgvideo.com, preset: overseas-return, category: cn-region-locked, policy: "🏠 回国"}
+  - {domain: ykimg.alicdn.com, preset: overseas-return, category: cn-region-locked, policy: "🏠 回国"}
+  - {domain: mail.qq.com, preset: overseas-return, category: cn, policy: "🎯 全球直连"}
+  - {domain: music.163.com, preset: cn-mainland, category: cn, policy: "🎯 全球直连"}

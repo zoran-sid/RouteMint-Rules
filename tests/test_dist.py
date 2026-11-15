@@ -194,7 +194,9 @@ def test_singbox_config_structure(built):
         for rs in data["route"]["rule_set"]:
             assert rs["url"].endswith(".srs")
         assert data["route"]["final"] in tags
-        assert data["route"]["default_domain_resolver"]["server"] == "domestic"
+        assert data["route"]["default_domain_resolver"]["server"] == (
+            "domestic" if any(part.startswith("cn-mainland") for part in path.parts) else "local"
+        )
 
 
 def test_singbox_rule_files(built):
@@ -227,3 +229,58 @@ def test_readme_has_no_stale_config_extensions():
     text = (Path(__file__).resolve().parents[1] / "README.md").read_text(encoding="utf-8")
     assert "/mihomo.yaml" not in text
     assert "/singbox.json" not in text
+
+
+def test_qx_downloads_qx_rules_and_keeps_local_keyword_grammar(built):
+    prefix = "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/"
+    for path in _configs(built, "quantumultx.conf"):
+        text = path.read_text()
+        remote = text.split("[filter_remote]\n", 1)[1].split("[filter_local]", 1)[0]
+        for line in remote.splitlines():
+            if line.startswith(prefix):
+                url = line.split(",", 1)[0]
+                assert url.endswith("-qx.list")
+                assert (built.dist / url.removeprefix(prefix)).is_file()
+        local = text.split("[filter_local]\n", 1)[1]
+        assert "DOMAIN-KEYWORD" not in local
+        if path.parts[-3] == "overseas":
+            assert "host-keyword, apiproxy-device-prod-nlb-, 🎬 Netflix" in local
+
+
+def test_return_group_remains_selectable_and_rejects_until_configured(built):
+    folder = built.dist / "configs/overseas-return/ads-light"
+    qx = (folder / "quantumultx.conf").read_text()
+    assert "static = 🏠 回国, reject, resource-tag-regex=^Airport$" in qx
+    assert "tag=cn-region-locked, force-policy=🏠 回国" in qx
+    assert "static = 🤖 AI 服务, direct," in qx
+    assert "final, direct" in qx
+    for client in ("surge", "loon", "shadowrocket"):
+        text = (folder / f"{client}.conf").read_text()
+        line = next(line for line in text.splitlines() if line.startswith("🏠 回国 ="))
+        assert "REJECT" in line and "🚀 节点选择" not in line
+        if client in {"loon", "shadowrocket"}:
+            assert line.startswith("🏠 回国 = select, REJECT,")
+    mh = yaml.safe_load((folder / "mihomo.conf").read_text())
+    group = next(g for g in mh["proxy-groups"] if g["name"] == "🏠 回国")
+    assert group["proxies"] == ["REJECT"]
+    sb = json.loads((folder / "singbox.conf").read_text())
+    group = next(g for g in sb["outbounds"] if g["tag"] == "cn-return")
+    assert group["default"] == "block" and "airport" in group["outbounds"]
+
+
+def test_service_dns_uses_the_service_exit_and_overseas_defaults_are_local(built):
+    for scene, category, policy, sbtag in (
+        ("overseas", "netflix", "🎬 Netflix", "netflix"),
+        ("overseas", "ai-openai", "🤖 AI 服务", "ai"),
+        ("overseas-return", "cn-region-locked", "🏠 回国", "cn-return"),
+    ):
+        folder = built.dist / "configs" / scene / "ads-light"
+        mh = yaml.safe_load((folder / "mihomo.conf").read_text())
+        assert mh["dns"]["nameserver"] == ["system"]
+        assert all(server.endswith(f"#{policy}") for server in mh["dns"]["nameserver-policy"][f"rule-set:{category}"])
+        sb = json.loads((folder / "singbox.conf").read_text())
+        assert sb["dns"]["final"] == "local"
+        rule = next(rule for rule in sb["dns"]["rules"] if rule["rule_set"] == f"rs-{category}")
+        server = next(server for server in sb["dns"]["servers"] if server["tag"] == rule["server"])
+        assert server["detour"] == sbtag
+        assert "/" not in server["server"] and server["path"] == "/dns-query"

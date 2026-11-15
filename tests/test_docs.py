@@ -95,8 +95,21 @@ def test_every_qr_decodes_to_its_client_scheme():
         "surge": "surge:///install-config?url=",
         "loon": "loon://import?sub=",
         "singbox": "sing-box://import-remote-profile?url=",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/",
     }
     for path in sorted(QR_DIR.glob("*.png")):
         client = next(c for c in prefixes if path.name.endswith(f"-{c}.png"))
         payload = zxingcpp.read_barcodes(Image.open(path))[0].text
         assert payload.startswith(prefixes[client]), f"{path.name}: {payload[:60]}"
+
+
+def test_readme_offers_full_urls_and_matching_qr_for_each_client():
+    from builder.build import load_distribution
+    from builder.config import Paths
+
+    text = (ROOT / "README.md").read_text()
+    urls = load_distribution(Paths(ROOT))
+    for preset in PRESETS:
+        for client in QR_CLIENTS:
+            assert config_url(urls, preset, "ads-light", client) in text
+            assert f"docs/qr/{preset}-{client}.png" in text

@@ -13,7 +13,7 @@
 update-url = {{ config_url }} interval=86400
 bypass-system = true
 skip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, 127.0.0.1, localhost, *.local
-dns-server = 223.5.5.5, 119.29.29.29
+dns-server = {{ "223.5.5.5, 119.29.29.29" if mainland else "system" }}
 fallback-dns-server = https://1.1.1.1/dns-query
 ipv6 = false
 icmp-auto-reply = true
@@ -24,7 +24,7 @@ icmp-auto-reply = true
 
 [Proxy Group]
 {% for group in groups %}
-{% set members = group.members if group.members else ["PROXY"] %}
+{% set members = group.members + (["PROXY"] if group.use_providers else []) %}
 {% if group.type == "select" %}
 {{ group.name }} = select, {{ members | join(", ") }}
 {% else %}

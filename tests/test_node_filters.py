@@ -85,7 +85,7 @@ def test_return_group_filters_chinese_nodes():
     group = _group("overseas-return", "🏠 回国")
     for name in ["回国 01", "CN2 上海", "上海-01", "🇨🇳 北京"]:
         assert _matches(group.filter, name), name
-    for name in ["US01", "日本 01", "Singapore"]:
+    for name in ["US01", "日本 01", "Singapore", "CN2 US01"]:
         assert not _matches(group.filter, name), name
 
 
@@ -104,3 +104,16 @@ def test_overseas_keeps_unknown_traffic_direct():
     final = next(ref.final for ref in preset.rules if ref.final)
     group = _group("overseas", final)
     assert group.members[0] == "🎯 全球直连"
+
+
+def test_return_requires_explicit_mainland_exit():
+    group = _group("overseas-return", "🏠 回国")
+    assert group.members == ("REJECT",)
+
+
+def test_streaming_does_not_follow_automatic_latency_switches():
+    assert _group("overseas", "🌍 流媒体").members == ()
+    for service in ("🎬 Netflix", "🎬 Disney+", "🎬 Max", "🎬 Prime Video"):
+        group = _group("overseas", service)
+        assert group.type == "select"
+        assert group.members[0] == "🌍 流媒体"

@@ -7,7 +7,7 @@
 
 [General]
 ipv6 = false
-dns-server = 223.5.5.5, 119.29.29.29
+dns-server = {{ "223.5.5.5, 119.29.29.29" if mainland else "system" }}
 proxy-test-url = http://www.gstatic.com/generate_204
 
 [Remote Proxy]

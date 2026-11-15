@@ -19,6 +19,7 @@ add:
   - DOMAIN-SUFFIX,hdslb.com
   - DOMAIN-SUFFIX,bilivideo.com
   - DOMAIN-SUFFIX,bilivideo.cn
+  - DOMAIN-SUFFIX,acgvideo.com
   # 网易云音乐（只取音乐子域与音频 CDN）
   - DOMAIN-SUFFIX,music.163.com
   - DOMAIN-SUFFIX,music.126.net
@@ -28,6 +29,9 @@ add:
   - DOMAIN-SUFFIX,qiyi.com
   - DOMAIN-SUFFIX,iqiyipic.com
   - DOMAIN-SUFFIX,71.am
+  - DOMAIN-SUFFIX,71edge.com
+  - DOMAIN-SUFFIX,qiyipic.com
+  - DOMAIN-SUFFIX,qy.net
   # 腾讯视频（避开 qq.com 主域）
   - DOMAIN-SUFFIX,v.qq.com
   - DOMAIN-SUFFIX,vv.video.qq.com
@@ -36,6 +40,8 @@ add:
   # 优酷
   - DOMAIN-SUFFIX,youku.com
   - DOMAIN-SUFFIX,ykimg.com
+  - DOMAIN-SUFFIX,tudou.com
+  - DOMAIN,ykimg.alicdn.com
   # 芒果 TV
   - DOMAIN-SUFFIX,mgtv.com
   - DOMAIN-SUFFIX,hitv.com
