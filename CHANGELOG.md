@@ -2,6 +2,22 @@
 
 由每日构建自动生成。只记录规则层面的变化，格式变化不计。
 
+## 2026-11-15
+
+- **cn-region-locked**：24 → 30（+6）
+  - 新增：DOMAIN,ykimg.alicdn.com, DOMAIN-SUFFIX,71edge.com, DOMAIN-SUFFIX,acgvideo.com, DOMAIN-SUFFIX,qiyipic.com, DOMAIN-SUFFIX,qy.net, DOMAIN-SUFFIX,tudou.com
+- **google**：619 → 627（+8）
+  - 新增：DOMAIN-SUFFIX,go-lang.com, DOMAIN-SUFFIX,go-lang.net, DOMAIN-SUFFIX,go-lang.org, DOMAIN-SUFFIX,go.dev, DOMAIN-SUFFIX,godoc.org, DOMAIN-SUFFIX,golang.com, DOMAIN-SUFFIX,golang.net, DOMAIN-SUFFIX,golang.org
+- **netflix**：24 → 28（+4）
+  - 新增：DOMAIN-KEYWORD,apiproxy-device-prod-nlb-, DOMAIN-KEYWORD,apiproxy-website-nlb-prod-, DOMAIN-KEYWORD,dualstack.apiproxy-, DOMAIN-KEYWORD,dualstack.ichnaea-web-
+
+| 预设 | ads-off | ads-light | ads-strict |
+|---|---|---|---|
+| cn-mainland | 39983 | 77765 | 96164 |
+| overseas | 1423 | 39205 | 57604 |
+| overseas-return | 16137 | 53919 | 72318 |
+| cn-mainland-lite | 12670 | 50452 | 68851 |
+
 ## 2026-11-14
 
 - **cn-ip**：6211 → 6219（+8）
