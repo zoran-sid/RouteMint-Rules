@@ -1,0 +1,13 @@
+# RouteMint-Rules · 百度网盘与下载 CDN
+# 10 rules
+# https://github.com/zoran-sid/RouteMint-Rules
+host-suffix, baidupcs.com
+host-suffix, baiduyuncdn.cn
+host-suffix, baiduyuncdn.com
+host-suffix, baiduyuncdn.net
+host-suffix, bdycdn.cn
+host-suffix, bdycdn.net
+host-suffix, pan.baidu.com
+host-suffix, pcs.baidu.com
+host-suffix, pcsdata.baidu.com
+host-suffix, yun.baidu.com
