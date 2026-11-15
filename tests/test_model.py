@@ -67,3 +67,13 @@ def test_ip_matching_respects_family():
     rule = Rule.parse("IP-CIDR,10.0.0.0/8")
     assert rule.matches_ip("10.1.1.1")
     assert not rule.matches_ip("11.1.1.1")
+
+
+def test_keyword_accepts_hostname_fragments_without_weakening_domain_validation():
+    rule = Rule.parse("DOMAIN-KEYWORD,dualstack.apiproxy-")
+    assert rule.matches_domain("dualstack.apiproxy-prod.elb.amazonaws.com")
+    assert not rule.matches_domain("unrelated.elb.amazonaws.com")
+    with pytest.raises(RuleError):
+        Rule.parse("DOMAIN,dualstack.apiproxy-")
+    with pytest.raises(RuleError):
+        Rule.parse("DOMAIN-KEYWORD,bad fragment")

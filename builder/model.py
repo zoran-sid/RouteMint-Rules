@@ -85,6 +85,12 @@ class Rule:
             rule_type = RuleType(raw_type)
         except ValueError as exc:
             raise RuleError(f"unsupported rule type {raw_type!r}") from exc
+        if rule_type is RuleType.DOMAIN_KEYWORD:
+            # Keywords are hostname fragments, so a trailing hyphen is valid.
+            keyword = value.strip().lower()
+            if not re.fullmatch(r"[a-z0-9_.-]{1,253}", keyword):
+                raise RuleError(f"not a valid domain keyword: {value!r}")
+            return cls(rule_type, keyword)
         if rule_type.is_domain:
             # Single-label hosts are legitimate: "localhost", TLD-wide "cn".
             return cls(rule_type, normalize_domain(value, allow_tld=True))

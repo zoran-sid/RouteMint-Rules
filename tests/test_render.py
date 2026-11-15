@@ -102,9 +102,9 @@ def test_dns_policy_splits_domestic_and_foreign():
     )
     context = build_context(preset, "ads-off", builds, URLS, "2026-01-01T00:00:00Z")
     policy = {item["key"]: item["servers"] for item in context["dns_policy"]}
-    assert policy["rule-set:ai"] == ["https://1.1.1.1/dns-query#🚀 节点选择"]
+    assert policy["rule-set:ai"] == ["https://1.1.1.1/dns-query#🤖 AI 服务"]
     assert any("dns.alidns.com" in server for server in policy["rule-set:cn"])
-    assert len(policy["rule-set:cn"]) == 2
+    assert policy["rule-set:cn"] == ["https://dns.alidns.com/dns-query#🎯 全球直连"]
     assert "rule-set:private" in policy
 
 

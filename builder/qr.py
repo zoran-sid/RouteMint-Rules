@@ -31,8 +31,8 @@ def config_url(urls: dict, preset: str, tier: str, client: str) -> str:
     )
 
 
-# Quantumult X cannot import a whole remote profile by URL, so it gets no QR.
-QR_CLIENTS = ("mihomo", "shadowrocket", "surge", "loon", "singbox")
+# Quantumult X QR opens the download URL for manual import.
+QR_CLIENTS = ("mihomo", "shadowrocket", "surge", "loon", "singbox", "quantumultx")
 
 
 def qr_payload(client: str, url: str) -> str:
@@ -66,7 +66,7 @@ def generate(paths: Paths, out: Path, presets: list[str] | None = None) -> list[
             path = out / f"{preset}-{client}.png"
             payload = qr_payload(client, config_url(urls, preset, tier, client))
             segno.make(payload, error="m").save(
-                path, scale=5, border=2, dark="#111111", light="#ffffff"
+                path, scale=5, border=4, dark="#111111", light="#ffffff"
             )
             written.append(path)
     return written

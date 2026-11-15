@@ -67,7 +67,7 @@ python -m builder publish --help     # 发布辅助（CI 用）
 4. **验证方式**：截图、`dig` 结果、页面出处。
 
 关键字规则（`DOMAIN-KEYWORD`）默认不接受：它会误伤普通站点。确有必要时必须在 `sources/`
-里写明理由，且每分类不超过 3 条。
+里写明理由，且每分类不超过 4 条。
 
 ## 数据来源
 
@@ -102,7 +102,7 @@ urlhaus-filter（MIT / CC0 数据）。
 ## 已知限制
 
 - Shadowrocket / Quantumult X / sing-box 不支持按节点名过滤，AI 与回国组需手动选节点。
-- v2fly 里约 160 条 `regexp:` 规则没有导出（构建报告按分类计数），主要是一些 CDN 边缘域名。
+- v2fly 的 `regexp:` 不直接导出，构建报告按分类计数。Netflix 的四组动态 AWS API 主机通过附理由的基础设施关键字补齐；其余正则仍按报告记录。
 - `reject-malware` 每日波动大，单独关闭了 30% 突变保护。
 - `cn-region-locked` 是手工维护的媒体域名清单，不含银行类 App。
 - 广告分类约 3.7 万条，是全仓库最大的单类；不需要就用 `ads-off` 档位。

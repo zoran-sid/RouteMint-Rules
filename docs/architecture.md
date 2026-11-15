@@ -18,22 +18,22 @@
 | `ai-perplexity` | Perplexity | 5 | 🤖 AI 服务 |
 | `apple` | Apple 服务 | 1583 | 🎯 全球直连 |
 | `cn` | 中国大陆域名 | 6203 | 🎯 全球直连 |
-| `cn-ip` | 中国大陆 IP 段 | 6211 | 🎯 全球直连 |
-| `cn-ip6` | 中国大陆 IPv6 段 | 3428 | 🎯 全球直连 |
-| `cn-region-locked` | 中国大陆限区内容（海外需回国节点） | 24 | 🏠 回国 |
+| `cn-ip` | 中国大陆 IP 段 | 6219 | 🎯 全球直连 |
+| `cn-ip6` | 中国大陆 IPv6 段 | 3439 | 🎯 全球直连 |
+| `cn-region-locked` | 中国大陆限区内容（海外需回国节点） | 30 | 🏠 回国 |
 | `dev` | 开发者服务（代码托管、包管理、模型托管） | 87 | 🌍 境外服务 |
 | `disney` | Disney+ / Hulu / ESPN（Disney 体系） | 218 | 🎬 Disney+ |
 | `game-download` | 游戏下载 CDN（体积大、可直连） | 15 | 🎯 全球直连 |
 | `game-platform` | 游戏商店、社区与联机服务 | 258 | 🌍 境外服务 |
-| `google` | Google 服务（搜索、地图、Gmail 等） | 619 | 🌍 境外服务 |
+| `google` | Google 服务（搜索、地图、Gmail 等） | 627 | 🌍 境外服务 |
 | `max` | Max / HBO Max | 64 | 🎬 Max |
 | `microsoft` | Microsoft 服务 | 554 | 🎯 全球直连 |
-| `netflix` | Netflix | 24 | 🎬 Netflix |
+| `netflix` | Netflix | 28 | 🎬 Netflix |
 | `primevideo` | Prime Video | 25 | 🎬 Prime Video |
 | `private` | 局域网、保留地址、本地主机名 | 23 | DIRECT |
 | `proxy` | 其余境外常用服务 | 18563 | 🌍 境外服务 |
-| `reject-ads` | 广告域名（含插屏、弹窗、推送广告） | 37113 | REJECT |
-| `reject-malware` | 恶意软件分发与钓鱼域名 | 18377 | REJECT |
+| `reject-ads` | 广告域名（含插屏、弹窗、推送广告） | 37114 | REJECT |
+| `reject-malware` | 恶意软件分发与钓鱼域名 | 18442 | REJECT |
 | `reject-tracker` | 常见追踪器、分析 SDK、归因与热图服务 | 668 | REJECT |
 | `spotify` | Spotify | 23 | 🎵 Spotify |
 | `streaming-others` | 其他流媒体与音视频平台 | 1587 | 📺 其他流媒体 |
@@ -74,36 +74,29 @@ private → reject → ai → 流媒体 → cn-region-locked → dev → game
 预设都同时引用获胜分类 B 时，才允许把规则从 A 里删掉。否则会出现「cn-mainland 没有回国组，
 导致 bilibili 被从 cn 删掉、掉进 FINAL 走代理」这类事故。
 
-## 为什么 AI 组要排除香港、大陆、澳门节点
+## AI 节点选择
 
-OpenAI、Anthropic、Gemini 都按出口 IP 归属地判断可用性：香港、澳门、中国大陆的出口会被拒绝
-或触发风控，俄罗斯、伊朗等地区同样不可用。所以 AI 组只做**排除**，不做**白名单**：
+mihomo 的 AI 组按节点名排除模板列出的常见受限出口，自动选择组在剩余候选中测试延迟。节点名只能提供筛选线索；实际出口、账号条件与服务支持地区共同影响可用性。
 
-- `exclude_filter` 排除香港/澳门/大陆/俄罗斯、伊朗、朝鲜等地区的节点名，能识别 `HK01`、
-  `🇭🇰`、`香港 02`、`CN2 上海`、`回国 01` 这些常见写法，同时不会误伤 `Russia` 里的 `us`；
-- 不再要求节点名必须包含「美国/US/日本」等字样。
+`🤖 AI 服务` 默认选「♻️ AI 自动选择」，也保留手动选择入口。`overseas-return` 中 AI 默认直连，可手动切换代理。选节点后应分别验证 ChatGPT、Claude 等目标服务；延迟测试不验证服务访问权限。
 
-这条改动是踩坑换来的：早先还加了一层 `filter` 白名单，结果机场把节点命名成 `US01`、`JP02`
-时正则 `\bus\b` 匹配不到，AI 组变成空组；而 mihomo 对空组的处理是**静默回落 DIRECT**，
-表现就是「AI 没走代理」。现在去掉白名单，并在组里保留 `🚀 节点选择` 作为手动兜底。
+如果候选为空，mihomo 可能回落到 DIRECT。请检查组内实际候选和客户端日志，选择经验证的可用节点。节点名无地区标记或中转地与落地地不同，也可能使名称筛选失效。
 
-`🤖 AI 服务` 是 `select` 组，默认成员是 `♻️ AI 自动选择`（url-test，带上述排除），
-可以随时手动改选。
+## DNS 与服务出口
 
-代价：没有地区标记、实际落地却在受限地区的节点仍可能被选中。如果全部节点都是港/澳/大陆，
-AI 组依然会为空——这时需要手动选节点，或者换一个带可用地区节点的机场。
+mihomo 的 `nameserver-policy` 为每个服务使用对应策略组。例如 Netflix 的查询经「🎬 Netflix」，AI 经「🤖 AI 服务」，国内限区媒体经「🏠 回国」。手动把服务改为直连时，该服务 DNS 也经直连。局域网主机名使用系统 DNS。
 
-`overseas-return` 里 AI 组成员顺序是「直连 → AI 自动选择」：海外网络通常能直连 AI，
-真遇到不可用时一键切到代理节点。
+sing-box 为每个实际使用的策略生成独立 DNS 服务器并用 `detour` 指定同一出站；国内媒体使用大陆 DoH，境外服务使用境外 DoH。默认 DNS 与节点域名解析按场景选择：大陆使用国内 DoH，海外使用系统 DNS。HTTPS DNS 的服务器地址与 `/dns-query` 路径分开填写。
 
-## DNS 防泄漏
+fake-ip 和嗅探有助于保留域名信息。DNS 是否全部被客户端接管还取决于系统、浏览器 DoH 与 TUN/VPN 设置。Surge、Loon、Shadowrocket、Quantumult X 模板在海外默认使用系统 DNS，服务连接按域名规则分流。
 
-1. **fake-ip**：客户端拿到假 IP，真实域名延迟到代理端解析，减少本地 DNS 暴露面。
-2. **nameserver-policy + `rule-set:`**：AI、流媒体、境外服务等分类强制用境外 DoH
-   （`https://1.1.1.1/dns-query`）并指定经 `🚀 节点选择` 发出；只有 `cn`、`private` 走国内 DoH。
-3. **proxy-server-nameserver**：机场节点域名用国内 DNS 解析，避免「为了连代理先泄漏查询」。
+## 海外流媒体与回国出口
 
-结果：境外域名的解析不会落到国内 DNS 上，国内域名也不会被绕到境外解析。
+`overseas` 明确列出 Google、YouTube 直连；AI 分类先于 Google 匹配。Netflix、Disney+、HBO/Max、Prime Video 分别有手动选择组，默认继承「🌍 流媒体」的固定节点，避免播放会话随延迟测试自动换区。
+
+Netflix 上游含动态 AWS API 主机的正则，本仓库用四个附理由的基础设施关键字补齐。关键字匹配范围比上游正则宽，应以日志核查；不代理整个共享 AWS/CDN 主域。
+
+`overseas-return` 的回国组默认 `REJECT`，导入后选择实际落地中国大陆的节点。候选名筛选不包含 `CN2`，因为线路名称不能确认出口国家；组内不再提供普通境外节点组作为默认成员。回国媒体 CDN 与 API 先于普通 `cn` 规则匹配，其他国内服务保持直连。
 
 ## 精简版做了什么减法
 
@@ -117,15 +110,15 @@ AI 单独留一组，是因为它需要按节点名排除地区，FINAL 做不�
 
 ## 客户端能力差异
 
-同样是「AI 组排除香港/澳门/大陆节点」，各客户端能做到的程度不同：
+本模板在各客户端使用以下候选筛选方式：
 
 | 客户端 | 按节点名过滤 | 说明 |
 |---|---|---|
-| mihomo | ✅ `filter` + `exclude-filter` | 唯一能做到「正向包含 + 反向排除」双保险 |
-| Surge | ⚠️ `policy-regex-filter` | 只能正向筛选；节点名写成「HK-US」这种混合名时可能漏过 |
-| Loon | ⚠️ `[Remote Filter]` NameRegex | 同上 |
+| mihomo | ✅ `filter` + `exclude-filter` | 使用名称正向筛选与排除；实际出口需验证 |
+| Surge | ⚠️ `policy-regex-filter` | 回国组使用正向筛选；AI 排除条件需手动落实 |
+| Loon | ⚠️ `[Remote Filter]` NameRegex | 回国组使用正向筛选；AI 排除条件需手动落实 |
 | Shadowrocket | ❌ | 远程配置没有节点名过滤，需手动选节点 |
-| Quantumult X | ❌ | 策略组只能按订阅资源/服务器标签划分 |
+| Quantumult X | 手动选择 | 本模板按订阅资源展开候选节点，导入后固定目标节点 |
 | sing-box | ❌ | 策略组没有按名字过滤的参数 |
 
 Surge / Loon / Quantumult X 没有可脚本化的校验器，仓库只做结构断言（段落、结尾 FINAL、

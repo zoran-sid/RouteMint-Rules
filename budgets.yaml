@@ -2,7 +2,7 @@
 # 目的不是精确，而是防止上游改结构时把 10 万条规则悄悄塞进手机。
 defaults:
   category_rules: 20000
-  keyword_rules: 3
+  keyword_rules: 4
   # 某分类较上一版下降超过该比例即视为上游异常，中止发布。
   drop_ratio: 0.30
 

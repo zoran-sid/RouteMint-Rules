@@ -13,3 +13,13 @@ add:
   - DOMAIN-SUFFIX,nflximg.net
   - DOMAIN-SUFFIX,nflxext.com
   - DOMAIN-SUFFIX,nflxso.net
+  # 上游含动态 AWS API 主机正则；跨客户端使用基础设施专用关键字补齐。
+  # 不将 amazonaws.com / cloudfront.net 这类共享 CDN 整体送入 Netflix。
+  - rule: DOMAIN-KEYWORD,apiproxy-device-prod-nlb-
+    reason: Netflix 设备 API 动态 AWS 主机，补齐上游无法转换的正则规则。
+  - rule: DOMAIN-KEYWORD,apiproxy-website-nlb-prod-
+    reason: Netflix 网页 API 动态 AWS 主机，补齐上游无法转换的正则规则。
+  - rule: DOMAIN-KEYWORD,dualstack.apiproxy-
+    reason: Netflix 双栈 API 动态 AWS 主机，补齐上游无法转换的正则规则。
+  - rule: DOMAIN-KEYWORD,dualstack.ichnaea-web-
+    reason: Netflix 双栈遥测 API 动态 AWS 主机，保持与播放 API 相同出口。
