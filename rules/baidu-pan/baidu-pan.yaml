@@ -1,0 +1,12 @@
+# 百度网盘与下载 CDN · 10 rules
+payload:
+  - "+.baidupcs.com"
+  - "+.baiduyuncdn.cn"
+  - "+.baiduyuncdn.com"
+  - "+.baiduyuncdn.net"
+  - "+.bdycdn.cn"
+  - "+.bdycdn.net"
+  - "+.pan.baidu.com"
+  - "+.pcs.baidu.com"
+  - "+.pcsdata.baidu.com"
+  - "+.yun.baidu.com"
