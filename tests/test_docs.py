@@ -101,6 +101,12 @@ def test_every_qr_decodes_to_its_client_scheme():
         client = next(c for c in prefixes if path.name.endswith(f"-{c}.png"))
         payload = zxingcpp.read_barcodes(Image.open(path))[0].text
         assert payload.startswith(prefixes[client]), f"{path.name}: {payload[:60]}"
+        from builder.build import load_distribution
+        from builder.config import Paths
+
+        preset = path.name.removesuffix(f"-{client}.png")
+        url = config_url(load_distribution(Paths(ROOT)), preset, "ads-light", client)
+        assert payload == qr_payload(client, url), f"{path.name}: wrong configuration URL"
 
 
 def test_readme_offers_full_urls_and_matching_qr_for_each_client():

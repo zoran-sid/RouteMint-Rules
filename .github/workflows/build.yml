@@ -2,7 +2,7 @@ name: build
 
 on:
   schedule:
-    # 03:17 UTC = 11:17 Asia/Shanghai, deliberately off the top of the hour.
+    # 19:17 UTC = 03:17 Asia/Shanghai / Asia/Hong_Kong the next day.
     - cron: "17 19 * * *"
   workflow_dispatch:
   push:
@@ -17,6 +17,9 @@ on:
       - "budgets.yaml"
       - "uv.lock"
       - "pyproject.toml"
+      - "repo.yaml"
+      - "README.md"
+      - "docs/qr/**"
 
 permissions:
   contents: read
