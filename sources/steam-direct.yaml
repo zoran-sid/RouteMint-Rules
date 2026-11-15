@@ -1,0 +1,15 @@
+id: steam-direct
+meta:
+  description: Steam 登录、连接管理、API 与客户端服务
+  strategy: "🎯 全球直连"
+  notes: |
+    同步 Steam 域名，放在商店/社区代理例外之后、通用代理之前。
+    商店和社区的域名由优先的 game-platform 规则接管；其余 Steam 服务直连。
+include:
+  - upstream: v2fly-dlc
+    categories: [steam]
+  - upstream: steam-cm
+add:
+  - DOMAIN-SUFFIX,cm.steampowered.com
+  - DOMAIN-SUFFIX,api.steampowered.com
+  - DOMAIN-SUFFIX,login.steampowered.com

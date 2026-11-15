@@ -125,3 +125,18 @@ def test_varint_roundtrip():
     for value in (0, 1, 127, 128, 300, 2**32):
         encoded = _varint(value)
         assert read_varint(encoded, 0) == (value, len(encoded))
+
+
+def test_steam_cm_directory_uses_exact_public_addresses():
+    import json
+    import pytest
+    from builder.parse import parse_steam_cm
+
+    doc = parse_steam_cm(json.dumps({"response": {"result": 1, "serverlist": [
+        "103.10.124.123:27017", "[2606:4700:4700::1111]:27017", "127.0.0.1:27017", "0.0.0.0/0:27017", "example.com:27017"
+    ]}}))
+    assert [str(r.rule) for r in doc.rules] == ["IP-CIDR,103.10.124.123/32", "IP-CIDR6,2606:4700:4700::1111/128"]
+    with pytest.raises(ValueError):
+        parse_steam_cm('{"response":{"result":1,"serverlist":[]}}')
+    with pytest.raises(ValueError):
+        parse_steam_cm('{"response":{"result":2}}')

@@ -9,6 +9,7 @@ parser and is linked from ``upstreams.yaml``.
 from __future__ import annotations
 
 import ipaddress
+import json
 import re
 from dataclasses import dataclass, field
 
@@ -229,7 +230,34 @@ def parse_cidr(text: str) -> ParsedDocument:
     return doc
 
 
+def parse_steam_cm(text: str) -> ParsedDocument:
+    """Valve's public GetCMList endpoints, exported as exact public host IPs."""
+    response = json.loads(text).get("response", {})
+    endpoints = response.get("serverlist")
+    if response.get("result") != 1 or not isinstance(endpoints, list):
+        raise ValueError("Steam CM directory returned an invalid response")
+    doc = ParsedDocument()
+    for endpoint in endpoints:
+        if not isinstance(endpoint, str):
+            doc.invalid += 1
+            continue
+        host, separator, port = endpoint.rpartition(":")
+        try:
+            address = ipaddress.ip_address(host.strip("[]"))
+            if not separator or not port.isdigit() or not 1 <= int(port) <= 65535 or not address.is_global:
+                raise ValueError("not a public CM endpoint")
+        except ValueError:
+            doc.invalid += 1
+            continue
+        kind = RuleType.IP_CIDR if address.version == 4 else RuleType.IP_CIDR6
+        _add(doc, kind, f"{address}/{address.max_prefixlen}", set(), endpoint)
+    if not doc.rules:
+        raise ValueError("Steam CM directory contains no public server addresses")
+    return doc
+
+
 PARSERS = {
+    "steam-cm": parse_steam_cm,
     "v2fly": parse_v2fly,
     "hosts": parse_hosts,
     "domains": parse_domains,

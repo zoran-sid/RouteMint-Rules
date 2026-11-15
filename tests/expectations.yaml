@@ -99,8 +99,8 @@ cases:
     policy: "🤖 AI 服务"
   - domain: baidu.com
     preset: overseas
-    category: FINAL
-    policy: "🐟 漏网之鱼"
+    category: cn
+    policy: "🎯 全球直连"
   - domain: github.com
     preset: overseas
     category: FINAL

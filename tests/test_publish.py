@@ -20,7 +20,7 @@ def test_diff_detects_added_changed_and_removed():
     assert diff_files(current, previous) == ["configs/x/mihomo.conf", "rules/b/b.list"]
 
 
-def test_content_change_only_counts_rules_and_configs():
+def test_content_change_counts_rules_configs_and_router_bundles():
     current = manifest({"rules/a/a.list": "2", "manifest.json": "x"})
     previous = manifest({"rules/a/a.list": "1", "manifest.json": "y"})
     info = changed_paths(current, previous)
@@ -63,3 +63,9 @@ def test_empty_previous_manifest_is_treated_as_first_run(tmp_path: Path):
     changed = tmp_path / "changed.json"
     assert publish.main(dist, previous, "t", notes, changed, None) == 0
     assert __import__("json").loads(changed.read_text())["content_changed"] is True
+
+
+def test_router_importer_changes_trigger_publication_without_rule_changes():
+    current = manifest({"routers/homeproxy/cn-mainland/ads-light.tar.gz": "2"})
+    previous = manifest({"routers/homeproxy/cn-mainland/ads-light.tar.gz": "1"})
+    assert changed_paths(current, previous)["content_changed"] is True

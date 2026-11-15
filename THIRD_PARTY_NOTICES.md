@@ -11,6 +11,7 @@
 | `shadowwhisperer` | ShadowWhisperer/BlockLists | Unlicense | [https://github.com/ShadowWhisperer/BlockLists](https://github.com/ShadowWhisperer/BlockLists) |
 | `cname-trackers` | AdGuard CNAME disguised ads list | MIT | [https://github.com/AdguardTeam/cname-trackers](https://github.com/AdguardTeam/cname-trackers) |
 | `urlhaus` | malware-filter/urlhaus-filter（GitLab） | MIT / CC0-1.0 | [https://gitlab.com/malware-filter/urlhaus-filter](https://gitlab.com/malware-filter/urlhaus-filter) |
+| `steam-cm` | Valve Steam Connection Manager directory | Valve Steam Web API 条款（公开服务器地址） | [https://api.steampowered.com/ISteamDirectory/GetCMList/v1/?cellid=0&maxcount=1000](https://api.steampowered.com/ISteamDirectory/GetCMList/v1/?cellid=0&maxcount=1000) |
 
 ## 逐项说明
 
@@ -43,6 +44,12 @@
 - 许可证：MIT / CC0-1.0
 - 许可证原文：https://gitlab.com/malware-filter/urlhaus-filter/-/blob/main/LICENSE-CC0.md
 - 项目主页：https://gitlab.com/malware-filter/urlhaus-filter
+
+### Valve Steam Connection Manager directory
+
+- 许可证：Valve Steam Web API 条款（公开服务器地址）
+- 许可证原文：https://steamcommunity.com/dev/apiterms
+- 项目主页：https://api.steampowered.com/ISteamDirectory/GetCMList/v1/?cellid=0&maxcount=1000
 
 ## 为什么没有 AdGuard DNS filter / EasyList
 

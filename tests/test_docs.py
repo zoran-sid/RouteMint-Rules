@@ -96,6 +96,8 @@ def test_every_qr_decodes_to_its_client_scheme():
         "loon": "loon://import?sub=",
         "singbox": "sing-box://import-remote-profile?url=",
         "quantumultx": "https://cdn.jsdelivr.net/gh/",
+        "homeproxy": "https://raw.githubusercontent.com/",
+        "passwall": "https://raw.githubusercontent.com/",
     }
     for path in sorted(QR_DIR.glob("*.png")):
         client = next(c for c in prefixes if path.name.endswith(f"-{c}.png"))

@@ -1,6 +1,6 @@
 # RouteMint-Rules
 
-按使用地区和访问目标选择分流配置，提供 **mihomo、Shadowrocket、Surge、Loon、Quantumult X、sing-box** 六种格式。
+按使用地区和访问目标选择分流配置，提供 **mihomo、Shadowrocket、Surge、Loon、Quantumult X、sing-box** 六种客户端配置，以及 **HomeProxy、PassWall（sing-box）** 路由器分流导入包。
 
 [![build](https://github.com/zoran-sid/RouteMint-Rules/actions/workflows/build.yml/badge.svg)](https://github.com/zoran-sid/RouteMint-Rules/actions/workflows/build.yml)
 
@@ -110,6 +110,30 @@ AI 优先于 Google 大类匹配。Netflix、Disney+、HBO/Max、Prime Video 分
 | Quantumult X | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland-lite/ads-light/quantumultx.conf) | [二维码](docs/qr/cn-mainland-lite-quantumultx.png) |
 | sing-box | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland-lite/ads-light/singbox.conf) | [二维码](docs/qr/cn-mainland-lite-singbox.png) |
 
+## HomeProxy 与 PassWall 分流订阅
+
+路由器使用已有节点导入原生 UCI 分流，规则通过远程 SRS 自动更新。**PassWall 适配 sing-box 分流后端；两种适配都需要 sing-box 1.14+，以及 ucode 的 fs/uci 模块。** 配置订阅 JSON 是导入计划，配合导入包使用，不能填入节点订阅框。二维码用于下载导入包。
+
+| 场景 | HomeProxy | PassWall（sing-box） |
+|---|---|---|
+| `cn-mainland` | [导入包](https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/routers/homeproxy/cn-mainland/ads-light.tar.gz) · [配置订阅](https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/routers/homeproxy/cn-mainland/ads-light/profile.json) · [二维码](docs/qr/cn-mainland-homeproxy.png) | [导入包](https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/routers/passwall/cn-mainland/ads-light.tar.gz) · [配置订阅](https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/routers/passwall/cn-mainland/ads-light/profile.json) · [二维码](docs/qr/cn-mainland-passwall.png) |
+| `overseas` | [导入包](https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/routers/homeproxy/overseas/ads-light.tar.gz) · [配置订阅](https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/routers/homeproxy/overseas/ads-light/profile.json) · [二维码](docs/qr/overseas-homeproxy.png) | [导入包](https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/routers/passwall/overseas/ads-light.tar.gz) · [配置订阅](https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/routers/passwall/overseas/ads-light/profile.json) · [二维码](docs/qr/overseas-passwall.png) |
+| `overseas-return` | [导入包](https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/routers/homeproxy/overseas-return/ads-light.tar.gz) · [配置订阅](https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/routers/homeproxy/overseas-return/ads-light/profile.json) · [二维码](docs/qr/overseas-return-homeproxy.png) | [导入包](https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/routers/passwall/overseas-return/ads-light.tar.gz) · [配置订阅](https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/routers/passwall/overseas-return/ads-light/profile.json) · [二维码](docs/qr/overseas-return-passwall.png) |
+| `cn-mainland-lite` | [导入包](https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/routers/homeproxy/cn-mainland-lite/ads-light.tar.gz) · [配置订阅](https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/routers/homeproxy/cn-mainland-lite/ads-light/profile.json) · [二维码](docs/qr/cn-mainland-lite-homeproxy.png) | [导入包](https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/routers/passwall/cn-mainland-lite/ads-light.tar.gz) · [配置订阅](https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/routers/passwall/cn-mainland-lite/ads-light/profile.json) · [二维码](docs/qr/cn-mainland-lite-passwall.png) |
+
+HomeProxy 示例，在路由器 SSH 中下载并检查：
+
+```sh
+curl -fL 'https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/routers/homeproxy/cn-mainland/ads-light.tar.gz' -o /tmp/routemint-homeproxy.tar.gz
+tar -xzf /tmp/routemint-homeproxy.tar.gz -C /tmp
+sh /tmp/routemint-homeproxy/install.sh --check-only
+sh /tmp/routemint-homeproxy/install.sh --apply
+```
+
+然后在 HomeProxy 的 LuCI 页面启用客户端、保存并应用。PassWall 使用对应导入包及 `/tmp/routemint-passwall/install.sh`，导入后为 TCP、UDP 选择新建的 RouteMint 分流节点，再保存应用。导入会备份 UCI，复用已有节点；HomeProxy 原有自定义分流会停用，PassWall 使用独立 RouteMint 分流组。安装脚本不切换代理管理器，不重启服务。
+
+已内置 `ucode -L /etc/homeproxy/scripts -S`，使用新版包无需再执行手工 `sed` 修补。完整节点绑定、回退、更新和兼容说明见[路由器使用说明](docs/routers.md)。
+
 ## 导入与更新
 
 | 客户端 | 配置格式 | 节点与导入方式 |
@@ -144,15 +168,17 @@ Quantumult X 的候选组按订阅资源展开，导入后手动固定 AI、流�
 
 ## 游戏平台下载与百度网盘
 
-四种场景都将已收录的游戏平台下载 CDN 与百度网盘显式设为直连。下载分类同步上游的专用列表，涵盖 Steam、暴雪/Battle.net、Epic、EA、Ubisoft、GOG、Riot、Rockstar、Bethesda、Xbox 等，并保留 PlayStation、Nintendo 的下载域名。游戏平台商店、社区和平台服务在四种场景都走代理；下载与更新 CDN 规则先匹配，保持直连。
+四种场景都将已收录的游戏平台下载 CDN 与百度网盘显式设为直连。下载分类同步上游的专用列表，涵盖 Steam、暴雪/Battle.net、Epic、EA、Ubisoft、GOG、Riot、Rockstar、Bethesda、Xbox 等，并保留 PlayStation、Nintendo 的下载域名。Steam 只将 `store.steampowered.com` 与 `steamcommunity.com`（含子域）交给代理；Steam 登录、连接管理、API、客户端与下载服务直连。连接管理的纯 IP 地址从 Valve 官方 CM 目录自动同步为精确 IP 规则。其他游戏平台的商店和社区仍走代理，下载与更新 CDN 先匹配直连。
 
-mihomo / sing-box 对下载与网盘域名使用当前网络的本地 DNS；其他客户端使用所在地区的默认 DNS。这样下载连接使用本地出口，CDN 调度也尽量贴近当前位置。Steam 请将「设置 → 下载 → 下载地区」选为当前或邻近地区；具体服务器由游戏平台调度。[Steam 官方说明](https://help.steampowered.com/en/faqs/view/21F5-8D5D-0141-7A5E)
+百度网盘除 `pan.baidu.com`、`baidupcs.com` 外，还覆盖 `baidubce.com`、`bcebos.com` 与百度 CDN 主域。海外模式显式包含国内域名、IPv4 与 IPv6 直连分类。
+
+mihomo / sing-box 对 Steam 客户端、下载与网盘域名使用当前网络的本地 DNS；其他客户端使用所在地区的默认 DNS。这样下载连接使用本地出口，CDN 调度也尽量贴近当前位置。Steam 请将「设置 → 下载 → 下载地区」选为当前或邻近地区；具体服务器由游戏平台调度。[Steam 官方说明](https://help.steampowered.com/en/faqs/view/21F5-8D5D-0141-7A5E)
 
 ## 自动更新
 
 仓库每天在北京时间／香港时间 **03:17** 自动触发构建，也会在规则、模板或订阅入口更新到 `main` 后触发；GitHub Actions 排队时实际开始时间会顺延。
 
-流程为：拉取上游规则 → 构建六种客户端配置 → 运行路由、配置与二维码检查 → 发布到 `release`。检查失败时保留上一版发布内容。
+流程为：拉取上游规则 → 构建客户端配置及 HomeProxy / PassWall 分流导入包 → 运行路由、配置与二维码检查 → 发布到 `release`。检查失败时保留上一版发布内容。
 
 客户端继续使用本页的固定地址。完成首次节点绑定并启用远程规则更新后，规则内容按客户端更新周期自动刷新，无需重新寻找地址或扫描二维码。个人配置中的策略组、DNS 设置等模板变更按上方「导入与更新」说明合并。
 

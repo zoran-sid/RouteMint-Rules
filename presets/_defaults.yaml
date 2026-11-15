@@ -27,6 +27,7 @@ precedence:
   - game-download
   - baidu-pan
   - game-platform
+  - steam-direct
   - telegram
   - apple
   - microsoft

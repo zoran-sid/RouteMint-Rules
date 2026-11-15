@@ -67,3 +67,13 @@ upstreams:
     homepage: https://gitlab.com/malware-filter/urlhaus-filter
     notes: 数据 CC0；每 12 小时更新，域名轮换快，因此该分类不参与「条数突变保护」。
     on_failure: snapshot
+
+  steam-cm:
+    title: Valve Steam Connection Manager directory
+    format: steam-cm
+    url: https://api.steampowered.com/ISteamDirectory/GetCMList/v1/?cellid=0&maxcount=1000
+    license: Valve Steam Web API 条款（公开服务器地址）
+    license_url: https://steamcommunity.com/dev/apiterms
+    homepage: https://api.steampowered.com/ISteamDirectory/GetCMList/v1/?cellid=0&maxcount=1000
+    notes: 仅消费官方目录返回的公网服务器 IP；不扩大到 ASN 网段或端口范围。
+    on_failure: snapshot

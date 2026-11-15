@@ -55,3 +55,28 @@ def test_game_downloads_direct_but_stores_proxy(built, preset_map, preset_id):
     for domain in ("pan.baidu.com", "yun.baidu.com", "d.pcs.baidu.com", "download.baidupcs.com", "baiduyuncdn.com"):
         category, policy = explain(built.dist, preset, "ads-light", domain)
         assert (category, policy) == ("baidu-pan", "🎯 全球直连"), (domain, category, policy)
+
+
+@pytest.mark.parametrize("preset_id", ["cn-mainland", "cn-mainland-lite", "overseas", "overseas-return"])
+def test_steam_login_direct_with_only_store_and_community_proxied(built, preset_map, preset_id):
+    preset = preset_map[preset_id]
+    for host in ("steampowered.com", "api.steampowered.com", "login.steampowered.com", "cm0.steampowered.com", "cm1.steamserver.net", "steam-api.com"):
+        assert explain(built.dist, preset, "ads-light", host) == ("steam-direct", "🎯 全球直连"), host
+    for host in ("store.steampowered.com", "help.store.steampowered.com", "steamcommunity.com", "www.steamcommunity.com"):
+        category, policy = explain(built.dist, preset, "ads-light", host)
+        assert category == "game-platform" and policy in {"🚀 节点选择", "🌍 境外服务"}, host
+
+
+def test_overseas_domestic_services_and_netdisk_cloud_cdns_are_explicitly_direct(built, preset_map):
+    for host in ("baidu.com", "taobao.com", "qq.com", "bilibili.com", "1.0.1.1", "gz.baidubce.com", "bj.bcebos.com", "cdn.bce-cdn.com", "cdn.baidubcr.com"):
+        category, policy = explain(built.dist, preset_map["overseas"], "ads-light", host)
+        assert category != "FINAL" and policy == "🎯 全球直连", (host, category, policy)
+
+
+def test_steam_cm_pure_ip_connections_are_direct(built, preset_map):
+    import ipaddress
+    addresses = built.categories["steam-direct"].ip_rules
+    assert addresses, "Official Steam CM server IPs are required"
+    target = str(ipaddress.ip_network(addresses[0].value).network_address)
+    for preset in preset_map.values():
+        assert explain(built.dist, preset, "ads-light", target) == ("steam-direct", "🎯 全球直连")

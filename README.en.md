@@ -18,3 +18,7 @@ Public templates carry no credentials. Keep personal node sources in a local or 
 Game download/update CDNs and Baidu Netdisk use DIRECT in every profile, including lite. Platform stores and communities use the proxy. mihomo and sing-box resolve the download/Netdisk categories through local DNS for regional CDN selection.
 
 Shadowrocket profiles now have descriptive `RouteMint-<scene>-<ads-tier>.conf` basenames. Existing `shadowrocket.conf` URLs remain compatible. Re-import once from the homepage if the previous profile's malformed update URL reports `not found`.
+
+Steam proxying is restricted to `store.steampowered.com` and `steamcommunity.com` (including subdomains). Login, CM, API, client services and downloads are direct. Overseas profiles explicitly route domestic domains and mainland IPv4/IPv6 directly; Netdisk includes Baidu cloud storage and CDN domains.
+
+HomeProxy and PassWall (sing-box) routing bundles and plan subscriptions are linked in the Chinese homepage. They reuse local nodes and remote SRS rules. See [router import instructions](docs/routers.md); these are routing imports, not node subscriptions.

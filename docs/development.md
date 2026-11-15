@@ -106,3 +106,9 @@ urlhaus-filter（MIT / CC0 数据）。
 - `reject-malware` 每日波动大，单独关闭了 30% 突变保护。
 - `cn-region-locked` 是手工维护的媒体域名清单，不含银行类 App。
 - 广告分类约 3.7 万条，是全仓库最大的单类；不需要就用 `ads-off` 档位。
+
+## 路由器适配测试
+
+HomeProxy 与 PassWall 的导入包由 `builder/routers.py` 生成。CI 从固定提交构建 ucode，执行 `tests/test_routers.py`；UCI cursor 使用隔离的 JSON 测试替身，验证规则顺序、节点保留、重复导入和无效节点中止。设备上的 HomeProxy 生成器与真实 UCI 仍由导入器的 `--check-only` 检查。
+
+Steam 的纯 IP CM 登录地址来自 `steam-cm` 上游：读取 Valve GetCMList，验证公网 IP 和端口，只产出精确 IP 规则。请求失败沿用已有下载快照；无效或空目录会中止构建。

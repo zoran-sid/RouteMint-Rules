@@ -151,7 +151,7 @@ def build_context(preset: Preset, tier: str, builds: dict, urls: dict, generated
         if item.domain_rules and not ref.category.startswith("reject-"):
             # DNS follows the service policy, including a manually chosen DIRECT.
             # A return-media query must leave through the same mainland exit.
-            if ref.category in {"private", "game-download", "baidu-pan"}:
+            if ref.category in {"private", "game-download", "baidu-pan", "steam-direct"}:
                 servers = ["system"]
             elif ref.category in {"cn", "cn-region-locked"}:
                 servers = [f"https://dns.alidns.com/dns-query#{policy}"]
@@ -392,7 +392,7 @@ def _singbox_model(preset: Preset, groups: list[dict], categories: list[str], bu
             )
             route_rules.append({"rule_set": tag, "outbound": policy_tag[ref.policy or "DIRECT"]})
         if item.domain_rules and not ref.category.startswith("reject-"):
-            if ref.category in {"private", "game-download", "baidu-pan"}:
+            if ref.category in {"private", "game-download", "baidu-pan", "steam-direct"}:
                 dns_tag = "local"
             else:
                 outbound = policy_tag[ref.policy or "DIRECT"]

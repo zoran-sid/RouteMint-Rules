@@ -31,6 +31,7 @@ from .optimize import (
     resolve_conflicts,
 )
 from .render import client_filename, render_client_configs
+from .routers import render_router_configs
 from .report import (
     update_readme_table,
     write_changelog,
@@ -322,6 +323,7 @@ def build(
         mihomo_bin=mihomo_bin,
         singbox_bin=singbox_bin,
     )
+    render_router_configs(paths, presets, builds, urls)
     if validate and mihomo_bin is None:
         violations.append("--validate requested but no mihomo binary was provided")
 

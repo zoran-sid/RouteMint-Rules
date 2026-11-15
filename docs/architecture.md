@@ -17,15 +17,15 @@
 | `ai-others` | 其他 AI 服务（对话、绘图、语音、模型托管） | 165 | 🤖 AI 服务 |
 | `ai-perplexity` | Perplexity | 5 | 🤖 AI 服务 |
 | `apple` | Apple 服务 | 1583 | 🎯 全球直连 |
-| `baidu-pan` | 百度网盘与下载 CDN | 10 | 🎯 全球直连 |
-| `cn` | 中国大陆域名 | 6199 | 🎯 全球直连 |
+| `baidu-pan` | 百度网盘与下载 CDN | 20 | 🎯 全球直连 |
+| `cn` | 中国大陆域名 | 6192 | 🎯 全球直连 |
 | `cn-ip` | 中国大陆 IP 段 | 6219 | 🎯 全球直连 |
 | `cn-ip6` | 中国大陆 IPv6 段 | 3439 | 🎯 全球直连 |
 | `cn-region-locked` | 中国大陆限区内容（海外需回国节点） | 30 | 🏠 回国 |
 | `dev` | 开发者服务（代码托管、包管理、模型托管） | 87 | 🌍 境外服务 |
 | `disney` | Disney+ / Hulu / ESPN（Disney 体系） | 218 | 🎬 Disney+ |
 | `game-download` | 游戏下载 CDN（体积大、可直连） | 96 | 🎯 全球直连 |
-| `game-platform` | 游戏商店、社区与联机服务 | 534 | 🌍 境外服务 |
+| `game-platform` | 游戏商店、社区与联机服务 | 484 | 🌍 境外服务 |
 | `google` | Google 服务（搜索、地图、Gmail 等） | 627 | 🌍 境外服务 |
 | `max` | Max / HBO Max | 64 | 🎬 Max |
 | `microsoft` | Microsoft 服务 | 554 | 🎯 全球直连 |
@@ -37,6 +37,7 @@
 | `reject-malware` | 恶意软件分发与钓鱼域名 | 18442 | REJECT |
 | `reject-tracker` | 常见追踪器、分析 SDK、归因与热图服务 | 668 | REJECT |
 | `spotify` | Spotify | 23 | 🎵 Spotify |
+| `steam-direct` | Steam 登录、连接管理、API 与客户端服务 | 122 | 🎯 全球直连 |
 | `streaming-others` | 其他流媒体与音视频平台 | 1587 | 📺 其他流媒体 |
 | `telegram` | Telegram（域名 + 官方 IP 段） | 31 | 🌍 境外服务 |
 | `tiktok` | TikTok（不含抖音） | 36 | 🎬 TikTok |
@@ -127,4 +128,8 @@ URL 白名单、无凭据）；mihomo 与 sing-box 的配置每次构建都会�
 
 ## 游戏下载与平台页面
 
-四种场景均显式引用 `game-download`（DIRECT）、`baidu-pan`（DIRECT）与 `game-platform`（代理）。下载类包含 v2fly 的 `category-game-platforms-download`，同步专用 CDN；它先于平台整站规则匹配，Steam 商店与社区等页面继续代理。下载与百度网盘在 mihomo / sing-box 中使用本地 DNS。
+四种场景均显式引用 `game-download`（DIRECT）、`baidu-pan`（DIRECT）与 `game-platform`（代理）。下载类包含 v2fly 的 `category-game-platforms-download`，同步专用 CDN；它先于平台整站规则匹配，Steam 只保留商店与社区代理例外，`steam-direct` 放在其后、通用代理之前，以便登录/API/CM 域名直连。下载与百度网盘在 mihomo / sing-box 中使用本地 DNS。
+
+## 路由器适配
+
+`builder/routers.py` 从同一预设生成 HomeProxy 与 PassWall 的计划和确定性导入包。SRS 引用、优先级和默认出站来自预设；安装阶段复用设备节点并转换为原生 UCI，节点凭据不进入构建产物。详见[路由器说明](routers.md)。

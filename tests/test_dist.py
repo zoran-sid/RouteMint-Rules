@@ -316,7 +316,7 @@ def test_downloads_and_netdisk_use_local_dns_in_every_scene(built):
         folder = built.dist / "configs" / preset.id / "ads-light"
         mh = yaml.safe_load((folder / "mihomo.conf").read_text())
         sb = json.loads((folder / "singbox.conf").read_text())
-        for category in ("game-download", "baidu-pan"):
+        for category in ("game-download", "baidu-pan", "steam-direct"):
             assert mh["dns"]["nameserver-policy"][f"rule-set:{category}"] == ["system"]
             assert f"RULE-SET,{category},🎯 全球直连" in mh["rules"]
             rule = next(r for r in sb["dns"]["rules"] if r["rule_set"] == f"rs-{category}")

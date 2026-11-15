@@ -151,6 +151,7 @@ rules:
   - {category: game-download, policy: "🎯 全球直连"}
   - {category: baidu-pan, policy: "🎯 全球直连"}
   - {category: game-platform, policy: "🌍 境外服务"}
+  - {category: steam-direct, policy: "🎯 全球直连", no_resolve: true}
   - {category: telegram, policy: "🌍 境外服务"}
   - {category: apple, policy: "🎯 全球直连"}
   - {category: microsoft, policy: "🎯 全球直连"}

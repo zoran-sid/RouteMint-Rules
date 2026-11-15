@@ -2,7 +2,7 @@ id: baidu-pan
 meta:
   description: 百度网盘与下载 CDN
   strategy: "🎯 全球直连"
-  notes: 所有场景显式直连，使用本地 DNS；不整体接管百度云的共享存储域名。
+  notes: 所有场景显式直连，使用本地 DNS；包含网盘使用的百度云存储和 CDN 主域，百度云相关下载统一直连。
   references:
     - https://github.com/v2fly/domain-list-community/blob/master/data/baidu
 include: []
@@ -17,3 +17,15 @@ add:
   - DOMAIN-SUFFIX,baiduyuncdn.net
   - DOMAIN-SUFFIX,bdycdn.cn
   - DOMAIN-SUFFIX,bdycdn.net
+  # 百度网盘下载可能使用百度云对象存储及独立 CDN 主域。
+  - DOMAIN-SUFFIX,baidubce.com
+  - DOMAIN-SUFFIX,bcebos.com
+  - DOMAIN-SUFFIX,baidubcr.com
+  - DOMAIN-SUFFIX,bce-cdn.com
+  - DOMAIN-SUFFIX,bce-cdn.cn
+  - DOMAIN-SUFFIX,bce-cdn.net
+  - DOMAIN-SUFFIX,baidu-cdn.com
+  - DOMAIN-SUFFIX,baidu-cdn.cn
+  - DOMAIN-SUFFIX,baidu-cdn.net
+  - DOMAIN-SUFFIX,passport.baidu.com
+  - DOMAIN-SUFFIX,passport.baidupcs.com

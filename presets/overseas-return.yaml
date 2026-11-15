@@ -86,6 +86,7 @@ rules:
   - {category: game-download, policy: "🎯 全球直连"}
   - {category: baidu-pan, policy: "🎯 全球直连"}
   - {category: game-platform, policy: "🚀 节点选择"}
+  - {category: steam-direct, policy: "🎯 全球直连", no_resolve: true}
   - {category: cn, policy: "🎯 全球直连"}
   - {category: cn-ip, policy: "🎯 全球直连", no_resolve: true}
   - {category: cn-ip6, policy: "🎯 全球直连", no_resolve: true}

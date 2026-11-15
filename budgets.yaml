@@ -24,6 +24,7 @@ categories:
   game-download: 200
   baidu-pan: 60
   game-platform: 1200
+  steam-direct: 1200
   telegram: 80
   apple: 2500
   microsoft: 1000
@@ -41,7 +42,7 @@ categories:
 
 presets:
   cn-mainland: 110000
-  overseas: 60000
+  overseas: 85000
   overseas-return: 75000
   cn-mainland-lite: 72000
 

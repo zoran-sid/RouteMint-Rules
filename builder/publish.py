@@ -18,7 +18,7 @@ MAX_PURGE = 200
 
 
 def content_paths(path: str) -> bool:
-    return path.startswith("rules/") or path.startswith("configs/")
+    return path.startswith(("rules/", "configs/", "routers/"))
 
 
 def diff_files(current: dict, previous: dict | None) -> list[str]:

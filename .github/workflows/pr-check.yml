@@ -63,6 +63,21 @@ jobs:
       - name: Build and validate
         run: uv run python -m builder build --mihomo-bin "$PWD/bin/mihomo" --singbox-bin "$PWD/bin/sing-box" --validate
 
+      - name: Install pinned ucode for router adapter tests
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y libjson-c-dev pkg-config
+          mkdir -p .cache/ucode-src
+          curl -fsSL "https://github.com/jow-/ucode/archive/a2c42eac6369a0bba0315007c7dc7b7130275340.tar.gz" | tar -xz --strip-components=1 -C .cache/ucode-src
+          cmake -S .cache/ucode-src -B .cache/ucode-build -DFS_SUPPORT=ON \
+            -DUCI_SUPPORT=OFF -DUBUS_SUPPORT=OFF -DULOOP_SUPPORT=OFF \
+            -DNL80211_SUPPORT=OFF -DRTNL_SUPPORT=OFF -DRESOLV_SUPPORT=OFF \
+            -DSTRUCT_SUPPORT=OFF -DMATH_SUPPORT=OFF -DSOCKET_SUPPORT=OFF \
+            -DIO_SUPPORT=OFF -DZLIB_SUPPORT=OFF -DDIGEST_SUPPORT=OFF \
+            -DFFI_SUPPORT=OFF -DNETADDR_SUPPORT=OFF -DSERIAL_SUPPORT=OFF \
+            -DLOG_SUPPORT=OFF -DDEBUG_SUPPORT=OFF
+          cmake --build .cache/ucode-build -j2 --target ucode fs_lib
+
       - name: Test
         env:
           ROUTEMINT_MIHOMO_BIN: ${{ github.workspace }}/bin/mihomo

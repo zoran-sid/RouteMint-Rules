@@ -70,6 +70,7 @@ CATEGORY_ORDER = [
     "game-download",
     "baidu-pan",
     "game-platform",
+    "steam-direct",
     "telegram",
     "apple",
     "microsoft",
@@ -253,7 +254,7 @@ def load_upstreams(paths: Paths) -> Upstreams:
             bool(raw.get("url")) ^ bool(raw.get("url_template")),
             f"{where}: set exactly one of url / url_template",
         )
-        _require(raw["format"] in {"v2fly", "v2fly-dat", "hosts", "domains", "apnic", "cidr"}, f"{where}: bad format")
+        _require(raw["format"] in {"v2fly", "v2fly-dat", "hosts", "domains", "apnic", "cidr", "steam-cm"}, f"{where}: bad format")
         upstreams[uid] = Upstream(
             id=uid,
             title=str(raw["title"]),
