@@ -10,7 +10,8 @@
 #           需要自动过滤请用 mihomo 配置（Clash Verge Rev / Mihomo Party 等）。
 
 [General]
-update-url = {{ config_url }} interval=86400
+# 更新周期在 Shadowrocket 的设置中选择；此项仅填写配置 URL。
+update-url = {{ config_url }}
 bypass-system = true
 skip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, 127.0.0.1, localhost, *.local
 dns-server = {{ "223.5.5.5, 119.29.29.29" if mainland else "system" }}

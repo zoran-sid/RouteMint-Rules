@@ -2,12 +2,12 @@ id: cn-mainland-lite
 label: 大陆 · 极简
 tagline: 同一套逻辑，只留核心分类
 audience: 中国大陆用户，老设备或在意内存、耗电、启动速度
-summary: 不拆流媒体，不区分具体服务：只保留局域网、广告、AI、国内域名、国内 IP，其余全部交给节点选择。规则条数约为标准版的一半。
+summary: 不拆流媒体，不区分具体服务：保留局域网、广告、AI、游戏平台下载、百度网盘、国内域名、国内 IP，其余全部交给节点选择。规则条数约为标准版的一半。
 order: 40
 ads: ads-light
 notes: |
   精简的做法是「能靠 FINAL 兜住的分类型就不下发」：
-  流媒体、开发者、游戏、大厂、其余境外服务全部交给「漏网之鱼」（节点选择），
+  流媒体、开发者、游戏商店与社区、大厂、其余境外服务全部交给「漏网之鱼」（节点选择），
   省掉两万多条规则和十几个策略组。AI 单独留一组是因为它需要排除地区节点，
   FINAL 做不到这件事。
   还嫌大就把 ads 改成 ads-off（约省 2.9 万条）。
@@ -70,6 +70,9 @@ rules:
   - {category: reject-tracker, policy: "🛑 广告拦截"}
   - {category: reject-ads, policy: "🛑 广告拦截"}
   - {category: ai, policy: "🤖 AI 服务"}
+  - {category: game-download, policy: "🎯 全球直连"}
+  - {category: baidu-pan, policy: "🎯 全球直连"}
+  - {category: game-platform, policy: "🚀 节点选择"}
   - {category: cn, policy: "🎯 全球直连"}
   - {category: cn-ip, policy: "🎯 全球直连", no_resolve: true}
   - {final: "🐟 漏网之鱼"}

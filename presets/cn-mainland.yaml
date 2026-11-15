@@ -149,6 +149,7 @@ rules:
   - {category: streaming-others, policy: "📺 其他流媒体"}
   - {category: dev, policy: "🌍 境外服务"}
   - {category: game-download, policy: "🎯 全球直连"}
+  - {category: baidu-pan, policy: "🎯 全球直连"}
   - {category: game-platform, policy: "🌍 境外服务"}
   - {category: telegram, policy: "🌍 境外服务"}
   - {category: apple, policy: "🎯 全球直连"}

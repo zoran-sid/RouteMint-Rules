@@ -68,6 +68,7 @@ CATEGORY_ORDER = [
     "cn-region-locked",
     "dev",
     "game-download",
+    "baidu-pan",
     "game-platform",
     "telegram",
     "apple",

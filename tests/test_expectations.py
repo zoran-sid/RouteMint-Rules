@@ -32,3 +32,26 @@ def test_cn_and_proxy_are_disjoint(built):
     cn = {rule.value for rule in built.categories["cn"].rules}
     proxy = {rule.value for rule in built.categories["proxy"].rules}
     assert not (cn & proxy), sorted(cn & proxy)[:5]
+
+
+@pytest.mark.parametrize("preset_id", ["cn-mainland", "cn-mainland-lite", "overseas", "overseas-return"])
+def test_game_downloads_direct_but_stores_proxy(built, preset_map, preset_id):
+    preset = preset_map[preset_id]
+    for domain in (
+        "cache1-sgp1.steamcontent.com", "steampipe.akamaized.net", "dl.steam.clngaa.com",
+        "st.dl.bscstorage.net", "blzddist1-a.akamaihd.net", "us.cdn.blizzard.com",
+        "blzdist-wow.necdn.leihuo.netease.com", "download2.epicgames.com",
+        "epicgames-download1-1251447533.file.myqcloud.com", "egdownload.fastly-edge.com",
+        "prod.cloudflare.cdn.ea.com", "origin-a.akamaihd.net",
+        "uplaypc-s-ubisoft-ww.cdn.ubi.com", "gog-cdn.akamaized.net",
+        "lol.secure.dyn.riotcdn.net", "gamedownloads-rockstargames-com.akamaized.net",
+        "assets1.xboxlive.com", "dl.playstation.net", "cdn.nintendo.net",
+    ):
+        assert explain(built.dist, preset, "ads-light", domain) == ("game-download", "🎯 全球直连"), domain
+    for domain in ("store.steampowered.com", "steamcommunity.com", "store.epicgames.com", "battle.net", "ea.com", "gog.com", "ubisoft.com"):
+        category, policy = explain(built.dist, preset, "ads-light", domain)
+        assert category == "game-platform", (domain, category)
+        assert policy in {"🚀 节点选择", "🌍 境外服务"}, (domain, policy)
+    for domain in ("pan.baidu.com", "yun.baidu.com", "d.pcs.baidu.com", "download.baidupcs.com", "baiduyuncdn.com"):
+        category, policy = explain(built.dist, preset, "ads-light", domain)
+        assert (category, policy) == ("baidu-pan", "🎯 全球直连"), (domain, category, policy)

@@ -4,9 +4,15 @@ meta:
   strategy: "🎯 全球直连"
   notes: |
     只放纯下载域名。商店、社区、联机服务在 game-platform 里走代理。
-    下载 CDN 通常有中国大陆节点，直连比代理快得多，也省机场流量。
-include: []
+    所有场景直连，并使用本地 DNS，供平台选择当前地区下载 CDN。
+    同步上游下载专用分类，覆盖 Steam、Battle.net、Epic、EA、Ubisoft、
+    GOG、Riot、Rockstar、Bethesda、Xbox 等；不整站代理共享 CDN。
+include:
+  - upstream: v2fly-dlc
+    categories: [category-game-platforms-download]
 add:
+  - DOMAIN,download.steampowered.com
+  - DOMAIN,client-update.queniuqe.com
   - DOMAIN-SUFFIX,steamcontent.com
   - DOMAIN-SUFFIX,steamstatic.com
   - DOMAIN-SUFFIX,steamcdn-a.akamaihd.net
@@ -22,3 +28,8 @@ add:
   - DOMAIN-SUFFIX,gs2.ww.prod.dl.playstation.net
   - DOMAIN-SUFFIX,cdn.nintendo.net
   - DOMAIN-SUFFIX,origin-a.akamaihd.net
+remove:
+  - {value: recommendations-api.gog.com, reason: 推荐 API 属于商店功能，不属于游戏下载。}
+  - {value: sections.gog.com, reason: 商店页面接口，不属于游戏下载。}
+  - {value: galaxy-promos.gog.com, reason: 商店推广接口，不属于游戏下载。}
+  - {value: marketing-sections.gog.com, reason: 商店推广接口，不属于游戏下载。}

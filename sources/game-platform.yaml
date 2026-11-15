@@ -14,4 +14,6 @@ include:
     categories: [xbox]
   - upstream: v2fly-dlc
     categories: [nintendo]
+  - upstream: v2fly-dlc
+    categories: [blizzard, ea, ubisoft, gog, riot, rockstar, bethesda]
 add:

@@ -30,7 +30,7 @@ from .optimize import (
     prune_shadowed_domains,
     resolve_conflicts,
 )
-from .render import render_client_configs
+from .render import client_filename, render_client_configs
 from .report import (
     update_readme_table,
     write_changelog,
@@ -337,8 +337,8 @@ def build(
                 "tier": preset.ads,
                 "rules": {tier: preset_total(builds, preset, tier) for tier in ADS_TIERS},
                 "configs": {
-                    client: f"configs/{preset.id}/{preset.ads}/{client}"
-                    for client in ("mihomo.conf", "shadowrocket.conf")
+                    f"{client}.conf": f"configs/{preset.id}/{preset.ads}/{client_filename(client, preset.id, preset.ads)}"
+                    for client in ("mihomo", "shadowrocket")
                 },
             }
             for preset in presets

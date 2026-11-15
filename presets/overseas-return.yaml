@@ -2,7 +2,7 @@ id: overseas-return
 label: 海外华人回国
 tagline: 默认直连，限区内容走回国节点
 audience: 常驻海外，需要看 B 站、网易云、爱奇艺、腾讯视频等中国大陆限区内容
-summary: 默认全部直连；中国大陆限区内容走「回国」组，导入后手动选择大陆出口；AI 组默认直连，遇到不可用时可一键切到代理节点。
+summary: 默认全部直连；中国大陆限区内容走「回国」组，导入后手动选择大陆出口；游戏平台商店与社区走普通代理组，游戏下载与百度网盘直连；AI 组默认直连，可手动切到代理节点。
 order: 30
 ads: ads-light
 notes: |
@@ -83,6 +83,9 @@ rules:
   - {category: ai-perplexity, policy: "🤖 AI 服务"}
   - {category: ai-others, policy: "🤖 AI 服务"}
   - {category: cn-region-locked, policy: "🏠 回国"}
+  - {category: game-download, policy: "🎯 全球直连"}
+  - {category: baidu-pan, policy: "🎯 全球直连"}
+  - {category: game-platform, policy: "🚀 节点选择"}
   - {category: cn, policy: "🎯 全球直连"}
   - {category: cn-ip, policy: "🎯 全球直连", no_resolve: true}
   - {category: cn-ip6, policy: "🎯 全球直连", no_resolve: true}

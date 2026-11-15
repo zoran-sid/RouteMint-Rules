@@ -21,8 +21,9 @@ categories:
   streaming-others: 3000
   cn-region-locked: 200
   dev: 2000
-  game-download: 60
-  game-platform: 600
+  game-download: 200
+  baidu-pan: 60
+  game-platform: 1200
   telegram: 80
   apple: 2500
   microsoft: 1000

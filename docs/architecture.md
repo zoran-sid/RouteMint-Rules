@@ -17,21 +17,22 @@
 | `ai-others` | 其他 AI 服务（对话、绘图、语音、模型托管） | 165 | 🤖 AI 服务 |
 | `ai-perplexity` | Perplexity | 5 | 🤖 AI 服务 |
 | `apple` | Apple 服务 | 1583 | 🎯 全球直连 |
-| `cn` | 中国大陆域名 | 6203 | 🎯 全球直连 |
+| `baidu-pan` | 百度网盘与下载 CDN | 10 | 🎯 全球直连 |
+| `cn` | 中国大陆域名 | 6199 | 🎯 全球直连 |
 | `cn-ip` | 中国大陆 IP 段 | 6219 | 🎯 全球直连 |
 | `cn-ip6` | 中国大陆 IPv6 段 | 3439 | 🎯 全球直连 |
 | `cn-region-locked` | 中国大陆限区内容（海外需回国节点） | 30 | 🏠 回国 |
 | `dev` | 开发者服务（代码托管、包管理、模型托管） | 87 | 🌍 境外服务 |
 | `disney` | Disney+ / Hulu / ESPN（Disney 体系） | 218 | 🎬 Disney+ |
-| `game-download` | 游戏下载 CDN（体积大、可直连） | 15 | 🎯 全球直连 |
-| `game-platform` | 游戏商店、社区与联机服务 | 258 | 🌍 境外服务 |
+| `game-download` | 游戏下载 CDN（体积大、可直连） | 96 | 🎯 全球直连 |
+| `game-platform` | 游戏商店、社区与联机服务 | 534 | 🌍 境外服务 |
 | `google` | Google 服务（搜索、地图、Gmail 等） | 627 | 🌍 境外服务 |
 | `max` | Max / HBO Max | 64 | 🎬 Max |
 | `microsoft` | Microsoft 服务 | 554 | 🎯 全球直连 |
 | `netflix` | Netflix | 28 | 🎬 Netflix |
 | `primevideo` | Prime Video | 25 | 🎬 Prime Video |
 | `private` | 局域网、保留地址、本地主机名 | 23 | DIRECT |
-| `proxy` | 其余境外常用服务 | 18563 | 🌍 境外服务 |
+| `proxy` | 其余境外常用服务 | 18322 | 🌍 境外服务 |
 | `reject-ads` | 广告域名（含插屏、弹窗、推送广告） | 37114 | REJECT |
 | `reject-malware` | 恶意软件分发与钓鱼域名 | 18442 | REJECT |
 | `reject-tracker` | 常见追踪器、分析 SDK、归因与热图服务 | 668 | REJECT |
@@ -84,7 +85,7 @@ mihomo 的 AI 组按节点名排除模板列出的常见受限出口，自动选
 
 ## DNS 与服务出口
 
-mihomo 的 `nameserver-policy` 为每个服务使用对应策略组。例如 Netflix 的查询经「🎬 Netflix」，AI 经「🤖 AI 服务」，国内限区媒体经「🏠 回国」。手动把服务改为直连时，该服务 DNS 也经直连。局域网主机名使用系统 DNS。
+mihomo 的 `nameserver-policy` 为每个服务使用对应策略组。例如 Netflix 的查询经「🎬 Netflix」，AI 经「🤖 AI 服务」，国内限区媒体经「🏠 回国」。手动把服务改为直连时，该服务 DNS 也经直连。局域网、游戏下载和百度网盘使用系统 DNS，下载 CDN 调度跟随当前位置。
 
 sing-box 为每个实际使用的策略生成独立 DNS 服务器并用 `detour` 指定同一出站；国内媒体使用大陆 DoH，境外服务使用境外 DoH。默认 DNS 与节点域名解析按场景选择：大陆使用国内 DoH，海外使用系统 DNS。HTTPS DNS 的服务器地址与 `/dns-query` 路径分开填写。
 
@@ -102,9 +103,9 @@ Netflix 上游含动态 AWS API 主机的正则，本仓库用四个附理由的
 
 `cn-mainland-lite` 的思路是「能靠 FINAL 兜住的分类型就不下发」：
 
-- 不拆流媒体、开发者、游戏、大厂分类，全部交给「漏网之鱼」（节点选择）；
+- 不拆流媒体、开发者、大厂分类，全部交给「漏网之鱼」（节点选择）；
 - 跳过 `proxy` 分类（两万多条）和 `cn-ip6`（三千多条），因为默认配置关闭 IPv6；
-- 只保留 `private`、三档广告、`ai`（汇总）、`cn`、`cn-ip` 五个分类。
+- 保留 `private`、三档广告、`ai`（汇总）、`game-download`、`baidu-pan`、`game-platform`、`cn`、`cn-ip`；下载和网盘在精简版中也显式直连。
 
 AI 单独留一组，是因为它需要按节点名排除地区，FINAL 做不到这件事。
 
@@ -123,3 +124,7 @@ AI 单独留一组，是因为它需要按节点名排除地区，FINAL 做不�
 
 Surge / Loon / Quantumult X 没有可脚本化的校验器，仓库只做结构断言（段落、结尾 FINAL、
 URL 白名单、无凭据）；mihomo 与 sing-box 的配置每次构建都会真实加载校验。
+
+## 游戏下载与平台页面
+
+四种场景均显式引用 `game-download`（DIRECT）、`baidu-pan`（DIRECT）与 `game-platform`（代理）。下载类包含 v2fly 的 `category-game-platforms-download`，同步专用 CDN；它先于平台整站规则匹配，Steam 商店与社区等页面继续代理。下载与百度网盘在 mihomo / sing-box 中使用本地 DNS。

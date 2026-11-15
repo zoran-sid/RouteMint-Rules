@@ -14,20 +14,12 @@ import segno
 
 from .build import load_distribution
 from .config import Paths
-
-CLIENT_FILES = {
-    "mihomo": "mihomo.conf",
-    "shadowrocket": "shadowrocket.conf",
-    "surge": "surge.conf",
-    "loon": "loon.conf",
-    "quantumultx": "quantumultx.conf",
-    "singbox": "singbox.conf",
-}
+from .render import client_filename
 
 
 def config_url(urls: dict, preset: str, tier: str, client: str) -> str:
     return (
-        f"{urls['jsdelivr']}@{urls['branch']}/configs/{preset}/{tier}/{CLIENT_FILES[client]}"
+        f"{urls['jsdelivr']}@{urls['branch']}/configs/{preset}/{tier}/{client_filename(client, preset, tier)}"
     )
 
 

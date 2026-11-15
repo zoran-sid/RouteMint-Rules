@@ -8,6 +8,7 @@ import yaml
 
 from builder.evaluate import load_ruleset_list
 from builder.spec import ADS_TIERS
+from builder.render import client_filename
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -51,7 +52,7 @@ def test_every_preset_and_tier_has_all_configs(built):
         for tier in ADS_TIERS:
             folder = built.dist / "configs" / preset.id / tier
             present = {path.name for path in folder.iterdir() if path.is_file()}
-            assert present == CONFIGS, f"{preset.id}/{tier}: {sorted(present)}"
+            assert present == CONFIGS | {client_filename("shadowrocket", preset.id, tier)}, f"{preset.id}/{tier}: {sorted(present)}"
 
 
 def test_manifest_counts_match_rule_files(built):
@@ -284,3 +285,39 @@ def test_service_dns_uses_the_service_exit_and_overseas_defaults_are_local(built
         server = next(server for server in sb["dns"]["servers"] if server["tag"] == rule["server"])
         assert server["detour"] == sbtag
         assert "/" not in server["server"] and server["path"] == "/dns-query"
+
+
+def test_shadowrocket_update_url_is_a_plain_url_and_named_profile_exists(built):
+    from urllib.parse import urlsplit
+
+    names = set()
+    for preset in built.presets:
+        for tier in ADS_TIERS:
+            folder = built.dist / "configs" / preset.id / tier
+            legacy = folder / "shadowrocket.conf"
+            named = folder / client_filename("shadowrocket", preset.id, tier)
+            assert named.read_bytes() == legacy.read_bytes()
+            assert named.stem.startswith("RouteMint-")
+            names.add(named.name)
+            line = next(line for line in named.read_text().splitlines() if line.startswith("update-url ="))
+            url = line.split("=", 1)[1].strip()
+            assert not any(c.isspace() for c in url), "Shadowrocket treats trailing interval text as URL path"
+            assert urlsplit(url).scheme == "https"
+            relative = url.split("@release/", 1)[1]
+            assert (built.dist / relative).read_bytes() == named.read_bytes()
+    assert len(names) == len(built.presets) * len(ADS_TIERS)
+
+
+def test_downloads_and_netdisk_use_local_dns_in_every_scene(built):
+    for preset in built.presets:
+        folder = built.dist / "configs" / preset.id / "ads-light"
+        mh = yaml.safe_load((folder / "mihomo.conf").read_text())
+        sb = json.loads((folder / "singbox.conf").read_text())
+        for category in ("game-download", "baidu-pan"):
+            assert mh["dns"]["nameserver-policy"][f"rule-set:{category}"] == ["system"]
+            assert f"RULE-SET,{category},🎯 全球直连" in mh["rules"]
+            rule = next(r for r in sb["dns"]["rules"] if r["rule_set"] == f"rs-{category}")
+            assert rule["server"] == "local"
+        game_download = next(i for i, r in enumerate(mh["rules"]) if r.startswith("RULE-SET,game-download,"))
+        game_platform = next(i for i, r in enumerate(mh["rules"]) if r.startswith("RULE-SET,game-platform,"))
+        assert game_download < game_platform

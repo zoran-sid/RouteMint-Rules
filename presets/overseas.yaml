@@ -2,7 +2,7 @@ id: overseas
 label: 身在海外
 tagline: 默认直连，只把 AI 与部分流媒体交给代理
 audience: 常驻海外，Google/YouTube 等本来就能直接访问
-summary: 默认全部直连；AI 服务走 AI 专用组（按节点名排除香港/澳门/大陆等地区）；Google、YouTube 直连；TikTok、Netflix、Disney+、Max、Prime Video 走独立策略组；其余流量直连，只有手动切换时才走代理。
+summary: 默认全部直连；AI 服务走 AI 专用组（按节点名排除香港/澳门/大陆等地区）；Google、YouTube 直连；TikTok、Netflix、Disney+、Max、Prime Video 走独立策略组；游戏平台商店与社区走代理，游戏下载与百度网盘直连，其余流量直连。
 order: 20
 ads: ads-light
 notes: |
@@ -128,5 +128,8 @@ rules:
   - {category: tiktok, policy: "🎬 TikTok"}
   - {category: max, policy: "🎬 Max"}
   - {category: primevideo, policy: "🎬 Prime Video"}
+  - {category: game-download, policy: "🎯 全球直连"}
+  - {category: baidu-pan, policy: "🎯 全球直连"}
+  - {category: game-platform, policy: "🚀 节点选择"}
   - {category: google, policy: "🎯 全球直连"}
   - {final: "🐟 漏网之鱼"}

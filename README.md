@@ -14,11 +14,11 @@ Shadowrocket 可直接在「配置」中添加地址；其余客户端按[导入
 
 | 场景 | 使用位置 | 直连 | 代理 | 未匹配流量 |
 |---|---|---|---|---|
-| `cn-mainland` | 中国内地 | 国内服务、局域网 | Google、YouTube、AI 和其他境外服务 | 代理（白名单模式） |
-| `overseas` | 海外，部分服务受地区限制 | Google、YouTube、国内服务及普通网站 | AI、Netflix、Disney+、HBO/Max、Prime Video、TikTok | 直连 |
-| `overseas-return` | 海外，访问国内限区内容 | 普通网站、Google、YouTube | B 站、网易云、爱奇艺、腾讯视频、优酷、芒果 TV、QQ 音乐 | 直连 |
+| `cn-mainland` | 中国内地 | 国内服务、局域网、游戏与网盘下载 | Google、YouTube、AI 和其他境外服务 | 代理（白名单模式） |
+| `overseas` | 海外，部分服务受地区限制 | Google、YouTube、国内服务及普通网站 | AI、Netflix、Disney+、HBO/Max、Prime Video、TikTok、游戏商店 | 直连 |
+| `overseas-return` | 海外，访问国内限区内容 | 普通网站、Google、YouTube | 国内限区影音（回国组）、游戏商店（普通代理组） | 直连 |
 
-回国模式只代理已列出的限区媒体，微信、邮箱、购物等继续直连。需要全量国内服务回国时，可在自己的配置中把 `cn` / `cn-ip` / `cn-ip6` 改为回国组。
+回国模式将已列出的限区媒体交给回国节点，游戏商店交给普通代理节点；微信、邮箱、购物等继续直连。需要全量国内服务回国时，可在自己的配置中把 `cn` / `cn-ip` / `cn-ip6` 改为回国组。
 
 ## 订阅地址与二维码
 
@@ -32,7 +32,7 @@ Shadowrocket 可直接在「配置」中添加地址；其余客户端按[导入
 | 客户端 | 配置地址 | 二维码 |
 |---|---|---|
 | mihomo / Clash Meta 内核 | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland/ads-light/mihomo.conf) | [二维码](docs/qr/cn-mainland-mihomo.png) |
-| Shadowrocket | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland/ads-light/shadowrocket.conf) | [二维码](docs/qr/cn-mainland-shadowrocket.png) |
+| Shadowrocket | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland/ads-light/RouteMint-CN-Whitelist-ads-light.conf) | [二维码](docs/qr/cn-mainland-shadowrocket.png) |
 | Surge | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland/ads-light/surge.conf) | [二维码](docs/qr/cn-mainland-surge.png) |
 | Loon | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland/ads-light/loon.conf) | [二维码](docs/qr/cn-mainland-loon.png) |
 | Quantumult X | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland/ads-light/quantumultx.conf) | [二维码](docs/qr/cn-mainland-quantumultx.png) |
@@ -41,7 +41,7 @@ Shadowrocket 可直接在「配置」中添加地址；其余客户端按[导入
 <table>
 <tr>
 <td align="center"><img src="docs/qr/cn-mainland-mihomo.png?v=4" width="140" alt="cn-mainland mihomo / Clash Meta 内核 配置二维码"><br>mihomo / Clash Meta 内核</td>
-<td align="center"><img src="docs/qr/cn-mainland-shadowrocket.png?v=4" width="140" alt="cn-mainland Shadowrocket 配置二维码"><br>Shadowrocket</td>
+<td align="center"><img src="docs/qr/cn-mainland-shadowrocket.png?v=5" width="140" alt="cn-mainland Shadowrocket 配置二维码"><br>Shadowrocket</td>
 <td align="center"><img src="docs/qr/cn-mainland-surge.png?v=4" width="140" alt="cn-mainland Surge 配置二维码"><br>Surge</td>
 <td align="center"><img src="docs/qr/cn-mainland-loon.png?v=4" width="140" alt="cn-mainland Loon 配置二维码"><br>Loon</td>
 <td align="center"><img src="docs/qr/cn-mainland-quantumultx.png?v=4" width="140" alt="cn-mainland Quantumult X 配置二维码"><br>Quantumult X</td>
@@ -56,7 +56,7 @@ AI 优先于 Google 大类匹配。Netflix、Disney+、HBO/Max、Prime Video 分
 | 客户端 | 配置地址 | 二维码 |
 |---|---|---|
 | mihomo / Clash Meta 内核 | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/overseas/ads-light/mihomo.conf) | [二维码](docs/qr/overseas-mihomo.png) |
-| Shadowrocket | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/overseas/ads-light/shadowrocket.conf) | [二维码](docs/qr/overseas-shadowrocket.png) |
+| Shadowrocket | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/overseas/ads-light/RouteMint-Overseas-AI-Media-ads-light.conf) | [二维码](docs/qr/overseas-shadowrocket.png) |
 | Surge | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/overseas/ads-light/surge.conf) | [二维码](docs/qr/overseas-surge.png) |
 | Loon | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/overseas/ads-light/loon.conf) | [二维码](docs/qr/overseas-loon.png) |
 | Quantumult X | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/overseas/ads-light/quantumultx.conf) | [二维码](docs/qr/overseas-quantumultx.png) |
@@ -65,7 +65,7 @@ AI 优先于 Google 大类匹配。Netflix、Disney+、HBO/Max、Prime Video 分
 <table>
 <tr>
 <td align="center"><img src="docs/qr/overseas-mihomo.png?v=4" width="140" alt="overseas mihomo / Clash Meta 内核 配置二维码"><br>mihomo / Clash Meta 内核</td>
-<td align="center"><img src="docs/qr/overseas-shadowrocket.png?v=4" width="140" alt="overseas Shadowrocket 配置二维码"><br>Shadowrocket</td>
+<td align="center"><img src="docs/qr/overseas-shadowrocket.png?v=5" width="140" alt="overseas Shadowrocket 配置二维码"><br>Shadowrocket</td>
 <td align="center"><img src="docs/qr/overseas-surge.png?v=4" width="140" alt="overseas Surge 配置二维码"><br>Surge</td>
 <td align="center"><img src="docs/qr/overseas-loon.png?v=4" width="140" alt="overseas Loon 配置二维码"><br>Loon</td>
 <td align="center"><img src="docs/qr/overseas-quantumultx.png?v=4" width="140" alt="overseas Quantumult X 配置二维码"><br>Quantumult X</td>
@@ -80,7 +80,7 @@ AI 优先于 Google 大类匹配。Netflix、Disney+、HBO/Max、Prime Video 分
 | 客户端 | 配置地址 | 二维码 |
 |---|---|---|
 | mihomo / Clash Meta 内核 | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/overseas-return/ads-light/mihomo.conf) | [二维码](docs/qr/overseas-return-mihomo.png) |
-| Shadowrocket | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/overseas-return/ads-light/shadowrocket.conf) | [二维码](docs/qr/overseas-return-shadowrocket.png) |
+| Shadowrocket | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/overseas-return/ads-light/RouteMint-Return-CN-ads-light.conf) | [二维码](docs/qr/overseas-return-shadowrocket.png) |
 | Surge | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/overseas-return/ads-light/surge.conf) | [二维码](docs/qr/overseas-return-surge.png) |
 | Loon | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/overseas-return/ads-light/loon.conf) | [二维码](docs/qr/overseas-return-loon.png) |
 | Quantumult X | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/overseas-return/ads-light/quantumultx.conf) | [二维码](docs/qr/overseas-return-quantumultx.png) |
@@ -89,7 +89,7 @@ AI 优先于 Google 大类匹配。Netflix、Disney+、HBO/Max、Prime Video 分
 <table>
 <tr>
 <td align="center"><img src="docs/qr/overseas-return-mihomo.png?v=4" width="140" alt="overseas-return mihomo / Clash Meta 内核 配置二维码"><br>mihomo / Clash Meta 内核</td>
-<td align="center"><img src="docs/qr/overseas-return-shadowrocket.png?v=4" width="140" alt="overseas-return Shadowrocket 配置二维码"><br>Shadowrocket</td>
+<td align="center"><img src="docs/qr/overseas-return-shadowrocket.png?v=5" width="140" alt="overseas-return Shadowrocket 配置二维码"><br>Shadowrocket</td>
 <td align="center"><img src="docs/qr/overseas-return-surge.png?v=4" width="140" alt="overseas-return Surge 配置二维码"><br>Surge</td>
 <td align="center"><img src="docs/qr/overseas-return-loon.png?v=4" width="140" alt="overseas-return Loon 配置二维码"><br>Loon</td>
 <td align="center"><img src="docs/qr/overseas-return-quantumultx.png?v=4" width="140" alt="overseas-return Quantumult X 配置二维码"><br>Quantumult X</td>
@@ -99,12 +99,12 @@ AI 优先于 Google 大类匹配。Netflix、Disney+、HBO/Max、Prime Video 分
 
 ### 中国内地精简版
 
-`cn-mainland-lite` 保留局域网、广告、AI、国内域名和国内 IP 分类，境外流量由默认代理兜底。适合需要较少分类的设备。
+`cn-mainland-lite` 保留局域网、广告、AI、游戏平台下载、百度网盘、国内域名和国内 IP 分类，境外流量由默认代理兜底。适合需要较少分类的设备。
 
 | 客户端 | 配置地址 | 二维码 |
 |---|---|---|
 | mihomo / Clash Meta 内核 | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland-lite/ads-light/mihomo.conf) | [二维码](docs/qr/cn-mainland-lite-mihomo.png) |
-| Shadowrocket | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland-lite/ads-light/shadowrocket.conf) | [二维码](docs/qr/cn-mainland-lite-shadowrocket.png) |
+| Shadowrocket | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland-lite/ads-light/RouteMint-CN-Lite-ads-light.conf) | [二维码](docs/qr/cn-mainland-lite-shadowrocket.png) |
 | Surge | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland-lite/ads-light/surge.conf) | [二维码](docs/qr/cn-mainland-lite-surge.png) |
 | Loon | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland-lite/ads-light/loon.conf) | [二维码](docs/qr/cn-mainland-lite-loon.png) |
 | Quantumult X | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland-lite/ads-light/quantumultx.conf) | [二维码](docs/qr/cn-mainland-lite-quantumultx.png) |
@@ -115,7 +115,7 @@ AI 优先于 Google 大类匹配。Netflix、Disney+、HBO/Max、Prime Video 分
 | 客户端 | 配置格式 | 节点与导入方式 |
 |---|---|---|
 | mihomo / Clash Meta 内核 | YAML，发布为 `mihomo.conf` | 下载配置，将 `proxy-providers.airport.url` 改为自己的 Clash/mihomo 节点源，再作为个人配置导入。经典 Clash 内核不支持本仓库的 MRS 规则。 |
-| Shadowrocket | `shadowrocket.conf` | 在「配置 → 添加配置」粘贴地址，或扫描对应二维码，下载后启用。节点订阅在 App 中另行添加；`PROXY` 使用当前所选节点。AI、流媒体、回国需要相应地区出口。 |
+| Shadowrocket | `RouteMint-场景-广告档.conf` | 在「配置 → 添加配置」粘贴地址，或扫描对应二维码，下载后启用。节点订阅在 App 中另行添加；`PROXY` 使用当前所选节点。AI、流媒体、回国需要相应地区出口。 |
 | Surge | `surge.conf` | 下载配置，将 `Airport` 的 `policy-path` 改为自己的 Surge 节点源；通过配置导入或对应二维码导入个人配置。 |
 | Loon | `loon.conf` | 下载配置，将 `[Remote Proxy]` 的 `Airport` 改为自己的 Loon 节点源，再导入个人配置。 |
 | Quantumult X | `quantumultx.conf` | 下载后将 `[server_remote]` 地址改为自己的 QX 节点源，再手动导入。二维码用于下载文件；`[filter_remote]` 引用 QX 专用分流格式。 |
@@ -128,6 +128,25 @@ Shadowrocket 的节点保存在 App 中，可继续订阅公共配置更新。
 mihomo / sing-box 的 DNS 按服务策略选择出口；其他客户端使用原生域名规则，海外默认系统 DNS。节点名筛选用于缩小候选范围，出口地区和服务可用性应实际验证。`CN2` 是线路标记，不能据此认定为回国节点。
 Shadowrocket 的 `PROXY` 共用当前所选节点；需要同时使用多个地区出口时，请在 App 的代理分组中绑定具体节点。
 Quantumult X 的候选组按订阅资源展开，导入后手动固定 AI、流媒体、回国节点；回国模式的 AI 组默认直连。
+
+### 小火箭配置名称与更新修复
+
+小火箭按文件名区分配置。默认轻量广告档分别显示为：
+
+| 场景 | 文件名（App 通常隐藏 `.conf`） |
+|---|---|
+| 中国内地白名单 | `RouteMint-CN-Whitelist-ads-light` |
+| 海外 AI 与流媒体 | `RouteMint-Overseas-AI-Media-ads-light` |
+| 海外回国 | `RouteMint-Return-CN-ads-light` |
+| 内地精简版 | `RouteMint-CN-Lite-ads-light` |
+
+旧配置点更新出现 `not found` 时，请从上表的配置地址或新二维码重新下载一次并启用。旧版 `update-url` 误带了 `interval=86400`，手机可能把它当成网址的一部分。新配置的更新地址只含完整 URL，更新周期在 Shadowrocket 设置中选择。已有节点订阅继续保存在 App 中；原 `shadowrocket.conf` 地址保留兼容。
+
+## 游戏平台下载与百度网盘
+
+四种场景都将已收录的游戏平台下载 CDN 与百度网盘显式设为直连。下载分类同步上游的专用列表，涵盖 Steam、暴雪/Battle.net、Epic、EA、Ubisoft、GOG、Riot、Rockstar、Bethesda、Xbox 等，并保留 PlayStation、Nintendo 的下载域名。游戏平台商店、社区和平台服务在四种场景都走代理；下载与更新 CDN 规则先匹配，保持直连。
+
+mihomo / sing-box 对下载与网盘域名使用当前网络的本地 DNS；其他客户端使用所在地区的默认 DNS。这样下载连接使用本地出口，CDN 调度也尽量贴近当前位置。Steam 请将「设置 → 下载 → 下载地区」选为当前或邻近地区；具体服务器由游戏平台调度。[Steam 官方说明](https://help.steampowered.com/en/faqs/view/21F5-8D5D-0141-7A5E)
 
 ## 自动更新
 
@@ -148,6 +167,8 @@ Quantumult X 的候选组按订阅资源展开，导入后手动固定 AI、流�
 | `ads-off` | 关闭广告和追踪器拦截 | 把配置地址中的 `/ads-light/` 改为 `/ads-off/` |
 | `ads-light` | 广告、常见追踪器 | 默认档位 |
 | `ads-strict` | 广告、追踪器，再加恶意域名 | 把地址中的 `/ads-light/` 改为 `/ads-strict/` |
+
+小火箭切换广告档时，地址中的目录与文件名后缀需一起修改，例如 `/ads-off/RouteMint-Overseas-AI-Media-ads-off.conf`。
 
 播放或登录异常时，先用 `ads-off` 复测，再根据连接日志添加具体例外。域名分流无法完整移除 YouTube 等平台与正文共用域名的视频广告。
 

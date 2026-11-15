@@ -41,6 +41,21 @@ CLIENTS = {
     "singbox": "singbox.conf",
 }
 
+# Stable, descriptive basenames are also the imported Shadowrocket profile names.
+SHADOWROCKET_NAMES = {
+    "cn-mainland": "RouteMint-CN-Whitelist",
+    "cn-mainland-lite": "RouteMint-CN-Lite",
+    "overseas": "RouteMint-Overseas-AI-Media",
+    "overseas-return": "RouteMint-Return-CN",
+}
+
+
+def client_filename(client: str, preset: str, tier: str) -> str:
+    if client == "shadowrocket":
+        return f"{SHADOWROCKET_NAMES[preset]}-{tier}.conf"
+    return CLIENTS[client]
+
+
 # Client-specific file extensions; sing-box gets JSON, everyone else a conf/yaml.
 TEMPLATE_EXT = {
     "mihomo": "yaml",
@@ -136,7 +151,7 @@ def build_context(preset: Preset, tier: str, builds: dict, urls: dict, generated
         if item.domain_rules and not ref.category.startswith("reject-"):
             # DNS follows the service policy, including a manually chosen DIRECT.
             # A return-media query must leave through the same mainland exit.
-            if ref.category == "private":
+            if ref.category in {"private", "game-download", "baidu-pan"}:
                 servers = ["system"]
             elif ref.category in {"cn", "cn-region-locked"}:
                 servers = [f"https://dns.alidns.com/dns-query#{policy}"]
@@ -377,7 +392,7 @@ def _singbox_model(preset: Preset, groups: list[dict], categories: list[str], bu
             )
             route_rules.append({"rule_set": tag, "outbound": policy_tag[ref.policy or "DIRECT"]})
         if item.domain_rules and not ref.category.startswith("reject-"):
-            if ref.category == "private":
+            if ref.category in {"private", "game-download", "baidu-pan"}:
                 dns_tag = "local"
             else:
                 outbound = policy_tag[ref.policy or "DIRECT"]
@@ -481,8 +496,9 @@ def render_client_configs(
             context = build_context(preset, tier, builds, urls, generated_at)
             folder = paths.dist / "configs" / preset.id / tier
             for client, filename in CLIENTS.items():
+                published_filename = client_filename(client, preset.id, tier)
                 context["config_url"] = (
-                    f"{urls['jsdelivr']}@{urls['branch']}/configs/{preset.id}/{tier}/{filename}"
+                    f"{urls['jsdelivr']}@{urls['branch']}/configs/{preset.id}/{tier}/{published_filename}"
                 )
                 if client == "singbox":
                     text = json.dumps(singbox_config(context), ensure_ascii=False, indent=2) + "\n"
@@ -491,7 +507,10 @@ def render_client_configs(
                     extension = TEMPLATE_EXT[client]
                     template = env.get_template(f"{client}/config.{extension}.j2")
                     text = template.render(**context, client=client, filename=filename)
-                    emit.write_text(folder / filename, text)
+                    emit.write_text(folder / published_filename, text)
+                    if client == "shadowrocket":
+                        # Existing subscriptions retain a valid compatibility URL.
+                        emit.write_text(folder / filename, text)
                 if client == "mihomo" and mihomo_bin is not None:
                     ok, output = emit.Converter(mihomo_bin).test_config(folder / filename)
                 elif client == "singbox" and singbox_bin is not None:
