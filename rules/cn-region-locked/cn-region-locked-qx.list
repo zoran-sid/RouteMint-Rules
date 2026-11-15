@@ -1,0 +1,33 @@
+# RouteMint-Rules · 中国大陆限区内容（海外需回国节点）
+# 30 rules
+# https://github.com/zoran-sid/RouteMint-Rules
+host, ykimg.alicdn.com
+host-suffix, 71.am
+host-suffix, 71edge.com
+host-suffix, acgvideo.com
+host-suffix, b23.tv
+host-suffix, biliapi.com
+host-suffix, biliapi.net
+host-suffix, bilibili.co
+host-suffix, bilibili.com
+host-suffix, bilivideo.cn
+host-suffix, bilivideo.com
+host-suffix, hdslb.com
+host-suffix, hitv.com
+host-suffix, iqiyi.com
+host-suffix, iqiyipic.com
+host-suffix, mgtv.com
+host-suffix, music.126.net
+host-suffix, music.163.com
+host-suffix, music.tc.qq.com
+host-suffix, puui.qpic.cn
+host-suffix, qiyi.com
+host-suffix, qiyipic.com
+host-suffix, qqmusic.qq.com
+host-suffix, qy.net
+host-suffix, tudou.com
+host-suffix, v.qq.com
+host-suffix, video.qq.com
+host-suffix, y.qq.com
+host-suffix, ykimg.com
+host-suffix, youku.com

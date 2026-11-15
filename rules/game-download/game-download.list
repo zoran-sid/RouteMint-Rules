@@ -1,0 +1,18 @@
+# RouteMint-Rules · 游戏下载 CDN（体积大、可直连）
+# 15 rules
+# https://github.com/zoran-sid/RouteMint-Rules
+DOMAIN-SUFFIX,assets1.xboxlive.com
+DOMAIN-SUFFIX,assets2.xboxlive.com
+DOMAIN-SUFFIX,cdn.nintendo.net
+DOMAIN-SUFFIX,cdn.playstation.net
+DOMAIN-SUFFIX,cdn1.epicgames.com
+DOMAIN-SUFFIX,cdn2.epicgames.com
+DOMAIN-SUFFIX,cdn3.epicgames.com
+DOMAIN-SUFFIX,download.epicgames.com
+DOMAIN-SUFFIX,epicgames-download1.akamaized.net
+DOMAIN-SUFFIX,gs2.ww.prod.dl.playstation.net
+DOMAIN-SUFFIX,origin-a.akamaihd.net
+DOMAIN-SUFFIX,steamcdn-a.akamaihd.net
+DOMAIN-SUFFIX,steamcontent.co.uk
+DOMAIN-SUFFIX,steamcontent.com
+DOMAIN-SUFFIX,steamstatic.com
