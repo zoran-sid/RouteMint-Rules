@@ -76,7 +76,7 @@ private → reject → ai → 流媒体 → cn-region-locked → dev → game
 
 ## AI 节点选择
 
-AI 组按节点名排除模板列出的常见受限出口，自动选择组在剩余候选中测试延迟。节点名只能提供筛选线索；实际出口、账号条件与服务支持地区共同影响可用性。
+mihomo 的 AI 组按节点名排除模板列出的常见受限出口，自动选择组在剩余候选中测试延迟。节点名只能提供筛选线索；实际出口、账号条件与服务支持地区共同影响可用性。
 
 `🤖 AI 服务` 默认选「♻️ AI 自动选择」，也保留手动选择入口。`overseas-return` 中 AI 默认直连，可手动切换代理。选节点后应分别验证 ChatGPT、Claude 等目标服务；延迟测试不验证服务访问权限。
 
@@ -110,13 +110,13 @@ AI 单独留一组，是因为它需要按节点名排除地区，FINAL 做不�
 
 ## 客户端能力差异
 
-同样是「AI 组排除香港/澳门/大陆节点」，各客户端能做到的程度不同：
+本模板在各客户端使用以下候选筛选方式：
 
 | 客户端 | 按节点名过滤 | 说明 |
 |---|---|---|
-| mihomo | ✅ `filter` + `exclude-filter` | 唯一能做到「正向包含 + 反向排除」双保险 |
-| Surge | ⚠️ `policy-regex-filter` | 只能正向筛选；节点名写成「HK-US」这种混合名时可能漏过 |
-| Loon | ⚠️ `[Remote Filter]` NameRegex | 同上 |
+| mihomo | ✅ `filter` + `exclude-filter` | 使用名称正向筛选与排除；实际出口需验证 |
+| Surge | ⚠️ `policy-regex-filter` | 回国组使用正向筛选；AI 排除条件需手动落实 |
+| Loon | ⚠️ `[Remote Filter]` NameRegex | 回国组使用正向筛选；AI 排除条件需手动落实 |
 | Shadowrocket | ❌ | 远程配置没有节点名过滤，需手动选节点 |
 | Quantumult X | 手动选择 | 本模板按订阅资源展开候选节点，导入后固定目标节点 |
 | sing-box | ❌ | 策略组没有按名字过滤的参数 |
