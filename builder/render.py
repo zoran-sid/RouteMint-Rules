@@ -497,8 +497,10 @@ def render_client_configs(
             folder = paths.dist / "configs" / preset.id / tier
             for client, filename in CLIENTS.items():
                 published_filename = client_filename(client, preset.id, tier)
+                base_url = (f"{urls['raw']}/{urls['branch']}" if client == "shadowrocket"
+                            else f"{urls['jsdelivr']}@{urls['branch']}")
                 context["config_url"] = (
-                    f"{urls['jsdelivr']}@{urls['branch']}/configs/{preset.id}/{tier}/{published_filename}"
+                    f"{base_url}/configs/{preset.id}/{tier}/{published_filename}"
                 )
                 if client == "singbox":
                     text = json.dumps(singbox_config(context), ensure_ascii=False, indent=2) + "\n"

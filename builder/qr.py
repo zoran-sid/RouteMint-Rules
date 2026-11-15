@@ -18,9 +18,9 @@ from .render import client_filename
 
 
 def config_url(urls: dict, preset: str, tier: str, client: str) -> str:
-    return (
-        f"{urls['jsdelivr']}@{urls['branch']}/configs/{preset}/{tier}/{client_filename(client, preset, tier)}"
-    )
+    base_url = (f"{urls['raw']}/{urls['branch']}" if client == "shadowrocket"
+                else f"{urls['jsdelivr']}@{urls['branch']}")
+    return f"{base_url}/configs/{preset}/{tier}/{client_filename(client, preset, tier)}"
 
 
 # Quantumult X QR opens the download URL for manual import.

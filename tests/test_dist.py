@@ -303,8 +303,11 @@ def test_shadowrocket_update_url_is_a_plain_url_and_named_profile_exists(built):
             url = line.split("=", 1)[1].strip()
             assert not any(c.isspace() for c in url), "Shadowrocket treats trailing interval text as URL path"
             assert urlsplit(url).scheme == "https"
-            relative = url.split("@release/", 1)[1]
+            assert url.startswith("https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/")
+            relative = urlsplit(url).path.split("/release/", 1)[1]
             assert (built.dist / relative).read_bytes() == named.read_bytes()
+            rule_urls = [line.split(",")[1] for line in named.read_text().splitlines() if line.startswith("RULE-SET,")]
+            assert rule_urls and all(u.startswith("https://raw.githubusercontent.com/") for u in rule_urls)
     assert len(names) == len(built.presets) * len(ADS_TIERS)
 
 

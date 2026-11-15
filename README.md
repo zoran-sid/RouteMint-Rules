@@ -32,7 +32,7 @@ Shadowrocket 可直接在「配置」中添加地址；其余客户端按[导入
 | 客户端 | 配置地址 | 二维码 |
 |---|---|---|
 | mihomo / Clash Meta 内核 | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland/ads-light/mihomo.conf) | [二维码](docs/qr/cn-mainland-mihomo.png) |
-| Shadowrocket | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland/ads-light/RouteMint-CN-Whitelist-ads-light.conf) | [二维码](docs/qr/cn-mainland-shadowrocket.png) |
+| Shadowrocket | [订阅配置](https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/configs/cn-mainland/ads-light/RouteMint-CN-Whitelist-ads-light.conf) | [二维码](docs/qr/cn-mainland-shadowrocket.png) |
 | Surge | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland/ads-light/surge.conf) | [二维码](docs/qr/cn-mainland-surge.png) |
 | Loon | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland/ads-light/loon.conf) | [二维码](docs/qr/cn-mainland-loon.png) |
 | Quantumult X | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland/ads-light/quantumultx.conf) | [二维码](docs/qr/cn-mainland-quantumultx.png) |
@@ -41,7 +41,7 @@ Shadowrocket 可直接在「配置」中添加地址；其余客户端按[导入
 <table>
 <tr>
 <td align="center"><img src="docs/qr/cn-mainland-mihomo.png?v=4" width="140" alt="cn-mainland mihomo / Clash Meta 内核 配置二维码"><br>mihomo / Clash Meta 内核</td>
-<td align="center"><img src="docs/qr/cn-mainland-shadowrocket.png?v=5" width="140" alt="cn-mainland Shadowrocket 配置二维码"><br>Shadowrocket</td>
+<td align="center"><img src="docs/qr/cn-mainland-shadowrocket.png?v=6" width="140" alt="cn-mainland Shadowrocket 配置二维码"><br>Shadowrocket</td>
 <td align="center"><img src="docs/qr/cn-mainland-surge.png?v=4" width="140" alt="cn-mainland Surge 配置二维码"><br>Surge</td>
 <td align="center"><img src="docs/qr/cn-mainland-loon.png?v=4" width="140" alt="cn-mainland Loon 配置二维码"><br>Loon</td>
 <td align="center"><img src="docs/qr/cn-mainland-quantumultx.png?v=4" width="140" alt="cn-mainland Quantumult X 配置二维码"><br>Quantumult X</td>
@@ -56,7 +56,7 @@ AI 优先于 Google 大类匹配。Netflix、Disney+、HBO/Max、Prime Video 分
 | 客户端 | 配置地址 | 二维码 |
 |---|---|---|
 | mihomo / Clash Meta 内核 | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/overseas/ads-light/mihomo.conf) | [二维码](docs/qr/overseas-mihomo.png) |
-| Shadowrocket | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/overseas/ads-light/RouteMint-Overseas-AI-Media-ads-light.conf) | [二维码](docs/qr/overseas-shadowrocket.png) |
+| Shadowrocket | [订阅配置](https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/configs/overseas/ads-light/RouteMint-Overseas-AI-Media-ads-light.conf) | [二维码](docs/qr/overseas-shadowrocket.png) |
 | Surge | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/overseas/ads-light/surge.conf) | [二维码](docs/qr/overseas-surge.png) |
 | Loon | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/overseas/ads-light/loon.conf) | [二维码](docs/qr/overseas-loon.png) |
 | Quantumult X | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/overseas/ads-light/quantumultx.conf) | [二维码](docs/qr/overseas-quantumultx.png) |
@@ -65,7 +65,7 @@ AI 优先于 Google 大类匹配。Netflix、Disney+、HBO/Max、Prime Video 分
 <table>
 <tr>
 <td align="center"><img src="docs/qr/overseas-mihomo.png?v=4" width="140" alt="overseas mihomo / Clash Meta 内核 配置二维码"><br>mihomo / Clash Meta 内核</td>
-<td align="center"><img src="docs/qr/overseas-shadowrocket.png?v=5" width="140" alt="overseas Shadowrocket 配置二维码"><br>Shadowrocket</td>
+<td align="center"><img src="docs/qr/overseas-shadowrocket.png?v=6" width="140" alt="overseas Shadowrocket 配置二维码"><br>Shadowrocket</td>
 <td align="center"><img src="docs/qr/overseas-surge.png?v=4" width="140" alt="overseas Surge 配置二维码"><br>Surge</td>
 <td align="center"><img src="docs/qr/overseas-loon.png?v=4" width="140" alt="overseas Loon 配置二维码"><br>Loon</td>
 <td align="center"><img src="docs/qr/overseas-quantumultx.png?v=4" width="140" alt="overseas Quantumult X 配置二维码"><br>Quantumult X</td>
@@ -80,7 +80,7 @@ AI 优先于 Google 大类匹配。Netflix、Disney+、HBO/Max、Prime Video 分
 | 客户端 | 配置地址 | 二维码 |
 |---|---|---|
 | mihomo / Clash Meta 内核 | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/overseas-return/ads-light/mihomo.conf) | [二维码](docs/qr/overseas-return-mihomo.png) |
-| Shadowrocket | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/overseas-return/ads-light/RouteMint-Return-CN-ads-light.conf) | [二维码](docs/qr/overseas-return-shadowrocket.png) |
+| Shadowrocket | [订阅配置](https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/configs/overseas-return/ads-light/RouteMint-Return-CN-ads-light.conf) | [二维码](docs/qr/overseas-return-shadowrocket.png) |
 | Surge | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/overseas-return/ads-light/surge.conf) | [二维码](docs/qr/overseas-return-surge.png) |
 | Loon | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/overseas-return/ads-light/loon.conf) | [二维码](docs/qr/overseas-return-loon.png) |
 | Quantumult X | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/overseas-return/ads-light/quantumultx.conf) | [二维码](docs/qr/overseas-return-quantumultx.png) |
@@ -89,7 +89,7 @@ AI 优先于 Google 大类匹配。Netflix、Disney+、HBO/Max、Prime Video 分
 <table>
 <tr>
 <td align="center"><img src="docs/qr/overseas-return-mihomo.png?v=4" width="140" alt="overseas-return mihomo / Clash Meta 内核 配置二维码"><br>mihomo / Clash Meta 内核</td>
-<td align="center"><img src="docs/qr/overseas-return-shadowrocket.png?v=5" width="140" alt="overseas-return Shadowrocket 配置二维码"><br>Shadowrocket</td>
+<td align="center"><img src="docs/qr/overseas-return-shadowrocket.png?v=6" width="140" alt="overseas-return Shadowrocket 配置二维码"><br>Shadowrocket</td>
 <td align="center"><img src="docs/qr/overseas-return-surge.png?v=4" width="140" alt="overseas-return Surge 配置二维码"><br>Surge</td>
 <td align="center"><img src="docs/qr/overseas-return-loon.png?v=4" width="140" alt="overseas-return Loon 配置二维码"><br>Loon</td>
 <td align="center"><img src="docs/qr/overseas-return-quantumultx.png?v=4" width="140" alt="overseas-return Quantumult X 配置二维码"><br>Quantumult X</td>
@@ -104,7 +104,7 @@ AI 优先于 Google 大类匹配。Netflix、Disney+、HBO/Max、Prime Video 分
 | 客户端 | 配置地址 | 二维码 |
 |---|---|---|
 | mihomo / Clash Meta 内核 | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland-lite/ads-light/mihomo.conf) | [二维码](docs/qr/cn-mainland-lite-mihomo.png) |
-| Shadowrocket | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland-lite/ads-light/RouteMint-CN-Lite-ads-light.conf) | [二维码](docs/qr/cn-mainland-lite-shadowrocket.png) |
+| Shadowrocket | [订阅配置](https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/configs/cn-mainland-lite/ads-light/RouteMint-CN-Lite-ads-light.conf) | [二维码](docs/qr/cn-mainland-lite-shadowrocket.png) |
 | Surge | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland-lite/ads-light/surge.conf) | [二维码](docs/qr/cn-mainland-lite-surge.png) |
 | Loon | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland-lite/ads-light/loon.conf) | [二维码](docs/qr/cn-mainland-lite-loon.png) |
 | Quantumult X | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland-lite/ads-light/quantumultx.conf) | [二维码](docs/qr/cn-mainland-lite-quantumultx.png) |
@@ -140,7 +140,7 @@ Quantumult X 的候选组按订阅资源展开，导入后手动固定 AI、流�
 | 海外回国 | `RouteMint-Return-CN-ads-light` |
 | 内地精简版 | `RouteMint-CN-Lite-ads-light` |
 
-旧配置点更新出现 `not found` 时，请从上表的配置地址或新二维码重新下载一次并启用。旧版 `update-url` 误带了 `interval=86400`，手机可能把它当成网址的一部分。新配置的更新地址只含完整 URL，更新周期在 Shadowrocket 设置中选择。已有节点订阅继续保存在 App 中；原 `shadowrocket.conf` 地址保留兼容。
+旧配置点更新出现 `not found` 时，请从上表的配置地址或新二维码重新下载一次并启用。旧版 `update-url` 误带了 `interval=86400`，手机可能把它当成网址的一部分。新配置的更新地址只含完整 URL，更新周期在 Shadowrocket 设置中选择。已有节点订阅继续保存在 App 中；原 `shadowrocket.conf` 地址保留兼容。小火箭的配置和规则列表使用 GitHub Raw 源站，减少 CDN 分支缓存造成的版本不同步。
 
 ## 游戏平台下载与百度网盘
 

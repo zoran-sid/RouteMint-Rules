@@ -36,7 +36,7 @@ icmp-auto-reply = true
 [Rule]
 {% for entry in sr_rule_entries %}
 {% if entry.kind == "ruleset" %}
-RULE-SET,{{ entry.list_url }},{{ entry.policy }}
+RULE-SET,{{ entry.list_url | replace(urls.jsdelivr ~ '@' ~ urls.branch, urls.raw ~ '/' ~ urls.branch) }},{{ entry.policy }}
 {% elif entry.kind == "inline" %}
 {{ entry.text }}
 {% else %}
