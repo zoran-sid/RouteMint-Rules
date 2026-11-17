@@ -1,0 +1,9 @@
+# Google Gemini / AI Studio / DeepMind · 7 rules
+payload:
+  - "gemini.google.com"
+  - "+.aistudio.google.com"
+  - "+.bard.google.com"
+  - "+.deepmind.com"
+  - "+.deepmind.google"
+  - "+.gemini.google"
+  - "+.generativelanguage.googleapis.com"
