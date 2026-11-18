@@ -1,0 +1,12 @@
+# RouteMint-Rules · GitHub Copilot / Microsoft Copilot
+# 9 rules
+# https://github.com/zoran-sid/RouteMint-Rules
+host, copilot-proxy.githubusercontent.com
+host, copilot-telemetry-service.githubusercontent.com
+host, copilot-telemetry.githubusercontent.com
+host, copilot-workspace.githubnext.com
+host, copilotprodattachments.blob.core.windows.net
+host, production-copilot-host-westus.webpubsub.azure.com
+host-suffix, copilot-proxy.githubusercontent.com
+host-suffix, copilot.microsoft.com
+host-suffix, githubcopilot.com
