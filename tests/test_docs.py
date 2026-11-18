@@ -96,6 +96,7 @@ def test_every_qr_decodes_to_its_client_scheme():
         "loon": "loon://import?sub=",
         "singbox": "sing-box://import-remote-profile?url=",
         "quantumultx": "https://cdn.jsdelivr.net/gh/",
+        "v2rayng": "https://raw.githubusercontent.com/",
         "homeproxy": "https://raw.githubusercontent.com/",
         "passwall": "https://raw.githubusercontent.com/",
     }

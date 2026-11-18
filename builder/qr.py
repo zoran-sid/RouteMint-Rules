@@ -21,13 +21,15 @@ from .routers import ROUTER_CLIENTS, router_url
 def config_url(urls: dict, preset: str, tier: str, client: str) -> str:
     if client in ROUTER_CLIENTS:
         return router_url(urls, client, preset, tier)
+    if client == "v2rayng":
+        return f"{urls['raw']}/{urls['branch']}/configs/{preset}/{tier}/v2rayng.json"
     base_url = (f"{urls['raw']}/{urls['branch']}" if client == "shadowrocket"
                 else f"{urls['jsdelivr']}@{urls['branch']}")
     return f"{base_url}/configs/{preset}/{tier}/{client_filename(client, preset, tier)}"
 
 
-# Quantumult X QR opens the download URL for manual import.
-QR_CLIENTS = ("mihomo", "shadowrocket", "surge", "loon", "singbox", "quantumultx", *ROUTER_CLIENTS)
+# Quantumult X and v2rayNG QR codes open the download for manual import.
+QR_CLIENTS = ("mihomo", "shadowrocket", "surge", "loon", "singbox", "quantumultx", "v2rayng", *ROUTER_CLIENTS)
 
 
 def qr_payload(client: str, url: str) -> str:

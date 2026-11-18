@@ -22,3 +22,5 @@ Shadowrocket profiles now have descriptive `RouteMint-<scene>-<ads-tier>.conf` b
 Steam proxying is restricted to `store.steampowered.com` and `steamcommunity.com` (including subdomains). Login, CM, API, client services and downloads are direct. Overseas profiles explicitly route domestic domains and mainland IPv4/IPv6 directly; Netdisk includes Baidu cloud storage and CDN domains.
 
 HomeProxy and PassWall (sing-box) routing bundles and plan subscriptions are linked in the Chinese homepage. They reuse local nodes and remote SRS rules. See [router import instructions](docs/routers.md); these are routing imports, not node subscriptions.
+
+v2rayNG uses the existing node with a clipboard-importable routing JSON, plus two custom Xray assets. See the [v2rayNG guide](docs/v2rayng.md) for setup, download URLs and update behavior.

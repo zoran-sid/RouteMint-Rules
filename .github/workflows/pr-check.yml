@@ -13,6 +13,7 @@ concurrency:
 env:
   MIHOMO_VERSION: v1.19.34
   SINGBOX_VERSION: "1.14.4"
+  XRAY_VERSION: v26.11.9
   UV_CACHE_DIR: .cache/uv
 
 jobs:
@@ -42,7 +43,7 @@ jobs:
           restore-keys: |
             upstreams-
 
-      - name: Install pinned mihomo and sing-box
+      - name: Install pinned mihomo, sing-box and Xray
         run: |
           set -euo pipefail
           mkdir -p bin
@@ -56,6 +57,10 @@ jobs:
           mv "/tmp/sing-box-${SINGBOX_VERSION}-linux-amd64/sing-box" bin/sing-box
           chmod +x bin/sing-box
           bin/sing-box version
+          curl -fsSL -o /tmp/xray.zip \
+            "https://github.com/XTLS/Xray-core/releases/download/${XRAY_VERSION}/Xray-linux-64.zip"
+          unzip -q /tmp/xray.zip xray -d bin
+          chmod +x bin/xray
 
       - name: Validate YAML
         run: uv run python -m builder check
@@ -82,4 +87,5 @@ jobs:
         env:
           ROUTEMINT_MIHOMO_BIN: ${{ github.workspace }}/bin/mihomo
           ROUTEMINT_SINGBOX_BIN: ${{ github.workspace }}/bin/sing-box
+          ROUTEMINT_XRAY_BIN: ${{ github.workspace }}/bin/xray
         run: uv run pytest

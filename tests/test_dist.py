@@ -19,6 +19,7 @@ CONFIGS = {
     "loon.conf",
     "quantumultx.conf",
     "singbox.conf",
+    "v2rayng.json",
 }
 
 ALLOWED_URL_PREFIXES = (
@@ -210,7 +211,7 @@ def test_singbox_rule_files(built):
     assert seen >= 20
 
 
-ALLOWED_RULE_SUFFIXES = {"-qx.list", ".list", ".yaml", ".mrs", ".json", ".srs"}
+ALLOWED_RULE_SUFFIXES = {"-qx.list", ".list", ".yaml", ".mrs", ".json", ".srs", ".dat"}
 
 
 def test_rule_dirs_contain_only_expected_files(built):
@@ -220,10 +221,10 @@ def test_rule_dirs_contain_only_expected_files(built):
         assert any(path.name.endswith(suffix) for suffix in ALLOWED_RULE_SUFFIXES), path
 
 
-def test_every_config_ends_with_conf(built):
+def test_config_extensions_follow_client_format(built):
     for path in (built.dist / "configs").rglob("*"):
         if path.is_file():
-            assert path.name.endswith(".conf"), path.name
+            assert path.suffix == (".json" if path.name == "v2rayng.json" else ".conf"), path.name
 
 
 def test_readme_has_no_stale_config_extensions():
