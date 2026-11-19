@@ -1,0 +1,22 @@
+# RouteMint-Rules · Anthropic / Claude
+# 19 rules
+# https://github.com/zoran-sid/RouteMint-Rules
+host, servd-anthropic-website.b-cdn.net
+host-suffix, ant.dev
+host-suffix, anthropic.com
+host-suffix, anthropic.team
+host-suffix, antspace.dev
+host-suffix, chatbotclaude.com
+host-suffix, clau.de
+host-suffix, claude.ai
+host-suffix, claude.app
+host-suffix, claude.com
+host-suffix, claude.dev
+host-suffix, claude.new
+host-suffix, claude.site
+host-suffix, claudeacademy.com
+host-suffix, claudemcpclient.com
+host-suffix, claudemcpcontent.com
+host-suffix, claudepages.dev
+host-suffix, claudestudio.com
+host-suffix, claudeusercontent.com

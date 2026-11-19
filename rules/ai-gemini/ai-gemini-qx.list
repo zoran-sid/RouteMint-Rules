@@ -1,0 +1,10 @@
+# RouteMint-Rules · Google Gemini / AI Studio / DeepMind
+# 7 rules
+# https://github.com/zoran-sid/RouteMint-Rules
+host, gemini.google.com
+host-suffix, aistudio.google.com
+host-suffix, bard.google.com
+host-suffix, deepmind.com
+host-suffix, deepmind.google
+host-suffix, gemini.google
+host-suffix, generativelanguage.googleapis.com

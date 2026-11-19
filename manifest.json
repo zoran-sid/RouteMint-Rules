@@ -1,0 +1,2543 @@
+{
+  "schema": 1,
+  "generated_at": "2026-11-19T01:15:36+00:00",
+  "categories": {
+    "ai": {
+      "domain": 226,
+      "ip": 0,
+      "keyword": 0,
+      "total": 226,
+      "degraded": false
+    },
+    "ai-anthropic": {
+      "domain": 19,
+      "ip": 0,
+      "keyword": 0,
+      "total": 19,
+      "degraded": false
+    },
+    "ai-copilot": {
+      "domain": 9,
+      "ip": 0,
+      "keyword": 0,
+      "total": 9,
+      "degraded": false
+    },
+    "ai-gemini": {
+      "domain": 7,
+      "ip": 0,
+      "keyword": 0,
+      "total": 7,
+      "degraded": false
+    },
+    "ai-openai": {
+      "domain": 20,
+      "ip": 0,
+      "keyword": 0,
+      "total": 20,
+      "degraded": false
+    },
+    "ai-others": {
+      "domain": 166,
+      "ip": 0,
+      "keyword": 0,
+      "total": 166,
+      "degraded": false
+    },
+    "ai-perplexity": {
+      "domain": 5,
+      "ip": 0,
+      "keyword": 0,
+      "total": 5,
+      "degraded": false
+    },
+    "apple": {
+      "domain": 1583,
+      "ip": 0,
+      "keyword": 0,
+      "total": 1583,
+      "degraded": false
+    },
+    "baidu-pan": {
+      "domain": 20,
+      "ip": 0,
+      "keyword": 0,
+      "total": 20,
+      "degraded": false
+    },
+    "cn": {
+      "domain": 6220,
+      "ip": 0,
+      "keyword": 0,
+      "total": 6220,
+      "degraded": false
+    },
+    "cn-ip": {
+      "domain": 0,
+      "ip": 6221,
+      "keyword": 0,
+      "total": 6221,
+      "degraded": false
+    },
+    "cn-ip6": {
+      "domain": 0,
+      "ip": 3444,
+      "keyword": 0,
+      "total": 3444,
+      "degraded": false
+    },
+    "cn-region-locked": {
+      "domain": 30,
+      "ip": 0,
+      "keyword": 0,
+      "total": 30,
+      "degraded": false
+    },
+    "dev": {
+      "domain": 87,
+      "ip": 0,
+      "keyword": 0,
+      "total": 87,
+      "degraded": false
+    },
+    "disney": {
+      "domain": 218,
+      "ip": 0,
+      "keyword": 0,
+      "total": 218,
+      "degraded": false
+    },
+    "game-download": {
+      "domain": 96,
+      "ip": 0,
+      "keyword": 0,
+      "total": 96,
+      "degraded": false
+    },
+    "game-platform": {
+      "domain": 484,
+      "ip": 0,
+      "keyword": 0,
+      "total": 484,
+      "degraded": false
+    },
+    "google": {
+      "domain": 627,
+      "ip": 0,
+      "keyword": 0,
+      "total": 627,
+      "degraded": false
+    },
+    "max": {
+      "domain": 64,
+      "ip": 0,
+      "keyword": 0,
+      "total": 64,
+      "degraded": false
+    },
+    "microsoft": {
+      "domain": 554,
+      "ip": 0,
+      "keyword": 0,
+      "total": 554,
+      "degraded": false
+    },
+    "netflix": {
+      "domain": 24,
+      "ip": 0,
+      "keyword": 4,
+      "total": 28,
+      "degraded": false
+    },
+    "primevideo": {
+      "domain": 25,
+      "ip": 0,
+      "keyword": 0,
+      "total": 25,
+      "degraded": false
+    },
+    "private": {
+      "domain": 5,
+      "ip": 18,
+      "keyword": 0,
+      "total": 23,
+      "degraded": false
+    },
+    "proxy": {
+      "domain": 18325,
+      "ip": 0,
+      "keyword": 0,
+      "total": 18325,
+      "degraded": false
+    },
+    "reject-ads": {
+      "domain": 37722,
+      "ip": 0,
+      "keyword": 0,
+      "total": 37722,
+      "degraded": false
+    },
+    "reject-malware": {
+      "domain": 18609,
+      "ip": 0,
+      "keyword": 0,
+      "total": 18609,
+      "degraded": false
+    },
+    "reject-tracker": {
+      "domain": 668,
+      "ip": 0,
+      "keyword": 0,
+      "total": 668,
+      "degraded": false
+    },
+    "spotify": {
+      "domain": 23,
+      "ip": 0,
+      "keyword": 0,
+      "total": 23,
+      "degraded": false
+    },
+    "steam-direct": {
+      "domain": 51,
+      "ip": 71,
+      "keyword": 0,
+      "total": 122,
+      "degraded": false
+    },
+    "streaming-others": {
+      "domain": 1587,
+      "ip": 0,
+      "keyword": 0,
+      "total": 1587,
+      "degraded": false
+    },
+    "telegram": {
+      "domain": 21,
+      "ip": 10,
+      "keyword": 0,
+      "total": 31,
+      "degraded": false
+    },
+    "tiktok": {
+      "domain": 36,
+      "ip": 0,
+      "keyword": 0,
+      "total": 36,
+      "degraded": false
+    },
+    "youtube": {
+      "domain": 177,
+      "ip": 0,
+      "keyword": 0,
+      "total": 177,
+      "degraded": false
+    }
+  },
+  "presets": {
+    "cn-mainland": {
+      "tier": "ads-light",
+      "rules": {
+        "ads-off": 40221,
+        "ads-light": 78611,
+        "ads-strict": 97220
+      },
+      "configs": {
+        "mihomo.conf": "configs/cn-mainland/ads-light/mihomo.conf",
+        "shadowrocket.conf": "configs/cn-mainland/ads-light/RouteMint-CN-Whitelist-ads-light.conf",
+        "v2rayng.json": "configs/cn-mainland/ads-light/v2rayng.json"
+      }
+    },
+    "overseas": {
+      "tier": "ads-light",
+      "rules": {
+        "ads-off": 18031,
+        "ads-light": 56421,
+        "ads-strict": 75030
+      },
+      "configs": {
+        "mihomo.conf": "configs/overseas/ads-light/mihomo.conf",
+        "shadowrocket.conf": "configs/overseas/ads-light/RouteMint-Overseas-AI-Media-ads-light.conf",
+        "v2rayng.json": "configs/overseas/ads-light/v2rayng.json"
+      }
+    },
+    "overseas-return": {
+      "tier": "ads-light",
+      "rules": {
+        "ads-off": 16886,
+        "ads-light": 55276,
+        "ads-strict": 73885
+      },
+      "configs": {
+        "mihomo.conf": "configs/overseas-return/ads-light/mihomo.conf",
+        "shadowrocket.conf": "configs/overseas-return/ads-light/RouteMint-Return-CN-ads-light.conf",
+        "v2rayng.json": "configs/overseas-return/ads-light/v2rayng.json"
+      }
+    },
+    "cn-mainland-lite": {
+      "tier": "ads-light",
+      "rules": {
+        "ads-off": 13412,
+        "ads-light": 51802,
+        "ads-strict": 70411
+      },
+      "configs": {
+        "mihomo.conf": "configs/cn-mainland-lite/ads-light/mihomo.conf",
+        "shadowrocket.conf": "configs/cn-mainland-lite/ads-light/RouteMint-CN-Lite-ads-light.conf",
+        "v2rayng.json": "configs/cn-mainland-lite/ads-light/v2rayng.json"
+      }
+    }
+  },
+  "artifacts": {
+    "ai": {
+      "files": {
+        "surge": "rules/ai/ai.list",
+        "quantumultx": "rules/ai/ai-qx.list",
+        "mihomo_domain": "rules/ai/ai.yaml",
+        "mihomo_domain_mrs": "rules/ai/ai.mrs",
+        "singbox_source": "rules/ai/ai.json",
+        "singbox": "rules/ai/ai.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai/ai.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai/ai-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai/ai.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai/ai.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai/ai.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai/ai.srs"
+      }
+    },
+    "ai-anthropic": {
+      "files": {
+        "surge": "rules/ai-anthropic/ai-anthropic.list",
+        "quantumultx": "rules/ai-anthropic/ai-anthropic-qx.list",
+        "mihomo_domain": "rules/ai-anthropic/ai-anthropic.yaml",
+        "mihomo_domain_mrs": "rules/ai-anthropic/ai-anthropic.mrs",
+        "singbox_source": "rules/ai-anthropic/ai-anthropic.json",
+        "singbox": "rules/ai-anthropic/ai-anthropic.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-anthropic/ai-anthropic.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-anthropic/ai-anthropic-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-anthropic/ai-anthropic.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-anthropic/ai-anthropic.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-anthropic/ai-anthropic.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-anthropic/ai-anthropic.srs"
+      }
+    },
+    "ai-copilot": {
+      "files": {
+        "surge": "rules/ai-copilot/ai-copilot.list",
+        "quantumultx": "rules/ai-copilot/ai-copilot-qx.list",
+        "mihomo_domain": "rules/ai-copilot/ai-copilot.yaml",
+        "mihomo_domain_mrs": "rules/ai-copilot/ai-copilot.mrs",
+        "singbox_source": "rules/ai-copilot/ai-copilot.json",
+        "singbox": "rules/ai-copilot/ai-copilot.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-copilot/ai-copilot.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-copilot/ai-copilot-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-copilot/ai-copilot.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-copilot/ai-copilot.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-copilot/ai-copilot.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-copilot/ai-copilot.srs"
+      }
+    },
+    "ai-gemini": {
+      "files": {
+        "surge": "rules/ai-gemini/ai-gemini.list",
+        "quantumultx": "rules/ai-gemini/ai-gemini-qx.list",
+        "mihomo_domain": "rules/ai-gemini/ai-gemini.yaml",
+        "mihomo_domain_mrs": "rules/ai-gemini/ai-gemini.mrs",
+        "singbox_source": "rules/ai-gemini/ai-gemini.json",
+        "singbox": "rules/ai-gemini/ai-gemini.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-gemini/ai-gemini.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-gemini/ai-gemini-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-gemini/ai-gemini.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-gemini/ai-gemini.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-gemini/ai-gemini.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-gemini/ai-gemini.srs"
+      }
+    },
+    "ai-openai": {
+      "files": {
+        "surge": "rules/ai-openai/ai-openai.list",
+        "quantumultx": "rules/ai-openai/ai-openai-qx.list",
+        "mihomo_domain": "rules/ai-openai/ai-openai.yaml",
+        "mihomo_domain_mrs": "rules/ai-openai/ai-openai.mrs",
+        "singbox_source": "rules/ai-openai/ai-openai.json",
+        "singbox": "rules/ai-openai/ai-openai.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-openai/ai-openai.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-openai/ai-openai-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-openai/ai-openai.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-openai/ai-openai.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-openai/ai-openai.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-openai/ai-openai.srs"
+      }
+    },
+    "ai-others": {
+      "files": {
+        "surge": "rules/ai-others/ai-others.list",
+        "quantumultx": "rules/ai-others/ai-others-qx.list",
+        "mihomo_domain": "rules/ai-others/ai-others.yaml",
+        "mihomo_domain_mrs": "rules/ai-others/ai-others.mrs",
+        "singbox_source": "rules/ai-others/ai-others.json",
+        "singbox": "rules/ai-others/ai-others.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-others/ai-others.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-others/ai-others-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-others/ai-others.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-others/ai-others.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-others/ai-others.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-others/ai-others.srs"
+      }
+    },
+    "ai-perplexity": {
+      "files": {
+        "surge": "rules/ai-perplexity/ai-perplexity.list",
+        "quantumultx": "rules/ai-perplexity/ai-perplexity-qx.list",
+        "mihomo_domain": "rules/ai-perplexity/ai-perplexity.yaml",
+        "mihomo_domain_mrs": "rules/ai-perplexity/ai-perplexity.mrs",
+        "singbox_source": "rules/ai-perplexity/ai-perplexity.json",
+        "singbox": "rules/ai-perplexity/ai-perplexity.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-perplexity/ai-perplexity.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-perplexity/ai-perplexity-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-perplexity/ai-perplexity.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-perplexity/ai-perplexity.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-perplexity/ai-perplexity.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/ai-perplexity/ai-perplexity.srs"
+      }
+    },
+    "apple": {
+      "files": {
+        "surge": "rules/apple/apple.list",
+        "quantumultx": "rules/apple/apple-qx.list",
+        "mihomo_domain": "rules/apple/apple.yaml",
+        "mihomo_domain_mrs": "rules/apple/apple.mrs",
+        "singbox_source": "rules/apple/apple.json",
+        "singbox": "rules/apple/apple.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/apple/apple.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/apple/apple-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/apple/apple.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/apple/apple.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/apple/apple.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/apple/apple.srs"
+      }
+    },
+    "baidu-pan": {
+      "files": {
+        "surge": "rules/baidu-pan/baidu-pan.list",
+        "quantumultx": "rules/baidu-pan/baidu-pan-qx.list",
+        "mihomo_domain": "rules/baidu-pan/baidu-pan.yaml",
+        "mihomo_domain_mrs": "rules/baidu-pan/baidu-pan.mrs",
+        "singbox_source": "rules/baidu-pan/baidu-pan.json",
+        "singbox": "rules/baidu-pan/baidu-pan.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/baidu-pan/baidu-pan.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/baidu-pan/baidu-pan-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/baidu-pan/baidu-pan.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/baidu-pan/baidu-pan.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/baidu-pan/baidu-pan.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/baidu-pan/baidu-pan.srs"
+      }
+    },
+    "cn": {
+      "files": {
+        "surge": "rules/cn/cn.list",
+        "quantumultx": "rules/cn/cn-qx.list",
+        "mihomo_domain": "rules/cn/cn.yaml",
+        "mihomo_domain_mrs": "rules/cn/cn.mrs",
+        "singbox_source": "rules/cn/cn.json",
+        "singbox": "rules/cn/cn.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn/cn.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn/cn-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn/cn.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn/cn.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn/cn.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn/cn.srs"
+      }
+    },
+    "cn-ip": {
+      "files": {
+        "surge": "rules/cn-ip/cn-ip.list",
+        "quantumultx": "rules/cn-ip/cn-ip-qx.list",
+        "mihomo_ip": "rules/cn-ip/cn-ip.yaml",
+        "mihomo_ip_mrs": "rules/cn-ip/cn-ip.mrs",
+        "singbox_source": "rules/cn-ip/cn-ip.json",
+        "singbox": "rules/cn-ip/cn-ip.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-ip/cn-ip.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-ip/cn-ip-qx.list",
+        "mihomo_ip": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-ip/cn-ip.yaml",
+        "mihomo_ip_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-ip/cn-ip.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-ip/cn-ip.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-ip/cn-ip.srs"
+      }
+    },
+    "cn-ip6": {
+      "files": {
+        "surge": "rules/cn-ip6/cn-ip6.list",
+        "quantumultx": "rules/cn-ip6/cn-ip6-qx.list",
+        "mihomo_ip": "rules/cn-ip6/cn-ip6.yaml",
+        "mihomo_ip_mrs": "rules/cn-ip6/cn-ip6.mrs",
+        "singbox_source": "rules/cn-ip6/cn-ip6.json",
+        "singbox": "rules/cn-ip6/cn-ip6.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-ip6/cn-ip6.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-ip6/cn-ip6-qx.list",
+        "mihomo_ip": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-ip6/cn-ip6.yaml",
+        "mihomo_ip_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-ip6/cn-ip6.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-ip6/cn-ip6.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-ip6/cn-ip6.srs"
+      }
+    },
+    "cn-region-locked": {
+      "files": {
+        "surge": "rules/cn-region-locked/cn-region-locked.list",
+        "quantumultx": "rules/cn-region-locked/cn-region-locked-qx.list",
+        "mihomo_domain": "rules/cn-region-locked/cn-region-locked.yaml",
+        "mihomo_domain_mrs": "rules/cn-region-locked/cn-region-locked.mrs",
+        "singbox_source": "rules/cn-region-locked/cn-region-locked.json",
+        "singbox": "rules/cn-region-locked/cn-region-locked.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-region-locked/cn-region-locked.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-region-locked/cn-region-locked-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-region-locked/cn-region-locked.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-region-locked/cn-region-locked.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-region-locked/cn-region-locked.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/cn-region-locked/cn-region-locked.srs"
+      }
+    },
+    "dev": {
+      "files": {
+        "surge": "rules/dev/dev.list",
+        "quantumultx": "rules/dev/dev-qx.list",
+        "mihomo_domain": "rules/dev/dev.yaml",
+        "mihomo_domain_mrs": "rules/dev/dev.mrs",
+        "singbox_source": "rules/dev/dev.json",
+        "singbox": "rules/dev/dev.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/dev/dev.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/dev/dev-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/dev/dev.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/dev/dev.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/dev/dev.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/dev/dev.srs"
+      }
+    },
+    "disney": {
+      "files": {
+        "surge": "rules/disney/disney.list",
+        "quantumultx": "rules/disney/disney-qx.list",
+        "mihomo_domain": "rules/disney/disney.yaml",
+        "mihomo_domain_mrs": "rules/disney/disney.mrs",
+        "singbox_source": "rules/disney/disney.json",
+        "singbox": "rules/disney/disney.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/disney/disney.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/disney/disney-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/disney/disney.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/disney/disney.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/disney/disney.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/disney/disney.srs"
+      }
+    },
+    "game-download": {
+      "files": {
+        "surge": "rules/game-download/game-download.list",
+        "quantumultx": "rules/game-download/game-download-qx.list",
+        "mihomo_domain": "rules/game-download/game-download.yaml",
+        "mihomo_domain_mrs": "rules/game-download/game-download.mrs",
+        "singbox_source": "rules/game-download/game-download.json",
+        "singbox": "rules/game-download/game-download.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/game-download/game-download.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/game-download/game-download-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/game-download/game-download.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/game-download/game-download.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/game-download/game-download.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/game-download/game-download.srs"
+      }
+    },
+    "game-platform": {
+      "files": {
+        "surge": "rules/game-platform/game-platform.list",
+        "quantumultx": "rules/game-platform/game-platform-qx.list",
+        "mihomo_domain": "rules/game-platform/game-platform.yaml",
+        "mihomo_domain_mrs": "rules/game-platform/game-platform.mrs",
+        "singbox_source": "rules/game-platform/game-platform.json",
+        "singbox": "rules/game-platform/game-platform.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/game-platform/game-platform.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/game-platform/game-platform-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/game-platform/game-platform.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/game-platform/game-platform.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/game-platform/game-platform.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/game-platform/game-platform.srs"
+      }
+    },
+    "google": {
+      "files": {
+        "surge": "rules/google/google.list",
+        "quantumultx": "rules/google/google-qx.list",
+        "mihomo_domain": "rules/google/google.yaml",
+        "mihomo_domain_mrs": "rules/google/google.mrs",
+        "singbox_source": "rules/google/google.json",
+        "singbox": "rules/google/google.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/google/google.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/google/google-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/google/google.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/google/google.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/google/google.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/google/google.srs"
+      }
+    },
+    "max": {
+      "files": {
+        "surge": "rules/max/max.list",
+        "quantumultx": "rules/max/max-qx.list",
+        "mihomo_domain": "rules/max/max.yaml",
+        "mihomo_domain_mrs": "rules/max/max.mrs",
+        "singbox_source": "rules/max/max.json",
+        "singbox": "rules/max/max.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/max/max.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/max/max-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/max/max.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/max/max.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/max/max.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/max/max.srs"
+      }
+    },
+    "microsoft": {
+      "files": {
+        "surge": "rules/microsoft/microsoft.list",
+        "quantumultx": "rules/microsoft/microsoft-qx.list",
+        "mihomo_domain": "rules/microsoft/microsoft.yaml",
+        "mihomo_domain_mrs": "rules/microsoft/microsoft.mrs",
+        "singbox_source": "rules/microsoft/microsoft.json",
+        "singbox": "rules/microsoft/microsoft.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/microsoft/microsoft.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/microsoft/microsoft-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/microsoft/microsoft.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/microsoft/microsoft.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/microsoft/microsoft.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/microsoft/microsoft.srs"
+      }
+    },
+    "netflix": {
+      "files": {
+        "surge": "rules/netflix/netflix.list",
+        "quantumultx": "rules/netflix/netflix-qx.list",
+        "mihomo_domain": "rules/netflix/netflix.yaml",
+        "mihomo_domain_mrs": "rules/netflix/netflix.mrs",
+        "singbox_source": "rules/netflix/netflix.json",
+        "singbox": "rules/netflix/netflix.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/netflix/netflix.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/netflix/netflix-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/netflix/netflix.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/netflix/netflix.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/netflix/netflix.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/netflix/netflix.srs"
+      }
+    },
+    "primevideo": {
+      "files": {
+        "surge": "rules/primevideo/primevideo.list",
+        "quantumultx": "rules/primevideo/primevideo-qx.list",
+        "mihomo_domain": "rules/primevideo/primevideo.yaml",
+        "mihomo_domain_mrs": "rules/primevideo/primevideo.mrs",
+        "singbox_source": "rules/primevideo/primevideo.json",
+        "singbox": "rules/primevideo/primevideo.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/primevideo/primevideo.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/primevideo/primevideo-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/primevideo/primevideo.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/primevideo/primevideo.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/primevideo/primevideo.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/primevideo/primevideo.srs"
+      }
+    },
+    "private": {
+      "files": {
+        "surge": "rules/private/private.list",
+        "quantumultx": "rules/private/private-qx.list",
+        "mihomo_domain": "rules/private/private.yaml",
+        "mihomo_domain_mrs": "rules/private/private.mrs",
+        "mihomo_ip": "rules/private/private-ip.yaml",
+        "mihomo_ip_mrs": "rules/private/private-ip.mrs",
+        "singbox_source": "rules/private/private.json",
+        "singbox": "rules/private/private.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/private/private.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/private/private-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/private/private.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/private/private.mrs",
+        "mihomo_ip": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/private/private-ip.yaml",
+        "mihomo_ip_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/private/private-ip.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/private/private.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/private/private.srs"
+      }
+    },
+    "proxy": {
+      "files": {
+        "surge": "rules/proxy/proxy.list",
+        "quantumultx": "rules/proxy/proxy-qx.list",
+        "mihomo_domain": "rules/proxy/proxy.yaml",
+        "mihomo_domain_mrs": "rules/proxy/proxy.mrs",
+        "singbox_source": "rules/proxy/proxy.json",
+        "singbox": "rules/proxy/proxy.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/proxy/proxy.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/proxy/proxy-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/proxy/proxy.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/proxy/proxy.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/proxy/proxy.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/proxy/proxy.srs"
+      }
+    },
+    "reject-ads": {
+      "files": {
+        "surge": "rules/reject-ads/reject-ads.list",
+        "quantumultx": "rules/reject-ads/reject-ads-qx.list",
+        "mihomo_domain": "rules/reject-ads/reject-ads.yaml",
+        "mihomo_domain_mrs": "rules/reject-ads/reject-ads.mrs",
+        "singbox_source": "rules/reject-ads/reject-ads.json",
+        "singbox": "rules/reject-ads/reject-ads.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-ads/reject-ads.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-ads/reject-ads-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-ads/reject-ads.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-ads/reject-ads.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-ads/reject-ads.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-ads/reject-ads.srs"
+      }
+    },
+    "reject-malware": {
+      "files": {
+        "surge": "rules/reject-malware/reject-malware.list",
+        "quantumultx": "rules/reject-malware/reject-malware-qx.list",
+        "mihomo_domain": "rules/reject-malware/reject-malware.yaml",
+        "mihomo_domain_mrs": "rules/reject-malware/reject-malware.mrs",
+        "singbox_source": "rules/reject-malware/reject-malware.json",
+        "singbox": "rules/reject-malware/reject-malware.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-malware/reject-malware.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-malware/reject-malware-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-malware/reject-malware.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-malware/reject-malware.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-malware/reject-malware.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-malware/reject-malware.srs"
+      }
+    },
+    "reject-tracker": {
+      "files": {
+        "surge": "rules/reject-tracker/reject-tracker.list",
+        "quantumultx": "rules/reject-tracker/reject-tracker-qx.list",
+        "mihomo_domain": "rules/reject-tracker/reject-tracker.yaml",
+        "mihomo_domain_mrs": "rules/reject-tracker/reject-tracker.mrs",
+        "singbox_source": "rules/reject-tracker/reject-tracker.json",
+        "singbox": "rules/reject-tracker/reject-tracker.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-tracker/reject-tracker.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-tracker/reject-tracker-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-tracker/reject-tracker.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-tracker/reject-tracker.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-tracker/reject-tracker.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/reject-tracker/reject-tracker.srs"
+      }
+    },
+    "spotify": {
+      "files": {
+        "surge": "rules/spotify/spotify.list",
+        "quantumultx": "rules/spotify/spotify-qx.list",
+        "mihomo_domain": "rules/spotify/spotify.yaml",
+        "mihomo_domain_mrs": "rules/spotify/spotify.mrs",
+        "singbox_source": "rules/spotify/spotify.json",
+        "singbox": "rules/spotify/spotify.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/spotify/spotify.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/spotify/spotify-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/spotify/spotify.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/spotify/spotify.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/spotify/spotify.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/spotify/spotify.srs"
+      }
+    },
+    "steam-direct": {
+      "files": {
+        "surge": "rules/steam-direct/steam-direct.list",
+        "quantumultx": "rules/steam-direct/steam-direct-qx.list",
+        "mihomo_domain": "rules/steam-direct/steam-direct.yaml",
+        "mihomo_domain_mrs": "rules/steam-direct/steam-direct.mrs",
+        "mihomo_ip": "rules/steam-direct/steam-direct-ip.yaml",
+        "mihomo_ip_mrs": "rules/steam-direct/steam-direct-ip.mrs",
+        "singbox_source": "rules/steam-direct/steam-direct.json",
+        "singbox": "rules/steam-direct/steam-direct.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/steam-direct/steam-direct.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/steam-direct/steam-direct-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/steam-direct/steam-direct.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/steam-direct/steam-direct.mrs",
+        "mihomo_ip": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/steam-direct/steam-direct-ip.yaml",
+        "mihomo_ip_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/steam-direct/steam-direct-ip.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/steam-direct/steam-direct.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/steam-direct/steam-direct.srs"
+      }
+    },
+    "streaming-others": {
+      "files": {
+        "surge": "rules/streaming-others/streaming-others.list",
+        "quantumultx": "rules/streaming-others/streaming-others-qx.list",
+        "mihomo_domain": "rules/streaming-others/streaming-others.yaml",
+        "mihomo_domain_mrs": "rules/streaming-others/streaming-others.mrs",
+        "singbox_source": "rules/streaming-others/streaming-others.json",
+        "singbox": "rules/streaming-others/streaming-others.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/streaming-others/streaming-others.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/streaming-others/streaming-others-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/streaming-others/streaming-others.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/streaming-others/streaming-others.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/streaming-others/streaming-others.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/streaming-others/streaming-others.srs"
+      }
+    },
+    "telegram": {
+      "files": {
+        "surge": "rules/telegram/telegram.list",
+        "quantumultx": "rules/telegram/telegram-qx.list",
+        "mihomo_domain": "rules/telegram/telegram.yaml",
+        "mihomo_domain_mrs": "rules/telegram/telegram.mrs",
+        "mihomo_ip": "rules/telegram/telegram-ip.yaml",
+        "mihomo_ip_mrs": "rules/telegram/telegram-ip.mrs",
+        "singbox_source": "rules/telegram/telegram.json",
+        "singbox": "rules/telegram/telegram.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/telegram/telegram.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/telegram/telegram-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/telegram/telegram.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/telegram/telegram.mrs",
+        "mihomo_ip": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/telegram/telegram-ip.yaml",
+        "mihomo_ip_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/telegram/telegram-ip.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/telegram/telegram.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/telegram/telegram.srs"
+      }
+    },
+    "tiktok": {
+      "files": {
+        "surge": "rules/tiktok/tiktok.list",
+        "quantumultx": "rules/tiktok/tiktok-qx.list",
+        "mihomo_domain": "rules/tiktok/tiktok.yaml",
+        "mihomo_domain_mrs": "rules/tiktok/tiktok.mrs",
+        "singbox_source": "rules/tiktok/tiktok.json",
+        "singbox": "rules/tiktok/tiktok.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/tiktok/tiktok.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/tiktok/tiktok-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/tiktok/tiktok.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/tiktok/tiktok.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/tiktok/tiktok.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/tiktok/tiktok.srs"
+      }
+    },
+    "youtube": {
+      "files": {
+        "surge": "rules/youtube/youtube.list",
+        "quantumultx": "rules/youtube/youtube-qx.list",
+        "mihomo_domain": "rules/youtube/youtube.yaml",
+        "mihomo_domain_mrs": "rules/youtube/youtube.mrs",
+        "singbox_source": "rules/youtube/youtube.json",
+        "singbox": "rules/youtube/youtube.srs"
+      },
+      "jsdelivr": {
+        "surge": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/youtube/youtube.list",
+        "quantumultx": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/youtube/youtube-qx.list",
+        "mihomo_domain": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/youtube/youtube.yaml",
+        "mihomo_domain_mrs": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/youtube/youtube.mrs",
+        "singbox_source": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/youtube/youtube.json",
+        "singbox": "https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/rules/youtube/youtube.srs"
+      }
+    }
+  },
+  "liveness": {
+    "checked": 0,
+    "dead": []
+  },
+  "upstreams": [
+    {
+      "id": "v2fly-dlc",
+      "title": "v2fly domain-list-community",
+      "license": "MIT",
+      "url": "https://github.com/v2fly/domain-list-community/releases/latest/download/dlc.dat"
+    },
+    {
+      "id": "china-operator-ip",
+      "title": "gaoyifan/china-operator-ip",
+      "license": "MIT",
+      "url": "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/{ref}/{category}"
+    },
+    {
+      "id": "shadowwhisperer",
+      "title": "ShadowWhisperer/BlockLists",
+      "license": "Unlicense",
+      "url": "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/{ref}/Lists/{category}"
+    },
+    {
+      "id": "cname-trackers",
+      "title": "AdGuard CNAME disguised ads list",
+      "license": "MIT",
+      "url": "https://raw.githubusercontent.com/AdguardTeam/cname-trackers/master/data/combined_disguised_ads_justdomains.txt"
+    },
+    {
+      "id": "urlhaus",
+      "title": "malware-filter/urlhaus-filter（GitLab）",
+      "license": "MIT / CC0-1.0",
+      "url": "https://malware-filter.gitlab.io/malware-filter/urlhaus-filter-domains.txt"
+    },
+    {
+      "id": "steam-cm",
+      "title": "Valve Steam Connection Manager directory",
+      "license": "Valve Steam Web API 条款（公开服务器地址）",
+      "url": "https://api.steampowered.com/ISteamDirectory/GetCMList/v1/?cellid=0&maxcount=1000"
+    }
+  ],
+  "files": {
+    "build-report.md": {
+      "sha256": "0fd2d49b93424c68c592c39f90a4be590f9509c05a16737a85b9433233e46977",
+      "bytes": 13293
+    },
+    "configs/cn-mainland/ads-light/RouteMint-CN-Whitelist-ads-light.conf": {
+      "sha256": "4e1c8bb646430826b2b5bcf2682d4c15c8798d7d5c4813cfe94c6d69f4bae94a",
+      "bytes": 6377
+    },
+    "configs/cn-mainland/ads-light/loon.conf": {
+      "sha256": "992ddaeae3a3e6f4d2ebbcc2d582f2ddc175b08762bea8777e49cee5990394e8",
+      "bytes": 5868
+    },
+    "configs/cn-mainland/ads-light/mihomo.conf": {
+      "sha256": "a01c0d8dbb8bbc134d00ce73c972e6ecdd4ec1e54fc00ec51a51c6bbffb3f4e3",
+      "bytes": 17335
+    },
+    "configs/cn-mainland/ads-light/quantumultx.conf": {
+      "sha256": "47a4ba4f2928cb920418861a5bccbd9a2ce7f438b58d77d85f728edbfdc62812",
+      "bytes": 6517
+    },
+    "configs/cn-mainland/ads-light/shadowrocket.conf": {
+      "sha256": "4e1c8bb646430826b2b5bcf2682d4c15c8798d7d5c4813cfe94c6d69f4bae94a",
+      "bytes": 6377
+    },
+    "configs/cn-mainland/ads-light/singbox.conf": {
+      "sha256": "459654432263874caeba9185a8e5c45368299bfa0bc70f4bec769b9dbabf4ddd",
+      "bytes": 18010
+    },
+    "configs/cn-mainland/ads-light/surge.conf": {
+      "sha256": "eb50579f366c682979fd6b9f3a7d7720af853b4b03304d8a2d9db92398e32721",
+      "bytes": 6213
+    },
+    "configs/cn-mainland/ads-light/v2rayng.json": {
+      "sha256": "875ba6d1a9bcc2339487cefa2c1862162f3a1b885daf0869e234c5f42a1f6aa4",
+      "bytes": 5114
+    },
+    "configs/cn-mainland/ads-off/RouteMint-CN-Whitelist-ads-off.conf": {
+      "sha256": "1d9717b531a3965fc3ade0534e0e74919bdbeb0cf6680d4c0aad127288c62f63",
+      "bytes": 6107
+    },
+    "configs/cn-mainland/ads-off/loon.conf": {
+      "sha256": "6dc6d1d9ffeb60f6efe4a6fb6323ed30b310e4c2fc0ad8f4bf5f37aa4473b585",
+      "bytes": 5592
+    },
+    "configs/cn-mainland/ads-off/mihomo.conf": {
+      "sha256": "62206f75443c803d0a186d9c955ae6f4c2e3f94d2355d84b60b763ccb9dd5f06",
+      "bytes": 16777
+    },
+    "configs/cn-mainland/ads-off/quantumultx.conf": {
+      "sha256": "246f3cc1e17dde78e935ff0f81d37c5e00bfaa13b39b7dfe50567d67d6eb8238",
+      "bytes": 6205
+    },
+    "configs/cn-mainland/ads-off/shadowrocket.conf": {
+      "sha256": "1d9717b531a3965fc3ade0534e0e74919bdbeb0cf6680d4c0aad127288c62f63",
+      "bytes": 6107
+    },
+    "configs/cn-mainland/ads-off/singbox.conf": {
+      "sha256": "f7a8c768123ccbea76429c9971a98b0c35be79e388fe5bafe4d7c8312da1403c",
+      "bytes": 17328
+    },
+    "configs/cn-mainland/ads-off/surge.conf": {
+      "sha256": "6985200271985a8fd99d5804ca0d6285aa44d4c9ce1e63ee078c3d45c12b731c",
+      "bytes": 5957
+    },
+    "configs/cn-mainland/ads-off/v2rayng.json": {
+      "sha256": "9189f2c912790fb9b2f8a4aa6b1446ec8ecc1e343a65c8d795777b941237da55",
+      "bytes": 4794
+    },
+    "configs/cn-mainland/ads-strict/RouteMint-CN-Whitelist-ads-strict.conf": {
+      "sha256": "860d53019bd310fc38ce7fc25587d59974dddf1dcc88efeb965ef88ad9dc2692",
+      "bytes": 6516
+    },
+    "configs/cn-mainland/ads-strict/loon.conf": {
+      "sha256": "eb9b8afe36ee09e488ff773622f3b0091a165100e961fa274711f49c76d60dab",
+      "bytes": 6010
+    },
+    "configs/cn-mainland/ads-strict/mihomo.conf": {
+      "sha256": "8d00056252cb824c4d011f572f429b187f2bc49c0c0f3597101efba46efcba00",
+      "bytes": 17624
+    },
+    "configs/cn-mainland/ads-strict/quantumultx.conf": {
+      "sha256": "6e570366370d28f44dc93f1310fd608ee9960f2ec74925894d790f1471513aa2",
+      "bytes": 6679
+    },
+    "configs/cn-mainland/ads-strict/shadowrocket.conf": {
+      "sha256": "860d53019bd310fc38ce7fc25587d59974dddf1dcc88efeb965ef88ad9dc2692",
+      "bytes": 6516
+    },
+    "configs/cn-mainland/ads-strict/singbox.conf": {
+      "sha256": "eb8602b30b70f633a713bf398c7b61ba6500d3cf2dff051e09515553f1ec3cb5",
+      "bytes": 18359
+    },
+    "configs/cn-mainland/ads-strict/surge.conf": {
+      "sha256": "d4ac577835dda8ab0b0c9bf142a1e4b2244ca823e498d8d4adc7f964e7877649",
+      "bytes": 6345
+    },
+    "configs/cn-mainland/ads-strict/v2rayng.json": {
+      "sha256": "eb2ebc48254a55c0e1a064e0bbe71a21aea4f2461b0ec4e8eb10fb834a97e5e1",
+      "bytes": 5278
+    },
+    "configs/cn-mainland-lite/ads-light/RouteMint-CN-Lite-ads-light.conf": {
+      "sha256": "9a5f7f74c5fd09a77db733c288915611e71b8a32c0fb1762b2110089a996d8e6",
+      "bytes": 3075
+    },
+    "configs/cn-mainland-lite/ads-light/loon.conf": {
+      "sha256": "f5412c74df72689dbcabdc13830405e536c0c20be986cca70a3ac31765e6bffb",
+      "bytes": 2448
+    },
+    "configs/cn-mainland-lite/ads-light/mihomo.conf": {
+      "sha256": "0055159e3d67a2808005ba88e061dfbb4fd11279cc55ce486909bc8775d34cad",
+      "bytes": 7764
+    },
+    "configs/cn-mainland-lite/ads-light/quantumultx.conf": {
+      "sha256": "9147d7b2083dff21c8281ea722f52c9c45b2feca44fa734ce28aa42eb08fec28",
+      "bytes": 2816
+    },
+    "configs/cn-mainland-lite/ads-light/shadowrocket.conf": {
+      "sha256": "9a5f7f74c5fd09a77db733c288915611e71b8a32c0fb1762b2110089a996d8e6",
+      "bytes": 3075
+    },
+    "configs/cn-mainland-lite/ads-light/singbox.conf": {
+      "sha256": "241e368c0ca709c9ced98a5b7b1aa567544aea12b721710da0961b18d654a4be",
+      "bytes": 6741
+    },
+    "configs/cn-mainland-lite/ads-light/surge.conf": {
+      "sha256": "7b5b860236c9729555d76fcfb3220313e70ea57f67ca22ca3cc2cf2f3eb50748",
+      "bytes": 2838
+    },
+    "configs/cn-mainland-lite/ads-light/v2rayng.json": {
+      "sha256": "03c97d497111943cb49033e37d15efd148a6caec407bab1d2c1fe4b5fb63c62b",
+      "bytes": 1931
+    },
+    "configs/cn-mainland-lite/ads-off/RouteMint-CN-Lite-ads-off.conf": {
+      "sha256": "1e3753905ec356ba3a4eef0b97a6ed741bcec6863f7fe7d402982ebee8ee9f9f",
+      "bytes": 2805
+    },
+    "configs/cn-mainland-lite/ads-off/loon.conf": {
+      "sha256": "91c220335e3b6c7d50bd41df83947a53ef3a2632bdace4b64a2fb241bd54be5e",
+      "bytes": 2172
+    },
+    "configs/cn-mainland-lite/ads-off/mihomo.conf": {
+      "sha256": "14aa8aa1a9853f2a307dc75680332161e4b28b0a3711d6cc90ff182c1e0eb3ba",
+      "bytes": 7206
+    },
+    "configs/cn-mainland-lite/ads-off/quantumultx.conf": {
+      "sha256": "a9166e420db4751fb50ce4b3cacecaa9f162efb8edb5cb5e6eb6a07ad418d704",
+      "bytes": 2504
+    },
+    "configs/cn-mainland-lite/ads-off/shadowrocket.conf": {
+      "sha256": "1e3753905ec356ba3a4eef0b97a6ed741bcec6863f7fe7d402982ebee8ee9f9f",
+      "bytes": 2805
+    },
+    "configs/cn-mainland-lite/ads-off/singbox.conf": {
+      "sha256": "2c6c157ac4d8dd2aba0f727cafbf042c8854601b6668de6af88bbb75860c4c00",
+      "bytes": 6059
+    },
+    "configs/cn-mainland-lite/ads-off/surge.conf": {
+      "sha256": "f9a202089afc9f16b890f3c64aa09bb875948f006a0fc46b6b366e06f3a8d191",
+      "bytes": 2582
+    },
+    "configs/cn-mainland-lite/ads-off/v2rayng.json": {
+      "sha256": "613c9ff416e79878b5c359c6a424d419513ad83255c96bebe0cba46dc628d8a8",
+      "bytes": 1611
+    },
+    "configs/cn-mainland-lite/ads-strict/RouteMint-CN-Lite-ads-strict.conf": {
+      "sha256": "4859a9dd7876c350fea61edb551f7afe7f328a001058ad2cf7dd96445c747052",
+      "bytes": 3214
+    },
+    "configs/cn-mainland-lite/ads-strict/loon.conf": {
+      "sha256": "a9511be395c4880056ff4189c3924fba3bc48516ae2f9dd6a29ac8326c98d253",
+      "bytes": 2590
+    },
+    "configs/cn-mainland-lite/ads-strict/mihomo.conf": {
+      "sha256": "c6b53fbad26de2958f81c1bcc1e697f3fe0f7d74aac89f1f5992482f0fccbdba",
+      "bytes": 8053
+    },
+    "configs/cn-mainland-lite/ads-strict/quantumultx.conf": {
+      "sha256": "cd1a6cd74bec3ef44537b534cc0be8ae604606fb35ec59cb7a16d87a47973a1c",
+      "bytes": 2978
+    },
+    "configs/cn-mainland-lite/ads-strict/shadowrocket.conf": {
+      "sha256": "4859a9dd7876c350fea61edb551f7afe7f328a001058ad2cf7dd96445c747052",
+      "bytes": 3214
+    },
+    "configs/cn-mainland-lite/ads-strict/singbox.conf": {
+      "sha256": "d99c15f935237e93994c11580aa6e551880d6b715051dfec98945af60208422d",
+      "bytes": 7090
+    },
+    "configs/cn-mainland-lite/ads-strict/surge.conf": {
+      "sha256": "d1b6ee9d4674820987874fc5ef36ff1a6165c741ed76d31fdab624555051d980",
+      "bytes": 2970
+    },
+    "configs/cn-mainland-lite/ads-strict/v2rayng.json": {
+      "sha256": "2c589f048ad95cb0a7b94133cb6d18e8a3c3e2967328a77a975fdef8515fb05e",
+      "bytes": 2095
+    },
+    "configs/overseas/ads-light/RouteMint-Overseas-AI-Media-ads-light.conf": {
+      "sha256": "493810c971331e2733a334dba849873fd89e7645dce23fedb8913f44def35ebf",
+      "bytes": 5204
+    },
+    "configs/overseas/ads-light/loon.conf": {
+      "sha256": "51d1bb181ecf2c38d31279ea034e882a8c7cb48718ee4d3feb01827ce80ecefb",
+      "bytes": 4652
+    },
+    "configs/overseas/ads-light/mihomo.conf": {
+      "sha256": "bfc07b3081f283c3e1f891aeb90e1b7b96e228d6f593824515a9f07ee0d9f3ff",
+      "bytes": 13185
+    },
+    "configs/overseas/ads-light/quantumultx.conf": {
+      "sha256": "244271882080d1d2903accc94602b6e404119c4a711350d0106bbde50f78662c",
+      "bytes": 5202
+    },
+    "configs/overseas/ads-light/shadowrocket.conf": {
+      "sha256": "493810c971331e2733a334dba849873fd89e7645dce23fedb8913f44def35ebf",
+      "bytes": 5204
+    },
+    "configs/overseas/ads-light/singbox.conf": {
+      "sha256": "843cc8060bb085370015656fe9f7074092073d04305c89fdf1bc310ecd758a22",
+      "bytes": 14101
+    },
+    "configs/overseas/ads-light/surge.conf": {
+      "sha256": "ce83f17c4e7cde157f8e85675b0887ed9773ff3e000b185c758959b17e1a880a",
+      "bytes": 5011
+    },
+    "configs/overseas/ads-light/v2rayng.json": {
+      "sha256": "2ab63e13b601dd71992f608a97495db29923acb33d50dbd78aa8909f32e4b315",
+      "bytes": 3915
+    },
+    "configs/overseas/ads-off/RouteMint-Overseas-AI-Media-ads-off.conf": {
+      "sha256": "dfe3ba12bfa9ec49e6d0ebd71f6d8efdb594decbef3d2e5d60e2798c78c688b0",
+      "bytes": 4934
+    },
+    "configs/overseas/ads-off/loon.conf": {
+      "sha256": "b825c42f72a954aad230e439218a2189a946bb3cc7164f7a10969a8b0a335f00",
+      "bytes": 4376
+    },
+    "configs/overseas/ads-off/mihomo.conf": {
+      "sha256": "feff71cdc6d5889393d2322fc600ca457e31c5c712bd2dbce617a254bc993383",
+      "bytes": 12627
+    },
+    "configs/overseas/ads-off/quantumultx.conf": {
+      "sha256": "47e53f506b85722a4c6656601c6a03e7b0abad1c015eed9c3db777fee3af7bce",
+      "bytes": 4890
+    },
+    "configs/overseas/ads-off/shadowrocket.conf": {
+      "sha256": "dfe3ba12bfa9ec49e6d0ebd71f6d8efdb594decbef3d2e5d60e2798c78c688b0",
+      "bytes": 4934
+    },
+    "configs/overseas/ads-off/singbox.conf": {
+      "sha256": "776a708412b518834dc10260fc4fe5a6e19ee729cff428152082fe79eb7e8f4d",
+      "bytes": 13417
+    },
+    "configs/overseas/ads-off/surge.conf": {
+      "sha256": "75cc864be454040e49800c95cf46a88a90bac7ac35bf5cb759fdf067684f4b04",
+      "bytes": 4755
+    },
+    "configs/overseas/ads-off/v2rayng.json": {
+      "sha256": "00d3c022a50311d707e65320b4c262ca75571cebe3696ce064fc3a90ce869f1e",
+      "bytes": 3595
+    },
+    "configs/overseas/ads-strict/RouteMint-Overseas-AI-Media-ads-strict.conf": {
+      "sha256": "c89e0880180ff1020b1bc469df36995737b86494b76a5752d9929765c8bb5144",
+      "bytes": 5343
+    },
+    "configs/overseas/ads-strict/loon.conf": {
+      "sha256": "2600c82baa51190c200ebb587387f6f4e500ba2f94189d2683d6eb23db499622",
+      "bytes": 4794
+    },
+    "configs/overseas/ads-strict/mihomo.conf": {
+      "sha256": "1c3fd9eb2c6c36abfbfe6fb51014728f8965687894d73578790ec7388a79420f",
+      "bytes": 13474
+    },
+    "configs/overseas/ads-strict/quantumultx.conf": {
+      "sha256": "4f67efe5da71fc50f405220e6b644bf36280be1f291abf49ea8c7df4bd4bdde2",
+      "bytes": 5364
+    },
+    "configs/overseas/ads-strict/shadowrocket.conf": {
+      "sha256": "c89e0880180ff1020b1bc469df36995737b86494b76a5752d9929765c8bb5144",
+      "bytes": 5343
+    },
+    "configs/overseas/ads-strict/singbox.conf": {
+      "sha256": "ec3834a6f3bc9e9664d89052fd95679713ca4019bf606b854135d7820856aa01",
+      "bytes": 14451
+    },
+    "configs/overseas/ads-strict/surge.conf": {
+      "sha256": "e24a87f40e3b48c0f565c417c6c3a3470d949a8a02b243ada4374a335e091320",
+      "bytes": 5143
+    },
+    "configs/overseas/ads-strict/v2rayng.json": {
+      "sha256": "90f9345abfa150747091f9785593bf4d5bc719026d2c3ffc0f4fb5c13f9bcf6b",
+      "bytes": 4079
+    },
+    "configs/overseas-return/ads-light/RouteMint-Return-CN-ads-light.conf": {
+      "sha256": "df88c65e4d25c322955485c2af93dad564c6e1d45693bbb0e0152f769c2d2ab1",
+      "bytes": 3996
+    },
+    "configs/overseas-return/ads-light/loon.conf": {
+      "sha256": "9578d0b07c2a2944a3805a678ddad8a05702a9f5e01d4f6d652486b948f7bec2",
+      "bytes": 3595
+    },
+    "configs/overseas-return/ads-light/mihomo.conf": {
+      "sha256": "df0ca56e2b1f458b1dbadd7646b35596b25260acdc099cb56e17b5fea4359ab8",
+      "bytes": 10271
+    },
+    "configs/overseas-return/ads-light/quantumultx.conf": {
+      "sha256": "3076ddd37191a052e1a37e775ed271ab7a0387f6c43bd8d571c3d7fb9c19c28b",
+      "bytes": 3929
+    },
+    "configs/overseas-return/ads-light/shadowrocket.conf": {
+      "sha256": "df88c65e4d25c322955485c2af93dad564c6e1d45693bbb0e0152f769c2d2ab1",
+      "bytes": 3996
+    },
+    "configs/overseas-return/ads-light/singbox.conf": {
+      "sha256": "be9c971aefd24fd61aa7aad128af4f5cd73e28c42adaf1d16253dd42abfe05a3",
+      "bytes": 10060
+    },
+    "configs/overseas-return/ads-light/surge.conf": {
+      "sha256": "a0e77b79522a1b9913e081fb0875ef2dcf0095f2e216ae713f52a6c557137901",
+      "bytes": 3902
+    },
+    "configs/overseas-return/ads-light/v2rayng.json": {
+      "sha256": "422b2777d25e3be0c3cf1a5cc3b957ce5fc066f328efd42794695349f703a939",
+      "bytes": 3045
+    },
+    "configs/overseas-return/ads-off/RouteMint-Return-CN-ads-off.conf": {
+      "sha256": "f5608f2bccd96d3ded1ec6110ce3dc4f813d9af0b6990da6aec227221ea43216",
+      "bytes": 3726
+    },
+    "configs/overseas-return/ads-off/loon.conf": {
+      "sha256": "e546a53d8e672a356c3f2459ccca6cf3309675ff420cf78110b851ec7175e5c7",
+      "bytes": 3319
+    },
+    "configs/overseas-return/ads-off/mihomo.conf": {
+      "sha256": "75e1e0d2f694d192c3f785a77820f5be485b01f8ee4e9ca1bf7acd60ee8a3122",
+      "bytes": 9713
+    },
+    "configs/overseas-return/ads-off/quantumultx.conf": {
+      "sha256": "fc7be86b0ef3eaeb8518a1f7207c9c856a34ecf2ccb62129dc3d9714392f9bde",
+      "bytes": 3617
+    },
+    "configs/overseas-return/ads-off/shadowrocket.conf": {
+      "sha256": "f5608f2bccd96d3ded1ec6110ce3dc4f813d9af0b6990da6aec227221ea43216",
+      "bytes": 3726
+    },
+    "configs/overseas-return/ads-off/singbox.conf": {
+      "sha256": "add9c46339a16d8b93ffd204aa5e72f4002de05af74db6f3d656416705c1e018",
+      "bytes": 9376
+    },
+    "configs/overseas-return/ads-off/surge.conf": {
+      "sha256": "dcd28ad96763d16979961f1a0153a4d1596908eca122653c89954d4b6ba0a1b2",
+      "bytes": 3646
+    },
+    "configs/overseas-return/ads-off/v2rayng.json": {
+      "sha256": "762a5364a46d97ca090391661109907e368d535aa0c6ae294d0e0183d0c0dc43",
+      "bytes": 2725
+    },
+    "configs/overseas-return/ads-strict/RouteMint-Return-CN-ads-strict.conf": {
+      "sha256": "c190290eaa1fb51e4b15cef6e835296eabb96e7b541adcfbd899ada86c51625f",
+      "bytes": 4135
+    },
+    "configs/overseas-return/ads-strict/loon.conf": {
+      "sha256": "15af3b527a6fdbbeceb3ddf3f9fb3956a7cd9c18f6313da945e1b36448998f09",
+      "bytes": 3737
+    },
+    "configs/overseas-return/ads-strict/mihomo.conf": {
+      "sha256": "385c7443271e580c2011ea90f4e2148aee962622f0fafa0f498b1466c53b6363",
+      "bytes": 10560
+    },
+    "configs/overseas-return/ads-strict/quantumultx.conf": {
+      "sha256": "56cc6f506d8fc6e7a0077389b1e4d41ee6597eb4fdb76f2bdebc3e39b6232bb8",
+      "bytes": 4091
+    },
+    "configs/overseas-return/ads-strict/shadowrocket.conf": {
+      "sha256": "c190290eaa1fb51e4b15cef6e835296eabb96e7b541adcfbd899ada86c51625f",
+      "bytes": 4135
+    },
+    "configs/overseas-return/ads-strict/singbox.conf": {
+      "sha256": "15e1c14e5e9f3844a3d6fdef6a0d7dc7cea6d2aa91f3ebaf944cfe407aff6f7a",
+      "bytes": 10410
+    },
+    "configs/overseas-return/ads-strict/surge.conf": {
+      "sha256": "d6aeb0c59232ea9efcba55f975760384feb1942d33059f8fd594c06f6f383850",
+      "bytes": 4034
+    },
+    "configs/overseas-return/ads-strict/v2rayng.json": {
+      "sha256": "b56a84f50ec28048adcd01fb6faf7f67042d7d9df682530aea3b6d447d39ea17",
+      "bytes": 3209
+    },
+    "manifest.json": {
+      "sha256": "3d97ddba7ccdc8c183aec7f67cf4010c58334f3f1252a3087b20a9ac40971c7c",
+      "bytes": 109469
+    },
+    "routers/homeproxy/cn-mainland/ads-light/configure.uc": {
+      "sha256": "e9070dabd3a635e22b4e1236cc779ac7b8fcb6000f3e860d7dd6555795447836",
+      "bytes": 7322
+    },
+    "routers/homeproxy/cn-mainland/ads-light/install.sh": {
+      "sha256": "a367f21ce792d957c91982ef14cd55fd2ce56fe7d14e532e67014d37fafb72df",
+      "bytes": 3279
+    },
+    "routers/homeproxy/cn-mainland/ads-light/profile.json": {
+      "sha256": "f5e26bc67f56a0df8b4b1568921e885b3d6896617dc46324a6babf1a7edbb116",
+      "bytes": 8509
+    },
+    "routers/homeproxy/cn-mainland/ads-light.tar.gz": {
+      "sha256": "9fd4394402a8321c947ea45c72b8db59ee95be467d5d821d677b36b463500859",
+      "bytes": 4901
+    },
+    "routers/homeproxy/cn-mainland/ads-off/configure.uc": {
+      "sha256": "e9070dabd3a635e22b4e1236cc779ac7b8fcb6000f3e860d7dd6555795447836",
+      "bytes": 7322
+    },
+    "routers/homeproxy/cn-mainland/ads-off/install.sh": {
+      "sha256": "a367f21ce792d957c91982ef14cd55fd2ce56fe7d14e532e67014d37fafb72df",
+      "bytes": 3279
+    },
+    "routers/homeproxy/cn-mainland/ads-off/profile.json": {
+      "sha256": "0a9bcdf27c2d5493db2e00c9a3fc9cbad0601647903d3ceef2541c1f279188f1",
+      "bytes": 7989
+    },
+    "routers/homeproxy/cn-mainland/ads-off.tar.gz": {
+      "sha256": "cd865671bb85d0b7a03783039652457118b3d721ba6d6aaae5c91b698fe69889",
+      "bytes": 4867
+    },
+    "routers/homeproxy/cn-mainland/ads-strict/configure.uc": {
+      "sha256": "e9070dabd3a635e22b4e1236cc779ac7b8fcb6000f3e860d7dd6555795447836",
+      "bytes": 7322
+    },
+    "routers/homeproxy/cn-mainland/ads-strict/install.sh": {
+      "sha256": "a367f21ce792d957c91982ef14cd55fd2ce56fe7d14e532e67014d37fafb72df",
+      "bytes": 3279
+    },
+    "routers/homeproxy/cn-mainland/ads-strict/profile.json": {
+      "sha256": "49f87d202fa857761993ceb75c66a76eed39d6d1b475d544bbdd9768cea6af48",
+      "bytes": 8775
+    },
+    "routers/homeproxy/cn-mainland/ads-strict.tar.gz": {
+      "sha256": "6bd5887cbe3754a5ebd96e111cf2e5ded44051219697d8a4a09f84da76723979",
+      "bytes": 4914
+    },
+    "routers/homeproxy/cn-mainland-lite/ads-light/configure.uc": {
+      "sha256": "e9070dabd3a635e22b4e1236cc779ac7b8fcb6000f3e860d7dd6555795447836",
+      "bytes": 7322
+    },
+    "routers/homeproxy/cn-mainland-lite/ads-light/install.sh": {
+      "sha256": "a367f21ce792d957c91982ef14cd55fd2ce56fe7d14e532e67014d37fafb72df",
+      "bytes": 3279
+    },
+    "routers/homeproxy/cn-mainland-lite/ads-light/profile.json": {
+      "sha256": "0460c413ba65091a891c15f28b285a04ddcabca572909616267bce433d81ad24",
+      "bytes": 2845
+    },
+    "routers/homeproxy/cn-mainland-lite/ads-light.tar.gz": {
+      "sha256": "b9611fe77d93fa59f555a59589e7da2c0767ac4b01917d57be847822c01f7e2c",
+      "bytes": 4397
+    },
+    "routers/homeproxy/cn-mainland-lite/ads-off/configure.uc": {
+      "sha256": "e9070dabd3a635e22b4e1236cc779ac7b8fcb6000f3e860d7dd6555795447836",
+      "bytes": 7322
+    },
+    "routers/homeproxy/cn-mainland-lite/ads-off/install.sh": {
+      "sha256": "a367f21ce792d957c91982ef14cd55fd2ce56fe7d14e532e67014d37fafb72df",
+      "bytes": 3279
+    },
+    "routers/homeproxy/cn-mainland-lite/ads-off/profile.json": {
+      "sha256": "fa68674ffe2c8f371d3363e74b2d8e8dcfc508ff2d0705286105ccb97cfc7235",
+      "bytes": 2325
+    },
+    "routers/homeproxy/cn-mainland-lite/ads-off.tar.gz": {
+      "sha256": "fa7b7b1056d356fe64e70337eca1544dcfb0411fd65eeb3134a6b988a6e31de1",
+      "bytes": 4363
+    },
+    "routers/homeproxy/cn-mainland-lite/ads-strict/configure.uc": {
+      "sha256": "e9070dabd3a635e22b4e1236cc779ac7b8fcb6000f3e860d7dd6555795447836",
+      "bytes": 7322
+    },
+    "routers/homeproxy/cn-mainland-lite/ads-strict/install.sh": {
+      "sha256": "a367f21ce792d957c91982ef14cd55fd2ce56fe7d14e532e67014d37fafb72df",
+      "bytes": 3279
+    },
+    "routers/homeproxy/cn-mainland-lite/ads-strict/profile.json": {
+      "sha256": "8ddb8d7ff2eaf4525329f23f66beeee0ab89977fa3fbd88361f14f5ed1fb4b13",
+      "bytes": 3111
+    },
+    "routers/homeproxy/cn-mainland-lite/ads-strict.tar.gz": {
+      "sha256": "08da1295776097a2249f3665c76dc22b9c8048c5c28bc854187c47ffefa45eee",
+      "bytes": 4413
+    },
+    "routers/homeproxy/overseas/ads-light/configure.uc": {
+      "sha256": "e9070dabd3a635e22b4e1236cc779ac7b8fcb6000f3e860d7dd6555795447836",
+      "bytes": 7322
+    },
+    "routers/homeproxy/overseas/ads-light/install.sh": {
+      "sha256": "a367f21ce792d957c91982ef14cd55fd2ce56fe7d14e532e67014d37fafb72df",
+      "bytes": 3279
+    },
+    "routers/homeproxy/overseas/ads-light/profile.json": {
+      "sha256": "b340eb7d7587fe024d7c393884f78961ec500e594ca2733f98fe0aa1334431e0",
+      "bytes": 6448
+    },
+    "routers/homeproxy/overseas/ads-light.tar.gz": {
+      "sha256": "305977d66dbefb7d5201edb6a46f023e538dabb59aa7beaee136e6fba91b2378",
+      "bytes": 4645
+    },
+    "routers/homeproxy/overseas/ads-off/configure.uc": {
+      "sha256": "e9070dabd3a635e22b4e1236cc779ac7b8fcb6000f3e860d7dd6555795447836",
+      "bytes": 7322
+    },
+    "routers/homeproxy/overseas/ads-off/install.sh": {
+      "sha256": "a367f21ce792d957c91982ef14cd55fd2ce56fe7d14e532e67014d37fafb72df",
+      "bytes": 3279
+    },
+    "routers/homeproxy/overseas/ads-off/profile.json": {
+      "sha256": "388bc56855ca19461237bb2865a8cfba40c832acd7afe96cccd6fcee04e05ccd",
+      "bytes": 5928
+    },
+    "routers/homeproxy/overseas/ads-off.tar.gz": {
+      "sha256": "845bc91ef4f9b780cf44bb1f65d0fe2e33759f3caea30c11d6087bb922af7a21",
+      "bytes": 4612
+    },
+    "routers/homeproxy/overseas/ads-strict/configure.uc": {
+      "sha256": "e9070dabd3a635e22b4e1236cc779ac7b8fcb6000f3e860d7dd6555795447836",
+      "bytes": 7322
+    },
+    "routers/homeproxy/overseas/ads-strict/install.sh": {
+      "sha256": "a367f21ce792d957c91982ef14cd55fd2ce56fe7d14e532e67014d37fafb72df",
+      "bytes": 3279
+    },
+    "routers/homeproxy/overseas/ads-strict/profile.json": {
+      "sha256": "f61eed3dc65d70b891d8c7e3709b9f5a60b56fd3709dca784e2d55ca2f316bf7",
+      "bytes": 6714
+    },
+    "routers/homeproxy/overseas/ads-strict.tar.gz": {
+      "sha256": "b632b8c73c61687f6273c7c566a74eee8c4752372acb129e0ff091a8f53f189a",
+      "bytes": 4722
+    },
+    "routers/homeproxy/overseas-return/ads-light/configure.uc": {
+      "sha256": "e9070dabd3a635e22b4e1236cc779ac7b8fcb6000f3e860d7dd6555795447836",
+      "bytes": 7322
+    },
+    "routers/homeproxy/overseas-return/ads-light/install.sh": {
+      "sha256": "a367f21ce792d957c91982ef14cd55fd2ce56fe7d14e532e67014d37fafb72df",
+      "bytes": 3279
+    },
+    "routers/homeproxy/overseas-return/ads-light/profile.json": {
+      "sha256": "4e6d06df26551d6665424d460989bcc00c947698617bf7914f43a5a34ccacd92",
+      "bytes": 4718
+    },
+    "routers/homeproxy/overseas-return/ads-light.tar.gz": {
+      "sha256": "b8646cb25a880291aa8df0658763b3436f232c148087588ca75cb1c86fd8c6d9",
+      "bytes": 4533
+    },
+    "routers/homeproxy/overseas-return/ads-off/configure.uc": {
+      "sha256": "e9070dabd3a635e22b4e1236cc779ac7b8fcb6000f3e860d7dd6555795447836",
+      "bytes": 7322
+    },
+    "routers/homeproxy/overseas-return/ads-off/install.sh": {
+      "sha256": "a367f21ce792d957c91982ef14cd55fd2ce56fe7d14e532e67014d37fafb72df",
+      "bytes": 3279
+    },
+    "routers/homeproxy/overseas-return/ads-off/profile.json": {
+      "sha256": "c4016c14e4dfdb1b469f28a5ba969fab7043736540b381971b30283d366f96ea",
+      "bytes": 4198
+    },
+    "routers/homeproxy/overseas-return/ads-off.tar.gz": {
+      "sha256": "fdd7828accc48cad24fa802efd923556d388fb0311c9e7f9bb1b64863823f56b",
+      "bytes": 4502
+    },
+    "routers/homeproxy/overseas-return/ads-strict/configure.uc": {
+      "sha256": "e9070dabd3a635e22b4e1236cc779ac7b8fcb6000f3e860d7dd6555795447836",
+      "bytes": 7322
+    },
+    "routers/homeproxy/overseas-return/ads-strict/install.sh": {
+      "sha256": "a367f21ce792d957c91982ef14cd55fd2ce56fe7d14e532e67014d37fafb72df",
+      "bytes": 3279
+    },
+    "routers/homeproxy/overseas-return/ads-strict/profile.json": {
+      "sha256": "4f2512de0188d0d8df432a5b924dae79cfc25b883bd90689dbb1508d66e9e464",
+      "bytes": 4984
+    },
+    "routers/homeproxy/overseas-return/ads-strict.tar.gz": {
+      "sha256": "8531c0085537cc4c6f5001a832562177c7e0150f6b717306a5ffffb7250c1b14",
+      "bytes": 4546
+    },
+    "routers/passwall/cn-mainland/ads-light/configure.uc": {
+      "sha256": "e9070dabd3a635e22b4e1236cc779ac7b8fcb6000f3e860d7dd6555795447836",
+      "bytes": 7322
+    },
+    "routers/passwall/cn-mainland/ads-light/install.sh": {
+      "sha256": "9132b81072db9d977f427217efd4c6912507d98d6c4f90671dcbab5d14b54084",
+      "bytes": 3278
+    },
+    "routers/passwall/cn-mainland/ads-light/profile.json": {
+      "sha256": "61a1970fdf234684da5f50a245f353f7884411afae5ea50761a03c044a618f2c",
+      "bytes": 8508
+    },
+    "routers/passwall/cn-mainland/ads-light.tar.gz": {
+      "sha256": "e030c14ec3b2f394f3024a04b03d96415ee794e539258c038320f47975827a9d",
+      "bytes": 4900
+    },
+    "routers/passwall/cn-mainland/ads-off/configure.uc": {
+      "sha256": "e9070dabd3a635e22b4e1236cc779ac7b8fcb6000f3e860d7dd6555795447836",
+      "bytes": 7322
+    },
+    "routers/passwall/cn-mainland/ads-off/install.sh": {
+      "sha256": "9132b81072db9d977f427217efd4c6912507d98d6c4f90671dcbab5d14b54084",
+      "bytes": 3278
+    },
+    "routers/passwall/cn-mainland/ads-off/profile.json": {
+      "sha256": "f2e56c0eea20146830f2b0569f8ea0518e3cd632128c86ab35fa47ccaf842569",
+      "bytes": 7988
+    },
+    "routers/passwall/cn-mainland/ads-off.tar.gz": {
+      "sha256": "025662135a5dda4b6f282c06b319809e89791fa76102a2f085b6027535bc60db",
+      "bytes": 4866
+    },
+    "routers/passwall/cn-mainland/ads-strict/configure.uc": {
+      "sha256": "e9070dabd3a635e22b4e1236cc779ac7b8fcb6000f3e860d7dd6555795447836",
+      "bytes": 7322
+    },
+    "routers/passwall/cn-mainland/ads-strict/install.sh": {
+      "sha256": "9132b81072db9d977f427217efd4c6912507d98d6c4f90671dcbab5d14b54084",
+      "bytes": 3278
+    },
+    "routers/passwall/cn-mainland/ads-strict/profile.json": {
+      "sha256": "a841fcac45064da5e4f14c3ef2f1548f32f1c14427dab05c67518e0956999bac",
+      "bytes": 8774
+    },
+    "routers/passwall/cn-mainland/ads-strict.tar.gz": {
+      "sha256": "acb19b09503e11fe758c9e1cee6630de8bea16879eee254e5c7055ce8cdec711",
+      "bytes": 4914
+    },
+    "routers/passwall/cn-mainland-lite/ads-light/configure.uc": {
+      "sha256": "e9070dabd3a635e22b4e1236cc779ac7b8fcb6000f3e860d7dd6555795447836",
+      "bytes": 7322
+    },
+    "routers/passwall/cn-mainland-lite/ads-light/install.sh": {
+      "sha256": "9132b81072db9d977f427217efd4c6912507d98d6c4f90671dcbab5d14b54084",
+      "bytes": 3278
+    },
+    "routers/passwall/cn-mainland-lite/ads-light/profile.json": {
+      "sha256": "a25dc501c2934974e97f92689cb7956a153201bfcd46efd16144338d932b78cf",
+      "bytes": 2844
+    },
+    "routers/passwall/cn-mainland-lite/ads-light.tar.gz": {
+      "sha256": "7435adc9c155836483a2cdb4a8ac68a24a477961f0e9d4ca4c3da84c2365a789",
+      "bytes": 4397
+    },
+    "routers/passwall/cn-mainland-lite/ads-off/configure.uc": {
+      "sha256": "e9070dabd3a635e22b4e1236cc779ac7b8fcb6000f3e860d7dd6555795447836",
+      "bytes": 7322
+    },
+    "routers/passwall/cn-mainland-lite/ads-off/install.sh": {
+      "sha256": "9132b81072db9d977f427217efd4c6912507d98d6c4f90671dcbab5d14b54084",
+      "bytes": 3278
+    },
+    "routers/passwall/cn-mainland-lite/ads-off/profile.json": {
+      "sha256": "8b570603aafa5877475c8c4920751d31ad5272b23ec3dfa2d82c6b1ae195de9c",
+      "bytes": 2324
+    },
+    "routers/passwall/cn-mainland-lite/ads-off.tar.gz": {
+      "sha256": "92946b43b394eb26bf60d347e498fa042bfebd9f47542e3f704b4427d965992b",
+      "bytes": 4365
+    },
+    "routers/passwall/cn-mainland-lite/ads-strict/configure.uc": {
+      "sha256": "e9070dabd3a635e22b4e1236cc779ac7b8fcb6000f3e860d7dd6555795447836",
+      "bytes": 7322
+    },
+    "routers/passwall/cn-mainland-lite/ads-strict/install.sh": {
+      "sha256": "9132b81072db9d977f427217efd4c6912507d98d6c4f90671dcbab5d14b54084",
+      "bytes": 3278
+    },
+    "routers/passwall/cn-mainland-lite/ads-strict/profile.json": {
+      "sha256": "34281b518faa5bf16d65e7c469125a055bdbf10acd3b44debc6e7d0f4b7af796",
+      "bytes": 3110
+    },
+    "routers/passwall/cn-mainland-lite/ads-strict.tar.gz": {
+      "sha256": "31b6aaf20c83d3dfd5e33d5b8c19a10372627fdd54aeb29a2578a24865abf283",
+      "bytes": 4414
+    },
+    "routers/passwall/overseas/ads-light/configure.uc": {
+      "sha256": "e9070dabd3a635e22b4e1236cc779ac7b8fcb6000f3e860d7dd6555795447836",
+      "bytes": 7322
+    },
+    "routers/passwall/overseas/ads-light/install.sh": {
+      "sha256": "9132b81072db9d977f427217efd4c6912507d98d6c4f90671dcbab5d14b54084",
+      "bytes": 3278
+    },
+    "routers/passwall/overseas/ads-light/profile.json": {
+      "sha256": "c68336ff93ba300f62cacaa6bb21b2feb2bd615ee0e730a4739dda453a3af1fb",
+      "bytes": 6447
+    },
+    "routers/passwall/overseas/ads-light.tar.gz": {
+      "sha256": "1ae6dbf6ad8ae66e66fec6807e6d6f5ed4d5cb28432d0654a341ff0c52de0198",
+      "bytes": 4648
+    },
+    "routers/passwall/overseas/ads-off/configure.uc": {
+      "sha256": "e9070dabd3a635e22b4e1236cc779ac7b8fcb6000f3e860d7dd6555795447836",
+      "bytes": 7322
+    },
+    "routers/passwall/overseas/ads-off/install.sh": {
+      "sha256": "9132b81072db9d977f427217efd4c6912507d98d6c4f90671dcbab5d14b54084",
+      "bytes": 3278
+    },
+    "routers/passwall/overseas/ads-off/profile.json": {
+      "sha256": "62f0c234e4e54a9bb564e14604b6c87f2427352aefc6dfe8819477282d5138b0",
+      "bytes": 5927
+    },
+    "routers/passwall/overseas/ads-off.tar.gz": {
+      "sha256": "2217cd1209102c042614b66a19e5463ef3987f6fe447c9d895cb58b69beae2bd",
+      "bytes": 4616
+    },
+    "routers/passwall/overseas/ads-strict/configure.uc": {
+      "sha256": "e9070dabd3a635e22b4e1236cc779ac7b8fcb6000f3e860d7dd6555795447836",
+      "bytes": 7322
+    },
+    "routers/passwall/overseas/ads-strict/install.sh": {
+      "sha256": "9132b81072db9d977f427217efd4c6912507d98d6c4f90671dcbab5d14b54084",
+      "bytes": 3278
+    },
+    "routers/passwall/overseas/ads-strict/profile.json": {
+      "sha256": "7109407ee970000f0923899f2fd567d6cfabdea6e51264ea3a0c804ab6349bdf",
+      "bytes": 6713
+    },
+    "routers/passwall/overseas/ads-strict.tar.gz": {
+      "sha256": "6039c1ed42836f7bf4a892f55e79bb0bcd04d40440e0ef1075172b0f6fb8fb12",
+      "bytes": 4726
+    },
+    "routers/passwall/overseas-return/ads-light/configure.uc": {
+      "sha256": "e9070dabd3a635e22b4e1236cc779ac7b8fcb6000f3e860d7dd6555795447836",
+      "bytes": 7322
+    },
+    "routers/passwall/overseas-return/ads-light/install.sh": {
+      "sha256": "9132b81072db9d977f427217efd4c6912507d98d6c4f90671dcbab5d14b54084",
+      "bytes": 3278
+    },
+    "routers/passwall/overseas-return/ads-light/profile.json": {
+      "sha256": "50cf8b76e8f69e7201ee128ec4a1ac68f3c65e55efa5316ac34dfe051c025c90",
+      "bytes": 4717
+    },
+    "routers/passwall/overseas-return/ads-light.tar.gz": {
+      "sha256": "dc18ff4f9343f7761baab759a0f106f72dbfbaff316effb47de2021d09947b00",
+      "bytes": 4530
+    },
+    "routers/passwall/overseas-return/ads-off/configure.uc": {
+      "sha256": "e9070dabd3a635e22b4e1236cc779ac7b8fcb6000f3e860d7dd6555795447836",
+      "bytes": 7322
+    },
+    "routers/passwall/overseas-return/ads-off/install.sh": {
+      "sha256": "9132b81072db9d977f427217efd4c6912507d98d6c4f90671dcbab5d14b54084",
+      "bytes": 3278
+    },
+    "routers/passwall/overseas-return/ads-off/profile.json": {
+      "sha256": "1e7aa678301fc230d633393c6033bd355ce32837a7b02cee753883745b7fc0b3",
+      "bytes": 4197
+    },
+    "routers/passwall/overseas-return/ads-off.tar.gz": {
+      "sha256": "5b8fa7604f04f3258c87b0f5282b8d5cfa081d32cb6598692420ed10813893e0",
+      "bytes": 4504
+    },
+    "routers/passwall/overseas-return/ads-strict/configure.uc": {
+      "sha256": "e9070dabd3a635e22b4e1236cc779ac7b8fcb6000f3e860d7dd6555795447836",
+      "bytes": 7322
+    },
+    "routers/passwall/overseas-return/ads-strict/install.sh": {
+      "sha256": "9132b81072db9d977f427217efd4c6912507d98d6c4f90671dcbab5d14b54084",
+      "bytes": 3278
+    },
+    "routers/passwall/overseas-return/ads-strict/profile.json": {
+      "sha256": "6b5ac0f4130fe9f9990ad38dc1563aa6900bc7eeb591cc287beee90ab5f14249",
+      "bytes": 4983
+    },
+    "routers/passwall/overseas-return/ads-strict.tar.gz": {
+      "sha256": "c7c2cfd0711fbeb338f1f3a74bd9696b3f7e6d3fd14a708d783f3787cec096ae",
+      "bytes": 4550
+    },
+    "rules/ai/ai-qx.list": {
+      "sha256": "8f0a48288de6afbb87f793bf6401d530afe2c20d9871613d112e2b48a9d57358",
+      "bytes": 6752
+    },
+    "rules/ai/ai.json": {
+      "sha256": "2ef8e5972729e8016966a26a37b86b3ed211c7e49dbe9213a10536c1fa9e68f0",
+      "bytes": 4649
+    },
+    "rules/ai/ai.list": {
+      "sha256": "330c9af547a2da00db8bdeb2920cacbc1a38de25be5c959f5a95e8afeb64f5c4",
+      "bytes": 6978
+    },
+    "rules/ai/ai.mrs": {
+      "sha256": "c03c385d14d31d36e20e2338d7349a87ab71cc5a44988ebd8229e20bebcc5b74",
+      "bytes": 2346
+    },
+    "rules/ai/ai.srs": {
+      "sha256": "4fcd31b02c1769388f15b2b6ce6f940ce381c9c674dc9e0eeae9941036cdd3b2",
+      "bytes": 2104
+    },
+    "rules/ai/ai.yaml": {
+      "sha256": "7117d6cb74c34acdb15f71681951ebb09c7d78f516a90dcca143d47bf49049a2",
+      "bytes": 5726
+    },
+    "rules/ai-anthropic/ai-anthropic-qx.list": {
+      "sha256": "332d456330474a8772ee68df25013c046809e64cc8a1cac4b37fc376bb933120",
+      "bytes": 628
+    },
+    "rules/ai-anthropic/ai-anthropic.json": {
+      "sha256": "f26068892d0062496e18b419b7d2183d5a626f73aad47b003191d4a6991bf9d1",
+      "bytes": 406
+    },
+    "rules/ai-anthropic/ai-anthropic.list": {
+      "sha256": "a436991c051db9af8e89c02b213b991c4a5cac8936eca11ea5fbcddc4c9fe858",
+      "bytes": 647
+    },
+    "rules/ai-anthropic/ai-anthropic.mrs": {
+      "sha256": "e9ae426a74d8b4c4389b9570475412448810bb79fa6e81c65122c0d06f85a6ad",
+      "bytes": 300
+    },
+    "rules/ai-anthropic/ai-anthropic.srs": {
+      "sha256": "38c418a09ab9e17187a9e71a9e0fc6af060131ee5704d7d05ccd8426cc78ab09",
+      "bytes": 272
+    },
+    "rules/ai-anthropic/ai-anthropic.yaml": {
+      "sha256": "70653daf300cb5bcc28cde1a729a052989cda0666c9e5aef67570bd4e18f0560",
+      "bytes": 482
+    },
+    "rules/ai-copilot/ai-copilot-qx.list": {
+      "sha256": "de2ab2611e3111d2552d962d74b1eb8e6236af07601c2af608afc39248c0e355",
+      "bytes": 517
+    },
+    "rules/ai-copilot/ai-copilot.json": {
+      "sha256": "04b5c02160172d605f2782f5701eebb5bce56905abd5d9e0f7bc499099630fb3",
+      "bytes": 415
+    },
+    "rules/ai-copilot/ai-copilot.list": {
+      "sha256": "d1c298d8924f820c7c0086bfe060c666337faf04d940960bd157c09587c6e5d5",
+      "bytes": 526
+    },
+    "rules/ai-copilot/ai-copilot.mrs": {
+      "sha256": "b49106505d49a2fbbaa80e8e7c4a5e20c634b968bbdbd7dfd914f470e9593f73",
+      "bytes": 259
+    },
+    "rules/ai-copilot/ai-copilot.srs": {
+      "sha256": "e4df08c8c256be98b7c9c3db1156d397f1a028887045c813d736283c4be5c5b4",
+      "bytes": 246
+    },
+    "rules/ai-copilot/ai-copilot.yaml": {
+      "sha256": "57967ae7e299ca9fd350231e27a225afff6ff5e32ce16901d9deb0fda60dddb4",
+      "bytes": 446
+    },
+    "rules/ai-gemini/ai-gemini-qx.list": {
+      "sha256": "1fcd0998b499d15e99e9c0bf6b825cbd421151f9ddd13173a27fe745cdb432d0",
+      "bytes": 330
+    },
+    "rules/ai-gemini/ai-gemini.json": {
+      "sha256": "56569ac5bf928b35a8b109371c724e5d594a7291ff78458d668a4e77cf1a10b9",
+      "bytes": 211
+    },
+    "rules/ai-gemini/ai-gemini.list": {
+      "sha256": "72dc226328a1eae321db13f02c3e843283ee9a4501d9b06f261f4ee6b0eb517c",
+      "bytes": 337
+    },
+    "rules/ai-gemini/ai-gemini.mrs": {
+      "sha256": "fdbc62a981a4c1841d8d9208f6748ea8b58bed0fb4b4a83259e4e63f394a0564",
+      "bytes": 159
+    },
+    "rules/ai-gemini/ai-gemini.srs": {
+      "sha256": "f9ac3f504b8306ba6ffd8409dddc1f16adc71342c0966382586f20c947383360",
+      "bytes": 138
+    },
+    "rules/ai-gemini/ai-gemini.yaml": {
+      "sha256": "64732fc7fb7940630e525ccd577056ec0dc2b6afa565f3d6b8836bd007fb7647",
+      "bytes": 244
+    },
+    "rules/ai-openai/ai-openai-qx.list": {
+      "sha256": "2adc553d9d5f5b710184b7e97fa68c395d35c845a68acf00d736ecfae1751a79",
+      "bytes": 755
+    },
+    "rules/ai-openai/ai-openai.json": {
+      "sha256": "4c35aa3960c4cc97092f56482b73aee82bd975ebb878a1ee0a4ff9781e56d2dd",
+      "bytes": 553
+    },
+    "rules/ai-openai/ai-openai.list": {
+      "sha256": "626a5d44d8f39afa432f6f42a43ad7db0f511df33a6d59fedbd14bcd724160ec",
+      "bytes": 775
+    },
+    "rules/ai-openai/ai-openai.mrs": {
+      "sha256": "a20a5d7f246891ae95ecdfca5ca1616584aadaa75481290d86b46d50428905be",
+      "bytes": 371
+    },
+    "rules/ai-openai/ai-openai.srs": {
+      "sha256": "5b94bee353483912a6737aeb9d82e39a2fddbf3fe9f78f4ede43ba9fb02bdaf9",
+      "bytes": 343
+    },
+    "rules/ai-openai/ai-openai.yaml": {
+      "sha256": "65ab94dc22e1d5ec472b9656a5a7b910027f6002854ec8a368d6b4bc730d4ba8",
+      "bytes": 629
+    },
+    "rules/ai-others/ai-others-qx.list": {
+      "sha256": "f46f1ac8d388acc844bf3bd8cb99d6406b5ce72ceeef6b54589881c8002a9be8",
+      "bytes": 4819
+    },
+    "rules/ai-others/ai-others.json": {
+      "sha256": "a6e24d57c2f8d4fb1bba5b3418d9a8d50030ddce589d136ddc54756813d8540c",
+      "bytes": 3188
+    },
+    "rules/ai-others/ai-others.list": {
+      "sha256": "6d0119115fc09882a957b1a0166b6e816b6aac53a5b905d81e7714cad5d9bc86",
+      "bytes": 4985
+    },
+    "rules/ai-others/ai-others.mrs": {
+      "sha256": "e7da84123e55fc22dc351a4dcd56b1602cf09bf6c9dc65fc722ae38dadd27e6d",
+      "bytes": 1649
+    },
+    "rules/ai-others/ai-others.srs": {
+      "sha256": "b286f7c69f8219bf18f1ec84f8f7f7ac165a7dc200138b26c5da55466635b7fc",
+      "bytes": 1469
+    },
+    "rules/ai-others/ai-others.yaml": {
+      "sha256": "329ced6683bf8933907f22a7fb80dd4b2de0c98f9e51c890726cccd3c876715c",
+      "bytes": 4013
+    },
+    "rules/ai-perplexity/ai-perplexity-qx.list": {
+      "sha256": "11cdc2789bbf92a488380cc039024c9ef9e7bfc15df75fecbf2882511ced5bb6",
+      "bytes": 237
+    },
+    "rules/ai-perplexity/ai-perplexity.json": {
+      "sha256": "a7c5caf305a4c3569b6ad49db2acb05c12409f875021640bdaaa2001fab3b571",
+      "bytes": 171
+    },
+    "rules/ai-perplexity/ai-perplexity.list": {
+      "sha256": "b0e7b811590cdea5e80a3c3764090997b759add8cfbb23939650f7b4082bc207",
+      "bytes": 242
+    },
+    "rules/ai-perplexity/ai-perplexity.mrs": {
+      "sha256": "812443e110ab90e6d4432ce1099c54ddaa943a4501c75fc6cfb38152d67fd77f",
+      "bytes": 159
+    },
+    "rules/ai-perplexity/ai-perplexity.srs": {
+      "sha256": "b39dc6166314f3789723c8c6cb234f2939c6e82fb3328af41fc9b2aa42eb09cb",
+      "bytes": 136
+    },
+    "rules/ai-perplexity/ai-perplexity.yaml": {
+      "sha256": "1359d390801a72c86608a2ed8bf11f684d0fb37bc3413d06d6bcd69d7e675c73",
+      "bytes": 166
+    },
+    "rules/apple/apple-qx.list": {
+      "sha256": "f78a8e85d6802bedc969f24915992a185bbe0111954ede460682273f9098456e",
+      "bytes": 49322
+    },
+    "rules/apple/apple.json": {
+      "sha256": "5490ad665760ec290798395f21e5e4c84b5a8827f0dcc2d5267065b9b66295e1",
+      "bytes": 33800
+    },
+    "rules/apple/apple.list": {
+      "sha256": "fc486af5a57c5bd6df55917483d7282afb4b5a638a9ba52c81ad44f13ebee1e0",
+      "bytes": 50905
+    },
+    "rules/apple/apple.mrs": {
+      "sha256": "686bc6ca5b83e68ccdccc1230cba6bb6dffd40907e549ed9318257fc7d761a55",
+      "bytes": 16498
+    },
+    "rules/apple/apple.srs": {
+      "sha256": "6f16defe9f99ff282cb9132bb1e94c3e249e8928fc4feb0087b0efcce7924cbf",
+      "bytes": 14420
+    },
+    "rules/apple/apple.yaml": {
+      "sha256": "1feb6169cb77e4b7a07682029b16d51f78a1306243986cf805521f3d6e1568da",
+      "bytes": 41596
+    },
+    "rules/baidu-pan/baidu-pan-qx.list": {
+      "sha256": "75bb7b5c88b1c19d8d0921f947b4c2fb052e7ca284309c4411b9438d2bb65209",
+      "bytes": 638
+    },
+    "rules/baidu-pan/baidu-pan.json": {
+      "sha256": "76317ea534991b764499898a2b911df8140760b7daa6a28570200aa63e4a8080",
+      "bytes": 380
+    },
+    "rules/baidu-pan/baidu-pan.list": {
+      "sha256": "60d2b64aadcf69d5851b974f370336a56f6b93ed844f8fc47bbef33c96d1b24c",
+      "bytes": 658
+    },
+    "rules/baidu-pan/baidu-pan.mrs": {
+      "sha256": "7c4d4c04b4188d09e93369805dff729cb947b9bfe6fdeb9406011536ca27f170",
+      "bytes": 233
+    },
+    "rules/baidu-pan/baidu-pan.srs": {
+      "sha256": "6a2ebbe91c2a92f9640dec746fdd2b83cd06fdc5682dbc0fccb89cd789805a71",
+      "bytes": 201
+    },
+    "rules/baidu-pan/baidu-pan.yaml": {
+      "sha256": "635229a043b209c2825a59c08058788c5e756d02f00508e3148e06dc3b7d473e",
+      "bytes": 482
+    },
+    "rules/cn/cn-qx.list": {
+      "sha256": "3477c436dbf3bc7128c945c762e45e77deb67dac06773abda7d3cb192725c2ee",
+      "bytes": 160847
+    },
+    "rules/cn/cn.json": {
+      "sha256": "15b45ac889239df09b76a708242586556668f132d665a708859a5d2ede41e32f",
+      "bytes": 98690
+    },
+    "rules/cn/cn.list": {
+      "sha256": "b610097316dac21008983d99fdf60357ebf5ae9780dc5769ec9fa81372cb7372",
+      "bytes": 167067
+    },
+    "rules/cn/cn.mrs": {
+      "sha256": "3db365dfdee34ea5ef3d56d267969933e05520e010b3cad46412233f152da4b8",
+      "bytes": 40858
+    },
+    "rules/cn/cn.srs": {
+      "sha256": "f25cfa9d12d02a9c785ffb68a0b6b76a305475c2643b7e974e1730dd6668566b",
+      "bytes": 32413
+    },
+    "rules/cn/cn.yaml": {
+      "sha256": "91d8c508201606c6079db71776f793890f1f8825d5ef3498cc04e8e537f6d799",
+      "bytes": 129751
+    },
+    "rules/cn-ip/cn-ip-qx.list": {
+      "sha256": "83fd7f36da81fdb959b09170d4cb958137c42e2ad03b0edd5ce91ebb71d08adf",
+      "bytes": 152862
+    },
+    "rules/cn-ip/cn-ip.json": {
+      "sha256": "04c94bcf931a572ab95227f8a08d234ea9adc3bcdca660dea30864531e01af17",
+      "bytes": 115476
+    },
+    "rules/cn-ip/cn-ip.list": {
+      "sha256": "86105297e086ed43bc2f0389e1d55f6f6a38e5197d23280a5af7b3a15be7808c",
+      "bytes": 215072
+    },
+    "rules/cn-ip/cn-ip.mrs": {
+      "sha256": "1e53fc5b7ee218b8d12e76e08ddba01983fc796512d717edbd86a45be154b63d",
+      "bytes": 25690
+    },
+    "rules/cn-ip/cn-ip.srs": {
+      "sha256": "a4eeb1fb4df428f4f506d30125ccda1cad795bf7875d85734b3cc527b62e9698",
+      "bytes": 22695
+    },
+    "rules/cn-ip/cn-ip.yaml": {
+      "sha256": "ea624e023872ddb57b45c771b158b8451daa5e5e3e3204faa94aacbc9895634a",
+      "bytes": 134143
+    },
+    "rules/cn-ip6/cn-ip6-qx.list": {
+      "sha256": "0adba70a620fdf7127242353e1bc69e752ab9308c0c0c592ebf74e9a053013de",
+      "bytes": 91872
+    },
+    "rules/cn-ip6/cn-ip6.json": {
+      "sha256": "9ed65d2d121e3abb69df1845fe110fd018757ebd577fa528ce00bd5a847b78b0",
+      "bytes": 67702
+    },
+    "rules/cn-ip6/cn-ip6.list": {
+      "sha256": "9ad990d8a448f3e593447b03bfbdbfe46113bc0855cf35096a65d77fb2752cfc",
+      "bytes": 126312
+    },
+    "rules/cn-ip6/cn-ip6.mrs": {
+      "sha256": "9004aa60cbd04300cb70e3ab7f1e2e6fe1bd46f802ebcad66096fd3d099d5c5e",
+      "bytes": 11197
+    },
+    "rules/cn-ip6/cn-ip6.srs": {
+      "sha256": "3d76c75d460e459fc3f4b64f113c1410e0b156b51e642a92948379942e8f42ed",
+      "bytes": 12627
+    },
+    "rules/cn-ip6/cn-ip6.yaml": {
+      "sha256": "6e7a63c051bc5a724adb8f98b26746a8e87fc78bf36093e847a246a7ef12cecd",
+      "bytes": 78040
+    },
+    "rules/cn-region-locked/cn-region-locked-qx.list": {
+      "sha256": "9d225ce4b527e6bb14383aa836b46953d6856e049013a869f746457fc897eea1",
+      "bytes": 856
+    },
+    "rules/cn-region-locked/cn-region-locked.json": {
+      "sha256": "c88df54d9a7f0505b61ae76cbcecf5428dc416a9c4c408bb52f59749aa0be536",
+      "bytes": 491
+    },
+    "rules/cn-region-locked/cn-region-locked.list": {
+      "sha256": "d5635f39cc6271c3a10c086c76a95b35d2e3a3eebc144f60f70e1d896299f4ef",
+      "bytes": 886
+    },
+    "rules/cn-region-locked/cn-region-locked.mrs": {
+      "sha256": "b0ce7c4a4e4f44cf29a6168819401094900ed3984defc7bd7337dbab190826d2",
+      "bytes": 313
+    },
+    "rules/cn-region-locked/cn-region-locked.srs": {
+      "sha256": "23f48c0a69ae230f99bbe006badee1eb63f9b800adf4bfb8e2c586ed4b641e73",
+      "bytes": 274
+    },
+    "rules/cn-region-locked/cn-region-locked.yaml": {
+      "sha256": "b5b7138399367e494404fff3414c0bd8bd9556ad6c1f0bba6962afe7da570530",
+      "bytes": 655
+    },
+    "rules/dev/dev-qx.list": {
+      "sha256": "5c918e63f4c2247885265e60e5621bcbc837ea2773b46257196c07afaeb8f2da",
+      "bytes": 3152
+    },
+    "rules/dev/dev.json": {
+      "sha256": "74f85a1e2fde92414bcdb2450741c4fb7d9e22296f18510fb3604586d2c3b199",
+      "bytes": 2411
+    },
+    "rules/dev/dev.list": {
+      "sha256": "c8e7c58f1a0b801f15286c639c678b984e4a722856937b618819a8e6653829f2",
+      "bytes": 3239
+    },
+    "rules/dev/dev.mrs": {
+      "sha256": "4f8ea6e1d673d52619c801718ce5f6664072f0b39b096cfd2ae12f8bb8b62f95",
+      "bytes": 1060
+    },
+    "rules/dev/dev.srs": {
+      "sha256": "6281895307418ca56c1dd1bbd1fe8d94c2715a42cf6b3bfb8eccc430825669b4",
+      "bytes": 952
+    },
+    "rules/dev/dev.yaml": {
+      "sha256": "a2de6ff37622da581aa62fb4da09842eafa8692c28d976ce521b1a1592e12f1f",
+      "bytes": 2811
+    },
+    "rules/disney/disney-qx.list": {
+      "sha256": "0030343cd5f4536dd05b92191d0b56d2a1c0e97b7097ef387fa15e9b6e2545e5",
+      "bytes": 6485
+    },
+    "rules/disney/disney.json": {
+      "sha256": "74d76e7fb1941b098973c933cbaf9fb615888928d1c31e4f811dbec2dcda5d35",
+      "bytes": 4264
+    },
+    "rules/disney/disney.list": {
+      "sha256": "4ee4da4441736a21be59954c3174f0ac5708be9db219351748e717e078d2166a",
+      "bytes": 6703
+    },
+    "rules/disney/disney.mrs": {
+      "sha256": "4a2e7738d825192c822ed0c7ec50116f56a693ffd1b7662dcb2f7c77dcd1a4b0",
+      "bytes": 2457
+    },
+    "rules/disney/disney.srs": {
+      "sha256": "d7d6d98596485469ec6d6e4dee4d1bd36adbacf9e93c897f9a8052ab571cb964",
+      "bytes": 2163
+    },
+    "rules/disney/disney.yaml": {
+      "sha256": "23357292ae0fdd41856eb95f569b17df90b6493d92bbbc087311dab256a47c0a",
+      "bytes": 5354
+    },
+    "rules/game-download/game-download-qx.list": {
+      "sha256": "49f4e67452d142cce78965e06ce93b4a604e0f05973cbd523ab83c025097fe43",
+      "bytes": 3318
+    },
+    "rules/game-download/game-download.json": {
+      "sha256": "ecfc456571dde68c407f172041cff07588032c02371720a52746b2777a70ffe1",
+      "bytes": 2854
+    },
+    "rules/game-download/game-download.list": {
+      "sha256": "361de4623daa068355ed9f6547a2b8a4b7337d220c668efb57445862b520e202",
+      "bytes": 3414
+    },
+    "rules/game-download/game-download.mrs": {
+      "sha256": "33f644e82f35eeb9ebda30568e14f550dc0f419e7ba0fe6a39d53ea895da5fe5",
+      "bytes": 1170
+    },
+    "rules/game-download/game-download.srs": {
+      "sha256": "8026c0036b2c05d95ae4f293f207d3d7cb171cbb9a97559f6874625d5250e29b",
+      "bytes": 1132
+    },
+    "rules/game-download/game-download.yaml": {
+      "sha256": "494a12af852767055ed45ba132f6fd01cc6170483a42574866ce6d71861ad1e2",
+      "bytes": 3182
+    },
+    "rules/game-platform/game-platform-qx.list": {
+      "sha256": "2b24c8197776168551a00489859b03cfa1e8470b3ca80949b7dfe91da030102e",
+      "bytes": 14567
+    },
+    "rules/game-platform/game-platform.json": {
+      "sha256": "94bf3883edbaa33d1d4ce56a5adfceddd6deb7ec5a1348429246b3a176919138",
+      "bytes": 9970
+    },
+    "rules/game-platform/game-platform.list": {
+      "sha256": "586bd3f0a9403feb3600d6ef8e2bac38ac0732d1546dd94ad3174a6b2773998b",
+      "bytes": 15051
+    },
+    "rules/game-platform/game-platform.mrs": {
+      "sha256": "fedfc804b141e1d71450dc2464b83d1a808628d920a00adcf57067681a707302",
+      "bytes": 5107
+    },
+    "rules/game-platform/game-platform.srs": {
+      "sha256": "b615ed7273e2ce14d4536698f061b5b1294818a13d45996931a3a85731a580e2",
+      "bytes": 4466
+    },
+    "rules/game-platform/game-platform.yaml": {
+      "sha256": "34b6264df87c89324ba82487dc7c7c726378ccf75bbf99f7db2aff5b558fe5c1",
+      "bytes": 12306
+    },
+    "rules/google/google-qx.list": {
+      "sha256": "8df2680bac335a589d71f1aefdfd25e5be0b910b180f9d7aa8c5e53a67aaf0fe",
+      "bytes": 16423
+    },
+    "rules/google/google.json": {
+      "sha256": "f80d821800ef540edfe8dc41b8466cfdfedca21f42e1cb7f68ee7b3330d21c1d",
+      "bytes": 10218
+    },
+    "rules/google/google.list": {
+      "sha256": "ab968446cdfa03c5fb2779df8e007c33d85bbeb573c4e26e39af3b4793d4b489",
+      "bytes": 17050
+    },
+    "rules/google/google.mrs": {
+      "sha256": "24abe7f6fa07cf5a91d0607f5ae1eaa481c77827508a61bbbb7838cadfb8b2f9",
+      "bytes": 5406
+    },
+    "rules/google/google.srs": {
+      "sha256": "afa33f93a7cacceadc76445a3bc745fa4325a8e84f99766c5bda9b6ad2209086",
+      "bytes": 4697
+    },
+    "rules/google/google.yaml": {
+      "sha256": "cfbce0499d6eed07af3274612348d3d079edad38432d464ba93ac1e4f1c5b69a",
+      "bytes": 13327
+    },
+    "rules/max/max-qx.list": {
+      "sha256": "78825a308cc22153fbedcc78c3d2cc3de87bd33429cfdc7137ca1a6817e3ea2c",
+      "bytes": 1739
+    },
+    "rules/max/max.json": {
+      "sha256": "18f2d2e74b12e00aa3fe81ea6cdeb942230980778010ce2dd110ac5c33af2730",
+      "bytes": 1053
+    },
+    "rules/max/max.list": {
+      "sha256": "f8f4c6e103519919e8f72d9aef2fc65391b80741104446eec706ccd719b2f32e",
+      "bytes": 1803
+    },
+    "rules/max/max.mrs": {
+      "sha256": "30a176bd53a6ed29f7f59b518429239673d9a1d473121235f4e8253b47e041b2",
+      "bytes": 680
+    },
+    "rules/max/max.srs": {
+      "sha256": "22e99fb45e76571d30ebff6b730eabb7e0adb92d1494bbae975eb478030a6b65",
+      "bytes": 602
+    },
+    "rules/max/max.yaml": {
+      "sha256": "0c19fedb27b791f2239cc559c181b43109bc25178131806670ea1ec9b6978ca7",
+      "bytes": 1363
+    },
+    "rules/microsoft/microsoft-qx.list": {
+      "sha256": "df8ca371e3bf3e6a2ac863f4a1b331ba0ed31f848c314b5b0daffc5474dc3e8c",
+      "bytes": 16372
+    },
+    "rules/microsoft/microsoft.json": {
+      "sha256": "fa08f0525833aba17707aed8ccfbd07809c62743dbd8da215c6afe22052cfc3d",
+      "bytes": 10857
+    },
+    "rules/microsoft/microsoft.list": {
+      "sha256": "3180f12bf5a5e7a4891fc6d062b05a064159499155c910cf084275f58229a669",
+      "bytes": 16926
+    },
+    "rules/microsoft/microsoft.mrs": {
+      "sha256": "d836f83de082a829fc2de79361005c4ea86f4f6ee1ad3ef7789923e395f98755",
+      "bytes": 5921
+    },
+    "rules/microsoft/microsoft.srs": {
+      "sha256": "5883eba9c23a422f409b2a570b634fc785247fc525ffe00a461c206e64581438",
+      "bytes": 5195
+    },
+    "rules/microsoft/microsoft.yaml": {
+      "sha256": "fd109679e58e85e53155b5e7db94e7f8f0a9aec82424c377028e066b6100b831",
+      "bytes": 13591
+    },
+    "rules/netflix/netflix-qx.list": {
+      "sha256": "0d69a2b631ec80f4e00338d39043e00a46627e52aba6c26486091b5a07de4ebc",
+      "bytes": 958
+    },
+    "rules/netflix/netflix.json": {
+      "sha256": "4052f59c927050c029147c3074e6fb98369cc06f685a89d6f9c303c993d2e6c3",
+      "bytes": 654
+    },
+    "rules/netflix/netflix.list": {
+      "sha256": "a94da57a699b108faa9f140126ffda7ac65a59a82b894f332e217bf4a0934ea2",
+      "bytes": 986
+    },
+    "rules/netflix/netflix.mrs": {
+      "sha256": "daecea060b67af1c82fe9624e7a164f59d16be6ee4d61257526e0be0e9a5b57c",
+      "bytes": 295
+    },
+    "rules/netflix/netflix.srs": {
+      "sha256": "d9ae27dc63b6c9c938e76c833987f5afaf83cd9d84131d0725cfd4998eb1144f",
+      "bytes": 307
+    },
+    "rules/netflix/netflix.yaml": {
+      "sha256": "5666ceda5183d67ed7d7ca531a2c290cc834a48b27a9b9f985bc9b52c3933901",
+      "bytes": 630
+    },
+    "rules/primevideo/primevideo-qx.list": {
+      "sha256": "8959ea19073ee14944d59718d51bbf0f478dd7bde2690b068c466980c1b642c0",
+      "bytes": 896
+    },
+    "rules/primevideo/primevideo.json": {
+      "sha256": "e92ee93d098a7db5cd6eef92f558de29c11caeaa89f8655442d1567251dcf1ed",
+      "bytes": 684
+    },
+    "rules/primevideo/primevideo.list": {
+      "sha256": "0901e7e981e133d261c804003aefd39ccda0fa57c5902b8231e8db12b19963fc",
+      "bytes": 921
+    },
+    "rules/primevideo/primevideo.mrs": {
+      "sha256": "44e89259f3572eb49e64b3412df88c20240cb5b9588a719e489bf79b328087a3",
+      "bytes": 426
+    },
+    "rules/primevideo/primevideo.srs": {
+      "sha256": "9eea32c659d8484de84965816d61bfec1784933e9471e64638385def4cd9ad19",
+      "bytes": 391
+    },
+    "rules/primevideo/primevideo.yaml": {
+      "sha256": "845235de063b05b0a84563c0717ddade9bba8fadcf0add02c6d4433f6d7580dd",
+      "bytes": 765
+    },
+    "rules/private/private-ip.mrs": {
+      "sha256": "bd8462b592c7baf05357a4d0a53f0e77649105d60b178a78139826cff3988815",
+      "bytes": 160
+    },
+    "rules/private/private-ip.yaml": {
+      "sha256": "fa9c57121af68c340192761d15b9864adf34f9c230d8fc02f7228cf683bc6978",
+      "bytes": 397
+    },
+    "rules/private/private-qx.list": {
+      "sha256": "84251543f025db61538e68e606cdc494f7a2e850e09c03b41c29780e4f9023d7",
+      "bytes": 610
+    },
+    "rules/private/private.json": {
+      "sha256": "892ea895fd9d9c285a865d4733aca7cdcc69f8d2096a7a3ad279f9631063abd7",
+      "bytes": 406
+    },
+    "rules/private/private.list": {
+      "sha256": "b41d25bc26b5dc3b110b9f0590a2cb4039a7fa360ca2d2a3d6ce528664338d29",
+      "bytes": 795
+    },
+    "rules/private/private.mrs": {
+      "sha256": "71447333c05601169faba96c87fe93269f7aaedb06709268ae39941bd70ea134",
+      "bytes": 93
+    },
+    "rules/private/private.srs": {
+      "sha256": "cd5e66c2378481e2fcdde6087a2c2988fc6faecd077f7405a3a5a8c8afc28749",
+      "bytes": 203
+    },
+    "rules/private/private.yaml": {
+      "sha256": "755b38785175c42a2e233d614d0562828e97731fb3880c6dd10a2a35d5c97e44",
+      "bytes": 143
+    },
+    "rules/proxy/proxy-qx.list": {
+      "sha256": "31d1f738a0245be8972aa7fa4da76ddd86185e46c6b51bf45652f46ba09f174b",
+      "bytes": 500272
+    },
+    "rules/proxy/proxy.json": {
+      "sha256": "033226f7fa14d2a1e55fcf46dd56bcd6ce555b19e38203dc5d3e2b3fa6dc7e2f",
+      "bytes": 317478
+    },
+    "rules/proxy/proxy.list": {
+      "sha256": "b337dd18cf068662b8e354f4d00e93bd23b9db81f46a1df64a8206aeb9b2856c",
+      "bytes": 518597
+    },
+    "rules/proxy/proxy.mrs": {
+      "sha256": "3798bcde11ef0e8cddc16ef9d69eceafd8d975973c0904911560f46843fa127e",
+      "bytes": 137673
+    },
+    "rules/proxy/proxy.srs": {
+      "sha256": "0a40a5d939d6a875b66698289f5226d56d86a4eef94eec0d699f1adf73ffc736",
+      "bytes": 110630
+    },
+    "rules/proxy/proxy.yaml": {
+      "sha256": "27391fd33368c3cf4aefb437d01f86b9fbcbd9b7f8f890434ac3a667fda78639",
+      "bytes": 408951
+    },
+    "rules/reject-ads/reject-ads-qx.list": {
+      "sha256": "3cc479f31b82e61e42de7288f60de0ced2e6b56a23a392293bc756abcde20d91",
+      "bytes": 1174109
+    },
+    "rules/reject-ads/reject-ads.json": {
+      "sha256": "a6af0805fde8e79328bcbd4f03fb3f41b9a0251f863c32a19309ef843118d904",
+      "bytes": 797885
+    },
+    "rules/reject-ads/reject-ads.list": {
+      "sha256": "55e6ab2377efe722366b546c312e14231dce423e1f8297f6b10e5932aab7011b",
+      "bytes": 1211831
+    },
+    "rules/reject-ads/reject-ads.mrs": {
+      "sha256": "8835b3e4d728a68e94e49156a914c1fdbaa45d8712c0177bc1512e43048e3f2c",
+      "bytes": 342635
+    },
+    "rules/reject-ads/reject-ads.srs": {
+      "sha256": "c63c7aae9f45a48b674bf96374d6c5876344958f169d438525848b973146281d",
+      "bytes": 302487
+    },
+    "rules/reject-ads/reject-ads.yaml": {
+      "sha256": "548d997636cb317f6789a85679b5a85db21b6d9a7250f0cce23d94e15410bc56",
+      "bytes": 986208
+    },
+    "rules/reject-malware/reject-malware-qx.list": {
+      "sha256": "2013ef4ea1edacb61c1f2b2f845b24f206a9bc89162bd961279913401e1c9f1c",
+      "bytes": 523176
+    },
+    "rules/reject-malware/reject-malware.json": {
+      "sha256": "2385c9b48d350f80b219e04c6f39729b5b799b565510a18de6ac3181edd3f6f3",
+      "bytes": 337017
+    },
+    "rules/reject-malware/reject-malware.list": {
+      "sha256": "48e6c7352fb0585d5592b523abd63c379d629799d33c7da4ec05d5b8a45198e2",
+      "bytes": 541785
+    },
+    "rules/reject-malware/reject-malware.mrs": {
+      "sha256": "b25c6391abb8321840e443fd17a368e620de3c76cdae3fec99864feb25c2919a",
+      "bytes": 126578
+    },
+    "rules/reject-malware/reject-malware.srs": {
+      "sha256": "17ae36b3845ebf413e4d4410ac34abdc47f2eb0089bfdd6b24f46fa5b993cb00",
+      "bytes": 107746
+    },
+    "rules/reject-malware/reject-malware.yaml": {
+      "sha256": "d4d464d94b5bc7c919ca50f3d4e07cd70028b3d9e9509e7dfc7da615714dc6aa",
+      "bytes": 430075
+    },
+    "rules/reject-tracker/reject-tracker-qx.list": {
+      "sha256": "5a0b249de737f8c2320eb430f99a646e4dc5a1c0e6379d0de5923a516eb9e4a9",
+      "bytes": 19033
+    },
+    "rules/reject-tracker/reject-tracker.json": {
+      "sha256": "93dfa96958722bf33f40ebb2e022426c400725580c1dfa4578075a6115faafa9",
+      "bytes": 12267
+    },
+    "rules/reject-tracker/reject-tracker.list": {
+      "sha256": "257d5a190ed17e4c42938a7ea0d5df01cce21faf8681dc8fd033939446e08a23",
+      "bytes": 19701
+    },
+    "rules/reject-tracker/reject-tracker.mrs": {
+      "sha256": "ec9f7118a7d8aefc13bfd9eb253e02a98c5986ab85e7c3684399a479edd14a06",
+      "bytes": 5733
+    },
+    "rules/reject-tracker/reject-tracker.srs": {
+      "sha256": "92ebeec515940e08a3b8ee9e069760fb3fd4a619fc46a14b177f326dc3e7c8b3",
+      "bytes": 4930
+    },
+    "rules/reject-tracker/reject-tracker.yaml": {
+      "sha256": "4876391a520f07663b30bd4370a033feefcad28711899525f1845b6447ce6e43",
+      "bytes": 15637
+    },
+    "rules/spotify/spotify-qx.list": {
+      "sha256": "ea178f6f9b2e50a1ad56e14deb04af4e6fccaaeee2e867fa62f7e406bcae1dac",
+      "bytes": 803
+    },
+    "rules/spotify/spotify.json": {
+      "sha256": "ab3c9c3acc08ea57b502f157fbd8af65a9f9a2933be7047c9014fc99e56f5eeb",
+      "bytes": 587
+    },
+    "rules/spotify/spotify.list": {
+      "sha256": "304b3a7e3cfbd14ad4940d306288cd04259573ae198c2c49e4fce6d5afe7f0b1",
+      "bytes": 826
+    },
+    "rules/spotify/spotify.mrs": {
+      "sha256": "599e95ac28105515a0994231ff0b036d046e8a2623b4ee4f92a50b2da06c2f37",
+      "bytes": 378
+    },
+    "rules/spotify/spotify.srs": {
+      "sha256": "6f7749e4d9c1548a8fa745e25377123131c0b4c19dff098b9a0f02a9e5f11c14",
+      "bytes": 339
+    },
+    "rules/spotify/spotify.yaml": {
+      "sha256": "62a0190d80a5f605bb6f053700d41be5a11cb9483ff8ea4e25fb9971b8d91ad7",
+      "bytes": 662
+    },
+    "rules/steam-direct/steam-direct-ip.mrs": {
+      "sha256": "13740aaa24dca7f1841249adb5eb323f3348a61d28ad290b161aa95c75cf26f0",
+      "bytes": 228
+    },
+    "rules/steam-direct/steam-direct-ip.yaml": {
+      "sha256": "39fc3b91739b6bffe48d7e8f8266ed893438fb63e75e45072f1576bba73f5cd8",
+      "bytes": 1767
+    },
+    "rules/steam-direct/steam-direct-qx.list": {
+      "sha256": "e27ba6cbb98dc70533227cba8da166fe7ae2f41b0c8691a0f8fc41f910ee6705",
+      "bytes": 3685
+    },
+    "rules/steam-direct/steam-direct.json": {
+      "sha256": "936925804418b4748204d15b9dc39e565c3af223338792ad5c2865359c7d2260",
+      "bytes": 2774
+    },
+    "rules/steam-direct/steam-direct.list": {
+      "sha256": "8e77cd86a8fc0ff370b27a8a7a84ce4165b2f8c7e4e6e3c5928b06a6248932da",
+      "bytes": 4446
+    },
+    "rules/steam-direct/steam-direct.mrs": {
+      "sha256": "9a467cdca4bf6abe5ab314e40509d4e088e84e54a80a5dae8574dd5802aa407d",
+      "bytes": 770
+    },
+    "rules/steam-direct/steam-direct.srs": {
+      "sha256": "1e2f3bbb2e1628741c6141af6e1ebd809eccf8e148d175052f542c569ca4a129",
+      "bytes": 997
+    },
+    "rules/steam-direct/steam-direct.yaml": {
+      "sha256": "eebce46c06e219af84563f6d72e38b779df10e961f45dea111ebea3f47824e2a",
+      "bytes": 1529
+    },
+    "rules/streaming-others/streaming-others-qx.list": {
+      "sha256": "43880f4319282b468440d2a4158d34d5a975b4ca6a999df6956de86e4b7d3c8f",
+      "bytes": 44780
+    },
+    "rules/streaming-others/streaming-others.json": {
+      "sha256": "a3c6797222f689bda67e4c32bd56dd274269993d6ce571533172e04a2b0b7df3",
+      "bytes": 29022
+    },
+    "rules/streaming-others/streaming-others.list": {
+      "sha256": "d29ac66d985dcc18f154c970e322a01b5d7da9a00fd00d9d00ef4f572439a09e",
+      "bytes": 46367
+    },
+    "rules/streaming-others/streaming-others.mrs": {
+      "sha256": "8e268602a659ee4913d7cd73ec5f7c6d6aa1cd010d4e73b1c00215b96edd9ffa",
+      "bytes": 14434
+    },
+    "rules/streaming-others/streaming-others.srs": {
+      "sha256": "29630183ec01ed6e7bb2c9216d601a3256f563befcdf8afbcac1b5d64803c7dc",
+      "bytes": 12559
+    },
+    "rules/streaming-others/streaming-others.yaml": {
+      "sha256": "04ae5e46aff0bcfd6732da7719dcd393bf22b990a095cf2eee54b58db422d7e0",
+      "bytes": 36909
+    },
+    "rules/telegram/telegram-ip.mrs": {
+      "sha256": "4fa03207305db53df766395755026a7a19d2cdca6012818c41f21aba992c03dd",
+      "bytes": 132
+    },
+    "rules/telegram/telegram-ip.yaml": {
+      "sha256": "0c125fab1d5dc60d43dae930bafae902d88dd2139717111c2b8a2d97286e9a83",
+      "bytes": 282
+    },
+    "rules/telegram/telegram-qx.list": {
+      "sha256": "4f300dd0bf966d7cedcaff5dfe61bf308f7807cab13f91d6c54aeb580107e404",
+      "bytes": 897
+    },
+    "rules/telegram/telegram.json": {
+      "sha256": "ab35766eac3d3c53d52671e52ebc448a36871196a9aa5861216e40b4befd0578",
+      "bytes": 569
+    },
+    "rules/telegram/telegram.list": {
+      "sha256": "4ca2cbcdd8f9e374ca5af7b644e8d77e851c187e068b64abc073c941a6cb8880",
+      "bytes": 1018
+    },
+    "rules/telegram/telegram.mrs": {
+      "sha256": "ffa4d1d3e8649965e529c1c570d8add75a0d6f70aa8503ece8add841ce48c0e7",
+      "bytes": 274
+    },
+    "rules/telegram/telegram.srs": {
+      "sha256": "05125d700ff66c33ba986255f97b208ee622f9fd13269b92f1c5a6ee8453569d",
+      "bytes": 350
+    },
+    "rules/telegram/telegram.yaml": {
+      "sha256": "8a65032465077b528fa316983a143cb9a81578295946ba9a5659487a46bfbede",
+      "bytes": 480
+    },
+    "rules/tiktok/tiktok-qx.list": {
+      "sha256": "d4677548b536ce66d0410e3ca72c17cd4593a9ad7086731e4bbe7b2a03e9830c",
+      "bytes": 1182
+    },
+    "rules/tiktok/tiktok.json": {
+      "sha256": "1466d54fd41d57b066f1da30b4067894b14dbb982266e0bd34396bae95061262",
+      "bytes": 791
+    },
+    "rules/tiktok/tiktok.list": {
+      "sha256": "154743ef9fea38cf162e170815a8f24c7a6b7f3f05eb2b8ed137ea12b04935df",
+      "bytes": 1218
+    },
+    "rules/tiktok/tiktok.mrs": {
+      "sha256": "d90b1207a9ee32433bdea58f271a562cccfb09a4fb9f810be664e3e239da62ce",
+      "bytes": 489
+    },
+    "rules/tiktok/tiktok.srs": {
+      "sha256": "0f35a58a98e5db85cb0c73cb66a33d10d3af2b0e7ade9084ec22ed381f407b10",
+      "bytes": 443
+    },
+    "rules/tiktok/tiktok.yaml": {
+      "sha256": "596d52319d05170648b23477457989f3128ba1a4b36c6f0457e49b5d4519584c",
+      "bytes": 956
+    },
+    "rules/v2rayng/routemint-geoip.dat": {
+      "sha256": "3ec0f26c66d0140cd4ccc7fbc788672d1fcf45f09f7194133a36c83a88e80c22",
+      "bytes": 139141
+    },
+    "rules/v2rayng/routemint-geosite.dat": {
+      "sha256": "b169b538cb6dc7387c51b58ccfdb9ce00b52f4acbcf0a623af42a2d665096055",
+      "bytes": 1859766
+    },
+    "rules/youtube/youtube-qx.list": {
+      "sha256": "de0df541d2493fe29919c7b7638e837edf0ed802168f7f3d77734f4629896ae0",
+      "bytes": 4770
+    },
+    "rules/youtube/youtube.json": {
+      "sha256": "997e27d7c25693087b18f7a46887ea88f696400f3cf438fa06723d493f5d1399",
+      "bytes": 2964
+    },
+    "rules/youtube/youtube.list": {
+      "sha256": "8b019875c48d48372f01a15ca03abbfc88dbf38acc3e3fbdc895da724b1379a4",
+      "bytes": 4947
+    },
+    "rules/youtube/youtube.mrs": {
+      "sha256": "79d34c6ab101c55439ae4a45a36cd5de8b95e3f4b79d7faa57c038300d94954b",
+      "bytes": 1352
+    },
+    "rules/youtube/youtube.srs": {
+      "sha256": "c0536fe1195a661bce0c603686291e36b5465d0f8b046ee562180beeb2eaa20b",
+      "bytes": 1147
+    },
+    "rules/youtube/youtube.yaml": {
+      "sha256": "706c88e14633ee9cdf53d5ce636d151e506dbe05cfa7d86168a8caeb7ab5be00",
+      "bytes": 3834
+    }
+  }
+}
