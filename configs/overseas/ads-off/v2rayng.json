@@ -1,0 +1,168 @@
+[
+  {
+    "remarks": "RouteMint · private · 域名",
+    "domain": [
+      "ext:routemint-geosite.dat:private"
+    ],
+    "outboundTag": "direct"
+  },
+  {
+    "remarks": "RouteMint · private · IP",
+    "ip": [
+      "ext:routemint-geoip.dat:private"
+    ],
+    "outboundTag": "direct"
+  },
+  {
+    "remarks": "RouteMint · ai-openai · 域名",
+    "domain": [
+      "ext:routemint-geosite.dat:ai-openai"
+    ],
+    "outboundTag": "proxy"
+  },
+  {
+    "remarks": "RouteMint · ai-anthropic · 域名",
+    "domain": [
+      "ext:routemint-geosite.dat:ai-anthropic"
+    ],
+    "outboundTag": "proxy"
+  },
+  {
+    "remarks": "RouteMint · ai-gemini · 域名",
+    "domain": [
+      "ext:routemint-geosite.dat:ai-gemini"
+    ],
+    "outboundTag": "proxy"
+  },
+  {
+    "remarks": "RouteMint · ai-copilot · 域名",
+    "domain": [
+      "ext:routemint-geosite.dat:ai-copilot"
+    ],
+    "outboundTag": "proxy"
+  },
+  {
+    "remarks": "RouteMint · ai-perplexity · 域名",
+    "domain": [
+      "ext:routemint-geosite.dat:ai-perplexity"
+    ],
+    "outboundTag": "proxy"
+  },
+  {
+    "remarks": "RouteMint · ai-others · 域名",
+    "domain": [
+      "ext:routemint-geosite.dat:ai-others"
+    ],
+    "outboundTag": "proxy"
+  },
+  {
+    "remarks": "RouteMint · netflix · 域名",
+    "domain": [
+      "ext:routemint-geosite.dat:netflix"
+    ],
+    "outboundTag": "proxy"
+  },
+  {
+    "remarks": "RouteMint · disney · 域名",
+    "domain": [
+      "ext:routemint-geosite.dat:disney"
+    ],
+    "outboundTag": "proxy"
+  },
+  {
+    "remarks": "RouteMint · youtube · 域名",
+    "domain": [
+      "ext:routemint-geosite.dat:youtube"
+    ],
+    "outboundTag": "direct"
+  },
+  {
+    "remarks": "RouteMint · tiktok · 域名",
+    "domain": [
+      "ext:routemint-geosite.dat:tiktok"
+    ],
+    "outboundTag": "proxy"
+  },
+  {
+    "remarks": "RouteMint · max · 域名",
+    "domain": [
+      "ext:routemint-geosite.dat:max"
+    ],
+    "outboundTag": "proxy"
+  },
+  {
+    "remarks": "RouteMint · primevideo · 域名",
+    "domain": [
+      "ext:routemint-geosite.dat:primevideo"
+    ],
+    "outboundTag": "proxy"
+  },
+  {
+    "remarks": "RouteMint · game-download · 域名",
+    "domain": [
+      "ext:routemint-geosite.dat:game-download"
+    ],
+    "outboundTag": "direct"
+  },
+  {
+    "remarks": "RouteMint · baidu-pan · 域名",
+    "domain": [
+      "ext:routemint-geosite.dat:baidu-pan"
+    ],
+    "outboundTag": "direct"
+  },
+  {
+    "remarks": "RouteMint · game-platform · 域名",
+    "domain": [
+      "ext:routemint-geosite.dat:game-platform"
+    ],
+    "outboundTag": "proxy"
+  },
+  {
+    "remarks": "RouteMint · steam-direct · 域名",
+    "domain": [
+      "ext:routemint-geosite.dat:steam-direct"
+    ],
+    "outboundTag": "direct"
+  },
+  {
+    "remarks": "RouteMint · steam-direct · IP",
+    "ip": [
+      "ext:routemint-geoip.dat:steam-direct"
+    ],
+    "outboundTag": "direct"
+  },
+  {
+    "remarks": "RouteMint · google · 域名",
+    "domain": [
+      "ext:routemint-geosite.dat:google"
+    ],
+    "outboundTag": "direct"
+  },
+  {
+    "remarks": "RouteMint · cn · 域名",
+    "domain": [
+      "ext:routemint-geosite.dat:cn"
+    ],
+    "outboundTag": "direct"
+  },
+  {
+    "remarks": "RouteMint · cn-ip · IP",
+    "ip": [
+      "ext:routemint-geoip.dat:cn-ip"
+    ],
+    "outboundTag": "direct"
+  },
+  {
+    "remarks": "RouteMint · cn-ip6 · IP",
+    "ip": [
+      "ext:routemint-geoip.dat:cn-ip6"
+    ],
+    "outboundTag": "direct"
+  },
+  {
+    "remarks": "RouteMint · 默认出口",
+    "network": "tcp,udp",
+    "outboundTag": "direct"
+  }
+]
