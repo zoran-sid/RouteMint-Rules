@@ -2,6 +2,29 @@
 
 由每日构建自动生成。只记录规则层面的变化，格式变化不计。
 
+## 2026-11-21
+
+- **apple**：1583 → 1453（-130）
+  - 删除：DOMAIN-SUFFIX,40shopping.com, DOMAIN-SUFFIX,aanaan.com, DOMAIN-SUFFIX,aeasyshop.com, DOMAIN-SUFFIX,airmay.com, DOMAIN-SUFFIX,ajtalk.com, DOMAIN-SUFFIX,annstores.net, DOMAIN-SUFFIX,aokwholesale.net, DOMAIN-SUFFIX,bag-glasses1.com …
+- **cn**：6220 → 6224（+4）
+  - 新增：DOMAIN-SUFFIX,echooai.com, DOMAIN-SUFFIX,faw-vw.com, DOMAIN-SUFFIX,fazhipro.com, DOMAIN-SUFFIX,saasfz.com
+- **cn-ip**：6227 → 6223（-4）
+  - 新增：IP-CIDR,1.0.1.0/24, IP-CIDR,1.0.2.0/23, IP-CIDR,1.0.32.0/19, IP-CIDR,1.0.8.0/21, IP-CIDR,1.1.0.0/24, IP-CIDR,1.1.16.0/20, IP-CIDR,1.1.2.0/23, IP-CIDR,1.1.32.0/19 …
+  - 删除：IP-CIDR,1.0.1.0/24,no-resolve, IP-CIDR,1.0.2.0/23,no-resolve, IP-CIDR,1.0.32.0/19,no-resolve, IP-CIDR,1.0.8.0/21,no-resolve, IP-CIDR,1.1.0.0/24,no-resolve, IP-CIDR,1.1.16.0/20,no-resolve, IP-CIDR,1.1.2.0/23,no-resolve, IP-CIDR,1.1.32.0/19,no-resolve …
+- **cn-ip6**：3446 → 3444（-2）
+  - 新增：IP-CIDR6,2001:250::/30, IP-CIDR6,2001:254::/33, IP-CIDR6,2001:255::/32, IP-CIDR6,2001:4510:1480::/41, IP-CIDR6,2001:4510:400::/40, IP-CIDR6,2001:4511:1480::/41, IP-CIDR6,2001:7fa:5::/48, IP-CIDR6,2001:c68::/32 …
+  - 删除：IP-CIDR6,2001:250::/30,no-resolve, IP-CIDR6,2001:254::/33,no-resolve, IP-CIDR6,2001:255::/32,no-resolve, IP-CIDR6,2001:4510:1480::/41,no-resolve, IP-CIDR6,2001:4510:400::/40,no-resolve, IP-CIDR6,2001:4511:1480::/41,no-resolve, IP-CIDR6,2001:7fa:5::/48,no-resolve, IP-CIDR6,2001:c68::/32,no-resolve …
+- **reject-malware**：18823 → 18918（+95）
+  - 新增：DOMAIN-SUFFIX,1.55.243.196, DOMAIN-SUFFIX,103.27.157.16, DOMAIN-SUFFIX,103.30.92.188, DOMAIN-SUFFIX,105.158.181.191, DOMAIN-SUFFIX,105.186.68.239, DOMAIN-SUFFIX,105.187.26.114, DOMAIN-SUFFIX,105.224.61.134, DOMAIN-SUFFIX,105.225.35.183 …
+  - 删除：DOMAIN-SUFFIX,103.78.81.106, DOMAIN-SUFFIX,104.249.10.137, DOMAIN-SUFFIX,105.112.83.93, DOMAIN-SUFFIX,109.69.79.44, DOMAIN-SUFFIX,112.248.105.21, DOMAIN-SUFFIX,112.248.189.106, DOMAIN-SUFFIX,113.221.25.59, DOMAIN-SUFFIX,113.230.68.198 …
+
+| 预设 | ads-off | ads-light | ads-strict |
+|---|---|---|---|
+| cn-mainland | 40097 | 78487 | 97405 |
+| overseas | 18037 | 56427 | 75345 |
+| overseas-return | 16892 | 55282 | 74200 |
+| cn-mainland-lite | 13418 | 51808 | 70726 |
+
 ## 2026-11-20
 
 - **cn-ip**：6221 → 6227（+6）
