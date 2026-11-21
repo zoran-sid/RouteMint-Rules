@@ -1,0 +1,1 @@
+{"version": 5, "rules": [{"domain": ["gemini.google.com"], "domain_suffix": ["aistudio.google.com", "bard.google.com", "deepmind.com", "deepmind.google", "gemini.google", "generativelanguage.googleapis.com"]}]}
