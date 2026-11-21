@@ -1,0 +1,98 @@
+[
+  {
+    "remarks": "RouteMint · private · 域名",
+    "domain": [
+      "ext:routemint-geosite.dat:private"
+    ],
+    "outboundTag": "direct"
+  },
+  {
+    "remarks": "RouteMint · private · IP",
+    "ip": [
+      "ext:routemint-geoip.dat:private"
+    ],
+    "outboundTag": "direct"
+  },
+  {
+    "remarks": "RouteMint · reject-malware · 域名",
+    "domain": [
+      "ext:routemint-geosite.dat:reject-malware"
+    ],
+    "outboundTag": "block"
+  },
+  {
+    "remarks": "RouteMint · reject-tracker · 域名",
+    "domain": [
+      "ext:routemint-geosite.dat:reject-tracker"
+    ],
+    "outboundTag": "block"
+  },
+  {
+    "remarks": "RouteMint · reject-ads · 域名",
+    "domain": [
+      "ext:routemint-geosite.dat:reject-ads"
+    ],
+    "outboundTag": "block"
+  },
+  {
+    "remarks": "RouteMint · ai · 域名",
+    "domain": [
+      "ext:routemint-geosite.dat:ai"
+    ],
+    "outboundTag": "proxy"
+  },
+  {
+    "remarks": "RouteMint · game-download · 域名",
+    "domain": [
+      "ext:routemint-geosite.dat:game-download"
+    ],
+    "outboundTag": "direct"
+  },
+  {
+    "remarks": "RouteMint · baidu-pan · 域名",
+    "domain": [
+      "ext:routemint-geosite.dat:baidu-pan"
+    ],
+    "outboundTag": "direct"
+  },
+  {
+    "remarks": "RouteMint · game-platform · 域名",
+    "domain": [
+      "ext:routemint-geosite.dat:game-platform"
+    ],
+    "outboundTag": "proxy"
+  },
+  {
+    "remarks": "RouteMint · steam-direct · 域名",
+    "domain": [
+      "ext:routemint-geosite.dat:steam-direct"
+    ],
+    "outboundTag": "direct"
+  },
+  {
+    "remarks": "RouteMint · steam-direct · IP",
+    "ip": [
+      "ext:routemint-geoip.dat:steam-direct"
+    ],
+    "outboundTag": "direct"
+  },
+  {
+    "remarks": "RouteMint · cn · 域名",
+    "domain": [
+      "ext:routemint-geosite.dat:cn"
+    ],
+    "outboundTag": "direct"
+  },
+  {
+    "remarks": "RouteMint · cn-ip · IP",
+    "ip": [
+      "ext:routemint-geoip.dat:cn-ip"
+    ],
+    "outboundTag": "direct"
+  },
+  {
+    "remarks": "RouteMint · 默认出口",
+    "network": "tcp,udp",
+    "outboundTag": "proxy"
+  }
+]
