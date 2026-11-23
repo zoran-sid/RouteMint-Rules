@@ -1,0 +1,45 @@
+# 变更日志
+
+由每日构建自动生成。只记录规则层面的变化，格式变化不计。
+
+## 2026-11-23
+
+- **cn**：6224 → 6225（+1）
+  - 新增：DOMAIN-SUFFIX,icc.link
+- **cn-ip**：6219 → 6224（+5）
+  - 新增：IP-CIDR,1.0.1.0/24, IP-CIDR,1.0.2.0/23, IP-CIDR,1.0.32.0/19, IP-CIDR,1.0.8.0/21, IP-CIDR,1.1.0.0/24, IP-CIDR,1.1.16.0/20, IP-CIDR,1.1.2.0/23, IP-CIDR,1.1.32.0/19 …
+  - 删除：IP-CIDR,1.0.1.0/24,no-resolve, IP-CIDR,1.0.2.0/23,no-resolve, IP-CIDR,1.0.32.0/19,no-resolve, IP-CIDR,1.0.8.0/21,no-resolve, IP-CIDR,1.1.0.0/24,no-resolve, IP-CIDR,1.1.16.0/20,no-resolve, IP-CIDR,1.1.2.0/23,no-resolve, IP-CIDR,1.1.32.0/19,no-resolve …
+- **cn-ip6**：3444 → 3447（+3）
+  - 新增：IP-CIDR6,2001:250::/30, IP-CIDR6,2001:254::/33, IP-CIDR6,2001:255::/32, IP-CIDR6,2001:4510:1480::/41, IP-CIDR6,2001:4510:400::/40, IP-CIDR6,2001:4511:1480::/41, IP-CIDR6,2001:7fa:5::/48, IP-CIDR6,2001:c68::/32 …
+  - 删除：IP-CIDR6,2001:250::/30,no-resolve, IP-CIDR6,2001:254::/33,no-resolve, IP-CIDR6,2001:255::/32,no-resolve, IP-CIDR6,2001:4510:1480::/41,no-resolve, IP-CIDR6,2001:4510:400::/40,no-resolve, IP-CIDR6,2001:4511:1480::/41,no-resolve, IP-CIDR6,2001:7fa:5::/48,no-resolve, IP-CIDR6,2001:c68::/32,no-resolve …
+- **reject-malware**：18942 → 19038（+96）
+  - 新增：DOMAIN-SUFFIX,101.21.11.177, DOMAIN-SUFFIX,101.255.92.202, DOMAIN-SUFFIX,102.217.36.10, DOMAIN-SUFFIX,103.113.106.117, DOMAIN-SUFFIX,103.125.163.10, DOMAIN-SUFFIX,103.164.200.170, DOMAIN-SUFFIX,103.180.241.200, DOMAIN-SUFFIX,103.244.172.36 …
+  - 删除：DOMAIN-SUFFIX,1.92.136.152, DOMAIN-SUFFIX,102.23.89.5, DOMAIN-SUFFIX,103.145.31.238, DOMAIN-SUFFIX,103.159.152.118, DOMAIN-SUFFIX,103.159.221.33, DOMAIN-SUFFIX,103.167.175.108, DOMAIN-SUFFIX,103.240.211.121, DOMAIN-SUFFIX,104.199.248.167 …
+
+| 预设 | ads-off | ads-light | ads-strict |
+|---|---|---|---|
+| cn-mainland | 40126 | 78516 | 97554 |
+| overseas | 18042 | 56432 | 75470 |
+| overseas-return | 16897 | 55287 | 74325 |
+| cn-mainland-lite | 13420 | 51810 | 70848 |
+
+## 2026-11-21
+
+- **cn-ip**：6223 → 6219（-4）
+  - 新增：IP-CIDR,1.0.1.0/24, IP-CIDR,1.0.2.0/23, IP-CIDR,1.0.32.0/19, IP-CIDR,1.0.8.0/21, IP-CIDR,1.1.0.0/24, IP-CIDR,1.1.16.0/20, IP-CIDR,1.1.2.0/23, IP-CIDR,1.1.32.0/19 …
+  - 删除：IP-CIDR,1.0.1.0/24,no-resolve, IP-CIDR,1.0.2.0/23,no-resolve, IP-CIDR,1.0.32.0/19,no-resolve, IP-CIDR,1.0.8.0/21,no-resolve, IP-CIDR,1.1.0.0/24,no-resolve, IP-CIDR,1.1.16.0/20,no-resolve, IP-CIDR,1.1.2.0/23,no-resolve, IP-CIDR,1.1.32.0/19,no-resolve …
+- **proxy**：18325 → 18331（+6）
+  - 新增：DOMAIN-SUFFIX,51papaya.com, DOMAIN-SUFFIX,fanza.jp, DOMAIN-SUFFIX,hkt, DOMAIN-SUFFIX,pccw, DOMAIN-SUFFIX,replit.com, DOMAIN-SUFFIX,tortoisegit.org
+- **reject-malware**：18918 → 18942（+24）
+  - 新增：DOMAIN-SUFFIX,101.29.21.174, DOMAIN-SUFFIX,105.154.96.249, DOMAIN-SUFFIX,105.224.249.164, DOMAIN-SUFFIX,110.188.42.181, DOMAIN-SUFFIX,110.39.41.202, DOMAIN-SUFFIX,112.248.80.87, DOMAIN-SUFFIX,112.248.97.125, DOMAIN-SUFFIX,115.203.74.234 …
+  - 删除：DOMAIN-SUFFIX,101.109.237.184, DOMAIN-SUFFIX,101.29.22.214, DOMAIN-SUFFIX,103.151.43.183, DOMAIN-SUFFIX,103.90.207.13, DOMAIN-SUFFIX,106.15.6.205, DOMAIN-SUFFIX,112.237.148.180, DOMAIN-SUFFIX,112.248.106.88, DOMAIN-SUFFIX,113.229.190.135 …
+- **streaming-others**：1587 → 1605（+18）
+  - 新增：DOMAIN-SUFFIX,bravotv.com, DOMAIN-SUFFIX,cnbccouncils.com, DOMAIN-SUFFIX,focusfeatures.com, DOMAIN-SUFFIX,hayu.com, DOMAIN-SUFFIX,illumination.com, DOMAIN-SUFFIX,nbcumv.com, DOMAIN-SUFFIX,nbcunicareers.com, DOMAIN-SUFFIX,nbcuniversalprivacy.com …
+  - 删除：DOMAIN-SUFFIX,msnbc.com
+
+| 预设 | ads-off | ads-light | ads-strict |
+|---|---|---|---|
+| cn-mainland | 40117 | 78507 | 97449 |
+| overseas | 18033 | 56423 | 75365 |
+| overseas-return | 16888 | 55278 | 74220 |
+| cn-mainland-lite | 13414 | 51804 | 70746 |
