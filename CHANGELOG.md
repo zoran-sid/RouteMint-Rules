@@ -2,6 +2,33 @@
 
 由每日构建自动生成。只记录规则层面的变化，格式变化不计。
 
+## 2026-11-24
+
+- **ai**：226 → 227（+1）
+  - 新增：DOMAIN-SUFFIX,gemma.ai
+- **ai-others**：166 → 167（+1）
+  - 新增：DOMAIN-SUFFIX,gemma.ai
+- **cn**：6225 → 6229（+4）
+  - 新增：DOMAIN-SUFFIX,chunithm.wahlap.com, DOMAIN-SUFFIX,maimai.wahlap.com, DOMAIN-SUFFIX,tgk-wcaime.wahlap.com, DOMAIN-SUFFIX,wahlap.net
+- **cn-ip**：6224 → 6241（+17）
+  - 新增：IP-CIDR,1.0.1.0/24, IP-CIDR,1.0.2.0/23, IP-CIDR,1.0.32.0/19, IP-CIDR,1.0.8.0/21, IP-CIDR,1.1.0.0/24, IP-CIDR,1.1.16.0/20, IP-CIDR,1.1.2.0/23, IP-CIDR,1.1.32.0/19 …
+  - 删除：IP-CIDR,1.0.1.0/24,no-resolve, IP-CIDR,1.0.2.0/23,no-resolve, IP-CIDR,1.0.32.0/19,no-resolve, IP-CIDR,1.0.8.0/21,no-resolve, IP-CIDR,1.1.0.0/24,no-resolve, IP-CIDR,1.1.16.0/20,no-resolve, IP-CIDR,1.1.2.0/23,no-resolve, IP-CIDR,1.1.32.0/19,no-resolve …
+- **proxy**：18331 → 18336（+5）
+  - 新增：DOMAIN,courses.myecnu.org, DOMAIN-SUFFIX,cachix.org, DOMAIN-SUFFIX,fastly-insights.com, DOMAIN-SUFFIX,fastlydns.net, DOMAIN-SUFFIX,vivox.com
+- **reject-ads**：37722 → 38366（+644）
+  - 新增：DOMAIN-SUFFIX,006cdb072c.57b7c28578.com, DOMAIN-SUFFIX,0e55ba5a5e.e6b0db6ec2.com, DOMAIN-SUFFIX,0lluihle.xyz, DOMAIN-SUFFIX,11fea8a7d1.37dfc5e536.com, DOMAIN-SUFFIX,130e7eb7f1.57626432d9.com, DOMAIN-SUFFIX,1790abdbaf.efb25c42eb.com, DOMAIN-SUFFIX,18f1e4c682.2d3e4fb107.com, DOMAIN-SUFFIX,1a6a20f64d.6f48d808f9.com …
+  - 删除：DOMAIN-SUFFIX,0a2bdfc424.0e176a58eb.com, DOMAIN-SUFFIX,0b000eb965.c9d76c57e7.com, DOMAIN-SUFFIX,1106ca2ad4.e230ae5c2b.com, DOMAIN-SUFFIX,1c46639b8d.aff15e203a.com, DOMAIN-SUFFIX,2a4e06fbcf.daa9425b1e.com, DOMAIN-SUFFIX,2b9ce82571.ba69a24a2a.com, DOMAIN-SUFFIX,2be197fc33.57352d918d.com, DOMAIN-SUFFIX,37ccf2671e.95ce9fb0ff.com …
+- **reject-malware**：19038 → 19068（+30）
+  - 新增：DOMAIN-SUFFIX,1.177.63.18, DOMAIN-SUFFIX,100.10.1.152, DOMAIN-SUFFIX,100.70.57.249, DOMAIN-SUFFIX,101.108.108.42, DOMAIN-SUFFIX,102.23.89.5, DOMAIN-SUFFIX,103.107.97.42, DOMAIN-SUFFIX,103.114.203.217, DOMAIN-SUFFIX,103.159.152.118 …
+  - 删除：DOMAIN-SUFFIX,1.171.9.127, DOMAIN-SUFFIX,1.94.221.183, DOMAIN-SUFFIX,101.17.194.207, DOMAIN-SUFFIX,101.255.92.202, DOMAIN-SUFFIX,103.161.17.92, DOMAIN-SUFFIX,103.173.173.98, DOMAIN-SUFFIX,103.90.207.13, DOMAIN-SUFFIX,105.184.150.73 …
+
+| 预设 | ads-off | ads-light | ads-strict |
+|---|---|---|---|
+| cn-mainland | 40153 | 79187 | 98255 |
+| overseas | 18064 | 57098 | 76166 |
+| overseas-return | 16919 | 55953 | 75021 |
+| cn-mainland-lite | 13442 | 52476 | 71544 |
+
 ## 2026-11-23
 
 - **cn**：6224 → 6225（+1）
