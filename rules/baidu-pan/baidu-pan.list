@@ -1,0 +1,23 @@
+# RouteMint-Rules · 百度网盘与下载 CDN
+# 20 rules
+# https://github.com/zoran-sid/RouteMint-Rules
+DOMAIN-SUFFIX,baidu-cdn.cn
+DOMAIN-SUFFIX,baidu-cdn.com
+DOMAIN-SUFFIX,baidu-cdn.net
+DOMAIN-SUFFIX,baidubce.com
+DOMAIN-SUFFIX,baidubcr.com
+DOMAIN-SUFFIX,baidupcs.com
+DOMAIN-SUFFIX,baiduyuncdn.cn
+DOMAIN-SUFFIX,baiduyuncdn.com
+DOMAIN-SUFFIX,baiduyuncdn.net
+DOMAIN-SUFFIX,bce-cdn.cn
+DOMAIN-SUFFIX,bce-cdn.com
+DOMAIN-SUFFIX,bce-cdn.net
+DOMAIN-SUFFIX,bcebos.com
+DOMAIN-SUFFIX,bdycdn.cn
+DOMAIN-SUFFIX,bdycdn.net
+DOMAIN-SUFFIX,pan.baidu.com
+DOMAIN-SUFFIX,passport.baidu.com
+DOMAIN-SUFFIX,pcs.baidu.com
+DOMAIN-SUFFIX,pcsdata.baidu.com
+DOMAIN-SUFFIX,yun.baidu.com

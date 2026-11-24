@@ -1,0 +1,11 @@
+# GitHub Copilot / Microsoft Copilot · 9 rules
+payload:
+  - "copilot-proxy.githubusercontent.com"
+  - "copilot-telemetry-service.githubusercontent.com"
+  - "copilot-telemetry.githubusercontent.com"
+  - "copilot-workspace.githubnext.com"
+  - "copilotprodattachments.blob.core.windows.net"
+  - "production-copilot-host-westus.webpubsub.azure.com"
+  - "+.copilot-proxy.githubusercontent.com"
+  - "+.copilot.microsoft.com"
+  - "+.githubcopilot.com"
