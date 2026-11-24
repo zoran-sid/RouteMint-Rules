@@ -1,6 +1,6 @@
 # RouteMint-Rules
 
-按使用地区和访问目标选择分流配置，提供 **mihomo、Shadowrocket、Surge、Loon、Quantumult X、sing-box、v2rayNG** 七种客户端配置，以及 **HomeProxy、PassWall（sing-box）** 路由器分流导入包。
+按使用地区和访问目标选择分流配置，提供 **mihomo、Shadowrocket、Surge、Loon、Quantumult X、sing-box、v2rayNG、v2rayN** 八种客户端配置，以及 **HomeProxy、PassWall（sing-box）** 路由器分流导入包。
 
 [![build](https://github.com/zoran-sid/RouteMint-Rules/actions/workflows/build.yml/badge.svg)](https://github.com/zoran-sid/RouteMint-Rules/actions/workflows/build.yml)
 
@@ -23,7 +23,7 @@ Shadowrocket 可直接在「配置」中添加地址；其余客户端按[导入
 ## 订阅地址与二维码
 
 以下均为默认 `ads-light` 档。点击「订阅配置」可获取完整地址；点击「二维码」可打开大图。
-二维码与同一行地址对应同一份配置。Quantumult X 和 v2rayNG 扫码打开下载地址，再手动导入；其他二维码使用客户端配置导入协议，是否能唤起取决于 App 和系统。
+二维码与同一行地址对应同一份配置。Quantumult X、v2rayNG 和 v2rayN 扫码打开规则链接，再按各自的方式导入；其他二维码使用客户端配置导入协议，是否能唤起取决于 App 和系统。
 
 ### 中国内地：国内直连，境外代理
 
@@ -38,6 +38,7 @@ Shadowrocket 可直接在「配置」中添加地址；其余客户端按[导入
 | Quantumult X | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland/ads-light/quantumultx.conf) | [二维码](docs/qr/cn-mainland-quantumultx.png) |
 | sing-box | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland/ads-light/singbox.conf) | [二维码](docs/qr/cn-mainland-singbox.png) |
 | v2rayNG | [路由规则 JSON](https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/configs/cn-mainland/ads-light/v2rayng.json) | [下载二维码](docs/qr/cn-mainland-v2rayng.png) |
+| v2rayN（桌面端） | [路由订阅 URL](https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/configs/cn-mainland/ads-light/v2rayn.json) | [规则链接二维码](docs/qr/cn-mainland-v2rayn.png) |
 
 <table>
 <tr>
@@ -63,6 +64,7 @@ AI 优先于 Google 大类匹配。Netflix、Disney+、HBO/Max、Prime Video 分
 | Quantumult X | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/overseas/ads-light/quantumultx.conf) | [二维码](docs/qr/overseas-quantumultx.png) |
 | sing-box | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/overseas/ads-light/singbox.conf) | [二维码](docs/qr/overseas-singbox.png) |
 | v2rayNG | [路由规则 JSON](https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/configs/overseas/ads-light/v2rayng.json) | [下载二维码](docs/qr/overseas-v2rayng.png) |
+| v2rayN（桌面端） | [路由订阅 URL](https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/configs/overseas/ads-light/v2rayn.json) | [规则链接二维码](docs/qr/overseas-v2rayn.png) |
 
 <table>
 <tr>
@@ -88,6 +90,7 @@ AI 优先于 Google 大类匹配。Netflix、Disney+、HBO/Max、Prime Video 分
 | Quantumult X | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/overseas-return/ads-light/quantumultx.conf) | [二维码](docs/qr/overseas-return-quantumultx.png) |
 | sing-box | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/overseas-return/ads-light/singbox.conf) | [二维码](docs/qr/overseas-return-singbox.png) |
 | v2rayNG | [路由规则 JSON](https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/configs/overseas-return/ads-light/v2rayng.json) | [下载二维码](docs/qr/overseas-return-v2rayng.png) |
+| v2rayN（桌面端） | [路由订阅 URL](https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/configs/overseas-return/ads-light/v2rayn.json) | [规则链接二维码](docs/qr/overseas-return-v2rayn.png) |
 
 <table>
 <tr>
@@ -113,6 +116,7 @@ AI 优先于 Google 大类匹配。Netflix、Disney+、HBO/Max、Prime Video 分
 | Quantumult X | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland-lite/ads-light/quantumultx.conf) | [二维码](docs/qr/cn-mainland-lite-quantumultx.png) |
 | sing-box | [订阅配置](https://cdn.jsdelivr.net/gh/zoran-sid/RouteMint-Rules@release/configs/cn-mainland-lite/ads-light/singbox.conf) | [二维码](docs/qr/cn-mainland-lite-singbox.png) |
 | v2rayNG | [路由规则 JSON](https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/configs/cn-mainland-lite/ads-light/v2rayng.json) | [下载二维码](docs/qr/cn-mainland-lite-v2rayng.png) |
+| v2rayN（桌面端） | [路由订阅 URL](https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/configs/cn-mainland-lite/ads-light/v2rayn.json) | [规则链接二维码](docs/qr/cn-mainland-lite-v2rayn.png) |
 
 ## v2rayNG 分流规则
 
@@ -125,6 +129,12 @@ AI 优先于 Google 大类匹配。Netflix、Disney+、HBO/Max、Prime Video 分
 | `routemint-geoip.dat` | [IP 规则数据](https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/v2rayng/routemint-geoip.dat) |
 
 使用 v2rayNG 已有节点。路由规则 JSON 放在「路由设置」里导入。仓库每天发布更新，在 App 内点击「下载资源文件」获取最新域名和 IP 数据。场景或分流顺序有变化时，重新导入 JSON。导入前可先导出已有规则，锁定规则会保留在新规则前面。广告档与回国出口的设置见[v2rayNG 导入说明](docs/v2rayng.md)。
+
+## v2rayN 桌面端分流规则
+
+1. 下载上一节的两个 `.dat` 文件，按原文件名放进 v2rayN 数据目录的 `bin/`，与 `geosite.dat`、`geoip.dat` 放在同一层。
+2. 在 v2rayN 中打开「路由设置 → 添加规则集」，填写备注，把上方场景表中的 v2rayN 地址填入「可选地址（URL）」，然后选择「从订阅 URL 中导入规则」。
+3. 保存并设为活动规则，使用 Xray 内核连接已有节点。其他广告档、回国出口和更新步骤见 [v2rayN 使用说明](docs/v2rayn.md)。
 
 ## HomeProxy 与 PassWall 分流订阅
 
@@ -196,7 +206,7 @@ mihomo / sing-box 对 Steam 客户端、下载与网盘域名使用当前网络�
 
 流程为：拉取上游规则 → 构建客户端配置及 HomeProxy / PassWall 分流导入包 → 运行路由、配置与二维码检查 → 发布到 `release`。检查失败时保留上一版发布内容。
 
-客户端继续使用本页的固定地址。完成首次节点绑定并启用远程规则更新后，规则内容按客户端更新周期自动刷新，无需重新寻找地址或扫描二维码。个人配置中的策略组、DNS 设置等模板变更按上方「导入与更新」说明合并。v2rayNG 在「资源文件」内手动刷新规则数据。
+客户端继续使用本页的固定地址。完成首次节点绑定并启用远程规则更新后，规则内容按客户端更新周期自动刷新，无需重新寻找地址或扫描二维码。个人配置中的策略组、DNS 设置等模板变更按上方「导入与更新」说明合并。v2rayNG 在「资源文件」内手动刷新规则数据，v2rayN 下载新版 `.dat` 覆盖原文件。
 
 可通过页首的构建状态徽章查看最新结果。刚发布时 CDN 可能仍有缓存，实时核对方法见[地址、缓存与反馈](#地址缓存与反馈)。
 

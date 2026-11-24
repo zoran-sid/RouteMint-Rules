@@ -1,4 +1,4 @@
-"""v2rayNG clipboard routing profiles and Xray geo assets."""
+"""v2rayNG and v2rayN routing profiles backed by shared Xray geo assets."""
 from __future__ import annotations
 
 import ipaddress
@@ -10,6 +10,7 @@ from .spec import ADS_TIERS, Preset, categories_for
 
 GEOSITE = "routemint-geosite.dat"
 GEOIP = "routemint-geoip.dat"
+XRAY_CLIENTS = ("v2rayng", "v2rayn")
 DOMAIN_KIND = {
     RuleType.DOMAIN_KEYWORD: 0,
     RuleType.DOMAIN_SUFFIX: 2,
@@ -100,7 +101,7 @@ def profile(preset: Preset, tier: str, builds: dict) -> list[dict]:
     return rules
 
 
-def render_v2rayng(paths, presets: list[Preset], builds: dict) -> None:
+def render_xray(paths, presets: list[Preset], builds: dict) -> None:
     assets = paths.dist / "rules" / "v2rayng"
     assets.mkdir(parents=True, exist_ok=True)
     geosite, geoip = _assets(builds)
@@ -108,5 +109,8 @@ def render_v2rayng(paths, presets: list[Preset], builds: dict) -> None:
     (assets / GEOIP).write_bytes(geoip)
     for preset in presets:
         for tier in ADS_TIERS:
-            dest = paths.dist / "configs" / preset.id / tier / "v2rayng.json"
-            write_text(dest, json.dumps(profile(preset, tier, builds), ensure_ascii=False, indent=2))
+            folder = paths.dist / "configs" / preset.id / tier
+            rules = profile(preset, tier, builds)
+            write_text(folder / "v2rayng.json", json.dumps(rules, ensure_ascii=False, indent=2))
+            desktop_rules = [{"enabled": True, **rule} for rule in rules]
+            write_text(folder / "v2rayn.json", json.dumps(desktop_rules, ensure_ascii=False, indent=2))

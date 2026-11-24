@@ -20,6 +20,7 @@ CONFIGS = {
     "quantumultx.conf",
     "singbox.conf",
     "v2rayng.json",
+    "v2rayn.json",
 }
 
 ALLOWED_URL_PREFIXES = (
@@ -224,7 +225,7 @@ def test_rule_dirs_contain_only_expected_files(built):
 def test_config_extensions_follow_client_format(built):
     for path in (built.dist / "configs").rglob("*"):
         if path.is_file():
-            assert path.suffix == (".json" if path.name == "v2rayng.json" else ".conf"), path.name
+            assert path.suffix == (".json" if path.name in {"v2rayng.json", "v2rayn.json"} else ".conf"), path.name
 
 
 def test_readme_has_no_stale_config_extensions():

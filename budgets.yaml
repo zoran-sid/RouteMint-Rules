@@ -43,7 +43,8 @@ categories:
 presets:
   cn-mainland: 110000
   overseas: 85000
-  overseas-return: 75000
+  # 严格档合计包含持续更新的广告、跟踪和恶意域名列表。
+  overseas-return: 85000
   cn-mainland-lite: 72000
 
 distribution:

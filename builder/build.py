@@ -31,7 +31,7 @@ from .optimize import (
     resolve_conflicts,
 )
 from .render import client_filename, render_client_configs
-from .v2rayng import render_v2rayng
+from .v2rayng import XRAY_CLIENTS, render_xray
 from .routers import render_router_configs
 from .report import (
     update_readme_table,
@@ -325,7 +325,7 @@ def build(
         singbox_bin=singbox_bin,
     )
     render_router_configs(paths, presets, builds, urls)
-    render_v2rayng(paths, presets, builds)
+    render_xray(paths, presets, builds)
     if validate and mihomo_bin is None:
         violations.append("--validate requested but no mihomo binary was provided")
 
@@ -343,7 +343,10 @@ def build(
                 "configs": {
                     f"{client}.conf": f"configs/{preset.id}/{preset.ads}/{client_filename(client, preset.id, preset.ads)}"
                     for client in ("mihomo", "shadowrocket")
-                } | {"v2rayng.json": f"configs/{preset.id}/{preset.ads}/v2rayng.json"},
+                } | {
+                    f"{client}.json": f"configs/{preset.id}/{preset.ads}/{client}.json"
+                    for client in XRAY_CLIENTS
+                },
             }
             for preset in presets
         },
