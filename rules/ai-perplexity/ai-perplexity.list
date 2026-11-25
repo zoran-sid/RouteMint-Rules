@@ -1,0 +1,8 @@
+# RouteMint-Rules · Perplexity
+# 5 rules
+# https://github.com/zoran-sid/RouteMint-Rules
+DOMAIN,ppl-ai-file-upload.s3.amazonaws.com
+DOMAIN,pplx-res.cloudinary.com
+DOMAIN-SUFFIX,perplexity.ai
+DOMAIN-SUFFIX,perplexity.com
+DOMAIN-SUFFIX,pplx.ai
