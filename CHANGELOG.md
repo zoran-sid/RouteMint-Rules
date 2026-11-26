@@ -2,6 +2,27 @@
 
 由每日构建自动生成。只记录规则层面的变化，格式变化不计。
 
+## 2026-11-26
+
+- **cn-ip**：6241 → 6242（+1）
+  - 新增：IP-CIDR,1.0.1.0/24, IP-CIDR,1.0.2.0/23, IP-CIDR,1.0.32.0/19, IP-CIDR,1.0.8.0/21, IP-CIDR,1.1.0.0/24, IP-CIDR,1.1.16.0/20, IP-CIDR,1.1.2.0/23, IP-CIDR,1.1.32.0/19 …
+  - 删除：IP-CIDR,1.0.1.0/24,no-resolve, IP-CIDR,1.0.2.0/23,no-resolve, IP-CIDR,1.0.32.0/19,no-resolve, IP-CIDR,1.0.8.0/21,no-resolve, IP-CIDR,1.1.0.0/24,no-resolve, IP-CIDR,1.1.16.0/20,no-resolve, IP-CIDR,1.1.2.0/23,no-resolve, IP-CIDR,1.1.32.0/19,no-resolve …
+- **cn-ip6**：3447 → 3493（+46）
+  - 新增：IP-CIDR6,2001:250::/30, IP-CIDR6,2001:254::/33, IP-CIDR6,2001:255::/32, IP-CIDR6,2001:256::/32, IP-CIDR6,2001:4438::/32, IP-CIDR6,2001:4510::/29, IP-CIDR6,2001:678:12b8::/48, IP-CIDR6,2001:678:12c4::/48 …
+  - 删除：IP-CIDR6,2001:250::/30,no-resolve, IP-CIDR6,2001:254::/33,no-resolve, IP-CIDR6,2001:255::/32,no-resolve, IP-CIDR6,2001:4510:1480::/41,no-resolve, IP-CIDR6,2001:4510:400::/40,no-resolve, IP-CIDR6,2001:4511:1480::/41,no-resolve, IP-CIDR6,2001:7fa:5::/48,no-resolve, IP-CIDR6,2001:c68::/32,no-resolve …
+- **proxy**：18336 → 18347（+11）
+  - 新增：DOMAIN-SUFFIX,megafon.cloud, DOMAIN-SUFFIX,megapbx.ru, DOMAIN-SUFFIX,megatech-it.ru, DOMAIN-SUFFIX,mgts.ru, DOMAIN-SUFFIX,mobileid.ru, DOMAIN-SUFFIX,multifon.ru, DOMAIN-SUFFIX,o7.com, DOMAIN-SUFFIX,onlime.ru …
+- **reject-malware**：19087 → 19088（+1）
+  - 新增：DOMAIN-SUFFIX,0807.st, DOMAIN-SUFFIX,1.55.243.196, DOMAIN-SUFFIX,101.108.130.86, DOMAIN-SUFFIX,103.195.65.133, DOMAIN-SUFFIX,103.245.78.68, DOMAIN-SUFFIX,103.78.81.106, DOMAIN-SUFFIX,105.112.83.93, DOMAIN-SUFFIX,105.154.114.91 …
+  - 删除：DOMAIN-SUFFIX,0x1x2x3.top, DOMAIN-SUFFIX,1.196.78.144, DOMAIN-SUFFIX,101.108.133.141, DOMAIN-SUFFIX,103.159.152.118, DOMAIN-SUFFIX,103.76.59.177, DOMAIN-SUFFIX,103.77.246.150, DOMAIN-SUFFIX,105.184.58.165, DOMAIN-SUFFIX,105.186.93.221 …
+
+| 预设 | ads-off | ads-light | ads-strict |
+|---|---|---|---|
+| cn-mainland | 40211 | 79245 | 98333 |
+| overseas | 18111 | 57145 | 76233 |
+| overseas-return | 16966 | 56000 | 75088 |
+| cn-mainland-lite | 13443 | 52477 | 71565 |
+
 ## 2026-11-25
 
 - **reject-malware**：19068 → 19087（+19）
