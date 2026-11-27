@@ -2,6 +2,27 @@
 
 由每日构建自动生成。只记录规则层面的变化，格式变化不计。
 
+## 2026-11-27
+
+- **cn-ip**：6242 → 6235（-7）
+  - 新增：IP-CIDR,1.0.1.0/24, IP-CIDR,1.0.2.0/23, IP-CIDR,1.0.32.0/19, IP-CIDR,1.0.8.0/21, IP-CIDR,1.1.0.0/24, IP-CIDR,1.1.16.0/20, IP-CIDR,1.1.2.0/23, IP-CIDR,1.1.32.0/19 …
+  - 删除：IP-CIDR,1.0.1.0/24,no-resolve, IP-CIDR,1.0.2.0/23,no-resolve, IP-CIDR,1.0.32.0/19,no-resolve, IP-CIDR,1.0.8.0/21,no-resolve, IP-CIDR,1.1.0.0/24,no-resolve, IP-CIDR,1.1.16.0/20,no-resolve, IP-CIDR,1.1.2.0/23,no-resolve, IP-CIDR,1.1.32.0/19,no-resolve …
+- **cn-ip6**：3493 → 3450（-43）
+  - 新增：IP-CIDR6,2001:250::/30, IP-CIDR6,2001:254::/33, IP-CIDR6,2001:255::/32, IP-CIDR6,2001:4510:1480::/41, IP-CIDR6,2001:4510:400::/40, IP-CIDR6,2001:4511:1480::/41, IP-CIDR6,2001:7fa:5::/48, IP-CIDR6,2001:c68::/32 …
+  - 删除：IP-CIDR6,2001:250::/30,no-resolve, IP-CIDR6,2001:254::/33,no-resolve, IP-CIDR6,2001:255::/32,no-resolve, IP-CIDR6,2001:256::/32,no-resolve, IP-CIDR6,2001:4438::/32,no-resolve, IP-CIDR6,2001:4510::/29,no-resolve, IP-CIDR6,2001:678:12b8::/48,no-resolve, IP-CIDR6,2001:678:12c4::/48,no-resolve …
+- **microsoft**：554 → 555（+1）
+  - 新增：DOMAIN,aurora-customization-usw2.lithium.com
+- **reject-malware**：19088 → 19140（+52）
+  - 新增：DOMAIN-SUFFIX,001-ascjkasckj-acshkask-xnzjsknka.oss-ap-southeast-1.aliyuncs.com, DOMAIN-SUFFIX,101.108.99.149, DOMAIN-SUFFIX,101.58.115.203, DOMAIN-SUFFIX,102.210.149.166, DOMAIN-SUFFIX,103.152.141.10, DOMAIN-SUFFIX,103.159.152.118, DOMAIN-SUFFIX,103.182.135.223, DOMAIN-SUFFIX,103.209.67.34 …
+  - 删除：DOMAIN-SUFFIX,103.146.110.125, DOMAIN-SUFFIX,105.112.83.93, DOMAIN-SUFFIX,105.186.250.56, DOMAIN-SUFFIX,109.166.211.222, DOMAIN-SUFFIX,109.171.67.100, DOMAIN-SUFFIX,109.69.79.44, DOMAIN-SUFFIX,112.198.132.186, DOMAIN-SUFFIX,112.226.189.193 …
+
+| 预设 | ads-off | ads-light | ads-strict |
+|---|---|---|---|
+| cn-mainland | 40162 | 79196 | 98336 |
+| overseas | 18061 | 57095 | 76235 |
+| overseas-return | 16916 | 55950 | 75090 |
+| cn-mainland-lite | 13436 | 52470 | 71610 |
+
 ## 2026-11-26
 
 - **cn-ip**：6241 → 6242（+1）
