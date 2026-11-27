@@ -1,0 +1,169 @@
+{
+  "schema": 1,
+  "client": "passwall",
+  "preset": "overseas-return",
+  "ads": "ads-strict",
+  "groups": {
+    "ai": {
+      "label": "🤖 AI 服务",
+      "default": "direct"
+    },
+    "cn_return": {
+      "label": "🏠 回国",
+      "default": "reject"
+    },
+    "proxy": {
+      "label": "🚀 节点选择",
+      "default": "proxy"
+    }
+  },
+  "rules": [
+    {
+      "category": "private",
+      "policy": "direct",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/private/private.srs",
+      "domains": true,
+      "ips": true,
+      "dns": "local"
+    },
+    {
+      "category": "reject-malware",
+      "policy": "reject",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/reject-malware/reject-malware.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "service"
+    },
+    {
+      "category": "reject-tracker",
+      "policy": "reject",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/reject-tracker/reject-tracker.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "service"
+    },
+    {
+      "category": "reject-ads",
+      "policy": "reject",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/reject-ads/reject-ads.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "service"
+    },
+    {
+      "category": "ai-openai",
+      "policy": "ai",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/ai-openai/ai-openai.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "service"
+    },
+    {
+      "category": "ai-anthropic",
+      "policy": "ai",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/ai-anthropic/ai-anthropic.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "service"
+    },
+    {
+      "category": "ai-gemini",
+      "policy": "ai",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/ai-gemini/ai-gemini.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "service"
+    },
+    {
+      "category": "ai-copilot",
+      "policy": "ai",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/ai-copilot/ai-copilot.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "service"
+    },
+    {
+      "category": "ai-perplexity",
+      "policy": "ai",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/ai-perplexity/ai-perplexity.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "service"
+    },
+    {
+      "category": "ai-others",
+      "policy": "ai",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/ai-others/ai-others.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "service"
+    },
+    {
+      "category": "cn-region-locked",
+      "policy": "cn_return",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/cn-region-locked/cn-region-locked.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "service"
+    },
+    {
+      "category": "game-download",
+      "policy": "direct",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/game-download/game-download.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "local"
+    },
+    {
+      "category": "baidu-pan",
+      "policy": "direct",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/baidu-pan/baidu-pan.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "local"
+    },
+    {
+      "category": "game-platform",
+      "policy": "proxy",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/game-platform/game-platform.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "service"
+    },
+    {
+      "category": "steam-direct",
+      "policy": "direct",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/steam-direct/steam-direct.srs",
+      "domains": true,
+      "ips": true,
+      "dns": "local"
+    },
+    {
+      "category": "cn",
+      "policy": "direct",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/cn/cn.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "local"
+    },
+    {
+      "category": "cn-ip",
+      "policy": "direct",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/cn-ip/cn-ip.srs",
+      "domains": false,
+      "ips": true,
+      "dns": "service"
+    },
+    {
+      "category": "cn-ip6",
+      "policy": "direct",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/cn-ip6/cn-ip6.srs",
+      "domains": false,
+      "ips": true,
+      "dns": "service"
+    }
+  ],
+  "default": "direct",
+  "core": "sing-box >= 1.14",
+  "update_interval": "1d"
+}
