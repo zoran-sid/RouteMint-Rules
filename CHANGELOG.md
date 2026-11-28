@@ -2,6 +2,29 @@
 
 由每日构建自动生成。只记录规则层面的变化，格式变化不计。
 
+## 2026-11-28
+
+- **cn-ip6**：3450 → 3449（-1）
+  - 新增：IP-CIDR6,2001:250::/30, IP-CIDR6,2001:254::/33, IP-CIDR6,2001:255::/32, IP-CIDR6,2001:4510:1480::/41, IP-CIDR6,2001:4510:400::/40, IP-CIDR6,2001:4511:1480::/41, IP-CIDR6,2001:7fa:5::/48, IP-CIDR6,2001:c68::/32 …
+  - 删除：IP-CIDR6,2001:250::/30,no-resolve, IP-CIDR6,2001:254::/33,no-resolve, IP-CIDR6,2001:255::/32,no-resolve, IP-CIDR6,2001:4510:1480::/41,no-resolve, IP-CIDR6,2001:4510:400::/40,no-resolve, IP-CIDR6,2001:4511:1480::/41,no-resolve, IP-CIDR6,2001:7fa:5::/48,no-resolve, IP-CIDR6,2001:c68::/32,no-resolve …
+- **proxy**：18347 → 18348（+1）
+  - 新增：DOMAIN-SUFFIX,fce.gg
+- **reject-ads**：38366 → 38444（+78）
+  - 新增：DOMAIN-SUFFIX,abenergy.org, DOMAIN-SUFFIX,admthop.com, DOMAIN-SUFFIX,ads.rapt-c-0.net, DOMAIN-SUFFIX,ads.rapt-c-1.net, DOMAIN-SUFFIX,ads.rapt-i-i-1.net, DOMAIN-SUFFIX,ads.rapt-i-rnf-1.net, DOMAIN-SUFFIX,ads.raptivecdn.net, DOMAIN-SUFFIX,ads.tko.media …
+  - 删除：DOMAIN-SUFFIX,adserver.bigcrunch.com, DOMAIN-SUFFIX,awin.com, DOMAIN-SUFFIX,click-eu-v4.explclk.com, DOMAIN-SUFFIX,click-v4.explclk.com, DOMAIN-SUFFIX,click.explclk.com, DOMAIN-SUFFIX,lh.bigcrunch.com, DOMAIN-SUFFIX,ship.bigcrunch.com
+- **reject-malware**：19140 → 19236（+96）
+  - 新增：DOMAIN-SUFFIX,1.159.39.155, DOMAIN-SUFFIX,103.198.154.140, DOMAIN-SUFFIX,103.247.13.147, DOMAIN-SUFFIX,105.159.199.218, DOMAIN-SUFFIX,105.224.243.39, DOMAIN-SUFFIX,109.69.79.44, DOMAIN-SUFFIX,110.137.153.56, DOMAIN-SUFFIX,112.237.166.198 …
+  - 删除：DOMAIN-SUFFIX,001-ascjkasckj-acshkask-xnzjsknka.oss-ap-southeast-1.aliyuncs.com, DOMAIN-SUFFIX,103.145.31.238, DOMAIN-SUFFIX,103.146.110.126, DOMAIN-SUFFIX,104.199.248.167, DOMAIN-SUFFIX,105.157.211.201, DOMAIN-SUFFIX,105.184.15.32, DOMAIN-SUFFIX,105.225.151.76, DOMAIN-SUFFIX,110.186.230.101 …
+- **reject-tracker**：668 → 669（+1）
+  - 新增：DOMAIN-SUFFIX,awin.com
+
+| 预设 | ads-off | ads-light | ads-strict |
+|---|---|---|---|
+| cn-mainland | 40162 | 79275 | 98511 |
+| overseas | 18060 | 57173 | 76409 |
+| overseas-return | 16915 | 56028 | 75264 |
+| cn-mainland-lite | 13436 | 52549 | 71785 |
+
 ## 2026-11-27
 
 - **cn-ip**：6242 → 6235（-7）
