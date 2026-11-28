@@ -1,0 +1,281 @@
+{
+  "schema": 1,
+  "client": "homeproxy",
+  "preset": "cn-mainland",
+  "ads": "ads-off",
+  "groups": {
+    "ai": {
+      "label": "🤖 AI 服务",
+      "default": "proxy"
+    },
+    "netflix": {
+      "label": "🎬 Netflix",
+      "default": "proxy"
+    },
+    "disney": {
+      "label": "🎬 Disney+",
+      "default": "proxy"
+    },
+    "youtube": {
+      "label": "📺 YouTube",
+      "default": "proxy"
+    },
+    "spotify": {
+      "label": "🎵 Spotify",
+      "default": "proxy"
+    },
+    "tiktok": {
+      "label": "🎬 TikTok",
+      "default": "proxy"
+    },
+    "max": {
+      "label": "🎬 Max",
+      "default": "proxy"
+    },
+    "primevideo": {
+      "label": "🎬 Prime Video",
+      "default": "proxy"
+    },
+    "streaming": {
+      "label": "📺 其他流媒体",
+      "default": "proxy"
+    },
+    "global": {
+      "label": "🌍 境外服务",
+      "default": "proxy"
+    },
+    "proxy": {
+      "label": "🚀 节点选择",
+      "default": "proxy"
+    }
+  },
+  "rules": [
+    {
+      "category": "private",
+      "policy": "direct",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/private/private.srs",
+      "domains": true,
+      "ips": true,
+      "dns": "local"
+    },
+    {
+      "category": "ai-openai",
+      "policy": "ai",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/ai-openai/ai-openai.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "service"
+    },
+    {
+      "category": "ai-anthropic",
+      "policy": "ai",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/ai-anthropic/ai-anthropic.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "service"
+    },
+    {
+      "category": "ai-gemini",
+      "policy": "ai",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/ai-gemini/ai-gemini.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "service"
+    },
+    {
+      "category": "ai-copilot",
+      "policy": "ai",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/ai-copilot/ai-copilot.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "service"
+    },
+    {
+      "category": "ai-perplexity",
+      "policy": "ai",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/ai-perplexity/ai-perplexity.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "service"
+    },
+    {
+      "category": "ai-others",
+      "policy": "ai",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/ai-others/ai-others.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "service"
+    },
+    {
+      "category": "netflix",
+      "policy": "netflix",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/netflix/netflix.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "service"
+    },
+    {
+      "category": "disney",
+      "policy": "disney",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/disney/disney.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "service"
+    },
+    {
+      "category": "youtube",
+      "policy": "youtube",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/youtube/youtube.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "service"
+    },
+    {
+      "category": "spotify",
+      "policy": "spotify",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/spotify/spotify.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "service"
+    },
+    {
+      "category": "tiktok",
+      "policy": "tiktok",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/tiktok/tiktok.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "service"
+    },
+    {
+      "category": "max",
+      "policy": "max",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/max/max.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "service"
+    },
+    {
+      "category": "primevideo",
+      "policy": "primevideo",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/primevideo/primevideo.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "service"
+    },
+    {
+      "category": "streaming-others",
+      "policy": "streaming",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/streaming-others/streaming-others.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "service"
+    },
+    {
+      "category": "dev",
+      "policy": "global",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/dev/dev.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "service"
+    },
+    {
+      "category": "game-download",
+      "policy": "direct",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/game-download/game-download.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "local"
+    },
+    {
+      "category": "baidu-pan",
+      "policy": "direct",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/baidu-pan/baidu-pan.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "local"
+    },
+    {
+      "category": "game-platform",
+      "policy": "global",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/game-platform/game-platform.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "service"
+    },
+    {
+      "category": "steam-direct",
+      "policy": "direct",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/steam-direct/steam-direct.srs",
+      "domains": true,
+      "ips": true,
+      "dns": "local"
+    },
+    {
+      "category": "telegram",
+      "policy": "global",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/telegram/telegram.srs",
+      "domains": true,
+      "ips": true,
+      "dns": "service"
+    },
+    {
+      "category": "apple",
+      "policy": "direct",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/apple/apple.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "service"
+    },
+    {
+      "category": "microsoft",
+      "policy": "direct",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/microsoft/microsoft.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "service"
+    },
+    {
+      "category": "google",
+      "policy": "global",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/google/google.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "service"
+    },
+    {
+      "category": "proxy",
+      "policy": "global",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/proxy/proxy.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "service"
+    },
+    {
+      "category": "cn",
+      "policy": "direct",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/cn/cn.srs",
+      "domains": true,
+      "ips": false,
+      "dns": "local"
+    },
+    {
+      "category": "cn-ip",
+      "policy": "direct",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/cn-ip/cn-ip.srs",
+      "domains": false,
+      "ips": true,
+      "dns": "service"
+    },
+    {
+      "category": "cn-ip6",
+      "policy": "direct",
+      "url": "https://raw.githubusercontent.com/zoran-sid/RouteMint-Rules/release/rules/cn-ip6/cn-ip6.srs",
+      "domains": false,
+      "ips": true,
+      "dns": "service"
+    }
+  ],
+  "default": "proxy",
+  "core": "sing-box >= 1.14",
+  "update_interval": "1d"
+}
